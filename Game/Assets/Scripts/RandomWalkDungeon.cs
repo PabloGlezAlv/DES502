@@ -20,10 +20,10 @@ public class RandomWalkDungeon : AbstractDungeonGenerator
 
     [SerializeField]
     protected private GameObject player;
-    private void Start()
-    {
-        RunProceduralGeneration();
-    }
+    //private void Start()
+    //{
+    //    RunProceduralGeneration();
+    //}
 
     protected override void RunProceduralGeneration()
     {

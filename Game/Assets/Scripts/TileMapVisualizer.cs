@@ -10,10 +10,8 @@ using UnityEngine.UIElements;
 
 public class TileMapVisualizer : MonoBehaviour
 {
-    enum wallType { Top, Left, Right, Column, Bottom}
-
     [SerializeField]
-    private Tilemap floorTilemap, wallTilemap;
+    private Tilemap floorTilemap, wallTilemap, wallTopmap;
     [SerializeField]
     private TileBase floorTile, wallTop, wallSideRight, wallSiderLeft, wallBottom, wallFull,
         wallInnerCornerDownLeft, wallInnerCornerDownRight,
@@ -41,6 +39,7 @@ public class TileMapVisualizer : MonoBehaviour
     {
         floorTilemap.ClearAllTiles();
         wallTilemap.ClearAllTiles();
+        wallTopmap.ClearAllTiles();
     }
 
     internal void PaintSingleBasicWall(Vector2Int position, string binaryType)
@@ -50,6 +49,8 @@ public class TileMapVisualizer : MonoBehaviour
         if (WallTypes.wallTop.Contains(typeAsInt))
         {
             tile = wallTop;
+            PaintSingleTile(wallTopmap, tile, position);
+            return;
         }
         else if (WallTypes.wallSideRight.Contains(typeAsInt))
         {
