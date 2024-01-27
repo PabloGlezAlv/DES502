@@ -83,6 +83,8 @@ public class RoomFirstDungeonGenerator : RandomWalkDungeon
             roomCenters.Remove(closest);
             HashSet<Vector2Int> newCorridor = CreateCorridor(currentRoomCenter, closest);
             currentRoomCenter = closest;
+
+            
             corridors.UnionWith(newCorridor);
         }
         return corridors;
@@ -117,9 +119,9 @@ public class RoomFirstDungeonGenerator : RandomWalkDungeon
             }
             corridor.Add(position);
         }
+
         return corridor;
     }
-
     private Vector2Int FindClosestPointTo(Vector2Int currentRoomCenter, List<Vector2Int> roomCenters)
     {
         Vector2Int closest = Vector2Int.zero;
