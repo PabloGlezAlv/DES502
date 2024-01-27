@@ -18,6 +18,8 @@ public class RandomWalkDungeon : AbstractDungeonGenerator
     [SerializeField]
     protected bool startRandomlyEachIteration = true;
 
+    [SerializeField]
+    protected private GameObject player;
     private void Start()
     {
         RunProceduralGeneration();

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class RoomFirstDungeonGenerator : RandomWalkDungeon
@@ -16,7 +17,6 @@ public class RoomFirstDungeonGenerator : RandomWalkDungeon
     private int offset = 1;
     [SerializeField]
     private bool randomWalkRooms = false;
-
     protected override void RunProceduralGeneration()
     {
         CreateRooms();
@@ -37,18 +37,22 @@ public class RoomFirstDungeonGenerator : RandomWalkDungeon
             floor = CreateSimpleRooms(roomsList);
         }
 
-
+        //Create corridors
         List<Vector2Int> roomCenters = new List<Vector2Int>();
         foreach (var room in roomsList)
         {
             roomCenters.Add((Vector2Int)Vector3Int.RoundToInt(room.center));
         }
-
         HashSet<Vector2Int> corridors = ConnectRooms(roomCenters);
         floor.UnionWith(corridors);
 
         tilemapVisualizer.PaintFloorTiles(floor);
         WallGenerator.CreateWalls(floor, tilemapVisualizer);
+
+        //Set player middle first room
+        player.transform.position = roomsList.First().center;
+
+        Camera.main.transform.position = new Vector3(roomsList.First().center.x, roomsList.First().center.y, Camera.main.transform.position.z);
     }
 
     private HashSet<Vector2Int> CreateRoomsRandomly(List<BoundsInt> roomsList)
