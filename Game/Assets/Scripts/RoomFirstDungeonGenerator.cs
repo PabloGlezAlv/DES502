@@ -17,6 +17,15 @@ public class RoomFirstDungeonGenerator : RandomWalkDungeon
     private int offset = 1;
     [SerializeField]
     private bool randomWalkRooms = false;
+
+
+    //Data
+    //KEY - room center, VALUE - List of point of the room
+    private Dictionary<Vector2Int, HashSet<Vector2Int>> roomsInfo =
+        new Dictionary<Vector2Int, HashSet<Vector2Int>>();
+
+    private HashSet<Vector2Int> floorPosition, corridorPosition;
+
     protected override void RunProceduralGeneration()
     {
         CreateRooms();
@@ -36,6 +45,8 @@ public class RoomFirstDungeonGenerator : RandomWalkDungeon
         {
             floor = CreateSimpleRooms(roomsList);
         }
+        //Save only room positions
+        floorPosition = floor;
 
         //Create corridors
         List<Vector2Int> roomCenters = new List<Vector2Int>();
@@ -44,9 +55,21 @@ public class RoomFirstDungeonGenerator : RandomWalkDungeon
             roomCenters.Add((Vector2Int)Vector3Int.RoundToInt(room.center));
         }
         HashSet<Vector2Int> corridors = ConnectRooms(roomCenters);
-        floor.UnionWith(corridors);
 
+        //Save corridors data
+        corridorPosition = new HashSet<Vector2Int>(corridors);
+
+        //floor.UnionWith(corridors);
+
+
+        //Draw doors
+        tilemapVisualizer.PaintDoorTiles(OnlyCorridorFloor());
+
+        //Draw floor
         tilemapVisualizer.PaintFloorTiles(floor);
+
+        //Draw walls
+        floor.UnionWith(OnlyCorridorFloor());
         WallGenerator.CreateWalls(floor, tilemapVisualizer);
 
         //Set player middle first room
@@ -55,9 +78,28 @@ public class RoomFirstDungeonGenerator : RandomWalkDungeon
         Camera.main.transform.position = new Vector3(roomsList.First().center.x, roomsList.First().center.y, Camera.main.transform.position.z);
     }
 
+    private HashSet<Vector2Int> OnlyCorridorFloor()
+    {
+        HashSet<Vector2Int> onlyCorridor = new HashSet<Vector2Int>();
+
+        // Itera sobre cada elemento en corridorPosition
+        foreach (Vector2Int position in corridorPosition)
+        {
+            // Comprueba si el elemento no está en floorPosition
+            if (floorPosition != null && !floorPosition.Contains(position))
+            {
+                onlyCorridor.Add(position);
+            }
+        }
+
+        return onlyCorridor;
+    }
+
+
     private HashSet<Vector2Int> CreateRoomsRandomly(List<BoundsInt> roomsList)
     {
         HashSet<Vector2Int> floor = new HashSet<Vector2Int>();
+        HashSet<Vector2Int> floorPerRoom = new HashSet<Vector2Int>();
         for (int i = 0; i < roomsList.Count; i++)
         {
             var roomBounds = roomsList[i];
@@ -69,10 +111,21 @@ public class RoomFirstDungeonGenerator : RandomWalkDungeon
                 if (position.x >= (roomBounds.xMin + offset) && position.x <= (roomBounds.xMax - offset) && position.y >= (roomBounds.yMin - offset) && position.y <= (roomBounds.yMax - offset))
                 {
                     floor.Add(position);
+                    floorPerRoom.Add(position);
                 }
             }
+
+            //Save floor of each room
+            SaveRoomData(roomCenter, floorPerRoom);
+
+            floorPerRoom.Clear();
         }
         return floor;
+    }
+
+    private void SaveRoomData(Vector2Int roomPosition, HashSet<Vector2Int> roomFloor)
+    {
+        roomsInfo[roomPosition] = roomFloor;
     }
 
     private HashSet<Vector2Int> ConnectRooms(List<Vector2Int> roomCenters)
@@ -145,8 +198,11 @@ public class RoomFirstDungeonGenerator : RandomWalkDungeon
     private HashSet<Vector2Int> CreateSimpleRooms(List<BoundsInt> roomsList)
     {
         HashSet<Vector2Int> floor = new HashSet<Vector2Int>();
+        HashSet<Vector2Int> floorPerRoom = new HashSet<Vector2Int>();
         foreach (var room in roomsList)
         {
+            var roomCenter = new Vector2Int(Mathf.RoundToInt(room.center.x), Mathf.RoundToInt(room.center.y));
+
             for (int col = offset; col < room.size.x - offset; col++)
             {
                 for (int row = offset; row < room.size.y - offset; row++)
@@ -155,6 +211,11 @@ public class RoomFirstDungeonGenerator : RandomWalkDungeon
                     floor.Add(position);
                 }
             }
+
+            //Save floor of each room
+            SaveRoomData(roomCenter, floorPerRoom);
+
+            floorPerRoom.Clear();
         }
         return floor;
     }

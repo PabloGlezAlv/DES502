@@ -11,15 +11,20 @@ using UnityEngine.UIElements;
 public class TileMapVisualizer : MonoBehaviour
 {
     [SerializeField]
-    private Tilemap floorTilemap, wallTilemap, wallTopmap;
+    private Tilemap floorTilemap, wallTilemap, wallTopmap, doorsTile;
     [SerializeField]
     private TileBase floorTile, wallTop, wallSideRight, wallSiderLeft, wallBottom, wallFull,
         wallInnerCornerDownLeft, wallInnerCornerDownRight,
-        wallDiagonalCornerDownRight, wallDiagonalCornerDownLeft, wallDiagonalCornerUpRight, wallDiagonalCornerUpLeft;
+        wallDiagonalCornerDownRight, wallDiagonalCornerDownLeft, wallDiagonalCornerUpRight, wallDiagonalCornerUpLeft, closeDoorTile, openDoorTile;
     public void PaintFloorTiles(IEnumerable<Vector2Int> floorPositions)
     {
 
         PaintTiles(floorPositions, floorTilemap, floorTile);
+    }
+
+    public void PaintDoorTiles(IEnumerable<Vector2Int> floorPositions)
+    {
+        PaintTiles(floorPositions, doorsTile, closeDoorTile);
     }
 
     private void PaintTiles(IEnumerable<Vector2Int> positions, Tilemap tilemap, TileBase tile)
@@ -40,6 +45,7 @@ public class TileMapVisualizer : MonoBehaviour
         floorTilemap.ClearAllTiles();
         wallTilemap.ClearAllTiles();
         wallTopmap.ClearAllTiles();
+        doorsTile.ClearAllTiles();
     }
 
     internal void PaintSingleBasicWall(Vector2Int position, string binaryType)

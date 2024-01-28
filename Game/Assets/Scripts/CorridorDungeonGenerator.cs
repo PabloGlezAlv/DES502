@@ -13,7 +13,6 @@ public class CorridorDungeonGenerator : RandomWalkDungeon
     [SerializeField]
     [Range(0.1f, 1)]
     private float roomPercent = 0.8f;
-
     protected override void RunProceduralGeneration()
     {
         CorridorFirstGeneration();
@@ -105,6 +104,8 @@ public class CorridorDungeonGenerator : RandomWalkDungeon
         foreach (var roomPosition in roomsToCreate)
         {
             var roomFloor = RunRandomWalk(iterations, walkLength, startRandomlyEachIteration, roomPosition);
+
+
             roomPositions.UnionWith(roomFloor);
         }
         return roomPositions;
