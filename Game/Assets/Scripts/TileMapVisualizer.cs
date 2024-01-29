@@ -12,19 +12,36 @@ public class TileMapVisualizer : MonoBehaviour
 {
     [SerializeField]
     private Tilemap floorTilemap, wallTilemap, wallTopmap, doorsTile;
+    [Header("Floor")]
     [SerializeField]
-    private TileBase floorTile, wallTop, wallSideRight, wallSiderLeft, wallBottom, wallFull,
+    private TileBase floorTile, floorCorridorTile;
+
+    [Header("Walls")]
+    [SerializeField]
+    private TileBase wallTop, wallSideRight, wallSiderLeft, wallBottom, wallFull,
         wallInnerCornerDownLeft, wallInnerCornerDownRight,
-        wallDiagonalCornerDownRight, wallDiagonalCornerDownLeft, wallDiagonalCornerUpRight, wallDiagonalCornerUpLeft, closeDoorTile, openDoorTile;
+        wallDiagonalCornerDownRight, wallDiagonalCornerDownLeft, wallDiagonalCornerUpRight, wallDiagonalCornerUpLeft;
+
+    [Header("Doors")]
+    [SerializeField]
+    private TileBase closeDoorTileTop, openDoorTileTop;
     public void PaintFloorTiles(IEnumerable<Vector2Int> floorPositions)
     {
 
         PaintTiles(floorPositions, floorTilemap, floorTile);
     }
 
-    public void PaintDoorTiles(IEnumerable<Vector2Int> floorPositions)
+    public void PaintCorridorTiles(IEnumerable<Vector2Int> floorPositions)
     {
-        PaintTiles(floorPositions, doorsTile, closeDoorTile);
+        PaintTiles(floorPositions, floorTilemap, floorCorridorTile);
+    }
+
+    public void PaintDoorTiles(Dictionary<Vector2Int, direction> doorPosition)
+    {
+        foreach (var door in doorPosition)
+        {
+            PaintSingleTile(doorsTile, closeDoorTileTop, door.Key);
+        }
     }
 
     private void PaintTiles(IEnumerable<Vector2Int> positions, Tilemap tilemap, TileBase tile)

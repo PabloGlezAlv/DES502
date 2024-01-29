@@ -5,9 +5,12 @@ using System.Text;
 using System.Threading.Tasks;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
+public enum direction { right, left, top, bottom }
 public class RoomFirstDungeonGenerator : RandomWalkDungeon
 {
+
     [SerializeField]
     private int minRoomWidth = 4, minRoomHeight = 4;
     [SerializeField]
@@ -26,6 +29,9 @@ public class RoomFirstDungeonGenerator : RandomWalkDungeon
 
     private HashSet<Vector2Int> floorPosition, corridorPosition;
 
+    //KEY - door Position, VALUE - Location in the room
+    private Dictionary<Vector2Int, direction> doorPosition =
+        new Dictionary<Vector2Int, direction>();
     protected override void RunProceduralGeneration()
     {
         CreateRooms();
@@ -58,18 +64,19 @@ public class RoomFirstDungeonGenerator : RandomWalkDungeon
 
         //Save corridors data
         corridorPosition = new HashSet<Vector2Int>(corridors);
+        SaveCorridorData(); //Fix corridor inside room and see where are the doors
 
-        //floor.UnionWith(corridors);
+        //Draw corridors floor
+        tilemapVisualizer.PaintCorridorTiles(corridorPosition);
 
-
-        //Draw doors
-        tilemapVisualizer.PaintDoorTiles(OnlyCorridorFloor());
-
-        //Draw floor
+        //Draw rooms floor
         tilemapVisualizer.PaintFloorTiles(floor);
 
+        //Draw doors
+        tilemapVisualizer.PaintDoorTiles(doorPosition);
+
         //Draw walls
-        floor.UnionWith(OnlyCorridorFloor());
+        floor.UnionWith(corridorPosition);
         WallGenerator.CreateWalls(floor, tilemapVisualizer);
 
         //Set player middle first room
@@ -78,9 +85,11 @@ public class RoomFirstDungeonGenerator : RandomWalkDungeon
         Camera.main.transform.position = new Vector3(roomsList.First().center.x, roomsList.First().center.y, Camera.main.transform.position.z);
     }
 
-    private HashSet<Vector2Int> OnlyCorridorFloor()
+    private void SaveCorridorData()
     {
+        //Clean data from previous dungeon
         HashSet<Vector2Int> onlyCorridor = new HashSet<Vector2Int>();
+        doorPosition.Clear();
 
         // Itera sobre cada elemento en corridorPosition
         foreach (Vector2Int position in corridorPosition)
@@ -89,12 +98,47 @@ public class RoomFirstDungeonGenerator : RandomWalkDungeon
             if (floorPosition != null && !floorPosition.Contains(position))
             {
                 onlyCorridor.Add(position);
+
+                SaveDoorPosition(position);
             }
         }
 
-        return onlyCorridor;
+        Debug.Log("Doors: " + doorPosition.Count());
+
+        corridorPosition = onlyCorridor;
     }
 
+    private void SaveDoorPosition(Vector2Int position)
+    {
+        Vector2Int nextPosition = position;
+        nextPosition.x++;
+        if (floorPosition.Contains(nextPosition))
+        {
+            doorPosition.Add(position, direction.left);
+            return;
+        }
+        nextPosition = position;
+        nextPosition.x--;
+        if (floorPosition.Contains(nextPosition))
+        {
+            doorPosition.Add(position, direction.right);
+            return;
+        }
+        nextPosition = position;
+        nextPosition.y++;
+        if (floorPosition.Contains(nextPosition))
+        {
+            doorPosition.Add(position, direction.bottom);
+            return;
+        }
+        nextPosition = position;
+        nextPosition.y--;
+        if (floorPosition.Contains(nextPosition))
+        {
+            doorPosition.Add(position, direction.top);
+            return;
+        }
+    }
 
     private HashSet<Vector2Int> CreateRoomsRandomly(List<BoundsInt> roomsList)
     {
