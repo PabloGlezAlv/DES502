@@ -8,19 +8,18 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
 
+enum typeWall{top, topInside, left, leftTopCorner, leftBottomCorner, right, rightTopCorner, rightBottomCorner, bottom }
 public class TileMapVisualizer : MonoBehaviour
 {
     [SerializeField]
-    private Tilemap floorTilemap, wallTilemap, wallTopmap, doorsTile;
+    private Tilemap floorTilemap, wallTilemap, wallTopmap, doorsTile, doorsTop;
     [Header("Floor")]
     [SerializeField]
     private TileBase floorTile, floorCorridorTile;
 
     [Header("Walls")]
     [SerializeField]
-    private TileBase wallTop, wallSideRight, wallSiderLeft, wallBottom, wallFull,
-        wallInnerCornerDownLeft, wallInnerCornerDownRight,
-        wallDiagonalCornerDownRight, wallDiagonalCornerDownLeft, wallDiagonalCornerUpRight, wallDiagonalCornerUpLeft;
+    private TileBase top, topInside, left, leftTopCorner, leftBottomCorner, right, rightTopCorner, rightBottomCorner, bottom;
 
     [Header("Doors")]
     [SerializeField]
@@ -31,17 +30,27 @@ public class TileMapVisualizer : MonoBehaviour
         PaintTiles(floorPositions, floorTilemap, floorTile);
     }
 
+    public void PaintDoorTiles(IEnumerable<Vector2Int> floorPositions, bool open, direction dir)
+    {
+        TileBase tile;
+        if (open)
+            tile = openDoorTileTop;
+        else
+            tile = closeDoorTileTop;
+
+        if (dir == direction.top)
+        {
+            PaintTiles(floorPositions, doorsTop, tile);
+        }
+        else
+        {
+            PaintTiles(floorPositions, doorsTile, tile);
+        }
+    }
+
     public void PaintCorridorTiles(IEnumerable<Vector2Int> floorPositions)
     {
         PaintTiles(floorPositions, floorTilemap, floorCorridorTile);
-    }
-
-    public void PaintDoorTiles(Dictionary<Vector2Int, direction> doorPosition)
-    {
-        foreach (var door in doorPosition)
-        {
-            PaintSingleTile(doorsTile, closeDoorTileTop, door.Key);
-        }
     }
 
     private void PaintTiles(IEnumerable<Vector2Int> positions, Tilemap tilemap, TileBase tile)
@@ -63,78 +72,56 @@ public class TileMapVisualizer : MonoBehaviour
         wallTilemap.ClearAllTiles();
         wallTopmap.ClearAllTiles();
         doorsTile.ClearAllTiles();
+        doorsTop.ClearAllTiles();
     }
 
-    internal void PaintSingleBasicWall(Vector2Int position, string binaryType)
+    internal void PaintSingleWall(Vector2Int position, typeWall type)
     {
-        int typeAsInt = Convert.ToInt32(binaryType, 2);
         TileBase tile = null;
-        if (WallTypes.wallTop.Contains(typeAsInt))
+        bool topInRoom = false;
+        switch (type)
         {
-            tile = wallTop;
-            PaintSingleTile(wallTopmap, tile, position);
-            return;
+            case typeWall.left:
+                tile = left;
+                break;
+            case typeWall.right:
+                tile = right;
+                break;
+            case typeWall.top:
+                tile = top;
+                topInRoom = true;
+                break;
+            case typeWall.topInside:
+                tile = topInside;
+                topInRoom = true;
+                break;
+            case typeWall.bottom:
+                tile = bottom;
+                break;
+            case typeWall.leftTopCorner:
+                tile = leftTopCorner;
+                break;
+            case typeWall.rightTopCorner:
+                tile = rightTopCorner;
+                break;
+            case typeWall.rightBottomCorner:
+                tile = rightBottomCorner;
+                break;
+            case typeWall.leftBottomCorner:
+                tile = leftBottomCorner;
+                break;
+            default:
+                // Manejar un caso por defecto si es necesario
+                break;
         }
-        else if (WallTypes.wallSideRight.Contains(typeAsInt))
-        {
-            tile = wallSideRight;
-        }
-        else if (WallTypes.wallSideLeft.Contains(typeAsInt))
-        {
-            tile = wallSiderLeft;
-        }
-        else if (WallTypes.wallBottm.Contains(typeAsInt))
-        {
-            tile = wallBottom;
-        }
-        else if (WallTypes.wallFull.Contains(typeAsInt))
-        {
-            tile = wallFull;
-        }
+
 
         if (tile != null)
-            PaintSingleTile(wallTilemap, tile, position);
-    }
-
-    internal void PaintSingleCornerWall(Vector2Int position, string binaryType)
-    {
-        int typeASInt = Convert.ToInt32(binaryType, 2);
-        TileBase tile = null;
-
-        if (WallTypes.wallInnerCornerDownLeft.Contains(typeASInt))
         {
-            tile = wallInnerCornerDownLeft;
+            if(topInRoom)
+                PaintSingleTile(wallTopmap, tile, position);
+            else
+                PaintSingleTile(wallTilemap, tile, position);
         }
-        else if (WallTypes.wallInnerCornerDownRight.Contains(typeASInt))
-        {
-            tile = wallInnerCornerDownRight;
-        }
-        else if (WallTypes.wallDiagonalCornerDownLeft.Contains(typeASInt))
-        {
-            tile = wallDiagonalCornerDownLeft;
-        }
-        else if (WallTypes.wallDiagonalCornerDownRight.Contains(typeASInt))
-        {
-            tile = wallDiagonalCornerDownRight;
-        }
-        else if (WallTypes.wallDiagonalCornerUpRight.Contains(typeASInt))
-        {
-            tile = wallDiagonalCornerUpRight;
-        }
-        else if (WallTypes.wallDiagonalCornerUpLeft.Contains(typeASInt))
-        {
-            tile = wallDiagonalCornerUpLeft;
-        }
-        else if (WallTypes.wallFullEightDirections.Contains(typeASInt))
-        {
-            tile = wallFull;
-        }
-        else if (WallTypes.wallBottmEightDirections.Contains(typeASInt))
-        {
-            tile = wallBottom;
-        }
-
-        if (tile != null)
-            PaintSingleTile(wallTilemap, tile, position);
     }
 }
