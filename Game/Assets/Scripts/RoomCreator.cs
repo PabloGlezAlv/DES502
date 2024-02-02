@@ -43,6 +43,11 @@ public class RoomCreator : MonoBehaviour
     //Room center - Doors blocks
     private Dictionary<Vector2Int, List<doorsInfo>> doorsRoomsBlocks = new Dictionary<Vector2Int, List<doorsInfo>>();
 
+    // Save rooms already visited
+    List<Vector2Int> roomsVisited = new List<Vector2Int>();
+
+    private PlayerMovement playerMovement;
+
     void Start()
     {
         visualizer.Clear();
@@ -56,11 +61,42 @@ public class RoomCreator : MonoBehaviour
 
         //Set camera
         Camera.main.transform.position = new UnityEngine.Vector3() { x = startPosition.x, y = startPosition.y, z = -10 };
+
+        playerMovement = player.GetComponent<PlayerMovement>();
     }
 
-    public void SetDoor(bool open)
+    private bool isOldRoom()
     {
-        foreach(var room in doorsRoomsBlocks)
+        Vector2Int closerCenter = new Vector2Int();
+        float distance = 10000;
+
+        Vector2Int actualCenter = playerMovement.GetCurrentRoom();
+        foreach (var room in roomsInfo)
+        {
+            float newDistance = Vector2Int.Distance(actualCenter, room.Key);
+            if(newDistance < distance)
+            {
+                closerCenter = room.Key;
+                distance = newDistance;
+            }
+        }
+
+        if(roomsVisited.Contains(closerCenter))
+            return true;
+        else //Add the room if is new
+        {
+            roomsVisited.Add(closerCenter);
+            return false;
+        }
+    }
+
+    public void SetDoorRoom(bool open)
+    {
+        //Check if havent been in room yet old room 
+        if (isOldRoom() && !open)
+            return;
+
+        foreach (var room in doorsRoomsBlocks)
         {
             foreach (var roomInfo in room.Value)
             {

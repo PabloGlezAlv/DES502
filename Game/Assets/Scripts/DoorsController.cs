@@ -7,7 +7,6 @@ public class DoorsController : MonoBehaviour
     [SerializeField]
     RoomCreator roomCreator;
 
-    bool roomClosed = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,8 +18,12 @@ public class DoorsController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.O))
         {
-            roomCreator.SetDoor(roomClosed);
-            roomClosed = !roomClosed;
+            ChangeDoorsState(true);
         }
+    }
+
+    public void ChangeDoorsState(bool openDoors)
+    {
+        roomCreator.SetDoorRoom(openDoors);
     }
 }
