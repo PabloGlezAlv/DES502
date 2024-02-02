@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
@@ -12,7 +13,7 @@ enum typeWall{top, topInside, left, leftTopCorner, leftBottomCorner, right, righ
 public class TileMapVisualizer : MonoBehaviour
 {
     [SerializeField]
-    private Tilemap floorTilemap, wallTilemap, wallTopmap, doorsTile, doorsTop;
+    private GameObject floorTilemapGameObject, wallTilemapGameObject, wallTopmapGameObject, doorsTileGameObject, doorsTopGameObject;
     [Header("Floor")]
     [SerializeField]
     private TileBase floorTile, floorCorridorTile;
@@ -24,13 +25,45 @@ public class TileMapVisualizer : MonoBehaviour
     [Header("Doors")]
     [SerializeField]
     private TileBase closeDoorTileTop, openDoorTileTop;
+
+
+    private Tilemap floorTilemap, wallTilemap, wallTopmap, doorsTile, doorsTop;
+
+    private TilemapCollider2D doorsTileCollider, doorsTopCollider;
+
+    private void Awake()
+    {
+        floorTilemap = floorTilemapGameObject.GetComponent<Tilemap>();
+        wallTilemap = wallTilemapGameObject.GetComponent<Tilemap>();
+        wallTopmap = wallTopmapGameObject.GetComponent<Tilemap>();
+        doorsTile = doorsTileGameObject.GetComponent<Tilemap>();
+        doorsTop = doorsTopGameObject.GetComponent<Tilemap>();
+
+        doorsTileCollider = doorsTileGameObject.GetComponent<TilemapCollider2D>();
+        doorsTopCollider = doorsTopGameObject.GetComponent<TilemapCollider2D>();
+    }
+
     public void PaintFloorTiles(IEnumerable<Vector2Int> floorPositions)
     {
 
         PaintTiles(floorPositions, floorTilemap, floorTile);
     }
 
-    public void PaintDoorTiles(IEnumerable<Vector2Int> floorPositions, bool open, direction dir)
+    public void setDoorCollider(bool open)
+    {
+        if(open)
+        {
+            doorsTileCollider.isTrigger = true;
+            doorsTopCollider.isTrigger = true;
+        }
+        else
+        {
+            doorsTileCollider.isTrigger = false;
+            doorsTopCollider.isTrigger = false;
+        }
+    }
+
+    public void PaintDoorTiles(Vector2Int floorPositions, bool open, direction dir)
     {
         TileBase tile;
         if (open)
@@ -40,11 +73,11 @@ public class TileMapVisualizer : MonoBehaviour
 
         if (dir == direction.top)
         {
-            PaintTiles(floorPositions, doorsTop, tile);
+            PaintSingleTile(doorsTop, tile, floorPositions );
         }
         else
         {
-            PaintTiles(floorPositions, doorsTile, tile);
+            PaintSingleTile(doorsTile, tile, floorPositions);
         }
     }
 

@@ -293,11 +293,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5c1cef96b3db47459094b4f2108069d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floorTilemap: {fileID: 1128820400}
-  wallTilemap: {fileID: 927267675}
-  wallTopmap: {fileID: 1670362079}
-  doorsTile: {fileID: 2088973388}
-  doorsTop: {fileID: 901924249}
+  floorTilemapGameObject: {fileID: 1128820399}
+  wallTilemapGameObject: {fileID: 927267674}
+  wallTopmapGameObject: {fileID: 1670362075}
+  doorsTileGameObject: {fileID: 2088973387}
+  doorsTopGameObject: {fileID: 901924245}
   floorTile: {fileID: 11400000, guid: b86ed1cf049070f47bb6ff964b1d299a, type: 2}
   floorCorridorTile: {fileID: 11400000, guid: 05eb8373cde7d3948bcf469a82e4d6ae, type: 2}
   top: {fileID: 11400000, guid: 4b6030bd78968c843b7eda9743c772b1, type: 2}
@@ -6008,6 +6008,51 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!1 &986609577
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 986609579}
+  - component: {fileID: 986609578}
+  m_Layer: 0
+  m_Name: DoorsControllers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &986609578
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986609577}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b19280f43d5074341b9e034c9674346a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  roomCreator: {fileID: 2100779188}
+--- !u!4 &986609579
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 986609577}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -4.048603, y: -0.43959475, z: 0.3475075}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1128820399
 GameObject:
   m_ObjectHideFlags: 0
@@ -27090,3 +27135,4 @@ SceneRoots:
   - {fileID: 25735700}
   - {fileID: 570922754}
   - {fileID: 2100779189}
+  - {fileID: 986609579}
