@@ -1,20 +1,28 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
+using System.Xml;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class SkeletonMovement : MonoBehaviour
 {
+    [Header("Parameters")]
     [SerializeField]
     private float speed = 5f;
     [SerializeField]
     private float changeDirection = 0.5f;
+    [SerializeField]
+    private float changeDirPosAttack = 1.0f;
 
     [Range(0f, 1f)]
     private float focusPlayer = 0.4f; 
 
     [Range(0f, 1f)]
-    private float sidePlayuer = 0.3f;
+    private float sidePlayer = 0.3f;
+
+    [SerializeField]
+    private float attackDistance = 2f;
 
     [SerializeField]
     private Transform player;
@@ -24,15 +32,37 @@ public class SkeletonMovement : MonoBehaviour
     private Vector3 direction;
     private Rigidbody2D rb;
 
+    bool justAttacked = false;
+
+    private SkeletonAttack attack;
+
+    private float timerAttack = 0f;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        movementTimer = changeDirection;
+
+        attack = GetComponentInChildren<SkeletonAttack>();
     }
 
     void FixedUpdate()
     {
-        //Change actualdirection
-        if (movementTimer > changeDirection)
+        //Check to attack
+        if(Vector3.Distance(transform.position, player.position) < attackDistance && !justAttacked)
+        {
+            direction = (player.position - transform.position).normalized;
+            direction = -direction;
+
+            justAttacked = true;
+
+            attack.Attack();
+
+            movementTimer = changeDirPosAttack;
+            timerAttack = changeDirPosAttack;
+        }
+        else if (movementTimer < 0) //Change actualdirection
         {
             // Calcula la dirección hacia el jugador
             direction = (player.position - transform.position).normalized;
@@ -43,7 +73,7 @@ public class SkeletonMovement : MonoBehaviour
             {
                 float angle = Mathf.Clamp(RandomGaussian(45, 15), 0f, 90f);
 
-                if (Random.Range(0.0f, 1.0f) <= sidePlayuer) // Moverse hacia el lado izquierdo
+                if (Random.Range(0.0f, 1.0f) <= sidePlayer) // Moverse hacia el lado izquierdo
                     angle = -angle;
 
                 Quaternion rotation = Quaternion.Euler(0, 0, angle);
@@ -52,13 +82,33 @@ public class SkeletonMovement : MonoBehaviour
                 direction = (Vector2)(rotation * direction);
             }
 
-            movementTimer = 0;
+            SpriteRotation();
+
+            movementTimer += changeDirection;
+        }
+
+        if(justAttacked && timerAttack < 0)
+        {
+            justAttacked = false;
         }
 
         // Mueve al enemigo
         rb.velocity = direction * speed;
 
-        movementTimer += Time.fixedDeltaTime;
+        movementTimer -= Time.fixedDeltaTime;
+        timerAttack -= Time.fixedDeltaTime;
+    }
+
+    private void SpriteRotation()
+    {
+        if (direction.x < 0)
+        {
+            transform.localScale = new Vector3(-transform.localScale.y, transform.localScale.y, transform.localScale.z);
+        }
+        else if (direction.x > 0)
+        {
+            transform.localScale = new Vector3(transform.localScale.y, transform.localScale.y, transform.localScale.z);
+        }
     }
 
     // Gaussian function, play with parameters different results
