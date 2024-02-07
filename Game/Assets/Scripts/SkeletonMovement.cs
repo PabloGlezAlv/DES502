@@ -5,18 +5,14 @@ using System.Xml;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
-public class SkeletonMovement : MonoBehaviour
+public class SkeletonMovement : EnemyBase
 {
-    [Header("Parameters")]
-    [SerializeField]
-    private float speed = 5f;
+    [Header("Specific Parameters")]
+
     [SerializeField]
     private float changeDirection = 0.5f;
     [SerializeField]
     private float changeDirPosAttack = 1.0f;
-
-    [SerializeField]
-    private int maxLife = 5;
 
     [Range(0f, 1f)]
     private float focusPlayer = 0.4f; 
@@ -32,25 +28,20 @@ public class SkeletonMovement : MonoBehaviour
 
     private float movementTimer = 0f;
 
-    private Vector3 direction;
-    private Rigidbody2D rb;
+
 
     bool justAttacked = false;
 
     private SkeletonAttack attack;
 
     private float timerAttack = 0f;
-    private int actualLife;
+
 
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-
         movementTimer = changeDirection;
 
         attack = GetComponentInChildren<SkeletonAttack>();
-
-        actualLife = maxLife;
     }
 
     void FixedUpdate()
@@ -88,7 +79,7 @@ public class SkeletonMovement : MonoBehaviour
                 direction = (Vector2)(rotation * direction);
             }
 
-            SpriteRotation();
+            SpriteRotation(direction);
 
             movementTimer += changeDirection;
         }
@@ -105,18 +96,6 @@ public class SkeletonMovement : MonoBehaviour
         timerAttack -= Time.fixedDeltaTime;
     }
 
-    private void SpriteRotation()
-    {
-        if (direction.x < 0)
-        {
-            transform.localScale = new Vector3(-transform.localScale.y, transform.localScale.y, transform.localScale.z);
-        }
-        else if (direction.x > 0)
-        {
-            transform.localScale = new Vector3(transform.localScale.y, transform.localScale.y, transform.localScale.z);
-        }
-    }
-
     // Gaussian function, play with parameters different results
     private float RandomGaussian(float media, float desviacionEstandar)
     {
@@ -127,17 +106,8 @@ public class SkeletonMovement : MonoBehaviour
         return randNormal;
     }
 
-    public void GetDamage(int damage)
+    public override void GetDamage(int damage)
     {
-        int previousLife = actualLife;
-        actualLife -= damage;
-        if (actualLife <= 0) //Dead
-        {
-            this.gameObject.SetActive(false);
-        }
-        else // Life feedback ?
-        {
-
-        }
+        base.GetDamage(damage);
     }
 }
