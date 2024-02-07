@@ -15,6 +15,9 @@ public class SkeletonMovement : MonoBehaviour
     [SerializeField]
     private float changeDirPosAttack = 1.0f;
 
+    [SerializeField]
+    private int maxLife = 5;
+
     [Range(0f, 1f)]
     private float focusPlayer = 0.4f; 
 
@@ -37,6 +40,7 @@ public class SkeletonMovement : MonoBehaviour
     private SkeletonAttack attack;
 
     private float timerAttack = 0f;
+    private int actualLife;
 
     private void Start()
     {
@@ -45,6 +49,8 @@ public class SkeletonMovement : MonoBehaviour
         movementTimer = changeDirection;
 
         attack = GetComponentInChildren<SkeletonAttack>();
+
+        actualLife = maxLife;
     }
 
     void FixedUpdate()
@@ -119,5 +125,19 @@ public class SkeletonMovement : MonoBehaviour
         float randStdNormal = Mathf.Sqrt(-2f * Mathf.Log(u1)) * Mathf.Sin(2f * Mathf.PI * u2);
         float randNormal = media + desviacionEstandar * randStdNormal; 
         return randNormal;
+    }
+
+    public void GetDamage(int damage)
+    {
+        int previousLife = actualLife;
+        actualLife -= damage;
+        if (actualLife <= 0) //Dead
+        {
+            this.gameObject.SetActive(false);
+        }
+        else // Life feedback ?
+        {
+
+        }
     }
 }

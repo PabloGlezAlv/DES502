@@ -5,7 +5,9 @@ using UnityEngine;
 public class PlayerAttack : MonoBehaviour
 {
     [SerializeField]
-    private float AttackDuration = 0;
+    private float AttackDuration = 0.2f;
+    [SerializeField]
+    private int damage = 2;
 
     private float timer = 0;
     private bool attacking = false;
@@ -43,6 +45,10 @@ public class PlayerAttack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Collision");
+        SkeletonMovement move;
+        if(move = collision.GetComponent<SkeletonMovement>())
+        {
+            move.GetDamage(damage);
+        }
     }
 }

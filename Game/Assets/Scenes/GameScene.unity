@@ -414,7 +414,7 @@ Transform:
   m_GameObject: {fileID: 499394935}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.51, y: 0.23, z: 0}
+  m_LocalPosition: {x: 0.4112, y: 0.23, z: 0}
   m_LocalScale: {x: 0.13413, y: 0.13413, z: 0.13413}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -25359,7 +25359,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cbcb08574edeaae429bd8b2b8649fcbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackDuration: 0
+  AttackDuration: 0.2
 --- !u!61 &1372433708
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -25447,7 +25447,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.5249555, g: 0.91968423, b: 0.9528302, a: 1}
+  m_Color: {r: 0.5254902, g: 0.9529412, b: 0.53986984, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -28855,6 +28855,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7063254818083421929, guid: 4afd324a43e03be48815872bdbefe951, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.3356
+      objectReference: {fileID: 0}
     - target: {fileID: 8089892406589853869, guid: 4afd324a43e03be48815872bdbefe951, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -28914,6 +28918,10 @@ PrefabInstance:
       objectReference: {fileID: 1400327642628684432}
     - target: {fileID: 1511252634555607731, guid: 4d9a80308634ea146a81dc9f091aed75, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1511252634555607731, guid: 4d9a80308634ea146a81dc9f091aed75, type: 3}
+      propertyPath: attackDistance
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3631930812237877274, guid: 4d9a80308634ea146a81dc9f091aed75, type: 3}

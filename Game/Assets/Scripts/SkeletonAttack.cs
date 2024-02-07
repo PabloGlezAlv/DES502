@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class SkeletonAttack : MonoBehaviour
 {
     [SerializeField]
-    private float AttackDuration = 0;
+    private float AttackDuration = 0.2f;
+    [SerializeField]
+    private int damage = 2;
 
     private float timer = 0;
     private bool attacking = false;
@@ -36,7 +39,6 @@ public class SkeletonAttack : MonoBehaviour
 
     public void Attack()
     {
-        Debug.Log("Attack");
         if (!attacking)
         {
             attacking = true;
@@ -48,10 +50,11 @@ public class SkeletonAttack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("Collision");
-        if(collision.gameObject.GetComponent<PlayerMovement>()) 
+        //Collision  with player
+        LifeSystem system;
+        if (system = collision.gameObject.GetComponent<LifeSystem>()) 
         {
-            Debug.Log("With player");
+            system.GetDamage(damage);
         }
     }
 }
