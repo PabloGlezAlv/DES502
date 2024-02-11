@@ -25674,7 +25674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01aec8e78681aba41b25cbb25a7fc76d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 2046904636552896287}
+  playerTransform: {fileID: 1975048945}
   shadow: {fileID: 1055392133}
   attractionDistance: 5
   attractionSpeed: 3
@@ -28484,6 +28484,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1891226817}
   m_CullTransparentMesh: 1
+--- !u!4 &1975048945 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6091471144658761790, guid: 0a39cba4be47e9a459180c251f21272b, type: 3}
+  m_PrefabInstance: {fileID: 7116955839985836413}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1998752451
 GameObject:
   m_ObjectHideFlags: 0
@@ -29352,6 +29357,10 @@ PrefabInstance:
       propertyPath: doorsController
       value: 
       objectReference: {fileID: 986609578}
+    - target: {fileID: 8561913222192759308, guid: 0a39cba4be47e9a459180c251f21272b, type: 3}
+      propertyPath: m_Layer
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

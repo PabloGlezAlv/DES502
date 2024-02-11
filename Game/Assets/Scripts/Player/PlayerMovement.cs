@@ -25,7 +25,6 @@ public class PlayerMovement : MonoBehaviour
     private Vector2Int currentRoom = new Vector2Int(0, 0);
 
     direction movDirection = direction.none;
-    direction attackDir = direction.right;
 
     GameObject currentAttack;
 
@@ -41,8 +40,6 @@ public class PlayerMovement : MonoBehaviour
     int horizontalKeysDown = 0;
     int verticalKeysDown = 0;
 
-    bool pressingSomething = false;
-    bool firstAD = false;
     public Vector2Int GetCurrentRoom()
     {
         return currentRoom;
@@ -68,7 +65,6 @@ public class PlayerMovement : MonoBehaviour
     private void ChangeAttack(direction newDir)
     {
         currentAttack.SetActive(false);
-        attackDir = newDir;
         switch (newDir)
         {
             case direction.none:
@@ -105,9 +101,6 @@ public class PlayerMovement : MonoBehaviour
         }
         else
         {
-            //Check Input if key pressed
-            bool actualpressing = pressingSomething;
-
             bool change = false;
             if (Input.anyKey)
             {
@@ -122,12 +115,6 @@ public class PlayerMovement : MonoBehaviour
                         inputs.Remove(direction.right); //Reset postion in list
                         inputs.Add(direction.right);
                     }
-                    if (!pressingSomething)
-                    {
-                        firstAD = true;
-                        ChangeAttack(direction.left);
-                    }
-                    pressingSomething = true;
 
                     change = true;
                 }
@@ -143,12 +130,6 @@ public class PlayerMovement : MonoBehaviour
                         inputs.Remove(direction.left); //Reset postion in list
                         inputs.Add(direction.left);
                     }
-                    if (!pressingSomething)
-                    {
-                        firstAD = true;
-                        ChangeAttack(direction.right);
-                    }
-                    pressingSomething = true;
                     change = true;
                 }
 
@@ -164,12 +145,6 @@ public class PlayerMovement : MonoBehaviour
                         inputs.Remove(direction.bottom); //Reset postion in list
                         inputs.Add(direction.bottom);
                     }
-                    if (!pressingSomething)
-                    {
-                        firstAD = false;
-                        ChangeAttack(direction.top);
-                    }
-                    pressingSomething = true;
                     change = true;
                 }
                 if (Input.GetKeyDown(KeyCode.S))
@@ -184,16 +159,9 @@ public class PlayerMovement : MonoBehaviour
                         inputs.Remove(direction.top); //Reset postion in list
                         inputs.Add(direction.top);
                     }
-                    if (!pressingSomething)
-                    {
-                        firstAD = false;
-                        ChangeAttack(direction.bottom);
-                    }
-                    pressingSomething = true;
                     change = true;
                 }
             }
-            else pressingSomething = false;
 
             //Check if some key not pressed
             if (Input.GetKeyUp(KeyCode.A))
