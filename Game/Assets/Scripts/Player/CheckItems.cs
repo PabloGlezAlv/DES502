@@ -13,10 +13,14 @@ public class CheckItems : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.GetComponentInParent<BaseObject>() != null)
+        CoinObject obj;
+        if (obj = collision.gameObject.GetComponent<CoinObject>())
         {
-            Debug.Log("nEW OBJECT");
+            Debug.Log("New coin");
 
+            player.GetComponent<PlayerData>().addCoins(obj.getCoins());
+
+            //Deactivate
             collision.transform.parent.gameObject.SetActive(false);
         }
     }

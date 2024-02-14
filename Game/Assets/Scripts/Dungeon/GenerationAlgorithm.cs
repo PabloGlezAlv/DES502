@@ -11,20 +11,25 @@ using UnityEngine;
 
 public class GenerationAlgorithm : MonoBehaviour
 {
-    public static Dictionary<Vector2Int, List<direction>> SimpleRandomWalk(Vector2Int startPosition, int width, int height, int walkLength, int numberWalks)
+    public static Dictionary<Vector2Int, List<direction>> SimpleRandomWalk(Vector2Int startPosition, int width, int height, int walkLength,
+        int numberWalks, ref Vector2Int finalRoom)
     {
+        int goodWalk = UnityEngine.Random.Range(0, numberWalks);
+
         Dictionary<Vector2Int, List<direction>> path = new Dictionary<Vector2Int, List<direction>>();
         path.Add(startPosition, new List<direction>());
         var previousPosition = startPosition;
         for(int i = 0; i < numberWalks;i++)
         {
-            for (int j = 0; j < walkLength; j++)
+            float longestDistance = 0;
+            Vector2Int farPoint = new Vector2Int();
+            for (int j = 0; j < walkLength; j++) //Do steps in each direction
             {
                 Vector2Int newDir = Direction2D.GetRandomCardinalDirection();
 
                 direction opposite = direction.none;
                 bool included = true;
-                if(path.ContainsKey(previousPosition))
+                if(path.ContainsKey(previousPosition)) //Old room, open a new door
                 {
                     List<direction> existingVector = path[previousPosition];
                     if(newDir.x == 1 && !existingVector.Contains(direction.right)) //Right
@@ -55,7 +60,7 @@ public class GenerationAlgorithm : MonoBehaviour
                     path.Remove(previousPosition);
                     path.Add(previousPosition, existingVector);
                 }
-                else
+                else //New room create it
                 {
                     included = false;
                     List<direction> newVector = new List<direction>();
@@ -114,7 +119,19 @@ public class GenerationAlgorithm : MonoBehaviour
                     newVector.Add(opposite);
                     path.Add(previousPosition, newVector);
                 }
+
+                //Save the furthest point
+                if(longestDistance <= Vector2Int.Distance(previousPosition, startPosition))
+                {
+                    farPoint = previousPosition;
+
+                    longestDistance = Vector2Int.Distance(previousPosition, startPosition);
+                }
+
             }
+            //
+            if (i == goodWalk)
+                finalRoom = farPoint;
 
             previousPosition = startPosition;
         }

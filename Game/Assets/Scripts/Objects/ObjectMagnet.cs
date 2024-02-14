@@ -61,7 +61,6 @@ public class ObjectMagnet : MonoBehaviour
 
             Vector2 extraVel = directionToPlayer * (attractionSpeed * newSpeed);
 
-            Debug.Log(extraVel);
             rb.velocity = directionToPlayer * attractionSpeed + extraVel;
         }
     }

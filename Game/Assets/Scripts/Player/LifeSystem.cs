@@ -26,9 +26,6 @@ public class LifeSystem : MonoBehaviour
     {
         actualHearts = startHearts;
 
-        maxLife = actualHearts * 2;
-        actualLife = maxLife;
-
         ShowAllHearts();
     }
 
@@ -40,6 +37,9 @@ public class LifeSystem : MonoBehaviour
 
     private void ShowAllHearts()
     {
+        maxLife = actualHearts * 2;
+        actualLife = maxLife;
+
         for (int i = 0; i < actualHearts; i++)
         {
             emptyHearts[i].SetActive(true);

@@ -22,10 +22,10 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if((Input.GetKeyDown(KeyCode.M)))
-        {
-            SetPosition(new Vector2Int(0,12));
-        }
+        //if((Input.GetKeyDown(KeyCode.M)))
+        //{
+        //    SetPosition(new Vector2Int(0,12));
+        //}
 
         if(changingPosition)
         {

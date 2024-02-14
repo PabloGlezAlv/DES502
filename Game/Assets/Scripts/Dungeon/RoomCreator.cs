@@ -48,14 +48,16 @@ public class RoomCreator : MonoBehaviour
 
     private PlayerMovement playerMovement;
 
+    private Vector2Int finalRoomCenter;
+
     void Start()
     {
         visualizer.Clear();
 
         //Draw Rooms
-        roomsInfo = GenerationAlgorithm.SimpleRandomWalk(startPosition, width, height, stepsPerWalk, numberWalk);
+        roomsInfo = GenerationAlgorithm.SimpleRandomWalk(startPosition, width, height, stepsPerWalk, numberWalk, ref finalRoomCenter);
         DrawRoom();
-
+        Debug.Log(finalRoomCenter);
         //Set player
         player.transform.position = new UnityEngine.Vector3() { x = startPosition.x, y = startPosition.y };
 
@@ -150,6 +152,8 @@ public class RoomCreator : MonoBehaviour
             visualizer.PaintSingleWall(bottomRightCorner, typeWall.rightBottomCorner);
 
         }
+
+        visualizer.PaintNextFloorDoor(finalRoomCenter);
     }
 
     private Vector2Int DrawWalls(KeyValuePair<Vector2Int, List<direction>> room, Vector2Int center, List<doorsInfo> doorsBlocks, int i, int j)

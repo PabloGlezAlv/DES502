@@ -24,8 +24,6 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2Int currentRoom = new Vector2Int(0, 0);
 
-    direction movDirection = direction.none;
-
     GameObject currentAttack;
 
 
@@ -36,6 +34,9 @@ public class PlayerMovement : MonoBehaviour
 
     float horizontalMovement = 0f;
     float verticalMovement = 0f;
+
+    float horizontalMovementDoor = 0f;
+    float verticalMovementDoor = 0f;
 
     int horizontalKeysDown = 0;
     int verticalKeysDown = 0;
@@ -48,11 +49,14 @@ public class PlayerMovement : MonoBehaviour
     {
         currentRoom = value;
         doorMovement = true;
+
+        horizontalMovementDoor = horizontalMovement;
+        verticalMovementDoor = verticalMovement;
     }
 
     public direction GetCurrentDirection()
     {
-        return movDirection;
+        return inputs[0];
     }
 
     private void Awake()
@@ -99,8 +103,7 @@ public class PlayerMovement : MonoBehaviour
                 timer = 0;
             }
         }
-        else
-        {
+        
             bool change = false;
             if (Input.anyKey)
             {
@@ -231,11 +234,14 @@ public class PlayerMovement : MonoBehaviour
             {
                 ChangeAttack(inputs[0]);
             }
-        }
+        
     }
     void FixedUpdate()
     {
-        MovePlayer(horizontalMovement, verticalMovement);
+        if(doorMovement)
+            MovePlayer(horizontalMovementDoor, verticalMovementDoor);
+        else 
+            MovePlayer(horizontalMovement, verticalMovement);
     }
 
     private void MovePlayer(float horizontalMovement, float verticalMovement)
