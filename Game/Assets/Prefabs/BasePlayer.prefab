@@ -487,6 +487,8 @@ MonoBehaviour:
   startHearts: 5
   maxHearts: 10
   heartDistance: 10
+  duration: 1
+  flashTimes: 3
   emptyHearts:
   - {fileID: 0}
   - {fileID: 0}

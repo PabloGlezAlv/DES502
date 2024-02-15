@@ -5,13 +5,24 @@ using UnityEngine;
 
 public class LifeSystem : MonoBehaviour
 {
-    [Header("Parameters")]
+    [Header("Parameters Life")]
     [SerializeField]
     private int startHearts = 5;
     [SerializeField]
     private int maxHearts = 10;
     [SerializeField]
     private int heartDistance = 10;
+
+    [Header("Parameters Feedback")]
+    [SerializeField]
+    private float duration = 1f;
+    [SerializeField]
+    private int flashTimes = 3;
+
+    private bool active = true;
+    private float timer = 0;
+    private int remainingChanges = 0;
+    SpriteRenderer spriteRenderer;
 
     [Header("Images")]
     [SerializeField]
@@ -27,12 +38,29 @@ public class LifeSystem : MonoBehaviour
         actualHearts = startHearts;
 
         ShowAllHearts();
+
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
     private void Update()
     {
         if(Input.GetKeyDown(KeyCode.L)) { GetDamage(3); }
         if (Input.GetKeyDown(KeyCode.H)) { GetHealed(2); }
+
+        if(remainingChanges > 0) 
+        {
+            timer -= Time.deltaTime;
+
+            if(timer < 0)
+            {
+                active = !active;
+                spriteRenderer.enabled = active;
+
+                timer = duration / (flashTimes * 2);
+                remainingChanges--;
+            }
+        }
+
     }
 
     private void ShowAllHearts()
@@ -77,5 +105,9 @@ public class LifeSystem : MonoBehaviour
                 halfHearts[i - 1].SetActive(false);
             }
         }
+
+        remainingChanges = flashTimes * 2;
+
+        timer = duration / remainingChanges;
     }
 }

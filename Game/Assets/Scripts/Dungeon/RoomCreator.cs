@@ -16,6 +16,9 @@ public class RoomCreator : MonoBehaviour
     [SerializeField]
     GameObject player;
 
+    [SerializeField]
+    SpikeLogic spikeTrap;
+
     [Header("Room Parameters")]
     [SerializeField]
     private int width = 20;
@@ -65,6 +68,10 @@ public class RoomCreator : MonoBehaviour
         Camera.main.transform.position = new UnityEngine.Vector3() { x = startPosition.x, y = startPosition.y, z = -10 };
 
         playerMovement = player.GetComponent<PlayerMovement>();
+
+
+        //Trap to test
+        spikeTrap.AddPoints(new Vector2Int(-7,0));
     }
 
     private bool isOldRoom()

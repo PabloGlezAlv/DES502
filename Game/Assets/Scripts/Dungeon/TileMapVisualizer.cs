@@ -14,7 +14,7 @@ enum typeWall{top, topInside, left, leftTopCorner, leftBottomCorner, right, righ
 public class TileMapVisualizer : MonoBehaviour
 {
     [SerializeField]
-    private GameObject floorTilemapGameObject, wallTilemapGameObject, wallTopmapGameObject, doorsTileGameObject, doorsTopGameObject, nextLevelGameObject;
+    private GameObject floorTilemapGameObject, wallTilemapGameObject, wallTopmapGameObject, doorsTileGameObject, doorsTopGameObject, nextLevelGameObject, trampGameObject;
     [Header("Floor")]
     [SerializeField]
     private TileBase floorTile, floorCorridorTile;
@@ -31,8 +31,12 @@ public class TileMapVisualizer : MonoBehaviour
     [SerializeField]
     private TileBase topleftEnd, toprightEnd, bottomleftEnd, bottomrightEnd;
 
+    [Header("Tramp")]
+    [SerializeField]
+    private TileBase spikeOff, spikeOn;
 
-    private Tilemap floorTilemap, wallTilemap, wallTopmap, doorsTile, doorsTop, nextLevel;
+
+    private Tilemap floorTilemap, wallTilemap, wallTopmap, doorsTile, doorsTop, nextLevel, trap;
 
     private TilemapCollider2D doorsTileCollider, doorsTopCollider;
 
@@ -44,9 +48,18 @@ public class TileMapVisualizer : MonoBehaviour
         doorsTile = doorsTileGameObject.GetComponent<Tilemap>();
         doorsTop = doorsTopGameObject.GetComponent<Tilemap>();
         nextLevel = nextLevelGameObject.GetComponent<Tilemap>();
+        trap = trampGameObject.GetComponent<Tilemap>();
 
         doorsTileCollider = doorsTileGameObject.GetComponent<TilemapCollider2D>();
         doorsTopCollider = doorsTopGameObject.GetComponent<TilemapCollider2D>();
+    }
+
+    public void PaintSpike(Vector2Int position, bool on)
+    {
+        if (on)
+            PaintSingleTile(trap, spikeOn, position);
+        else
+            PaintSingleTile(trap, spikeOff, position);
     }
 
     public void PaintNextFloorDoor(Vector2Int positionTopRight)
@@ -128,6 +141,7 @@ public class TileMapVisualizer : MonoBehaviour
         doorsTile.ClearAllTiles();
         doorsTop.ClearAllTiles();
         nextLevel.ClearAllTiles();
+        trap.ClearAllTiles();
     }
 
     internal void PaintSingleWall(Vector2Int position, typeWall type)
