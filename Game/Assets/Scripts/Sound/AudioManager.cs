@@ -5,7 +5,6 @@ using UnityEngine.Audio;
 
 public class AudioManager : MonoBehaviour
 {
-
     public AudioMixerGroup audioMixer;
 
     public Sound[] sounds;
@@ -67,24 +66,46 @@ public class AudioManager : MonoBehaviour
         }
     }
 
+    public bool CheckIfStopped(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        return !s.source.isPlaying;
+    }
+
+    public float GetClipLength(string name)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        return s.source.clip.length;
+    }
+
     public void ChangePitch(string name, float Pitch)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
         s.source.pitch = Pitch;
+    }
+    public void PlayDelayed(string name, float Time)
+    {
+        Sound s = Array.Find(sounds, sound => sound.name == name);
+        s.source.PlayDelayed(Time);
     }
 
     public IEnumerator FadeAudio(string name, float Increment, float MaxVolume)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
 
-        while (s.source.volume > 0f || s.source.volume <= MaxVolume)
+        while (s.source.volume > 0f || s.source.volume < MaxVolume)
         {
             s.source.volume -= Increment * Time.deltaTime;
-            yield return null;
-        }
-        if (s.source.volume <= 0f)
-        {
-            s.source.Stop();
+            if (s.source.volume <= 0f)
+            {
+                s.source.Stop();
+                yield return null;
+            }
+            else if (s.source.volume > MaxVolume)
+            {
+                s.source.volume = MaxVolume;
+                break;
+            }
             yield return null;
         }
 
