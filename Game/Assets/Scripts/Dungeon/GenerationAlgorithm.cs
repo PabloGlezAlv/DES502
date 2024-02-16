@@ -89,13 +89,13 @@ public class GenerationAlgorithm : MonoBehaviour
                 int wallsValueX = 0; //Right left +- 2 top buttom +- 3 
                 int wallsValueY = 0;
                 if (newDir.x == 1)
-                    wallsValueX = 2;
+                    wallsValueX = 4;
                 else if (newDir.y == 1)
-                    wallsValueY = 3;
+                    wallsValueY = 4;
                 else if (newDir.x == -1)
-                    wallsValueX = -2;
+                    wallsValueX = -4;
                 else
-                    wallsValueY = -3;
+                    wallsValueY = -4;
 
 
                 var newPosition = previousPosition + new Vector2Int((width * newDir.x) + wallsValueX, (height * newDir.y) + wallsValueY);
