@@ -143,28 +143,41 @@ public class RoomCreator : MonoBehaviour
             //Draw floor
             visualizer.PaintFloorTiles(floorPositions);
 
-            //Draw corners top missing
-            visualizer.PaintSingleWall(new Vector2Int(-width / 2 - 2 + center.x, height / 2 + center.y), typeWall.left);
-            visualizer.PaintSingleWall(new Vector2Int(-width / 2 - 1 + center.x, height / 2 + center.y + 1), typeWall.top);
-
-            visualizer.PaintSingleWall(new Vector2Int(width / 2 + center.x + 1, height / 2 + center.y), typeWall.right);
-            visualizer.PaintSingleWall(new Vector2Int(width / 2 + center.x, height / 2 + center.y + 1), typeWall.top);
-
-            //Draw corner walls
-            visualizer.PaintSingleWall(new Vector2Int(-width / 2 - 2 + center.x, height / 2 + center.y + 1), typeWall.leftTopCorner);
-            visualizer.PaintSingleWall(new Vector2Int(-width / 2 - 1 + center.x, height / 2 + center.y), typeWall.leftTopCorner); //NEW BLOCK INTERIOR CORNERA
-
-            visualizer.PaintSingleWall(new Vector2Int((width / 2 + center.x + 1), (height / 2) + center.y + 1), typeWall.rightTopCorner);
-            visualizer.PaintSingleWall(new Vector2Int((width / 2 + center.x), (height / 2) + center.y), typeWall.rightTopCorner);//NEW INTERIOR BLOCK CORNERA
-
-            Vector2Int bottomLeftCorner = new Vector2Int((-width / 2) - 1 + center.x, (-height / 2) - 1 + center.y);
-            visualizer.PaintSingleWall(bottomLeftCorner, typeWall.leftBottomCorner);
-            Vector2Int bottomRightCorner = new Vector2Int((width / 2 + center.x), (-height / 2) - 1 + center.y);
-            visualizer.PaintSingleWall(bottomRightCorner, typeWall.rightBottomCorner);
+            //Draw normal wall corner missing
+            DrawCorners(center);
 
         }
 
         visualizer.PaintNextFloorDoor(finalRoomCenter);
+    }
+
+    private void DrawCorners(Vector2Int center)
+    {
+        visualizer.PaintSingleWall(new Vector2Int(-width / 2 - 2 + center.x, height / 2 + center.y), typeWall.left);
+        visualizer.PaintSingleWall(new Vector2Int(-width / 2 - 1 + center.x, height / 2 + center.y + 1), typeWall.top);
+
+        visualizer.PaintSingleWall(new Vector2Int(width / 2 + center.x + 1, height / 2 + center.y), typeWall.right);
+        visualizer.PaintSingleWall(new Vector2Int(width / 2 + center.x, height / 2 + center.y + 1), typeWall.top);
+
+        visualizer.PaintSingleWall(new Vector2Int((-width / 2) - 2 + center.x, (-height / 2) - 1 + center.y), typeWall.left);
+        visualizer.PaintSingleWall(new Vector2Int((-width / 2) - 1 + center.x, (-height / 2) - 2 + center.y), typeWall.bottom);
+
+        visualizer.PaintSingleWall(new Vector2Int((width / 2 + center.x) + 1, (-height / 2) - 1 + center.y), typeWall.right);
+        visualizer.PaintSingleWall(new Vector2Int((width / 2 + center.x), (-height / 2) - 2 + center.y), typeWall.bottom);
+
+        //Draw corner walls
+        visualizer.PaintSingleWall(new Vector2Int(-width / 2 - 2 + center.x, height / 2 + center.y + 1), typeWall.leftTopCorner);
+        visualizer.PaintSingleWall(new Vector2Int(-width / 2 - 1 + center.x, height / 2 + center.y), typeWall.leftTopCorner); //NEW BLOCK INTERIOR CORNERA
+
+        visualizer.PaintSingleWall(new Vector2Int((width / 2 + center.x + 1), (height / 2) + center.y + 1), typeWall.rightTopCorner);
+        visualizer.PaintSingleWall(new Vector2Int((width / 2 + center.x), (height / 2) + center.y), typeWall.rightTopCorner);//NEW INTERIOR BLOCK CORNERA
+
+        visualizer.PaintSingleWall(new Vector2Int((-width / 2) - 1 + center.x, (-height / 2) - 1 + center.y), typeWall.leftBottomCorner);//NEW INTERIOR BLOCK CORNERA
+        visualizer.PaintSingleWall(new Vector2Int((-width / 2) - 2 + center.x, (-height / 2) - 2 + center.y), typeWall.leftBottomCorner);
+
+        visualizer.PaintSingleWall(new Vector2Int((width / 2 + center.x), (-height / 2) - 1 + center.y), typeWall.rightBottomCorner); //NEW INTERIOR BLOCK CORNERA
+
+        visualizer.PaintSingleWall(new Vector2Int((width / 2 + center.x + 1), (-height / 2) - 2 + center.y), typeWall.rightBottomCorner);
     }
 
     private Vector2Int DrawWalls(KeyValuePair<Vector2Int, List<direction>> room, Vector2Int center, List<doorsInfo> doorsBlocks, int i, int j)
