@@ -5,9 +5,6 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
-    [SerializeField]
-    private Sprite speedObject;
-
     items playerItem = items.none;
 
     GameObject playerObject;
@@ -24,7 +21,11 @@ public class ItemManager : MonoBehaviour
         if(playerItem != items.none)
         {
             playerObject.SetActive(true);
-            playerObject.transform.position = gameObject.transform.position;
+            playerObject.transform.position = new Vector3(gameObject.transform.position.x - 7, gameObject.transform.position.y, gameObject.transform.position.z);
+
+            //Move it
+
+            
         }
 
         playerObject = newItem;
@@ -37,7 +38,7 @@ public class ItemManager : MonoBehaviour
             case items.none:
                 break;
             case items.speedHelmet:
-                spriteRenderer.sprite = speedObject;
+                spriteRenderer.sprite = playerObject.GetComponent<SpriteRenderer>().sprite;
                 break;
             default:
                 break;

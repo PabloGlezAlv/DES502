@@ -5,7 +5,6 @@ using UnityEngine;
 [RequireComponent(typeof(Rigidbody2D))]
 public class ObjectMagnet : MonoBehaviour
 {
-    [SerializeField]
     Transform playerTransform;
     [SerializeField]
     GameObject shadow;
@@ -23,6 +22,7 @@ public class ObjectMagnet : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
     }
 
     private void DeactivateMovement()

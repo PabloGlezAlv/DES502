@@ -178,8 +178,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 1, g: 0.8190388, b: 0, a: 1}
+  m_Sprite: {fileID: -7640242614159672242, guid: f7b37b91088c7d44b98c5e710477bd39, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -242,9 +242,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01aec8e78681aba41b25cbb25a7fc76d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 0}
   shadow: {fileID: 1525929094784243769}
-  attractionDistance: 5
+  attractionDistance: 1
   attractionSpeed: 3
   speedMultiplier: 2
 --- !u!58 &8619859875334459872
@@ -299,6 +298,11 @@ MonoBehaviour:
   rareProbability: 0.2
   epicProbability: 0.15
   legendaryProbability: 0.1
+  commonSprite: {fileID: 6352683301991889936, guid: f7b37b91088c7d44b98c5e710477bd39, type: 3}
+  uncommonSprite: {fileID: -8676482130136216939, guid: f7b37b91088c7d44b98c5e710477bd39, type: 3}
+  rareSprite: {fileID: -8984791981334975670, guid: f7b37b91088c7d44b98c5e710477bd39, type: 3}
+  epicSprite: {fileID: -794116353344462730, guid: f7b37b91088c7d44b98c5e710477bd39, type: 3}
+  legendarySprite: {fileID: 5545459940517624553, guid: f7b37b91088c7d44b98c5e710477bd39, type: 3}
 --- !u!1 &8051447936904227821
 GameObject:
   m_ObjectHideFlags: 0

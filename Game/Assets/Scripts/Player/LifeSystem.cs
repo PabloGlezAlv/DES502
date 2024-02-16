@@ -19,6 +19,9 @@ public class LifeSystem : MonoBehaviour
     [SerializeField]
     private int flashTimes = 3;
 
+
+    private SpriteRenderer objectRenderer;
+
     private bool active = true;
     private float timer = 0;
     private int remainingChanges = 0;
@@ -40,6 +43,8 @@ public class LifeSystem : MonoBehaviour
         ShowAllHearts();
 
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+
+        objectRenderer = GetComponentInChildren<ItemManager>().gameObject.GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -55,6 +60,7 @@ public class LifeSystem : MonoBehaviour
             {
                 active = !active;
                 spriteRenderer.enabled = active;
+                objectRenderer.enabled = active;
 
                 timer = duration / (flashTimes * 2);
                 remainingChanges--;
