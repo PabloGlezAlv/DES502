@@ -42,17 +42,30 @@ public class PlayerMovement : MonoBehaviour
     int horizontalKeysDown = 0;
     int verticalKeysDown = 0;
 
+    BoxCollider2D collider;
+
     public Vector2Int GetCurrentRoom()
     {
         return currentRoom;
     }
-    public void SetDoorMovement(Vector2Int value)
+    public void SetDoorMovement(Vector2Int value, direction dir)
     {
         currentRoom = value;
         doorMovement = true;
 
-        horizontalMovementDoor = horizontalMovement;
-        verticalMovementDoor = verticalMovement;
+
+        horizontalMovementDoor = 0;
+        verticalMovementDoor = 0;
+
+        collider.isTrigger = true;
+
+        switch (dir)
+        {
+            case direction.right: horizontalMovementDoor = 1; break;
+            case direction.left: horizontalMovementDoor = -1; break;
+            case direction.top: verticalMovementDoor = 1; break;
+            case direction.bottom: verticalMovementDoor = -1; break;
+        }
     }
 
     public direction GetCurrentDirection()
@@ -64,6 +77,8 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        collider = GetComponent<BoxCollider2D>();
 
         currentAttack = directions[0]; //First direction right
 
@@ -115,6 +130,8 @@ public class PlayerMovement : MonoBehaviour
                 doorsController.ChangeDoorsState(false); //CloseDoors
                 doorMovement = false;
                 timer = 0;
+                collider.isTrigger = false;
+                Debug.Log("End Door");
             }
         }
         
@@ -263,7 +280,5 @@ public class PlayerMovement : MonoBehaviour
         UnityEngine.Vector3 movement = new UnityEngine.Vector3(horizontalMovement, verticalMovement, 0f).normalized * speed * Time.fixedDeltaTime;
 
         rb.MovePosition(transform.position + movement);
-
-        Debug.Log(speed);
     }
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 
 public class ChangeRoom : MonoBehaviour
 {
@@ -11,9 +12,16 @@ public class ChangeRoom : MonoBehaviour
 
     private CameraMovement cam;
 
+    List<doorsInfo> doors;
+
     private void Start()
     {
         cam = Camera.main.gameObject.GetComponent<CameraMovement>();
+    }
+
+    public void SaveDoors(List<doorsInfo> d)
+    {
+        doors = d;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -24,7 +32,7 @@ public class ChangeRoom : MonoBehaviour
         {
             Vector2Int center = mov.GetCurrentRoom();
 
-            direction dir = mov.GetCurrentDirection();
+            direction dir = GetCloserDoorDirection(new Vector2Int((int)collision.transform.position.x, (int)collision.transform.position.y));
 
             Vector2Int finalPositon = new Vector2Int();
 
@@ -53,8 +61,35 @@ public class ChangeRoom : MonoBehaviour
 
             if (cam.SetPosition(finalPositon))
             {
-                mov.SetDoorMovement(finalPositon);
+                mov.SetDoorMovement(finalPositon, dir);
             }
         }
     }
+
+    private direction GetCloserDoorDirection(Vector2Int playerPos)
+    {
+        direction dir = direction.none;
+
+        float distance = 9999;
+
+        foreach(doorsInfo door in doors)
+        {
+            float newDist = Vector2Int.Distance(playerPos, door.position[0]);
+            if(newDist < distance)
+            {
+                distance = newDist;
+                dir = door.dir;
+
+                if(distance < 2) //Means the block is one of the closers
+                {
+                    break;
+                }
+            }
+        }
+
+        Debug.Log("Door direction " + dir);
+        return dir;
+    }
 }
+
+

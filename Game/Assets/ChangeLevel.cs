@@ -6,7 +6,7 @@ public class ChangeLevel : MonoBehaviour
 {
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.GetComponent<PlayerMovement>() != null)
+        if (collision.gameObject.GetComponent<PlayerMovement>() != null)
         {
             Debug.Log("Siguiente nivel");
         }

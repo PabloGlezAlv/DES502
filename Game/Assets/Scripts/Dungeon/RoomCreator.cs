@@ -8,6 +8,12 @@ using UnityEngine;
 
 public enum direction { none, top, bottom, left, right }
 
+public struct doorsInfo
+{
+    public List<Vector2Int> position;
+
+    public direction dir;
+}
 
 public class RoomCreator : MonoBehaviour
 {
@@ -15,6 +21,8 @@ public class RoomCreator : MonoBehaviour
     TileMapVisualizer visualizer;
     [SerializeField]
     GameObject player;
+    [SerializeField]
+    ChangeRoom changeRoom;
 
     [SerializeField]
     SpikeLogic spikeTrap;
@@ -32,13 +40,6 @@ public class RoomCreator : MonoBehaviour
     private int stepsPerWalk = 10;
     [SerializeField]
     private int numberWalk = 10;
-
-    struct doorsInfo
-    {
-        public List<Vector2Int> position;
-
-        public direction dir;
-    }
 
     //Room center - Doors
     private Dictionary<Vector2Int, List<direction>> roomsInfo = new Dictionary<Vector2Int, List<direction>>();
@@ -119,6 +120,7 @@ public class RoomCreator : MonoBehaviour
 
     private void DrawRoom()
     {
+        List<doorsInfo> doorsAllBlocks = new List<doorsInfo>();
         foreach (var room in roomsInfo)
         {
             Vector2Int center = room.Key;
@@ -146,7 +148,13 @@ public class RoomCreator : MonoBehaviour
             //Draw normal wall corner missing
             DrawCorners(center);
 
+            foreach(doorsInfo doorsBlock in doorsBlocks)
+            {
+                doorsAllBlocks.Add(doorsBlock);
+            }
         }
+
+        changeRoom.SaveDoors(doorsAllBlocks);
 
         visualizer.PaintNextFloorDoor(finalRoomCenter);
     }

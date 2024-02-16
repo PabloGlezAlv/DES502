@@ -14,7 +14,7 @@ enum typeWall{top, topInside, left, leftTopCorner, leftBottomCorner, right, righ
 public class TileMapVisualizer : MonoBehaviour
 {
     [SerializeField]
-    private GameObject floorTilemapGameObject, wallTilemapGameObject, wallTopmapGameObject, doorsTileGameObject, doorsTopGameObject, nextLevelGameObject, trampGameObject;
+    private GameObject floorTilemapGameObject, wallTilemapGameObject, doorsTileGameObject, nextLevelGameObject, trampGameObject;
     [Header("Floor")]
     [SerializeField]
     private TileBase floorTile, floorCorridorTile;
@@ -36,7 +36,7 @@ public class TileMapVisualizer : MonoBehaviour
     private TileBase spikeOff, spikeOn;
 
 
-    private Tilemap floorTilemap, wallTilemap, wallTopmap, doorsTile, doorsTop, nextLevel, trap;
+    private Tilemap floorTilemap, wallTilemap, doorsTile, nextLevel, trap;
 
     private TilemapCollider2D doorsTileCollider, doorsTopCollider;
 
@@ -44,14 +44,11 @@ public class TileMapVisualizer : MonoBehaviour
     {
         floorTilemap = floorTilemapGameObject.GetComponent<Tilemap>();
         wallTilemap = wallTilemapGameObject.GetComponent<Tilemap>();
-        wallTopmap = wallTopmapGameObject.GetComponent<Tilemap>();
         doorsTile = doorsTileGameObject.GetComponent<Tilemap>();
-        doorsTop = doorsTopGameObject.GetComponent<Tilemap>();
         nextLevel = nextLevelGameObject.GetComponent<Tilemap>();
         trap = trampGameObject.GetComponent<Tilemap>();
 
         doorsTileCollider = doorsTileGameObject.GetComponent<TilemapCollider2D>();
-        doorsTopCollider = doorsTopGameObject.GetComponent<TilemapCollider2D>();
     }
 
     public void PaintSpike(Vector2Int position, bool on)
@@ -88,12 +85,10 @@ public class TileMapVisualizer : MonoBehaviour
         if(open)
         {
             doorsTileCollider.isTrigger = true;
-            doorsTopCollider.isTrigger = true;
         }
         else
         {
             doorsTileCollider.isTrigger = false;
-            doorsTopCollider.isTrigger = false;
         }
     }
 
@@ -105,14 +100,8 @@ public class TileMapVisualizer : MonoBehaviour
         else
             tile = closeDoorTileTop;
 
-        if (dir == direction.top)
-        {
-            PaintSingleTile(doorsTop, tile, floorPositions );
-        }
-        else
-        {
-            PaintSingleTile(doorsTile, tile, floorPositions);
-        }
+
+        PaintSingleTile(doorsTile, tile, floorPositions);    
     }
 
     public void PaintCorridorTiles(IEnumerable<Vector2Int> floorPositions)
@@ -137,9 +126,7 @@ public class TileMapVisualizer : MonoBehaviour
     {
         floorTilemap.ClearAllTiles();
         wallTilemap.ClearAllTiles();
-        wallTopmap.ClearAllTiles();
         doorsTile.ClearAllTiles();
-        doorsTop.ClearAllTiles();
         nextLevel.ClearAllTiles();
         trap.ClearAllTiles();
     }
@@ -147,7 +134,6 @@ public class TileMapVisualizer : MonoBehaviour
     internal void PaintSingleWall(Vector2Int position, typeWall type)
     {
         TileBase tile = null;
-        bool topInRoom = false;
         switch (type)
         {
             case typeWall.left:
@@ -158,11 +144,9 @@ public class TileMapVisualizer : MonoBehaviour
                 break;
             case typeWall.top:
                 tile = top;
-                topInRoom = true;
                 break;
             case typeWall.topInside:
                 tile = topInside;
-                topInRoom = true;
                 break;
             case typeWall.bottom:
                 tile = bottom;
@@ -187,10 +171,7 @@ public class TileMapVisualizer : MonoBehaviour
 
         if (tile != null)
         {
-            if(topInRoom)
-                PaintSingleTile(wallTopmap, tile, position);
-            else
-                PaintSingleTile(wallTilemap, tile, position);
+            PaintSingleTile(wallTilemap, tile, position);
         }
     }
 }
