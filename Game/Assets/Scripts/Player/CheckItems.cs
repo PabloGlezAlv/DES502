@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Net.Http.Headers;
 using UnityEngine;
 
-enum items { none, speedHelmet}
+public enum items { none, speedHelmet}
 
 public class CheckItems : MonoBehaviour
 {
+    [SerializeField]
+    ItemManager manager;
+
     private GameObject player;
 
     items myItem = items.none;
@@ -38,6 +41,7 @@ public class CheckItems : MonoBehaviour
             //Add new Effect
             myItem = items.speedHelmet;
             player.GetComponent<PlayerMovement>().AddSpeed(speed.GetUpgrade());
+            manager.ChangeItem(collision.gameObject, myItem);
 
             //Deactivate
             collision.transform.parent.gameObject.SetActive(false);

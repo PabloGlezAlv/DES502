@@ -62481,7 +62481,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1892688382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -62588,6 +62588,24 @@ Transform:
   - {fileID: 473498022}
   m_Father: {fileID: 564679666}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2004300875 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2903265785485686, guid: 0a39cba4be47e9a459180c251f21272b, type: 3}
+  m_PrefabInstance: {fileID: 7116955839985836413}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2004300877
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2004300875}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 277e8ec08782ade43aff3a254fa81338, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speedObject: {fileID: -7640242614159672242, guid: f7b37b91088c7d44b98c5e710477bd39, type: 3}
 --- !u!1 &2088973387
 GameObject:
   m_ObjectHideFlags: 0
@@ -63296,6 +63314,10 @@ PrefabInstance:
       propertyPath: playerTransform
       value: 
       objectReference: {fileID: 1975048945}
+    - target: {fileID: 5263888174968736408, guid: 26aea5bd08386474db6d69e32bcbeed3, type: 3}
+      propertyPath: attractionDistance
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8051447936904227821, guid: 26aea5bd08386474db6d69e32bcbeed3, type: 3}
       propertyPath: m_Name
       value: ObjectSpeed
@@ -63550,6 +63572,18 @@ PrefabInstance:
       propertyPath: emptyHearts.Array.data[4]
       value: 
       objectReference: {fileID: 1880527239}
+    - target: {fileID: 5344326259405054704, guid: 0a39cba4be47e9a459180c251f21272b, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5344326259405054704, guid: 0a39cba4be47e9a459180c251f21272b, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5344326259405054704, guid: 0a39cba4be47e9a459180c251f21272b, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7758023512547504260, guid: 0a39cba4be47e9a459180c251f21272b, type: 3}
       propertyPath: doorsController
       value: 
@@ -63558,6 +63592,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 9076562976604089203, guid: 0a39cba4be47e9a459180c251f21272b, type: 3}
+      propertyPath: manager
+      value: 
+      objectReference: {fileID: 2004300877}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -63565,6 +63603,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 2689306729060229898, guid: 0a39cba4be47e9a459180c251f21272b, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1975048951}
+    - targetCorrespondingSourceObject: {fileID: 2903265785485686, guid: 0a39cba4be47e9a459180c251f21272b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2004300877}
   m_SourcePrefab: {fileID: 100100000, guid: 0a39cba4be47e9a459180c251f21272b, type: 3}
 --- !u!1001 &8009251069077215879
 PrefabInstance:
