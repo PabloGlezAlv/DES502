@@ -26,6 +26,7 @@ public class PlayerMovement : MonoBehaviour
 
     GameObject currentAttack;
 
+    private float baseSpeed;
 
     bool doorMovement = false;
 
@@ -56,7 +57,8 @@ public class PlayerMovement : MonoBehaviour
 
     public direction GetCurrentDirection()
     {
-        return inputs[0];
+        if (inputs.Count() > 0) return inputs[0];
+        else return direction.none;
     }
 
     private void Awake()
@@ -64,6 +66,18 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         currentAttack = directions[0]; //First direction right
+
+        baseSpeed = speed;
+    }
+
+    public void AddSpeed(float speedMultiplier)
+    {
+        speed *= speedMultiplier;
+    }
+
+    public void ResetSpeed()
+    {
+        speed = baseSpeed;
     }
 
     private void ChangeAttack(direction newDir)
@@ -249,5 +263,7 @@ public class PlayerMovement : MonoBehaviour
         UnityEngine.Vector3 movement = new UnityEngine.Vector3(horizontalMovement, verticalMovement, 0f).normalized * speed * Time.fixedDeltaTime;
 
         rb.MovePosition(transform.position + movement);
+
+        Debug.Log(speed);
     }
 }

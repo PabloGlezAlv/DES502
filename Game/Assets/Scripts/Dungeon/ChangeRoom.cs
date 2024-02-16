@@ -34,16 +34,16 @@ public class ChangeRoom : MonoBehaviour
                     Debug.Log("Error direction none");
                     break;
                 case direction.top:
-                    finalPositon = new Vector2Int(center.x, center.y + height + 3);
+                    finalPositon = new Vector2Int(center.x, center.y + height + 4);
                     break;
                 case direction.bottom:
-                    finalPositon = new Vector2Int(center.x, center.y - height - 3);
+                    finalPositon = new Vector2Int(center.x, center.y - height - 4);
                     break;
                 case direction.left:
-                    finalPositon = new Vector2Int(center.x - width - 2, center.y);
+                    finalPositon = new Vector2Int(center.x - width - 4, center.y);
                     break;
                 case direction.right:
-                    finalPositon = new Vector2Int(center.x + width + 2, center.y);
+                    finalPositon = new Vector2Int(center.x + width + 4, center.y);
                     break;
                 default:
                     Debug.Log("No direction error");
@@ -53,7 +53,6 @@ public class ChangeRoom : MonoBehaviour
 
             if (cam.SetPosition(finalPositon))
             {
-                Debug.Log("NEW CENTER " + finalPositon);
                 mov.SetDoorMovement(finalPositon);
             }
         }

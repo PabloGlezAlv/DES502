@@ -58,7 +58,6 @@ public class CameraMovement : MonoBehaviour
 
             return true;
         }
-        Debug.Log("aLREADY MOVING CAMERA");
         return false;
     }
 }
