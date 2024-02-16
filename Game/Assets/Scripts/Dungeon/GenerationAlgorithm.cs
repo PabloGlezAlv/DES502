@@ -11,13 +11,13 @@ using UnityEngine;
 
 public class GenerationAlgorithm : MonoBehaviour
 {
-    public static Dictionary<Vector2Int, List<direction>> SimpleRandomWalk(Vector2Int startPosition, int width, int height, int walkLength,
+    public static Dictionary<Vector2Int, List<Direction>> SimpleRandomWalk(Vector2Int startPosition, int width, int height, int walkLength,
         int numberWalks, ref Vector2Int finalRoom)
     {
         int goodWalk = UnityEngine.Random.Range(0, numberWalks);
 
-        Dictionary<Vector2Int, List<direction>> path = new Dictionary<Vector2Int, List<direction>>();
-        path.Add(startPosition, new List<direction>());
+        Dictionary<Vector2Int, List<Direction>> path = new Dictionary<Vector2Int, List<Direction>>();
+        path.Add(startPosition, new List<Direction>());
         var previousPosition = startPosition;
         for(int i = 0; i < numberWalks;i++)
         {
@@ -27,33 +27,33 @@ public class GenerationAlgorithm : MonoBehaviour
             {
                 Vector2Int newDir = Direction2D.GetRandomCardinalDirection();
 
-                direction opposite = direction.none;
+                Direction opposite = Direction.None;
                 bool included = true;
                 if(path.ContainsKey(previousPosition)) //Old room, open a new door
                 {
-                    List<direction> existingVector = path[previousPosition];
-                    if(newDir.x == 1 && !existingVector.Contains(direction.right)) //Right
+                    List<Direction> existingVector = path[previousPosition];
+                    if(newDir.x == 1 && !existingVector.Contains(Direction.Right)) //Right
                     {
-                        existingVector.Add(direction.right);
-                        opposite = direction.left;
+                        existingVector.Add(Direction.Right);
+                        opposite = Direction.Left;
                         included = false;
                     }
-                    else if (newDir.x == -1 && !existingVector.Contains(direction.left)) // Left
+                    else if (newDir.x == -1 && !existingVector.Contains(Direction.Left)) // Left
                     {
-                        existingVector.Add(direction.left);
-                        opposite = direction.right;
+                        existingVector.Add(Direction.Left);
+                        opposite = Direction.Right;
                         included = false;
                     }
-                    else if (newDir.y == 1 && !existingVector.Contains(direction.top)) // Up
+                    else if (newDir.y == 1 && !existingVector.Contains(Direction.Top)) // Up
                     {
-                        existingVector.Add(direction.top);
-                        opposite = direction.bottom;
+                        existingVector.Add(Direction.Top);
+                        opposite = Direction.Bottom;
                         included = false;
                     }
-                    else if (newDir.y == -1 && !existingVector.Contains(direction.bottom)) // Down
+                    else if (newDir.y == -1 && !existingVector.Contains(Direction.Bottom)) // Down
                     {
-                        existingVector.Add(direction.bottom);
-                        opposite = direction.top;
+                        existingVector.Add(Direction.Bottom);
+                        opposite = Direction.Top;
                         included = false;
                     }
 
@@ -63,25 +63,25 @@ public class GenerationAlgorithm : MonoBehaviour
                 else //New room create it
                 {
                     included = false;
-                    List<direction> newVector = new List<direction>();
+                    List<Direction> newVector = new List<Direction>();
                     if (newDir.x == 1 ) //Right
                     {
-                        newVector.Add(direction.right);
+                        newVector.Add(Direction.Right);
                         path.Add(previousPosition, newVector);
                     }
                     else if (newDir.x == -1 ) // Left
                     {
-                        newVector.Add(direction.left);
+                        newVector.Add(Direction.Left);
                         path.Add(previousPosition, newVector);
                     }
                     else if (newDir.y == 1 ) // Up
                     {
-                        newVector.Add(direction.top);
+                        newVector.Add(Direction.Top);
                         path.Add(previousPosition, newVector);
                     }
                     else if (newDir.y == -1) // Down
                     {
-                        newVector.Add(direction.bottom);
+                        newVector.Add(Direction.Bottom);
                         path.Add(previousPosition, newVector);
                     }
                 }
@@ -103,7 +103,7 @@ public class GenerationAlgorithm : MonoBehaviour
 
                 if (path.ContainsKey(previousPosition) && !included)
                 {
-                    List<direction> existingVector = path[previousPosition];
+                    List<Direction> existingVector = path[previousPosition];
                     
                     if(!existingVector.Contains(opposite))
                     {
@@ -115,7 +115,7 @@ public class GenerationAlgorithm : MonoBehaviour
                 }
                 else if(!included)
                 {
-                    List<direction> newVector = new List<direction>();
+                    List<Direction> newVector = new List<Direction>();
                     newVector.Add(opposite);
                     path.Add(previousPosition, newVector);
                 }

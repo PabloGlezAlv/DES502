@@ -32,25 +32,25 @@ public class ChangeRoom : MonoBehaviour
         {
             Vector2Int center = mov.GetCurrentRoom();
 
-            direction dir = GetCloserDoorDirection(new Vector2Int((int)collision.transform.position.x, (int)collision.transform.position.y));
+            Direction dir = GetCloserDoorDirection(new Vector2Int((int)collision.transform.position.x, (int)collision.transform.position.y));
 
-            Vector2Int finalPositon = new Vector2Int();
+            Vector2Int finalPositon = new();
 
             switch (dir)
             {
-                case direction.none:
+                case Direction.None:
                     Debug.Log("Error direction none");
                     break;
-                case direction.top:
+                case Direction.Top:
                     finalPositon = new Vector2Int(center.x, center.y + height + 4);
                     break;
-                case direction.bottom:
+                case Direction.Bottom:
                     finalPositon = new Vector2Int(center.x, center.y - height - 4);
                     break;
-                case direction.left:
+                case Direction.Left:
                     finalPositon = new Vector2Int(center.x - width - 4, center.y);
                     break;
-                case direction.right:
+                case Direction.Right:
                     finalPositon = new Vector2Int(center.x + width + 4, center.y);
                     break;
                 default:
@@ -66,9 +66,9 @@ public class ChangeRoom : MonoBehaviour
         }
     }
 
-    private direction GetCloserDoorDirection(Vector2Int playerPos)
+    private Direction GetCloserDoorDirection(Vector2Int playerPos)
     {
-        direction dir = direction.none;
+        Direction dir = Direction.None;
 
         float distance = 9999;
 

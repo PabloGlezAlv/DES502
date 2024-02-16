@@ -11,7 +11,7 @@ public class PlayerAttack : MonoBehaviour
 
     private float timer = 0;
     private bool attacking = false;
-    private Collider2D collider2D;
+    private new Collider2D collider2D;
 
 
     private void Start()

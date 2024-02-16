@@ -16,23 +16,23 @@ public class CoinObject : BaseObject
 
         switch (objectRarity)
         {
-            case rarity.common:
+            case Rarity.Common:
                 amount = 1;
                 renderer.color = Color.white;
                 break;
-            case rarity.uncommon:
+            case Rarity.Uncommon:
                 amount = 2;
                 renderer.color = Color.green;
                 break;
-            case rarity.rare:
+            case Rarity.Rare:
                 amount = 4;
                 renderer.color = Color.blue;
                 break;
-            case rarity.epic:
+            case Rarity.Epic:
                 amount = 8;
                 renderer.color = Color.magenta;
                 break;
-            case rarity.legendary:
+            case Rarity.Legendary:
                 amount = 16;
                 renderer.color = Color.yellow;
                 break;
@@ -42,7 +42,7 @@ public class CoinObject : BaseObject
         }
     }
 
-    public int getCoins()
+    public int GetCoins()
     {
         return amount;
     }

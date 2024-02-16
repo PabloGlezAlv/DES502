@@ -13,7 +13,7 @@ public class ObjectMovement : MonoBehaviour
     private bool onFloor = true;  // Levitate or not
 
     private float originalY;  
-    private Rigidbody2D rigidbody2D;
+    private new Rigidbody2D rigidbody2D;
 
     void Start()
     {

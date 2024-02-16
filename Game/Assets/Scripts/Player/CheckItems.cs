@@ -24,7 +24,7 @@ public class CheckItems : MonoBehaviour
         {
             Debug.Log("New coin");
 
-            player.GetComponent<PlayerData>().addCoins(coin.getCoins());
+            player.GetComponent<PlayerData>().addCoins(coin.GetCoins());
 
             //Deactivate
             collision.transform.parent.gameObject.SetActive(false);

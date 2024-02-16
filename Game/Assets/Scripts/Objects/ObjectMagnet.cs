@@ -18,8 +18,6 @@ public class ObjectMagnet : MonoBehaviour
 
     private bool magnet = false;
 
-    private float minDistance = 1f;
-
     private Rigidbody2D rb;
 
     void Start()
@@ -51,8 +49,6 @@ public class ObjectMagnet : MonoBehaviour
         if (magnet)
         {
             Vector2 directionToPlayer = playerTransform.position - transform.position;
-
-            float maxSpeed = attractionSpeed * speedMultiplier;
 
 
             directionToPlayer.Normalize();

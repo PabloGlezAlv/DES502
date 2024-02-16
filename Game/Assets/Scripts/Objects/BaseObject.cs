@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public enum rarity{common, uncommon, rare, epic, legendary }
+public enum Rarity{Common, Uncommon, Rare, Epic, Legendary }
 
 public class BaseObject : MonoBehaviour
 {
@@ -18,34 +18,34 @@ public class BaseObject : MonoBehaviour
     protected float legendaryProbability = 0.1f;
 
 
-    protected rarity objectRarity;
+    protected Rarity objectRarity;
     protected void Start()
     {
         objectRarity = GenerateRandomRarity();
     }
-    private rarity GenerateRandomRarity()
+    private Rarity GenerateRandomRarity()
     {
         float randomValue = Random.value;
 
         if (randomValue < commonProbability)
         {
-            return rarity.common;
+            return Rarity.Common;
         }
         else if (randomValue < commonProbability + uncommonProbability)
         {
-            return rarity.uncommon;
+            return Rarity.Uncommon;
         }
         else if (randomValue < commonProbability + uncommonProbability + rareProbability)
         {
-            return rarity.rare;
+            return Rarity.Rare;
         }
         else if (randomValue < commonProbability + uncommonProbability + rareProbability + epicProbability)
         {
-            return rarity.epic;
+            return Rarity.Epic;
         }
         else
         {
-            return rarity.legendary;
+            return Rarity.Legendary;
         }
     }
 

@@ -13,8 +13,6 @@ public class CameraMovement : MonoBehaviour
 
     private Vector3 endPosition;
 
-    private Vector2Int movementDirection = new Vector2Int();
-
     bool changingPosition = false;
 
     float elapsedTime = 0;

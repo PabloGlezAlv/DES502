@@ -16,23 +16,23 @@ public class SpeedObject : BaseObject
 
         switch (objectRarity)
         {
-            case rarity.common:
+            case Rarity.Common:
                 speedImprovement = 1.04f;
                 renderer.color = Color.white;
                 break;
-            case rarity.uncommon:
+            case Rarity.Uncommon:
                 speedImprovement = 1.08f;
                 renderer.color = Color.green;
                 break;
-            case rarity.rare:
+            case Rarity.Rare:
                 speedImprovement = 1.12f;
                 renderer.color = Color.blue;
                 break;
-            case rarity.epic:
+            case Rarity.Epic:
                 speedImprovement = 1.16f;
                 renderer.color = Color.magenta;
                 break;
-            case rarity.legendary:
+            case Rarity.Legendary:
                 speedImprovement = 1.20f;
                 renderer.color = Color.yellow;
                 break;

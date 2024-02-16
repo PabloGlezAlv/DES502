@@ -38,7 +38,7 @@ public class TileMapVisualizer : MonoBehaviour
 
     private Tilemap floorTilemap, wallTilemap, doorsTile, nextLevel, trap;
 
-    private TilemapCollider2D doorsTileCollider, doorsTopCollider;
+    private TilemapCollider2D doorsTileCollider;
 
     private void Awake()
     {
@@ -80,7 +80,7 @@ public class TileMapVisualizer : MonoBehaviour
         PaintTiles(floorPositions, floorTilemap, floorTile);
     }
 
-    public void setDoorCollider(bool open)
+    public void SetDoorCollider(bool open)
     {
         if(open)
         {
@@ -92,7 +92,7 @@ public class TileMapVisualizer : MonoBehaviour
         }
     }
 
-    public void PaintDoorTiles(Vector2Int floorPositions, bool open, direction dir)
+    public void PaintDoorTiles(Vector2Int floorPositions, bool open, Direction dir)
     {
         TileBase tile;
         if (open)

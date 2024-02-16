@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private List<GameObject> directions = new List<GameObject>(4);
 
-    private List<direction> inputs = new List<direction>(4);
+    private List<Direction> inputs = new List<Direction>(4);
 
     private Rigidbody2D rb;
 
@@ -41,14 +41,13 @@ public class PlayerMovement : MonoBehaviour
 
     int horizontalKeysDown = 0;
     int verticalKeysDown = 0;
-
-    BoxCollider2D collider;
+    new BoxCollider2D collider;
 
     public Vector2Int GetCurrentRoom()
     {
         return currentRoom;
     }
-    public void SetDoorMovement(Vector2Int value, direction dir)
+    public void SetDoorMovement(Vector2Int value, Direction dir)
     {
         currentRoom = value;
         doorMovement = true;
@@ -61,17 +60,17 @@ public class PlayerMovement : MonoBehaviour
 
         switch (dir)
         {
-            case direction.right: horizontalMovementDoor = 1; break;
-            case direction.left: horizontalMovementDoor = -1; break;
-            case direction.top: verticalMovementDoor = 1; break;
-            case direction.bottom: verticalMovementDoor = -1; break;
+            case Direction.Right: horizontalMovementDoor = 1; break;
+            case Direction.Left: horizontalMovementDoor = -1; break;
+            case Direction.Top: verticalMovementDoor = 1; break;
+            case Direction.Bottom: verticalMovementDoor = -1; break;
         }
     }
 
-    public direction GetCurrentDirection()
+    public Direction GetCurrentDirection()
     {
         if (inputs.Count() > 0) return inputs[0];
-        else return direction.none;
+        else return Direction.None;
     }
 
     private void Awake()
@@ -95,23 +94,23 @@ public class PlayerMovement : MonoBehaviour
         speed = baseSpeed;
     }
 
-    private void ChangeAttack(direction newDir)
+    private void ChangeAttack(Direction newDir)
     {
         currentAttack.SetActive(false);
         switch (newDir)
         {
-            case direction.none:
+            case Direction.None:
                 break;
-            case direction.right:
+            case Direction.Right:
                 currentAttack = directions[0];
                 break;
-            case direction.left:
+            case Direction.Left:
                 currentAttack = directions[1];
                 break;
-            case direction.top:
+            case Direction.Top:
                 currentAttack = directions[2];
                 break;
-            case direction.bottom:
+            case Direction.Bottom:
                 currentAttack = directions[3];
                 break;
         }
@@ -142,12 +141,12 @@ public class PlayerMovement : MonoBehaviour
                 {
                     horizontalMovement += -1f;
                     horizontalKeysDown++;
-                    inputs.Add(direction.left);
+                    inputs.Add(Direction.Left);
                     if (horizontalKeysDown == 2)
                     {
                         horizontalMovement += -1f;
-                        inputs.Remove(direction.right); //Reset postion in list
-                        inputs.Add(direction.right);
+                        inputs.Remove(Direction.Right); //Reset postion in list
+                        inputs.Add(Direction.Right);
                     }
 
                     change = true;
@@ -156,13 +155,13 @@ public class PlayerMovement : MonoBehaviour
                 {
                     horizontalMovement += 1f;
                     horizontalKeysDown++;
-                    inputs.Add(direction.right);
+                    inputs.Add(Direction.Right);
                     if (horizontalKeysDown == 2)
                     { 
                         horizontalMovement += 1f;
 
-                        inputs.Remove(direction.left); //Reset postion in list
-                        inputs.Add(direction.left);
+                        inputs.Remove(Direction.Left); //Reset postion in list
+                        inputs.Add(Direction.Left);
                     }
                     change = true;
                 }
@@ -171,13 +170,13 @@ public class PlayerMovement : MonoBehaviour
                 {
                     verticalMovement += 1f;
                     verticalKeysDown++;
-                    inputs.Add(direction.top);
+                    inputs.Add(Direction.Top);
                     if (verticalKeysDown == 2)
                     {
                         verticalMovement += 1f;
 
-                        inputs.Remove(direction.bottom); //Reset postion in list
-                        inputs.Add(direction.bottom);
+                        inputs.Remove(Direction.Bottom); //Reset postion in list
+                        inputs.Add(Direction.Bottom);
                     }
                     change = true;
                 }
@@ -185,13 +184,13 @@ public class PlayerMovement : MonoBehaviour
                 {
                     verticalMovement += -1f;
                     verticalKeysDown++;
-                    inputs.Add(direction.bottom);
+                    inputs.Add(Direction.Bottom);
                     if (verticalKeysDown == 2)
                     {
                         verticalMovement += -1f;
 
-                        inputs.Remove(direction.top); //Reset postion in list
-                        inputs.Add(direction.top);
+                        inputs.Remove(Direction.Top); //Reset postion in list
+                        inputs.Add(Direction.Top);
                     }
                     change = true;
                 }
@@ -211,7 +210,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     horizontalMovement = 1f;
                 }
-                inputs.Remove(direction.left);
+                inputs.Remove(Direction.Left);
             }
             if (Input.GetKeyUp(KeyCode.D))
             {
@@ -226,7 +225,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     horizontalMovement = -1f;
                 }
-                inputs.Remove(direction.right);
+                inputs.Remove(Direction.Right);
             }
             if (Input.GetKeyUp(KeyCode.W))
             {
@@ -242,7 +241,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     verticalMovement = -1f;
                 }
-                inputs.Remove(direction.top);
+                inputs.Remove(Direction.Top);
             }
             if (Input.GetKeyUp(KeyCode.S))
             {
@@ -258,7 +257,7 @@ public class PlayerMovement : MonoBehaviour
                 {
                     verticalMovement = 1f;
                 }
-                inputs.Remove(direction.bottom);
+                inputs.Remove(Direction.Bottom);
             }
 
             if (change && inputs.Count > 0)
