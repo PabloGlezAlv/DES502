@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
@@ -15,7 +16,7 @@ public class SkeletonMovement : EnemyBase
     private float changeDirPosAttack = 1.0f;
 
     [Range(0f, 1f)]
-    private float focusPlayer = 0.4f; 
+    private float focusPlayer = 0.4f;
 
     [Range(0f, 1f)]
     private float sidePlayer = 0.3f;
@@ -34,16 +35,17 @@ public class SkeletonMovement : EnemyBase
     private float movementTimer = 0f;
 
 
-
     bool justAttacked = false;
 
     private SkeletonAttack attack;
 
     private float timerAttack = 0f;
 
-
-    private void Start()
+    protected void Awake()
     {
+        base.Awake();
+        baseSpeed = speed;
+
         movementTimer = changeDirection;
 
         attack = GetComponentInChildren<SkeletonAttack>();
@@ -51,6 +53,26 @@ public class SkeletonMovement : EnemyBase
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
         actualDir = attackDir[0];
+    }
+
+    private void Start()
+    {
+        //There is an object
+        if (itemID != Items.none)
+        {
+            switch (itemID)
+            {
+                case Items.SpeedHelmet:
+                    objectRenderer.sprite = ObjectsManager.instance.getSpeedSprite((int)itemRarity);
+
+                    MultiplierSpeed(ObjectsManager.instance.getSpeedUpgrade((int)itemRarity));
+                    break;
+                default:
+                    Console.WriteLine("Rareza desconocida.");
+                    break;
+            }
+
+        }
     }
 
     void FixedUpdate()
@@ -70,16 +92,16 @@ public class SkeletonMovement : EnemyBase
         }
         else if (movementTimer < 0) //Change actualdirection
         {
-            // Calcula la dirección hacia el jugador
+            // Calcula la direcciÃ³n hacia el jugador
             direction = (player.position - transform.position).normalized;
 
-            float rndDir = Random.Range(0.0f, 1.0f);
+            float rndDir = UnityEngine.Random.Range(0.0f, 1.0f);
 
             if (rndDir >= focusPlayer) // Ir a los lados
             {
                 float angle = Mathf.Clamp(RandomGaussian(45, 15), 0f, 90f);
 
-                if (Random.Range(0.0f, 1.0f) <= sidePlayer) // Moverse hacia el lado izquierdo
+                if (UnityEngine.Random.Range(0.0f, 1.0f) <= sidePlayer) // Moverse hacia el lado izquierdo
                     angle = -angle;
 
                 Quaternion rotation = Quaternion.Euler(0, 0, angle);
@@ -166,10 +188,10 @@ public class SkeletonMovement : EnemyBase
     // Gaussian function, play with parameters different results
     private float RandomGaussian(float media, float desviacionEstandar)
     {
-        float u1 = 1f - Random.value;
-        float u2 = 1f - Random.value;
+        float u1 = 1f - UnityEngine.Random.value;
+        float u2 = 1f - UnityEngine.Random.value;
         float randStdNormal = Mathf.Sqrt(-2f * Mathf.Log(u1)) * Mathf.Sin(2f * Mathf.PI * u2);
-        float randNormal = media + desviacionEstandar * randStdNormal; 
+        float randNormal = media + desviacionEstandar * randStdNormal;
         return randNormal;
     }
 

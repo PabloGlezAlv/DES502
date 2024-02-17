@@ -23,24 +23,43 @@ public class EnemyBase : MonoBehaviour
     protected Vector3 direction;
 
     protected Rigidbody2D rb;
+    [SerializeField]
+    protected SpriteRenderer objectRenderer;
+    protected float baseSpeed;
 
-    SpriteRenderer objectRenderer;
-
-    protected SpriteRenderer spriterenderer;
+    protected SpriteRenderer spriteRenderer;
     private float timerWhite;
     private bool damageReceived = false;
 
     private Color normal;
+
+    protected Items itemID = Items.none;
+    protected Rarity itemRarity = Rarity.Common;
+
     protected void Awake()
     {
+        baseSpeed = speed;
+
         rb = GetComponent<Rigidbody2D>();
 
         actualLife = maxLife;
-        spriterenderer = GetComponent<SpriteRenderer>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
-        normal = spriterenderer.color;
+        normal = spriteRenderer.color;
 
-        objectRenderer = GetComponentInChildren<SpriteRenderer>();
+        SetObject();
+    }
+
+    private void SetObject()
+    {
+        float randomValue = UnityEngine.Random.value;
+
+        if(randomValue < 0.5 )
+        {
+            itemID = (Items)UnityEngine.Random.Range(1, (int)Items.SpeedHelmet);
+            itemRarity = (Rarity)UnityEngine.Random.Range(0, (int)Rarity.Legendary);
+            Debug.Log("Enemy with object" + itemID + itemRarity);
+        }
     }
 
     protected void Update()
@@ -50,10 +69,20 @@ public class EnemyBase : MonoBehaviour
             timerWhite -= Time.deltaTime;
             if (timerWhite <= 0)
             {
-                spriterenderer.color = normal;
+                spriteRenderer.color = normal;
                 damageReceived = false;
             }
         }
+    }
+
+    protected void ResetSpeed()
+    {
+        speed = baseSpeed;
+    }
+
+    protected void MultiplierSpeed(float multiplier)
+    {
+        speed *= multiplier;
     }
 
     public virtual void GetDamage(int damage)
@@ -69,7 +98,7 @@ public class EnemyBase : MonoBehaviour
             timerWhite = timeWhiteDamage;
             damageReceived = true;
 
-            spriterenderer.color = Color.white;
+            spriteRenderer.color = Color.black;
         }
     }
 }

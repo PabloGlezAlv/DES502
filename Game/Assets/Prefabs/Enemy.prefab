@@ -440,6 +440,8 @@ MonoBehaviour:
   speed: 5
   maxLife: 5
   timeWhiteDamage: 1
+  objectChances: 0.5
+  objectRenderer: {fileID: 7326436036523598098}
   changeDirection: 0.5
   changeDirPosAttack: 1
   attackDistance: 1

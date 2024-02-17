@@ -11,6 +11,11 @@ public class CoinObject : BaseObject
     {
         base.Awake();
 
+    }
+
+    private void Start()
+    {
+
         List<int> listValues = ObjectsManager.instance.getCoinAmounts();
         List<Sprite> listSprites = ObjectsManager.instance.getCoinSprites();
 

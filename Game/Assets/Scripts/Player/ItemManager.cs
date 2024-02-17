@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class ItemManager : MonoBehaviour
 {
-    items playerItem = items.none;
+    Items playerItem = Items.none;
 
     GameObject playerObject;
 
@@ -15,10 +15,10 @@ public class ItemManager : MonoBehaviour
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
-    public void ChangeItem(GameObject newItem, items type)
+    public void ChangeItem(GameObject newItem, Items type)
     {
         //Remove old item
-        if(playerItem != items.none)
+        if(playerItem != Items.none)
         {
             //playerObject.SetActive(true);
             //playerObject.transform.position = new Vector3(gameObject.transform.position.x - 7, gameObject.transform.position.y, gameObject.transform.position.z);
@@ -35,9 +35,9 @@ public class ItemManager : MonoBehaviour
         
         switch (playerItem)
         {
-            case items.none:
+            case Items.none:
                 break;
-            case items.speedHelmet:
+            case Items.SpeedHelmet:
                 spriteRenderer.sprite = playerObject.GetComponent<SpriteRenderer>().sprite;
                 break;
             default:

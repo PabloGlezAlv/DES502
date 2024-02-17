@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &865918190755461346
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 52176240062098019}
+  - component: {fileID: 2330414779872196389}
+  m_Layer: 0
+  m_Name: ObjectsManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &52176240062098019
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865918190755461346}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.6327531, y: 3.2919207, z: -0.38226685}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2330414779872196389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 865918190755461346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae8adbe1732cd694aa5d2f83b7f5ce49, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  coinsSprites:
+  - {fileID: 8665862129789353982, guid: f7b37b91088c7d44b98c5e710477bd39, type: 3}
+  - {fileID: 7073236119299992956, guid: f7b37b91088c7d44b98c5e710477bd39, type: 3}
+  - {fileID: -452686182277670640, guid: f7b37b91088c7d44b98c5e710477bd39, type: 3}
+  - {fileID: -3028991587959703504, guid: f7b37b91088c7d44b98c5e710477bd39, type: 3}
+  - {fileID: -664116926571241061, guid: f7b37b91088c7d44b98c5e710477bd39, type: 3}
+  coinsValue: 0100000002000000040000000800000010000000
+  speedSprites:
+  - {fileID: 6352683301991889936, guid: f7b37b91088c7d44b98c5e710477bd39, type: 3}
+  - {fileID: -8676482130136216939, guid: f7b37b91088c7d44b98c5e710477bd39, type: 3}
+  - {fileID: -8984791981334975670, guid: f7b37b91088c7d44b98c5e710477bd39, type: 3}
+  - {fileID: -794116353344462730, guid: f7b37b91088c7d44b98c5e710477bd39, type: 3}
+  - {fileID: 5545459940517624553, guid: f7b37b91088c7d44b98c5e710477bd39, type: 3}
+  speedUpgrade:
+  - 1.04
+  - 1.08
+  - 1.12
+  - 1.16
+  - 1.2

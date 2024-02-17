@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Net.Http.Headers;
 using UnityEngine;
 
-public enum items { none, speedHelmet}
 
 public class CheckItems : MonoBehaviour
 {
@@ -12,7 +11,7 @@ public class CheckItems : MonoBehaviour
 
     private GameObject player;
 
-    items myItem = items.none;
+    Items myItem = Items.none;
 
     private void Start()
     {
@@ -25,7 +24,6 @@ public class CheckItems : MonoBehaviour
         SpeedObject speed;
         if (coin = collision.gameObject.GetComponent<CoinObject>())
         {
-            Debug.Log("New coin");
 
             player.GetComponent<PlayerData>().addCoins(coin.GetCoins());
 
@@ -34,12 +32,11 @@ public class CheckItems : MonoBehaviour
         }
         else if(speed = collision.gameObject.GetComponent<SpeedObject>())
         {
-            Debug.Log("Speed Object");
             //Remove Actual effect
             removeActualEffect(collision.gameObject);
 
             //Add new Effect
-            myItem = items.speedHelmet;
+            myItem = Items.SpeedHelmet;
             player.GetComponent<PlayerMovement>().AddSpeed(speed.GetUpgrade());
             manager.ChangeItem(collision.gameObject, myItem);
 
@@ -52,9 +49,9 @@ public class CheckItems : MonoBehaviour
     {
         switch (myItem)
         {
-            case items.none:
+            case Items.none:
                 break;
-            case items.speedHelmet:
+            case Items.SpeedHelmet:
                 collision.GetComponent<PlayerMovement>().ResetSpeed();
                 break;
              default: 

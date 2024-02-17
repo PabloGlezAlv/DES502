@@ -11,6 +11,10 @@ public class SpeedObject : BaseObject
     {
         base.Awake();
 
+    }
+
+    private void Start()
+    {
         List<float> listValues = ObjectsManager.instance.getSpeedUpgrades();
         List<Sprite> listSprites = ObjectsManager.instance.getSpeedSprites();
 
@@ -41,7 +45,6 @@ public class SpeedObject : BaseObject
                 break;
         }
     }
-
     public float GetUpgrade()
     {
         return speedImprovement;

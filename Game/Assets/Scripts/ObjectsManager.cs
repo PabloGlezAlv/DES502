@@ -4,6 +4,9 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 
+public enum Items { none, SpeedHelmet }
+
+
 public class ObjectsManager : MonoBehaviour
 {
     [SerializeField]
