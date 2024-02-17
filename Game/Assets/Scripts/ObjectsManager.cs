@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public enum Items { none, SpeedHelmet }
+public enum Items { none, ScaleHelmet, SpeedHelmet } //Leave SpeedHelmet last
 
 
 public class ObjectsManager : MonoBehaviour
@@ -18,6 +18,11 @@ public class ObjectsManager : MonoBehaviour
     List<Sprite> speedSprites;
     [SerializeField]
     List<float> speedUpgrade;
+
+    [SerializeField]
+    List<Sprite> scaleSprites;
+    [SerializeField]
+    List<float> scaleUpgrade;
 
     public static ObjectsManager instance;
 
@@ -70,5 +75,24 @@ public class ObjectsManager : MonoBehaviour
     public List<float> getSpeedUpgrades()
     {
         return speedUpgrade;
+    }
+
+    //-------------------------------SCALE OBJECT----------------------------
+    public Sprite getScaleSprite(int i)
+    {
+        return scaleSprites[i];
+    }
+    public List<Sprite> getScaleSprites()
+    {
+        return scaleSprites;
+    }
+    public float getScaleUpgrade(int i)
+    {
+        return scaleUpgrade[i];
+    }
+
+    public List<float> getScaleUpgrades()
+    {
+        return scaleUpgrade;
     }
 }

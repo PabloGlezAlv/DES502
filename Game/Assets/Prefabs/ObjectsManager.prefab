@@ -63,3 +63,15 @@ MonoBehaviour:
   - 1.12
   - 1.16
   - 1.2
+  scaleSprites:
+  - {fileID: -708347240892218557, guid: f7b37b91088c7d44b98c5e710477bd39, type: 3}
+  - {fileID: -4699302077504393560, guid: f7b37b91088c7d44b98c5e710477bd39, type: 3}
+  - {fileID: -7370078311767567610, guid: f7b37b91088c7d44b98c5e710477bd39, type: 3}
+  - {fileID: -6176822522777527773, guid: f7b37b91088c7d44b98c5e710477bd39, type: 3}
+  - {fileID: 801322620620196824, guid: f7b37b91088c7d44b98c5e710477bd39, type: 3}
+  scaleUpgrade:
+  - 0.95
+  - 0.9
+  - 0.85
+  - 0.8
+  - 0.75

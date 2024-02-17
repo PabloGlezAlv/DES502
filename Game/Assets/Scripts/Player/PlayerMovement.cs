@@ -43,6 +43,8 @@ public class PlayerMovement : MonoBehaviour
     int verticalKeysDown = 0;
     new BoxCollider2D collider;
 
+    UnityEngine.Vector3 baseScale;
+
     public Vector2Int GetCurrentRoom()
     {
         return currentRoom;
@@ -82,10 +84,22 @@ public class PlayerMovement : MonoBehaviour
         currentAttack = directions[0]; //First direction right
 
         baseSpeed = speed;
+        baseScale = transform.localScale;
+    }
+    public void ReduceScale(float speedMultiplier)
+    {
+        ResetScale();
+        transform.localScale *= speedMultiplier;
+    }
+
+    public void ResetScale()
+    {
+        transform.localScale = baseScale;
     }
 
     public void AddSpeed(float speedMultiplier)
     {
+        ResetSpeed();
         speed *= speedMultiplier;
     }
 
