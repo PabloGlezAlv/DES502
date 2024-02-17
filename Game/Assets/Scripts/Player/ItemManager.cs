@@ -40,6 +40,9 @@ public class ItemManager : MonoBehaviour
             case Items.SpeedHelmet:
                 spriteRenderer.sprite = playerObject.GetComponent<SpriteRenderer>().sprite;
                 break;
+            case Items.ScaleHelmet:
+                spriteRenderer.sprite = playerObject.GetComponent<SpriteRenderer>().sprite;
+                break;
             default:
                 break;
 

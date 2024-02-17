@@ -55,25 +55,7 @@ public class SkeletonMovement : EnemyBase
         actualDir = attackDir[0];
     }
 
-    private void Start()
-    {
-        //There is an object
-        if (itemID != Items.none)
-        {
-            switch (itemID)
-            {
-                case Items.SpeedHelmet:
-                    objectRenderer.sprite = ObjectsManager.instance.getSpeedSprite((int)itemRarity);
 
-                    MultiplierSpeed(ObjectsManager.instance.getSpeedUpgrade((int)itemRarity));
-                    break;
-                default:
-                    Console.WriteLine("Rareza desconocida.");
-                    break;
-            }
-
-        }
-    }
 
     void FixedUpdate()
     {

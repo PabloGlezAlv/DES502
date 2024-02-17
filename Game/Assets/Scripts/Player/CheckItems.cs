@@ -65,10 +65,10 @@ public class CheckItems : MonoBehaviour
             case Items.none:
                 break;
             case Items.SpeedHelmet:
-                collision.GetComponent<PlayerMovement>().ResetSpeed();
+                transform.parent.gameObject.GetComponent<PlayerMovement>().ResetSpeed();
                 break;
             case Items.ScaleHelmet:
-                collision.GetComponent<PlayerMovement>().ResetScale();
+                transform.parent.gameObject.GetComponent<PlayerMovement>().ResetScale();
                 break;
              default: 
                 break;

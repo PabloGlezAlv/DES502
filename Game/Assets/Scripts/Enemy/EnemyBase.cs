@@ -36,9 +36,12 @@ public class EnemyBase : MonoBehaviour
     protected Items itemID = Items.none;
     protected Rarity itemRarity = Rarity.Common;
 
+    Vector3 baseScale;
+
     protected void Awake()
     {
         baseSpeed = speed;
+        baseScale = transform.localScale;
 
         rb = GetComponent<Rigidbody2D>();
 
@@ -49,7 +52,28 @@ public class EnemyBase : MonoBehaviour
 
         SetObject();
     }
+    private void Start()
+    {
+        //There is an object
+        if (itemID != Items.none)
+        {
+            switch (itemID)
+            {
+                case Items.SpeedHelmet:
+                    objectRenderer.sprite = ObjectsManager.instance.getSpeedSprite((int)itemRarity);
+                    MultiplierSpeed(ObjectsManager.instance.getSpeedUpgrade((int)itemRarity));
+                    break;
+                case Items.ScaleHelmet:
+                    objectRenderer.sprite = ObjectsManager.instance.getScaleSprite((int)itemRarity);
+                    ChangeScale(ObjectsManager.instance.getScaleUpgrade((int)itemRarity));
+                    break;
+                default:
+                    Console.WriteLine("Rareza desconocida.");
+                    break;
+            }
 
+        }
+    }
     private void SetObject()
     {
         float randomValue = UnityEngine.Random.value;
@@ -84,7 +108,15 @@ public class EnemyBase : MonoBehaviour
     {
         speed *= multiplier;
     }
+    protected void ResetScaleScale()
+    {
+        transform.localScale = baseScale;
+    }
 
+    protected void ChangeScale(float multiplier)
+    {
+        transform.localScale *= multiplier;
+    }
     public virtual void GetDamage(int damage)
     {
         int previousLife = actualLife;
