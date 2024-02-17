@@ -14,7 +14,7 @@ public class EnemyBase : MonoBehaviour
     [SerializeField]
     protected int maxLife = 5;
     [SerializeField]
-    protected float timeWhiteDamage = 1;
+    protected float timeWhiteDamage = 0.2f;
     [SerializeField]
     protected float objectChances = 0.5f;
 
