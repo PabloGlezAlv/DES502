@@ -15,12 +15,16 @@ public class EnemyBase : MonoBehaviour
     protected int maxLife = 5;
     [SerializeField]
     protected float timeWhiteDamage = 1;
+    [SerializeField]
+    protected float objectChances = 0.5f;
 
     protected int actualLife;
 
     protected Vector3 direction;
 
     protected Rigidbody2D rb;
+
+    SpriteRenderer objectRenderer;
 
     protected SpriteRenderer spriterenderer;
     private float timerWhite;
@@ -35,18 +39,8 @@ public class EnemyBase : MonoBehaviour
         spriterenderer = GetComponent<SpriteRenderer>();
 
         normal = spriterenderer.color;
-    }
 
-    protected void SpriteRotation(Vector3 direction)
-    {
-        if (direction.x < 0)
-        {
-            transform.localScale = new Vector3(-transform.localScale.y, transform.localScale.y, transform.localScale.z);
-        }
-        else if (direction.x > 0)
-        {
-            transform.localScale = new Vector3(transform.localScale.y, transform.localScale.y, transform.localScale.z);
-        }
+        objectRenderer = GetComponentInChildren<SpriteRenderer>();
     }
 
     protected void Update()

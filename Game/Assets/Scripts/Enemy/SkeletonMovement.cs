@@ -23,7 +23,12 @@ public class SkeletonMovement : EnemyBase
     [SerializeField]
     private float attackDistance = 2f;
 
+    [Header("Directions: Right, left, top, bottom")]
     [SerializeField]
+    protected List<GameObject> attackDir = new List<GameObject>(4);
+
+    GameObject actualDir;
+
     private Transform player;
 
     private float movementTimer = 0f;
@@ -42,12 +47,16 @@ public class SkeletonMovement : EnemyBase
         movementTimer = changeDirection;
 
         attack = GetComponentInChildren<SkeletonAttack>();
+
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        actualDir = attackDir[0];
     }
 
     void FixedUpdate()
     {
         //Check to attack
-        if(Vector3.Distance(transform.position, player.position) < attackDistance && !justAttacked)
+        if (Vector3.Distance(transform.position, player.position) < attackDistance && !justAttacked)
         {
             direction = (player.position - transform.position).normalized;
             direction = -direction;
@@ -79,21 +88,79 @@ public class SkeletonMovement : EnemyBase
                 direction = (Vector2)(rotation * direction);
             }
 
-            SpriteRotation(direction);
+
 
             movementTimer += changeDirection;
         }
 
-        if(justAttacked && timerAttack < 0)
+        if (justAttacked && timerAttack < 0)
         {
             justAttacked = false;
         }
+
+        SelectAttackArea();
 
         // Mueve al enemigo
         rb.velocity = direction * speed;
 
         movementTimer -= Time.fixedDeltaTime;
         timerAttack -= Time.fixedDeltaTime;
+    }
+
+    private void SelectAttackArea()
+    {
+        if (direction.x > 0f && direction.x > direction.y)
+        {
+            actualDir.SetActive(false);
+            if (justAttacked)
+            {
+                actualDir = attackDir[1];
+            }
+            else
+            {
+                actualDir = attackDir[0];
+            }
+            actualDir.SetActive(true);
+        }
+        else if (direction.x < 0f && direction.y > direction.x)
+        {
+            actualDir.SetActive(false);
+            if (justAttacked)
+            {
+                actualDir = attackDir[0];
+            }
+            else
+            {
+                actualDir = attackDir[1];
+            }
+            actualDir.SetActive(true);
+        }
+        else if (direction.y > 0 && direction.y >= direction.x)
+        {
+            actualDir.SetActive(false);
+            if (justAttacked)
+            {
+                actualDir = attackDir[3];
+            }
+            else
+            {
+                actualDir = attackDir[2];
+            }
+            actualDir.SetActive(true);
+        }
+        else
+        {
+            actualDir.SetActive(false);
+            if (justAttacked)
+            {
+                actualDir = attackDir[2];
+            }
+            else
+            {
+                actualDir = attackDir[3];
+            }
+            actualDir.SetActive(true);
+        }
     }
 
     // Gaussian function, play with parameters different results

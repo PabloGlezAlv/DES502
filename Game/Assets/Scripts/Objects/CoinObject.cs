@@ -11,24 +11,30 @@ public class CoinObject : BaseObject
     {
         base.Awake();
 
-
+        List<int> listValues = ObjectsManager.instance.getCoinAmounts();
+        List<Sprite> listSprites = ObjectsManager.instance.getCoinSprites();
 
         switch (objectRarity)
         {
             case Rarity.Common:
-                amount = 1;
+                renderer.sprite = listSprites[0];
+                amount = listValues[0];
                 break;
             case Rarity.Uncommon:
-                amount = 2;
+                renderer.sprite = listSprites[1];
+                amount = listValues[1];
                 break;
             case Rarity.Rare:
-                amount = 4;
+                renderer.sprite = listSprites[2];
+                amount = listValues[2];
                 break;
             case Rarity.Epic:
-                amount = 8;
+                renderer.sprite = listSprites[3];
+                amount = listValues[3];
                 break;
             case Rarity.Legendary:
-                amount = 16;
+                renderer.sprite = listSprites[4];
+                amount = listValues[4];
                 break;
             default:
                 Console.WriteLine("Rareza desconocida.");

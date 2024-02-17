@@ -11,23 +11,30 @@ public class SpeedObject : BaseObject
     {
         base.Awake();
 
+        List<float> listValues = ObjectsManager.instance.getSpeedUpgrades();
+        List<Sprite> listSprites = ObjectsManager.instance.getSpeedSprites();
 
         switch (objectRarity)
         {
             case Rarity.Common:
-                speedImprovement = 1.04f;
+                renderer.sprite = listSprites[0];
+                speedImprovement = listValues[0];
                 break;
             case Rarity.Uncommon:
-                speedImprovement = 1.08f;
+                renderer.sprite = listSprites[1];
+                speedImprovement = listValues[1];
                 break;
             case Rarity.Rare:
-                speedImprovement = 1.12f;
+                renderer.sprite = listSprites[2];
+                speedImprovement = listValues[2];
                 break;
             case Rarity.Epic:
-                speedImprovement = 1.16f;
+                renderer.sprite = listSprites[3];
+                speedImprovement = listValues[3];
                 break;
             case Rarity.Legendary:
-                speedImprovement = 1.20f;
+                renderer.sprite = listSprites[4];
+                speedImprovement = listValues[4];
                 break;
             default:
                 Console.WriteLine("Rareza desconocida.");
