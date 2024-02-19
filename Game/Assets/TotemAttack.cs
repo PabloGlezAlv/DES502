@@ -23,6 +23,8 @@ public class TotemAttack : EnemyBase
 
     int roundBullets = 0;
 
+    private static List<GameObject> bullets = new List<GameObject>();
+
     protected void Awake()
     {
         base.Awake();
@@ -53,9 +55,32 @@ public class TotemAttack : EnemyBase
         }
     }
 
+    private GameObject FindDisabledBullet()
+    {
+        foreach (GameObject bullet in bullets)
+        {
+            if (!bullet.activeSelf)
+            {
+                bullet.SetActive(true);
+                return bullet; 
+            }
+        }
+
+        return null;
+    }
+
     void SpawnBullet()
     {
-        Debug.Log("Bala direccion " + attackPositions[0]);
+
+        GameObject newBullet = FindDisabledBullet();
+        if(newBullet == null)
+        {
+            newBullet = Instantiate(bullet);
+            bullets.Add(newBullet);
+        }
+        BulletMovement bull = newBullet.GetComponent<BulletMovement>();
+        bull.SetPosition(transform.position);
+        bull.SetMovementDirection(attackPositions[0]);
 
         attackPositions.Remove(attackPositions[0]);
     }
