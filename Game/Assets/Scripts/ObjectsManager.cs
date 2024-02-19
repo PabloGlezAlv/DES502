@@ -18,11 +18,15 @@ public class ObjectsManager : MonoBehaviour
     List<Sprite> speedSprites;
     [SerializeField]
     List<float> speedUpgrade;
+    [SerializeField]
+    List<int> speedShopPrice;
 
     [SerializeField]
     List<Sprite> scaleSprites;
     [SerializeField]
-    List<float> scaleUpgrade;
+    List<float> scaleUpgrade; 
+    [SerializeField]
+    List<int> scaleShopPrice;
 
     public static ObjectsManager instance;
 
@@ -71,12 +75,14 @@ public class ObjectsManager : MonoBehaviour
     {
         return speedUpgrade[i];
     }
-
     public List<float> getSpeedUpgrades()
     {
         return speedUpgrade;
     }
-
+    public int getSpeedPrice(int i)
+    {
+        return speedShopPrice[i];
+    }
     //-------------------------------SCALE OBJECT----------------------------
     public Sprite getScaleSprite(int i)
     {
@@ -90,9 +96,12 @@ public class ObjectsManager : MonoBehaviour
     {
         return scaleUpgrade[i];
     }
-
     public List<float> getScaleUpgrades()
     {
         return scaleUpgrade;
+    }
+    public int getScalePrice(int i)
+    {
+        return scaleShopPrice[i];
     }
 }

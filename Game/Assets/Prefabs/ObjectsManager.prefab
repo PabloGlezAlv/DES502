@@ -63,6 +63,7 @@ MonoBehaviour:
   - 1.12
   - 1.16
   - 1.2
+  speedShopPrice: 00000000
   scaleSprites:
   - {fileID: -708347240892218557, guid: f7b37b91088c7d44b98c5e710477bd39, type: 3}
   - {fileID: -4699302077504393560, guid: f7b37b91088c7d44b98c5e710477bd39, type: 3}
@@ -75,3 +76,4 @@ MonoBehaviour:
   - 0.85
   - 0.8
   - 0.75
+  scaleShopPrice: 

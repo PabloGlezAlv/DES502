@@ -49,7 +49,6 @@ public class BulletMovement : MonoBehaviour
         LifeSystem system;
         if (system = collision.gameObject.GetComponent<LifeSystem>())
         {
-            Debug.Log("Player");
             system.GetDamage(damage);
         }
         else

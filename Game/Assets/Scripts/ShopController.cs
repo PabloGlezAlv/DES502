@@ -18,9 +18,9 @@ public class ShopController : MonoBehaviour
 
     private void Start()
     {
-        CreateItemButtom(ObjectsManager.instance.getCoinSprite(0), "MONEDA", 50, 0);
-        CreateItemButtom(ObjectsManager.instance.getScaleSprite(0), "Iman", 100, 1);
-        CreateItemButtom(ObjectsManager.instance.getSpeedSprite(0), "Spped", 50, 2);
+        CreateItemButtom(ObjectsManager.instance.getCoinSprite(0), "MONEDA", ObjectsManager.instance.getSpeedPrice(0), 0);
+        CreateItemButtom(ObjectsManager.instance.getScaleSprite(0), "Iman", ObjectsManager.instance.getSpeedPrice(2), 1);
+        CreateItemButtom(ObjectsManager.instance.getSpeedSprite(0), "Spped", ObjectsManager.instance.getSpeedPrice(3), 2);
     }
 
     private void CreateItemButtom(Sprite sprite, string name, int cost, int positionIndex)
@@ -32,6 +32,7 @@ public class ShopController : MonoBehaviour
         shopItemRectTransform.anchoredPosition = new Vector2(shopItemHeight * positionIndex - shopItemHeight, 0);
         shopItemTransform.Find("itemName").GetComponent<TextMeshProUGUI>().SetText(name);
         shopItemTransform.Find("costText").GetComponent<TextMeshProUGUI>().SetText(cost.ToString());
-        //shopItemTransform.Find("itemImage").GetComponent<Image>().sprite = sprite;
+
+        shopItemTransform.Find("itemImage");
     }
 }

@@ -19795,7 +19795,7 @@ GameObject:
   - component: {fileID: 924252733}
   - component: {fileID: 924252732}
   m_Layer: 5
-  m_Name: CostText
+  m_Name: costText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -43951,7 +43951,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: -454, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1501978784
@@ -64157,6 +64157,54 @@ PrefabInstance:
     - target: {fileID: 865918190755461346, guid: e567e09fc00ac41449d085c011383eab, type: 3}
       propertyPath: m_Name
       value: ObjectsManager
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: scaleShopPrice.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: speedShopPrice.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: scaleShopPrice.Array.data[0]
+      value: 150
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: scaleShopPrice.Array.data[1]
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: scaleShopPrice.Array.data[2]
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: scaleShopPrice.Array.data[3]
+      value: 700
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: scaleShopPrice.Array.data[4]
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: speedShopPrice.Array.data[0]
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: speedShopPrice.Array.data[1]
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: speedShopPrice.Array.data[2]
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: speedShopPrice.Array.data[3]
+      value: 600
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: speedShopPrice.Array.data[4]
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
