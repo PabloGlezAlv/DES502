@@ -14,6 +14,7 @@ public class ShopController : MonoBehaviour
     private Transform shopItemTemplate;
     private PlayerData playerData;
 
+    Transform[] shopItems = new Transform[3];
 
     private bool[] bought = new bool[3];
 
@@ -36,11 +37,14 @@ public class ShopController : MonoBehaviour
         CreateItemButton(Items.SpeedHelmet, Rarity.Common, ObjectsManager.instance.getSpeedSprite(0), "SpeedCom", ObjectsManager.instance.getSpeedPrice(0), 0);
         CreateItemButton(Items.SpeedHelmet, Rarity.Legendary, ObjectsManager.instance.getSpeedSprite(4), "Speedleg", ObjectsManager.instance.getSpeedPrice(0), 1);
         CreateItemButton(Items.ScaleHelmet, Rarity.Legendary, ObjectsManager.instance.getScaleSprite(4), "Scale", ObjectsManager.instance.getSpeedPrice(0), 2);
+
+        Hide();
     }
 
     private void CreateItemButton(Items itemType, Rarity rare, Sprite itemSprite, string itemName, int itemCost, int positionIndex)
     {
         Transform shopItemTransform = Instantiate(shopItemTemplate, container);
+        shopItems[positionIndex] = shopItemTransform;
         shopItemTransform.gameObject.SetActive(true);
         RectTransform shopItemRectTransform = shopItemTransform.GetComponent<RectTransform>();
 
@@ -75,4 +79,20 @@ public class ShopController : MonoBehaviour
         return false;
     }
 
+
+    public void Hide()
+    {
+        for (int i = 0; i < shopItems.Length; i++)
+        {
+            shopItems[i].gameObject.SetActive(false);
+        }
+    }
+
+    public void Show()
+    {
+        for (int i = 0; i < shopItems.Length; i++)
+        {
+            shopItems[i].gameObject.SetActive(true);
+        }
+    }
 }

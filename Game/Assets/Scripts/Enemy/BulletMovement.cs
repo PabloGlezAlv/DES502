@@ -49,12 +49,10 @@ public class BulletMovement : MonoBehaviour
         LifeSystem system;
         if (system = collision.gameObject.GetComponent<LifeSystem>())
         {
-            Debug.Log("Player Hit");
             system.GetDamage(damage);
         }
         else
         {
-            Debug.Log("Other Hit");
             this.gameObject.SetActive(false);
         }
 
