@@ -80,8 +80,8 @@ public class EnemyBase : MonoBehaviour
 
         if(randomValue < 0.5 )
         {
-            itemID = (Items)UnityEngine.Random.Range(1, (int)Items.SpeedHelmet);
-            itemRarity = (Rarity)UnityEngine.Random.Range(0, (int)Rarity.Legendary);
+            itemID = (Items)UnityEngine.Random.Range(1, (int)Items.SpeedHelmet + 1);
+            itemRarity = (Rarity)UnityEngine.Random.Range(0, (int)Rarity.Legendary + 1);
             Debug.Log("Enemy with object" + itemID + itemRarity);
         }
     }
