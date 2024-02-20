@@ -66,6 +66,12 @@ public class LifeSystem : MonoBehaviour
                 remainingChanges--;
             }
         }
+        else
+        {
+            active = true;
+            spriteRenderer.enabled = active;
+            objectRenderer.enabled = active;
+        }
 
     }
 

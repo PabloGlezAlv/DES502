@@ -4,28 +4,41 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using CodeMonkey.Utils;
+using System.Drawing;
+using UnityEngine.UIElements;
 
 public class ShopController : MonoBehaviour
 {
 
     private Transform container;
     private Transform shopItemTemplate;
+    private PlayerData playerData;
+
+
+    private bool[] bought = new bool[3];
 
     private void Awake()
     {
         container = transform.Find("container");
         shopItemTemplate = container.Find("shopItemTemplate");
         shopItemTemplate.gameObject.SetActive(false);
+
+        playerData = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerData>();
+
+        for (int i = 0; i < bought.Length; i++)
+        {
+            bought[i] = false;
+        }
     }
 
     private void Start()
     {
-        CreateItemButton(Items.SpeedHelmet, ObjectsManager.instance.getCoinSprite(0), "MONEDA", ObjectsManager.instance.getSpeedPrice(0), 0);
-        CreateItemButton(Items.SpeedHelmet, ObjectsManager.instance.getScaleSprite(0), "Iman", ObjectsManager.instance.getSpeedPrice(2), 1);
-        CreateItemButton(Items.SpeedHelmet, ObjectsManager.instance.getSpeedSprite(0), "Spped", ObjectsManager.instance.getSpeedPrice(3), 2);
+        CreateItemButton(Items.SpeedHelmet, Rarity.Common, ObjectsManager.instance.getSpeedSprite(0), "SpeedCom", ObjectsManager.instance.getSpeedPrice(0), 0);
+        CreateItemButton(Items.SpeedHelmet, Rarity.Legendary, ObjectsManager.instance.getSpeedSprite(4), "Speedleg", ObjectsManager.instance.getSpeedPrice(0), 1);
+        CreateItemButton(Items.ScaleHelmet, Rarity.Legendary, ObjectsManager.instance.getScaleSprite(4), "Scale", ObjectsManager.instance.getSpeedPrice(0), 2);
     }
 
-    private void CreateItemButton(Items itemType, Sprite itemSprite, string itemName, int itemCost, int positionIndex)
+    private void CreateItemButton(Items itemType, Rarity rare, Sprite itemSprite, string itemName, int itemCost, int positionIndex)
     {
         Transform shopItemTransform = Instantiate(shopItemTemplate, container);
         shopItemTransform.gameObject.SetActive(true);
@@ -37,17 +50,29 @@ public class ShopController : MonoBehaviour
         shopItemTransform.Find("nameText").GetComponent<TextMeshProUGUI>().SetText(itemName);
         shopItemTransform.Find("costText").GetComponent<TextMeshProUGUI>().SetText(itemCost.ToString());
 
-        shopItemTransform.Find("itemImage").GetComponent<Image>().sprite = itemSprite;
+        shopItemTransform.Find("itemImage").GetComponent<UnityEngine.UI.Image>().sprite = itemSprite;
 
         shopItemTransform.GetComponent<Button_UI>().ClickFunc = () => {
             // Clicked on shop item button
-            TryBuyItem(itemType);
+            if(TryBuyItem(itemType, rare, itemCost, positionIndex))
+            {
+                //Deactivate option to buy this
+                bought[positionIndex] = true;
+                shopItemTransform.Find("blocked").gameObject.SetActive(true);
+            }
         };
     }
 
-    private void TryBuyItem(Items itemType)
+    private bool TryBuyItem(Items itemType, Rarity rare, int price, int position)
     {
-
+        if (!bought[position])
+        {
+            if(playerData.BuyItem(itemType, rare, price))
+            {
+                return true;
+            }
+        }
+        return false;
     }
 
 }

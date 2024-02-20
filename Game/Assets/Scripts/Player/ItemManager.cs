@@ -15,17 +15,22 @@ public class ItemManager : MonoBehaviour
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
     }
 
+
+    //Visual effect
     public void ChangeItem(GameObject newItem, Items type)
     {
         //Remove old item
         if(playerItem != Items.none)
         {
+            removeActualEffect();
+
+
             //playerObject.SetActive(true);
             //playerObject.transform.position = new Vector3(gameObject.transform.position.x - 7, gameObject.transform.position.y, gameObject.transform.position.z);
 
             //Move it
 
-            
+
         }
 
         playerObject = newItem;
@@ -42,6 +47,24 @@ public class ItemManager : MonoBehaviour
                 break;
             case Items.ScaleHelmet:
                 spriteRenderer.sprite = playerObject.GetComponent<SpriteRenderer>().sprite;
+                break;
+            default:
+                break;
+
+        }
+    }
+
+    private void removeActualEffect()
+    {
+        switch (playerItem)
+        {
+            case Items.none:
+                break;
+            case Items.SpeedHelmet:
+                transform.parent.gameObject.GetComponent<PlayerMovement>().ResetSpeed();
+                break;
+            case Items.ScaleHelmet:
+                transform.parent.gameObject.GetComponent<PlayerMovement>().ResetScale();
                 break;
             default:
                 break;

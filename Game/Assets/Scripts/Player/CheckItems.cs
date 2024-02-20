@@ -25,7 +25,6 @@ public class CheckItems : MonoBehaviour
         ScaleObject scale;
         if (coin = collision.gameObject.GetComponent<CoinObject>())
         {
-
             player.GetComponent<PlayerData>().addCoins(coin.GetCoins());
 
             //Deactivate
@@ -33,9 +32,6 @@ public class CheckItems : MonoBehaviour
         }
         else if(speed = collision.gameObject.GetComponent<SpeedObject>())
         {
-            //Remove Actual effect
-            removeActualEffect(collision.gameObject);
-
             //Add new Effect
             myItem = Items.SpeedHelmet;
             player.GetComponent<PlayerMovement>().AddSpeed(speed.GetUpgrade());
@@ -46,8 +42,6 @@ public class CheckItems : MonoBehaviour
         }
         else if(scale = collision.gameObject.GetComponent<ScaleObject>())
         {
-            //Remove Actual effect
-            removeActualEffect(collision.gameObject);
             //Add new Effect
             myItem = Items.ScaleHelmet;
             player.GetComponent<PlayerMovement>().ReduceScale(scale.GetUpgrade());
@@ -55,24 +49,6 @@ public class CheckItems : MonoBehaviour
 
             //Deactivate
             collision.transform.parent.gameObject.SetActive(false);
-        }
-    }
-
-    private void removeActualEffect(GameObject collision)
-    {
-        switch (myItem)
-        {
-            case Items.none:
-                break;
-            case Items.SpeedHelmet:
-                transform.parent.gameObject.GetComponent<PlayerMovement>().ResetSpeed();
-                break;
-            case Items.ScaleHelmet:
-                transform.parent.gameObject.GetComponent<PlayerMovement>().ResetScale();
-                break;
-             default: 
-                break;
-                
         }
     }
 }

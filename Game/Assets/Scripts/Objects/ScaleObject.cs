@@ -15,6 +15,13 @@ public class ScaleObject : BaseObject
 
     private void Start()
     {
+        SetRarity(objectRarity);
+    }
+
+    public void SetRarity(Rarity rare)
+    {
+        objectRarity = rare;
+
         List<float> listValues = ObjectsManager.instance.getScaleUpgrades();
         List<Sprite> listSprites = ObjectsManager.instance.getScaleSprites();
 

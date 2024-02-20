@@ -28,6 +28,10 @@ public class BaseObject : MonoBehaviour
 
     }
 
+    public Rarity GetRarity()
+    {
+        return objectRarity;
+    }
     private Rarity GenerateRandomRarity()
     {
         float randomValue = Random.value;
