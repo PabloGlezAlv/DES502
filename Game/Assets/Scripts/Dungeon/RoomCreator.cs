@@ -115,6 +115,7 @@ public class RoomCreator : MonoBehaviour
             spikeTrap.SetNewRoom(false);
             return;
         }
+        spikeTrap.SetNewRoom(true);
 
         foreach (var room in doorsRoomsBlocks)
         {

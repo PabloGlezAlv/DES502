@@ -144,7 +144,6 @@ public class PlayerMovement : MonoBehaviour
                 doorMovement = false;
                 timer = 0;
                 collider.isTrigger = false;
-                Debug.Log("End Door");
             }
         }
         
