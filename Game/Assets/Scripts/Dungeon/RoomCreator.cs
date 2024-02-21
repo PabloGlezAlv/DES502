@@ -171,8 +171,11 @@ public class RoomCreator : MonoBehaviour
             s.transform.position = new UnityEngine.Vector3(shopRoomCenter.x, shopRoomCenter.y, 0);
 
 
-            s.transform.position = new UnityEngine.Vector3(7,7, 0);
+            //s.transform.position = new UnityEngine.Vector3(7,7, 0);
         }
+
+        roomsVisited.Add(shopRoomCenter);
+        roomsVisited.Add(finalRoomCenter);
     }
 
     private void DrawCorners(Vector2Int center)

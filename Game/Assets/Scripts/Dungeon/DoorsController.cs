@@ -22,6 +22,7 @@ public class DoorsController : MonoBehaviour
         }
     }
 
+
     public void ChangeDoorsState(bool openDoors)
     {
         roomCreator.SetDoorRoom(openDoors);

@@ -87,7 +87,7 @@ public class ChangeRoom : MonoBehaviour
             }
         }
 
-        Debug.Log("Door direction " + dir);
+       // Debug.Log("Door direction " + dir);
         return dir;
     }
 }
