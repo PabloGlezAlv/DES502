@@ -12,9 +12,15 @@ using UnityEngine;
 public class GenerationAlgorithm : MonoBehaviour
 {
     public static Dictionary<Vector2Int, List<Direction>> SimpleRandomWalk(Vector2Int startPosition, int width, int height, int walkLength,
-        int numberWalks, ref Vector2Int finalRoom)
+        int numberWalks, ref Vector2Int finalRoom, ref Vector2Int shopRoom)
     {
         int goodWalk = UnityEngine.Random.Range(0, numberWalks);
+
+        int shopWalk;
+        do
+        {
+            shopWalk = UnityEngine.Random.Range(0, numberWalks);
+        } while (shopWalk == goodWalk);
 
         Dictionary<Vector2Int, List<Direction>> path = new Dictionary<Vector2Int, List<Direction>>();
         path.Add(startPosition, new List<Direction>());
@@ -133,9 +139,11 @@ public class GenerationAlgorithm : MonoBehaviour
             if (i == goodWalk)
                 finalRoom = farPoint;
 
+            if (i == shopWalk)
+                shopRoom = farPoint;
+
             previousPosition = startPosition;
         }
-
         return path;
     }
 

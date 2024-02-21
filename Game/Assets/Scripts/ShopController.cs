@@ -26,43 +26,89 @@ public class ShopController : MonoBehaviour
 
         playerData = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerData>();
 
-        for (int i = 0; i < bought.Length; i++)
+
+        for(int i = 0; i < 3; i++)
         {
-            bought[i] = false;
+            Transform shopItemTransform = Instantiate(shopItemTemplate, container);
+            shopItems[i] = shopItemTransform;
         }
+
+
+        ResetItems();
     }
 
     private void Start()
     {
-        CreateItemButton(Items.SpeedHelmet, Rarity.Common, ObjectsManager.instance.getSpeedSprite(0), "SpeedCom", ObjectsManager.instance.getSpeedPrice(0), 0);
-        CreateItemButton(Items.SpeedHelmet, Rarity.Legendary, ObjectsManager.instance.getSpeedSprite(4), "Speedleg", ObjectsManager.instance.getSpeedPrice(0), 1);
-        CreateItemButton(Items.ScaleHelmet, Rarity.Legendary, ObjectsManager.instance.getScaleSprite(4), "Scale", ObjectsManager.instance.getSpeedPrice(0), 2);
+        GenerateRandomItems();
+        Hide();
+    }
 
+    private void GenerateRandomItems()
+    {
+        for(int i = 0;i < 3;i++)
+        {
+            int item = Random.Range(1, (int)Items.SpeedHelmet + 1);
+            int rarity = Random.Range(0, (int)Rarity.Legendary + 1);
+
+            switch((Items)item)
+            {
+                case Items.ScaleHelmet:
+                    CreateItemButton((Items)item, (Rarity)rarity, ObjectsManager.instance.getScaleSprite(rarity), "Scale " + rarity.ToString(), 
+                        ObjectsManager.instance.getScalePrice(rarity), i);
+                    break;
+                case Items.SpeedHelmet:
+                    CreateItemButton((Items)item, (Rarity)rarity, ObjectsManager.instance.getSpeedSprite(rarity), "Speed " + rarity.ToString(),
+                       ObjectsManager.instance.getSpeedPrice(rarity), i);
+                    break;
+            }
+        }
+    }
+
+    public void ResetItems()
+    {
+        for (int i = 0; i < bought.Length; i++)
+        {
+            bought[i] = false;
+
+            shopItems[i].Find("blocked").gameObject.SetActive(false);
+        }
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Z))
+        {
+            CreateNewShop();
+        }
+    }
+
+    public void CreateNewShop()
+    {
+        GenerateRandomItems();
+        ResetItems();
         Hide();
     }
 
     private void CreateItemButton(Items itemType, Rarity rare, Sprite itemSprite, string itemName, int itemCost, int positionIndex)
     {
-        Transform shopItemTransform = Instantiate(shopItemTemplate, container);
-        shopItems[positionIndex] = shopItemTransform;
-        shopItemTransform.gameObject.SetActive(true);
-        RectTransform shopItemRectTransform = shopItemTransform.GetComponent<RectTransform>();
+        shopItems[positionIndex].gameObject.SetActive(true);
+        RectTransform shopItemRectTransform = shopItems[positionIndex].GetComponent<RectTransform>();
 
         float shopItemHeight = 450f;
         shopItemRectTransform.anchoredPosition = new Vector2(shopItemHeight * positionIndex - shopItemHeight, 0);
 
-        shopItemTransform.Find("nameText").GetComponent<TextMeshProUGUI>().SetText(itemName);
-        shopItemTransform.Find("costText").GetComponent<TextMeshProUGUI>().SetText(itemCost.ToString());
+        shopItems[positionIndex].Find("nameText").GetComponent<TextMeshProUGUI>().SetText(itemName);
+        shopItems[positionIndex].Find("costText").GetComponent<TextMeshProUGUI>().SetText(itemCost.ToString());
 
-        shopItemTransform.Find("itemImage").GetComponent<UnityEngine.UI.Image>().sprite = itemSprite;
+        shopItems[positionIndex].Find("itemImage").GetComponent<UnityEngine.UI.Image>().sprite = itemSprite;
 
-        shopItemTransform.GetComponent<Button_UI>().ClickFunc = () => {
+        shopItems[positionIndex].GetComponent<Button_UI>().ClickFunc = () => {
             // Clicked on shop item button
             if(TryBuyItem(itemType, rare, itemCost, positionIndex))
             {
                 //Deactivate option to buy this
                 bought[positionIndex] = true;
-                shopItemTransform.Find("blocked").gameObject.SetActive(true);
+                shopItems[positionIndex].Find("blocked").gameObject.SetActive(true);
             }
         };
     }

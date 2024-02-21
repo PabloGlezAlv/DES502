@@ -4,14 +4,11 @@ using UnityEngine;
 
 public class SalesArea : MonoBehaviour
 {
-    [SerializeField]
-    GameObject shopUI;
-
     ShopController shopController;
 
     private void Awake()
     {
-        shopController = shopUI.GetComponent<ShopController>();
+        shopController = GameObject.Find("UI_Shop").GetComponent<ShopController>();
     }
 
     private void Start()

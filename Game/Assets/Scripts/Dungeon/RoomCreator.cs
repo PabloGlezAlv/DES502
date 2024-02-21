@@ -34,6 +34,8 @@ public class RoomCreator : MonoBehaviour
     private int height = 10;
     [SerializeField]
     private Vector2Int startPosition = new(0, 0);
+    [SerializeField]
+    private GameObject shop;
 
     [Header("Procedural Parameters")]
     [SerializeField]
@@ -54,12 +56,14 @@ public class RoomCreator : MonoBehaviour
 
     private Vector2Int finalRoomCenter;
 
+    private Vector2Int shopRoomCenter = new Vector2Int(3, 3);
+
     void Start()
     {
         visualizer.Clear();
 
         //Draw Rooms
-        roomsInfo = GenerationAlgorithm.SimpleRandomWalk(startPosition, width, height, stepsPerWalk, numberWalk, ref finalRoomCenter);
+        roomsInfo = GenerationAlgorithm.SimpleRandomWalk(startPosition, width, height, stepsPerWalk, numberWalk, ref finalRoomCenter, ref shopRoomCenter);
         DrawRoom();
         Debug.Log(finalRoomCenter);
         //Set player
@@ -157,6 +161,18 @@ public class RoomCreator : MonoBehaviour
         changeRoom.SaveDoors(doorsAllBlocks);
 
         visualizer.PaintNextFloorDoor(finalRoomCenter);
+
+        //Set the shop
+
+        if(finalRoomCenter != shopRoomCenter)
+        {
+            GameObject s = Instantiate(shop);
+
+            s.transform.position = new UnityEngine.Vector3(shopRoomCenter.x, shopRoomCenter.y, 0);
+
+
+            s.transform.position = new UnityEngine.Vector3(7,7, 0);
+        }
     }
 
     private void DrawCorners(Vector2Int center)
