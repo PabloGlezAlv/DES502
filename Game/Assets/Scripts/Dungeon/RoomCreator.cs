@@ -58,9 +58,13 @@ public class RoomCreator : MonoBehaviour
 
     private Vector2Int shopRoomCenter = new Vector2Int(3, 3);
 
+    private RoomsPrefabs roomsPrefabs;
+
     void Start()
     {
         visualizer.Clear();
+
+        roomsPrefabs = GetComponent<RoomsPrefabs>();
 
         //Draw Rooms
         roomsInfo = GenerationAlgorithm.SimpleRandomWalk(startPosition, width, height, stepsPerWalk, numberWalk, ref finalRoomCenter, ref shopRoomCenter);
@@ -76,7 +80,6 @@ public class RoomCreator : MonoBehaviour
 
 
         //Trap to test
-        spikeTrap.AddPoints(new Vector2Int(-7,0));
     }
 
     private bool IsOldRoom()
@@ -108,7 +111,10 @@ public class RoomCreator : MonoBehaviour
     {
         //Check if havent been in room yet old room 
         if (IsOldRoom() && !open)
+        {
+            spikeTrap.SetNewRoom(false);
             return;
+        }
 
         foreach (var room in doorsRoomsBlocks)
         {
@@ -156,6 +162,12 @@ public class RoomCreator : MonoBehaviour
             {
                 doorsAllBlocks.Add(doorsBlock);
             }
+
+            //Add enemies and traps
+            List<Vector2Int> spikesRoom = new List<Vector2Int>();
+            roomsPrefabs.generateRandomRoom(center, ref spikesRoom);
+
+            spikeTrap.AddPoints(spikesRoom);
         }
 
         changeRoom.SaveDoors(doorsAllBlocks);

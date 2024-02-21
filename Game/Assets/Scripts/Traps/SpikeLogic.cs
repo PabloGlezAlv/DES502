@@ -23,6 +23,8 @@ public class SpikeLogic : MonoBehaviour
 
     List<Vector2Int> points = new List<Vector2Int>();
 
+    bool roomLocked = true;
+
     void Start()
     {
         
@@ -33,29 +35,54 @@ public class SpikeLogic : MonoBehaviour
         points.Add(p);
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        timer-=Time.deltaTime;
 
-        if (timer < 0)
+    public void SetNewRoom(bool set)
+    {
+        roomLocked = set;
+        if(roomLocked)
         {
             timer = timeChange;
-            active = !active;
-            for(int i = 0; i < points.Count; i++) 
+        }
+        else //Dont active traps if finish or ols room
+        {
+            active = false;
+            for (int i = 0; i < points.Count; i++)
             {
                 visualizer.PaintSpike(points[i], active);
             }
         }
+    }
+    public void AddPoints(List<Vector2Int> p)
+    {
+        foreach (Vector2Int p2 in p) {  points.Add(p2); }
+    }
+    // Update is called once per frame
+    void Update()
+    {
+        if(roomLocked)
+        {
+            timer -= Time.deltaTime;
 
-        timerWait -= Time.deltaTime;
+            if (timer < 0)
+            {
+                timer = timeChange;
+                active = !active;
+                for (int i = 0; i < points.Count; i++)
+                {
+                    visualizer.PaintSpike(points[i], active);
+                }
+            }
+
+            timerWait -= Time.deltaTime;
+        }
+       
     }
 
     private void OnTriggerStay2D(Collider2D collision)
     {
         //Collision  with player
         LifeSystem system;
-        if (timerWait <= 0 && (system = collision.gameObject.GetComponent<LifeSystem>()))
+        if (timerWait <= 0 && (system = collision.gameObject.GetComponent<LifeSystem>()) && active)
         {
             system.GetDamage(damage);
             timerWait = DamageWaitTime;
