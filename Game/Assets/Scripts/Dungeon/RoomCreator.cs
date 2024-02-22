@@ -66,6 +66,8 @@ public class RoomCreator : MonoBehaviour
     private Vector2Int actualRoomCenter;
     private Vector2Int previousRoomCenter;
 
+    private Vector2Int startRoom;
+
     void Start()
     {
         visualizer.Clear();
@@ -84,15 +86,10 @@ public class RoomCreator : MonoBehaviour
 
         playerMovement = player.GetComponent<PlayerMovement>();
 
-        actualRoomCenter = playerMovement.GetCurrentRoom();
-        previousRoomCenter = playerMovement.GetCurrentRoom();
+        actualRoomCenter = startPosition;
+        previousRoomCenter = actualRoomCenter;
 
-        Vector2Int desiredKey = new Vector2Int(0, 0);
-
-        GameObject room = enemiesInstances[actualRoomCenter];
-        room.SetActive(true);
-
-        
+        SetDoorRoom(true);
     }
 
     private bool IsOldRoom()
@@ -195,7 +192,7 @@ public class RoomCreator : MonoBehaviour
             }
 
             //Add enemies and traps
-            if(center != finalRoomCenter && center != shopRoomCenter)
+            if(center != finalRoomCenter && center != shopRoomCenter && center != startPosition)
             {
                 AddRoomData(center);
             }
@@ -212,9 +209,6 @@ public class RoomCreator : MonoBehaviour
             GameObject s = Instantiate(shop);
 
             s.transform.position = new UnityEngine.Vector3(shopRoomCenter.x, shopRoomCenter.y, 0);
-
-
-            //s.transform.position = new UnityEngine.Vector3(7,7, 0);
         }
 
         roomsVisited.Add(shopRoomCenter);
