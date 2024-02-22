@@ -38,10 +38,24 @@ public class EnemyBase : MonoBehaviour
 
     Vector3 baseScale;
 
+    DoorsController doorsController;
+
+    int timesActivated = 0;
+
+    private void OnEnable()
+    {
+        if(timesActivated != 0)
+            doorsController.AddEntity();
+
+        timesActivated++;
+    }
+
     protected void Awake()
     {
         baseSpeed = speed;
         baseScale = transform.localScale;
+
+        doorsController = GameObject.Find("DoorsController").GetComponent<DoorsController>();
 
         rb = GetComponent<Rigidbody2D>();
 
@@ -82,7 +96,7 @@ public class EnemyBase : MonoBehaviour
         {
             itemID = (Items)UnityEngine.Random.Range(1, (int)Items.SpeedHelmet + 1);
             itemRarity = (Rarity)UnityEngine.Random.Range(0, (int)Rarity.Legendary + 1);
-            Debug.Log("Enemy with object" + itemID + itemRarity);
+            //Debug.Log("Enemy with object" + itemID + itemRarity);
         }
     }
 
@@ -123,6 +137,7 @@ public class EnemyBase : MonoBehaviour
         actualLife -= damage;
         if (actualLife <= 0) //Dead
         {
+            doorsController.KillEntity();
             this.gameObject.SetActive(false);
         }
         else // Life feedback ?

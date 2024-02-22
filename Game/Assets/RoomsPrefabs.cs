@@ -10,7 +10,7 @@ public class RoomsPrefabs : MonoBehaviour
     [SerializeField]
     private List<GameObject> prefabs = new List<GameObject>();
 
-    public void generateRandomRoom(Vector2Int center, ref List<Vector2Int> SpikesPositions)
+    public GameObject generateRandomRoom(Vector2Int center, ref List<Vector2Int> SpikesPositions)
     {
         //Make this random...
         int prefabSelection = 0;
@@ -24,5 +24,7 @@ public class RoomsPrefabs : MonoBehaviour
         TrapLocations traps = room.GetComponent<TrapLocations>();
 
         SpikesPositions = traps.GetSpikesFinalLocation(center);
+
+        return room;
     }
 }

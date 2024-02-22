@@ -49,6 +49,9 @@ public class RoomCreator : MonoBehaviour
     //Room center - Doors blocks
     private Dictionary<Vector2Int, List<doorsInfo>> doorsRoomsBlocks = new();
 
+    //Room center - Doors blocks
+    private Dictionary<Vector2Int, GameObject> enemiesInstances = new();
+
     // Save rooms already visited
     List<Vector2Int> roomsVisited = new();
 
@@ -59,6 +62,9 @@ public class RoomCreator : MonoBehaviour
     private Vector2Int shopRoomCenter = new Vector2Int(3, 3);
 
     private RoomsPrefabs roomsPrefabs;
+
+    private Vector2Int actualRoomCenter;
+    private Vector2Int previousRoomCenter;
 
     void Start()
     {
@@ -78,8 +84,15 @@ public class RoomCreator : MonoBehaviour
 
         playerMovement = player.GetComponent<PlayerMovement>();
 
+        actualRoomCenter = playerMovement.GetCurrentRoom();
+        previousRoomCenter = playerMovement.GetCurrentRoom();
 
-        //Trap to test
+        Vector2Int desiredKey = new Vector2Int(0, 0);
+
+        GameObject room = enemiesInstances[actualRoomCenter];
+        room.SetActive(true);
+
+        
     }
 
     private bool IsOldRoom()
@@ -109,6 +122,9 @@ public class RoomCreator : MonoBehaviour
 
     public void SetDoorRoom(bool open)
     {
+        previousRoomCenter = actualRoomCenter;
+        actualRoomCenter = playerMovement.GetCurrentRoom();
+
         //Check if havent been in room yet old room 
         if (IsOldRoom() && !open)
         {
@@ -116,6 +132,20 @@ public class RoomCreator : MonoBehaviour
             return;
         }
         spikeTrap.SetNewRoom(true);
+
+        GameObject actualRoom, previousRoom;
+        //Activate enemies (Check if the rooms are not end or shop)
+        if(enemiesInstances.ContainsKey(actualRoomCenter))
+        {
+            actualRoom = enemiesInstances[actualRoomCenter];
+            actualRoom.SetActive(true);
+        }
+        if(enemiesInstances.ContainsKey(previousRoomCenter))
+        {
+            previousRoom = enemiesInstances[previousRoomCenter];
+            previousRoom.SetActive(false);
+        }
+
 
         foreach (var room in doorsRoomsBlocks)
         {
@@ -159,16 +189,16 @@ public class RoomCreator : MonoBehaviour
             //Draw normal wall corner missing
             DrawCorners(center);
 
-            foreach(doorsInfo doorsBlock in doorsBlocks)
+            foreach (doorsInfo doorsBlock in doorsBlocks)
             {
                 doorsAllBlocks.Add(doorsBlock);
             }
 
             //Add enemies and traps
-            List<Vector2Int> spikesRoom = new List<Vector2Int>();
-            roomsPrefabs.generateRandomRoom(center, ref spikesRoom);
-
-            spikeTrap.AddPoints(spikesRoom);
+            if(center != finalRoomCenter && center != shopRoomCenter)
+            {
+                AddRoomData(center);
+            }
         }
 
         changeRoom.SaveDoors(doorsAllBlocks);
@@ -189,6 +219,16 @@ public class RoomCreator : MonoBehaviour
 
         roomsVisited.Add(shopRoomCenter);
         roomsVisited.Add(finalRoomCenter);
+    }
+
+    private void AddRoomData(Vector2Int center)
+    {
+        List<Vector2Int> spikesRoom = new List<Vector2Int>();
+        GameObject roomEnemies = roomsPrefabs.generateRandomRoom(center, ref spikesRoom);
+        roomEnemies.SetActive(false);
+        enemiesInstances.Add(center, roomEnemies);
+
+        spikeTrap.AddPoints(spikesRoom);
     }
 
     private void DrawCorners(Vector2Int center)

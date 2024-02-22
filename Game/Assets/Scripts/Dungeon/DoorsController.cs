@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class DoorsController : MonoBehaviour
@@ -7,7 +8,10 @@ public class DoorsController : MonoBehaviour
     [SerializeField]
     RoomCreator roomCreator;
 
-    // Start is called before the first frame update
+    int roomEntities = 0;
+
+
+    // Start is called  the first frame update
     void Start()
     {
         
@@ -16,10 +20,17 @@ public class DoorsController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.O))
-        {
+
+    }
+
+    public void AddEntity() { roomEntities++; }
+    
+    public void KillEntity()
+    {
+        roomEntities--;
+
+        if (roomEntities == 0)
             ChangeDoorsState(true);
-        }
     }
 
 
