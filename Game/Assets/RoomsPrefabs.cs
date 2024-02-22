@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using UnityEngine;
 
@@ -13,7 +14,7 @@ public class RoomsPrefabs : MonoBehaviour
     public GameObject generateRandomRoom(Vector2Int center, ref List<Vector2Int> SpikesPositions)
     {
         //Make this random...
-        int prefabSelection = 0;
+        int prefabSelection = Random.Range(0, prefabs.Count);
 
 
         //Spawn the object(Enemies)
