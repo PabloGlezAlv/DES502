@@ -244,7 +244,7 @@ public class TileMapVisualizer : MonoBehaviour
                 tile = insideRightBottomCorner;
                 break;
             case typeWall.insideLeftBottomCorner:
-                tile = insideRightBottomCorner;
+                tile = insideLeftBottomCorner;
                 break;
             default:
                 // Manejar un caso por defecto si es necesario
