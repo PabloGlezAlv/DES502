@@ -10,8 +10,8 @@ public enum Direction { None, Top, Bottom, Left, Right }
 
 public struct doorsInfo
 {
-    public List<Vector2Int> position;
-    public List<bool> leftRightPosition;
+    public Vector2Int position;
+    public bool leftRightPosition;
 
     public Direction dir;
 }
@@ -149,12 +149,7 @@ public class RoomCreator : MonoBehaviour
         {
             foreach (var roomInfo in room.Value)
             {
-                int i = 0;
-                foreach (var roomBlocks in roomInfo.position)
-                {
-                    visualizer.PaintDoorTiles(roomBlocks, open, roomInfo.dir, roomInfo.leftRightPosition[i]);
-                    i++;
-                }
+                visualizer.PaintDoorTiles(roomInfo.position, open, roomInfo.dir, roomInfo.leftRightPosition); 
             }
         }
 
@@ -275,12 +270,10 @@ public class RoomCreator : MonoBehaviour
                 visualizer.PaintDoorTiles(new Vector2Int(i, j + 1), false, Direction.Top, left);
 
                 doorsInfo doorData = new doorsInfo();
-                doorData.position = new List<Vector2Int>();
-                doorData.leftRightPosition = new List<bool>();
                 doorData.dir = Direction.Top;
 
-                doorData.position.Add(new Vector2Int(i, j + 1));
-                doorData.leftRightPosition.Add(left);
+                doorData.position = new Vector2Int(i, j + 1);
+                doorData.leftRightPosition = (left);
 
                 doorsBlocks.Add(doorData);
 
@@ -303,12 +296,10 @@ public class RoomCreator : MonoBehaviour
                 visualizer.PaintDoorTiles(new Vector2Int(i, j - 1), false, Direction.Bottom, left);
 
                 doorsInfo doorData = new doorsInfo();
-                doorData.position = new List<Vector2Int>();
-                doorData.leftRightPosition = new List<bool>();
                 doorData.dir = Direction.Bottom;
 
-                doorData.position.Add(new Vector2Int(i, j - 1));
-                doorData.leftRightPosition.Add(left);
+                doorData.position = new Vector2Int(i, j - 1);
+                doorData.leftRightPosition = left;
 
                 doorsBlocks.Add(doorData);
 
@@ -331,12 +322,10 @@ public class RoomCreator : MonoBehaviour
                 visualizer.PaintDoorTiles(new Vector2Int(i - 1, j), false, Direction.Left, top);
 
                 doorsInfo doorData = new doorsInfo();
-                doorData.position = new List<Vector2Int>();
-                doorData.leftRightPosition = new List<bool>();
                 doorData.dir = Direction.Left;
 
-                doorData.position.Add(new Vector2Int(i - 1, j));
-                doorData.leftRightPosition.Add(top);
+                doorData.position = new Vector2Int(i - 1, j);
+                doorData.leftRightPosition = (top);
 
                 doorsBlocks.Add(doorData);
 
@@ -358,12 +347,10 @@ public class RoomCreator : MonoBehaviour
                 visualizer.PaintDoorTiles(new Vector2Int(i + 1, j), false, Direction.Right, top);
 
                 doorsInfo doorData = new doorsInfo();
-                doorData.position = new List<Vector2Int>();
-                doorData.leftRightPosition = new List<bool>();
                 doorData.dir = Direction.Right;
 
-                doorData.position.Add(new Vector2Int(i + 1, j));
-                doorData.leftRightPosition.Add(top);
+                doorData.position = new Vector2Int(i + 1, j);
+                doorData.leftRightPosition = top;
 
                 doorsBlocks.Add(doorData);
 

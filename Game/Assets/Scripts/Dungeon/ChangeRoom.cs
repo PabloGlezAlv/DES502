@@ -74,7 +74,7 @@ public class ChangeRoom : MonoBehaviour
 
         foreach(doorsInfo door in doors)
         {
-            float newDist = Vector2Int.Distance(playerPos, door.position[0]);
+            float newDist = Vector2Int.Distance(playerPos, door.position);
             if(newDist < distance)
             {
                 distance = newDist;
