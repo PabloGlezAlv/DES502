@@ -439,9 +439,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   maxLife: 5
-  timeWhiteDamage: 1
+  timeWhiteDamage: 0.2
   objectChances: 0.5
+  dropCoinChances: 0.5
   objectRenderer: {fileID: 7326436036523598098}
+  coinPrefab: {fileID: 6051068933900146545, guid: 99198bf4b2a287545ae7ab462675ac16, type: 3}
   changeDirection: 0.5
   changeDirPosAttack: 1
   attackDistance: 1

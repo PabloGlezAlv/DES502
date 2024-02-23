@@ -51,10 +51,6 @@ public class BulletMovement : MonoBehaviour
         {
             system.GetDamage(damage);
         }
-        else
-        {
-            this.gameObject.SetActive(false);
-        }
 
         this.gameObject.SetActive(false);
     }

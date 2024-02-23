@@ -17,6 +17,8 @@ public class EnemyBase : MonoBehaviour
     protected float timeWhiteDamage = 0.2f;
     [SerializeField]
     protected float objectChances = 0.5f;
+    [SerializeField]
+    protected float dropCoinChances = 0.5f;
 
     protected int actualLife;
 
@@ -25,6 +27,8 @@ public class EnemyBase : MonoBehaviour
     protected Rigidbody2D rb;
     [SerializeField]
     protected SpriteRenderer objectRenderer;
+    [SerializeField]
+    private GameObject coinPrefab;
     protected float baseSpeed;
 
     protected SpriteRenderer spriteRenderer;
@@ -137,10 +141,17 @@ public class EnemyBase : MonoBehaviour
         actualLife -= damage;
         if (actualLife <= 0) //Dead
         {
-            doorsController.KillEntity();
+            float randomValue = UnityEngine.Random.value;
+
+            if (randomValue < 0.5)
+            {
+                Instantiate(coinPrefab);
+                coinPrefab.transform.position = transform.position;
+            }
+                doorsController.KillEntity();
             this.gameObject.SetActive(false);
         }
-        else // Life feedback ?
+        else 
         {
             timerWhite = timeWhiteDamage;
             damageReceived = true;

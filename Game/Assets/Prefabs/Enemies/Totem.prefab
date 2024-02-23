@@ -176,7 +176,9 @@ MonoBehaviour:
   maxLife: 5
   timeWhiteDamage: 1
   objectChances: 0.5
+  dropCoinChances: 0.5
   objectRenderer: {fileID: 3336720767735730879}
+  coinPrefab: {fileID: 6051068933900146545, guid: 99198bf4b2a287545ae7ab462675ac16, type: 3}
   AttackRatio: 1
   numberBullets: 3
   delayBullet: 0.2
