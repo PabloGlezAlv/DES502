@@ -1011,6 +1011,10 @@ MonoBehaviour:
   rightTopCorner: {fileID: 11400000, guid: 55e23bed78cd0bb45a17f8a6ba069016, type: 2}
   rightBottomCorner: {fileID: 11400000, guid: b64e35dabb6d1154d8a6be1e1f069a1b, type: 2}
   bottom: {fileID: 11400000, guid: 1759fccc41b0003438a08bc6676e52f2, type: 2}
+  insideLeftTopCorner: {fileID: 11400000, guid: 0dc7971ba54945941940ebb3dfe6ed71, type: 2}
+  insideRightTopCorner: {fileID: 11400000, guid: cdb40886f193a38419c160f50a5a803f, type: 2}
+  insideLeftBottomCorner: {fileID: 11400000, guid: 144b0fdbf17506b41af263a8d17ade32, type: 2}
+  insideRightBottomCorner: {fileID: 11400000, guid: fe84b51e10e4f644a96d9185f239a1d5, type: 2}
   closeDoorTileTopLeft: {fileID: 11400000, guid: 71cc1eb4880b48341a5e60b37e9aff96, type: 2}
   openDoorTileTopLeft: {fileID: 11400000, guid: 12d80a22b894c0146994307db7f1a03d, type: 2}
   closeDoorTileTopRight: {fileID: 11400000, guid: 0d6d3acffaac1174aa5edff5826e7d6d, type: 2}

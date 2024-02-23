@@ -249,16 +249,15 @@ public class RoomCreator : MonoBehaviour
 
         //Draw corner walls
         visualizer.PaintSingleWall(new Vector2Int(-width / 2 - 2 + center.x, height / 2 + center.y + 1), typeWall.leftTopCorner);
-        visualizer.PaintSingleWall(new Vector2Int(-width / 2 - 1 + center.x, height / 2 + center.y), typeWall.leftTopCorner); //NEW BLOCK INTERIOR CORNERA
+        visualizer.PaintSingleWall(new Vector2Int(-width / 2 - 1 + center.x, height / 2 + center.y), typeWall.insideLeftTopCorner);
 
         visualizer.PaintSingleWall(new Vector2Int((width / 2 + center.x + 1), (height / 2) + center.y + 1), typeWall.rightTopCorner);
-        visualizer.PaintSingleWall(new Vector2Int((width / 2 + center.x), (height / 2) + center.y), typeWall.rightTopCorner);//NEW INTERIOR BLOCK CORNERA
+        visualizer.PaintSingleWall(new Vector2Int((width / 2 + center.x), (height / 2) + center.y), typeWall.insideRightTopCorner);
 
-        visualizer.PaintSingleWall(new Vector2Int((-width / 2) - 1 + center.x, (-height / 2) - 1 + center.y), typeWall.leftBottomCorner);//NEW INTERIOR BLOCK CORNERA
         visualizer.PaintSingleWall(new Vector2Int((-width / 2) - 2 + center.x, (-height / 2) - 2 + center.y), typeWall.leftBottomCorner);
+        visualizer.PaintSingleWall(new Vector2Int((-width / 2) - 1 + center.x, (-height / 2) - 1 + center.y), typeWall.insideLeftBottomCorner);
 
-        visualizer.PaintSingleWall(new Vector2Int((width / 2 + center.x), (-height / 2) - 1 + center.y), typeWall.rightBottomCorner); //NEW INTERIOR BLOCK CORNERA
-
+        visualizer.PaintSingleWall(new Vector2Int((width / 2 + center.x), (-height / 2) - 1 + center.y), typeWall.insideRightBottomCorner); 
         visualizer.PaintSingleWall(new Vector2Int((width / 2 + center.x + 1), (-height / 2) - 2 + center.y), typeWall.rightBottomCorner);
     }
 
@@ -272,18 +271,16 @@ public class RoomCreator : MonoBehaviour
             //Door
             if ((i == center.x || i == center.x - 1) && room.Value.Contains(Direction.Top))
             {
-                visualizer.PaintDoorTiles(new Vector2Int(i, j + 2), false, Direction.Top, true);
-                visualizer.PaintDoorTiles(new Vector2Int(i, j + 1), false, Direction.Top, false);
+                bool left = (i == center.x - 1);
+                visualizer.PaintDoorTiles(new Vector2Int(i, j + 1), false, Direction.Top, left);
 
                 doorsInfo doorData = new doorsInfo();
                 doorData.position = new List<Vector2Int>();
                 doorData.leftRightPosition = new List<bool>();
                 doorData.dir = Direction.Top;
 
-                doorData.position.Add(new Vector2Int(i, j + 2));
-                doorData.leftRightPosition.Add(true);
                 doorData.position.Add(new Vector2Int(i, j + 1));
-                doorData.leftRightPosition.Add(false);
+                doorData.leftRightPosition.Add(left);
 
                 doorsBlocks.Add(doorData);
 
@@ -292,17 +289,18 @@ public class RoomCreator : MonoBehaviour
             }
             else //Wall
             {
-                visualizer.PaintSingleWall(new Vector2Int(i, j + 2), typeWall.top);
                 visualizer.PaintSingleWall(new Vector2Int(i, j + 1), typeWall.topBottomInside);
             }
+
+            visualizer.PaintSingleWall(new Vector2Int(i, j + 2), typeWall.top);
         }
         else if (j == -height / 2 + center.y) //Bottom Wall
         {
             //Door
             if ((i == center.x || i == center.x - 1) && room.Value.Contains(Direction.Bottom))
             {
-                visualizer.PaintDoorTiles(new Vector2Int(i, j - 1), false, Direction.Bottom, true);
-                visualizer.PaintDoorTiles(new Vector2Int(i, j - 2), false, Direction.Bottom, false);
+                bool left = (i == center.x - 1);
+                visualizer.PaintDoorTiles(new Vector2Int(i, j - 1), false, Direction.Bottom, left);
 
                 doorsInfo doorData = new doorsInfo();
                 doorData.position = new List<Vector2Int>();
@@ -310,9 +308,7 @@ public class RoomCreator : MonoBehaviour
                 doorData.dir = Direction.Bottom;
 
                 doorData.position.Add(new Vector2Int(i, j - 1));
-                doorData.leftRightPosition.Add(true);
-                doorData.position.Add(new Vector2Int(i, j - 2));
-                doorData.leftRightPosition.Add(false);
+                doorData.leftRightPosition.Add(left);
 
                 doorsBlocks.Add(doorData);
 
@@ -322,16 +318,17 @@ public class RoomCreator : MonoBehaviour
             else //Wall
             {
                 visualizer.PaintSingleWall(new Vector2Int(i, j - 1), typeWall.topBottomInside);
-                visualizer.PaintSingleWall(new Vector2Int(i, j - 2), typeWall.bottom);
             }
+
+            visualizer.PaintSingleWall(new Vector2Int(i, j - 2), typeWall.bottom);
         }
 
         if (i == -width / 2 + center.x) //Left Wall
         {
             if ((j == center.y || j == center.y - 1) && room.Value.Contains(Direction.Left))
             {
-                visualizer.PaintDoorTiles(new Vector2Int(i - 1, j), false, Direction.Left, true);
-                visualizer.PaintDoorTiles(new Vector2Int(i - 2, j), false, Direction.Left, false);
+                bool top = (j == center.y);
+                visualizer.PaintDoorTiles(new Vector2Int(i - 1, j), false, Direction.Left, top);
 
                 doorsInfo doorData = new doorsInfo();
                 doorData.position = new List<Vector2Int>();
@@ -339,9 +336,7 @@ public class RoomCreator : MonoBehaviour
                 doorData.dir = Direction.Left;
 
                 doorData.position.Add(new Vector2Int(i - 1, j));
-                doorData.leftRightPosition.Add(true);
-                doorData.position.Add(new Vector2Int(i - 2, j));
-                doorData.leftRightPosition.Add(false);
+                doorData.leftRightPosition.Add(top);
 
                 doorsBlocks.Add(doorData);
 
@@ -351,15 +346,16 @@ public class RoomCreator : MonoBehaviour
             else
             {
                 visualizer.PaintSingleWall(new Vector2Int(i - 1, j), typeWall.leftRightInside);
-                visualizer.PaintSingleWall(new Vector2Int(i - 2, j), typeWall.left);
             }
+
+            visualizer.PaintSingleWall(new Vector2Int(i - 2, j), typeWall.left);
         }
         else if (i == width / 2 - 1 + center.x) //Right Wall
         {
             if ((j == center.y || j == center.y - 1) && room.Value.Contains(Direction.Right))
             {
-                visualizer.PaintDoorTiles(new Vector2Int(i + 1, j), false, Direction.Right, true);
-                visualizer.PaintDoorTiles(new Vector2Int(i + 2, j), false, Direction.Right, false);
+                bool top = (j == center.y);
+                visualizer.PaintDoorTiles(new Vector2Int(i + 1, j), false, Direction.Right, top);
 
                 doorsInfo doorData = new doorsInfo();
                 doorData.position = new List<Vector2Int>();
@@ -367,9 +363,7 @@ public class RoomCreator : MonoBehaviour
                 doorData.dir = Direction.Right;
 
                 doorData.position.Add(new Vector2Int(i + 1, j));
-                doorData.leftRightPosition.Add(true);
-                doorData.position.Add(new Vector2Int(i + 2, j));
-                doorData.leftRightPosition.Add(false);
+                doorData.leftRightPosition.Add(top);
 
                 doorsBlocks.Add(doorData);
 
@@ -379,8 +373,9 @@ public class RoomCreator : MonoBehaviour
             else
             {
                 visualizer.PaintSingleWall(new Vector2Int(i + 1, j), typeWall.leftRightInside);
-                visualizer.PaintSingleWall(new Vector2Int(i + 2, j), typeWall.right);
             }
+
+            visualizer.PaintSingleWall(new Vector2Int(i + 2, j), typeWall.right);
         }
 
         visualizer.PaintFloorTiles(corridorFloor);

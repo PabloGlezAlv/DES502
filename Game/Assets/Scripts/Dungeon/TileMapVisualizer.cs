@@ -10,7 +10,8 @@ using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
 using UnityEngine.WSA;
 
-enum typeWall{top, topBottomInside, leftRightInside , left, leftTopCorner, leftBottomCorner, right, rightTopCorner, rightBottomCorner, bottom }
+enum typeWall{top, topBottomInside, leftRightInside , left, leftTopCorner, leftBottomCorner, right, rightTopCorner, rightBottomCorner, 
+    bottom, insideLeftTopCorner, insideRightTopCorner, insideLeftBottomCorner ,insideRightBottomCorner}
 public class TileMapVisualizer : MonoBehaviour
 {
     [SerializeField]
@@ -21,7 +22,8 @@ public class TileMapVisualizer : MonoBehaviour
 
     [Header("Walls")]
     [SerializeField]
-    private TileBase top, topBottomInside, leftRightInside, left, leftTopCorner, leftBottomCorner, right, rightTopCorner, rightBottomCorner, bottom;
+    private TileBase top, topBottomInside, leftRightInside, left, leftTopCorner, leftBottomCorner, right, rightTopCorner,
+        rightBottomCorner, bottom, insideLeftTopCorner, insideRightTopCorner, insideLeftBottomCorner, insideRightBottomCorner;
 
     [Header("Doors")]
     [SerializeField]
@@ -231,6 +233,18 @@ public class TileMapVisualizer : MonoBehaviour
                 break;
             case typeWall.leftBottomCorner:
                 tile = leftBottomCorner;
+                break;
+            case typeWall.insideLeftTopCorner:
+                tile = insideLeftTopCorner;
+                break;
+            case typeWall.insideRightTopCorner:
+                tile = insideRightTopCorner;
+                break;
+            case typeWall.insideRightBottomCorner:
+                tile = insideRightBottomCorner;
+                break;
+            case typeWall.insideLeftBottomCorner:
+                tile = insideRightBottomCorner;
                 break;
             default:
                 // Manejar un caso por defecto si es necesario
