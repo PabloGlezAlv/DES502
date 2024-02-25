@@ -50,7 +50,7 @@ public class RoomCreator : MonoBehaviour
     //Room center - Doors blocks
     private Dictionary<Vector2Int, List<doorsInfo>> doorsRoomsBlocks = new();
 
-    //Room center - Doors blocks
+    //Room center - enemies
     private Dictionary<Vector2Int, GameObject> enemiesInstances = new();
 
     // Save rooms already visited

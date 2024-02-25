@@ -37,4 +37,28 @@ public class TrapLocations : MonoBehaviour
 
         return finalLocation;
     }
+
+    [ExecuteInEditMode]
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.cyan;
+        for (int i = 0; i < holesLocations.Count; i++)
+        {
+            Vector2 loc = holesLocations[i];
+            loc += new Vector2(0.5f, 0.5f);
+            Gizmos.color = Color.black;
+            Gizmos.DrawCube(loc, Vector3.one);
+        }
+        for (int j = 0; j < spikesLocations.Count; j++)
+        {
+            Vector2 loc = spikesLocations[j];
+            loc += new Vector2(0.5f, 0.5f);
+            Gizmos.color = Color.white;
+            Gizmos.DrawCube(loc, Vector3.one);
+        }
+
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireCube(Vector3.zero, new Vector2(22, 10));
+
+    }
 }
