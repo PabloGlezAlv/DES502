@@ -114,6 +114,10 @@ public class EnemyBase : MonoBehaviour
                 spriteRenderer.color = normal;
                 damageReceived = false;
             }
+            else
+            {
+                spriteRenderer.color += (normal) / timerWhite;
+            }
         }
     }
 
