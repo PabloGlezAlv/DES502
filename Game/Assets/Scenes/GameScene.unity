@@ -19606,6 +19606,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraMov: {fileID: 519420033}
+  creator: {fileID: 2100779188}
 --- !u!1 &773677629
 GameObject:
   m_ObjectHideFlags: 0
