@@ -12,21 +12,46 @@ public class ChangeFloorMovement : MonoBehaviour
     CameraMovement cameraMov;
     PlayerMovement playerMovement;
 
+    Rigidbody2D rb;
+
+    bool goMiddle = false;
+    Vector3 targetPosition;
+
     private void Awake()
     {
         cameraMov = Camera.main.gameObject.GetComponent<CameraMovement>();
         playerMovement = gameObject.GetComponent<PlayerMovement>();
+
+        rb = gameObject.GetComponent<Rigidbody2D>();
     }
 
+    public void setTargetPostion(Vector3 target)
+    {
+        targetPosition = target;
+    }
 
     private void OnEnable()
     {
-        EndTransition();
+        goMiddle = true;
     }
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
+        if(goMiddle) //SetPlayer in the center of hatch
+        {
+            Vector3 direccion = (targetPosition - transform.position).normalized;
+            Vector3 fuerzaMovimiento = direccion * 5;
+            rb.AddForce(fuerzaMovimiento);
 
+            if (Vector3.Distance(transform.position, targetPosition) < 0.1)
+            {
+                goMiddle = false;
+            }
+        }
+        else
+        {
+            EndTransition();
+        }
     }
 
 
@@ -34,8 +59,10 @@ public class ChangeFloorMovement : MonoBehaviour
     void EndTransition()
     {
         cameraMov.SetPosition(new Vector2Int());
-        playerMovement.enabled = true;
+        playerMovement.SetNormalMove(true);
 
         creator.generateNewLevel();
+
+        this.enabled = false;
     }
 }

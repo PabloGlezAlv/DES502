@@ -45,6 +45,8 @@ public class PlayerMovement : MonoBehaviour
 
     UnityEngine.Vector3 baseScale;
 
+    bool move = true;
+
     public Vector2Int GetCurrentRoom()
     {
         return currentRoom;
@@ -97,9 +99,17 @@ public class PlayerMovement : MonoBehaviour
         transform.localScale *= speedMultiplier;
     }
 
+    public void SetNormalMove(bool set)
+    {
+        move = set;
+        if(move)
+            ResetPlayer();
+    }
+
+
     private void OnEnable()
     {
-        ResetPlayer();
+        
     }
     public void ResetScale()
     {
@@ -290,10 +300,13 @@ public class PlayerMovement : MonoBehaviour
     }
     void FixedUpdate()
     {
-        if(doorMovement)
-            MovePlayer(horizontalMovementDoor, verticalMovementDoor);
-        else 
-            MovePlayer(horizontalMovement, verticalMovement);
+        if(move)
+        {
+            if (doorMovement)
+                MovePlayer(horizontalMovementDoor, verticalMovementDoor);
+            else
+                MovePlayer(horizontalMovement, verticalMovement);
+        }
     }
 
     private void MovePlayer(float horizontalMovement, float verticalMovement)
