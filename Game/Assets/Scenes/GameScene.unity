@@ -67,6 +67,9 @@ LightmapSettings:
     m_LightmapParameters: {fileID: 0}
     m_LightmapsBakeMode: 1
     m_TextureCompression: 1
+    m_FinalGather: 0
+    m_FinalGatherFiltering: 1
+    m_FinalGatherRayCount: 256
     m_ReflectionCompression: 2
     m_MixedBakeMode: 2
     m_BakeBackend: 0
@@ -566,63 +569,63 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 698883382974715391, guid: bdca88579c09674408298d84a638384c, type: 3}
-      propertyPath: 'halfHearts.Array.data[0]'
+      propertyPath: halfHearts.Array.data[0]
       value: 
       objectReference: {fileID: 580436287}
     - target: {fileID: 698883382974715391, guid: bdca88579c09674408298d84a638384c, type: 3}
-      propertyPath: 'halfHearts.Array.data[1]'
+      propertyPath: halfHearts.Array.data[1]
       value: 
       objectReference: {fileID: 473498021}
     - target: {fileID: 698883382974715391, guid: bdca88579c09674408298d84a638384c, type: 3}
-      propertyPath: 'halfHearts.Array.data[2]'
+      propertyPath: halfHearts.Array.data[2]
       value: 
       objectReference: {fileID: 1891226817}
     - target: {fileID: 698883382974715391, guid: bdca88579c09674408298d84a638384c, type: 3}
-      propertyPath: 'halfHearts.Array.data[3]'
+      propertyPath: halfHearts.Array.data[3]
       value: 
       objectReference: {fileID: 1746572288}
     - target: {fileID: 698883382974715391, guid: bdca88579c09674408298d84a638384c, type: 3}
-      propertyPath: 'halfHearts.Array.data[4]'
+      propertyPath: halfHearts.Array.data[4]
       value: 
       objectReference: {fileID: 1779320484}
     - target: {fileID: 698883382974715391, guid: bdca88579c09674408298d84a638384c, type: 3}
-      propertyPath: 'halfHearts.Array.data[5]'
+      propertyPath: halfHearts.Array.data[5]
       value: 
       objectReference: {fileID: 273928851}
     - target: {fileID: 698883382974715391, guid: bdca88579c09674408298d84a638384c, type: 3}
-      propertyPath: 'halfHearts.Array.data[6]'
+      propertyPath: halfHearts.Array.data[6]
       value: 
       objectReference: {fileID: 3100940}
     - target: {fileID: 698883382974715391, guid: bdca88579c09674408298d84a638384c, type: 3}
-      propertyPath: 'halfHearts.Array.data[7]'
+      propertyPath: halfHearts.Array.data[7]
       value: 
       objectReference: {fileID: 2132519552}
     - target: {fileID: 698883382974715391, guid: bdca88579c09674408298d84a638384c, type: 3}
-      propertyPath: 'halfHearts.Array.data[8]'
+      propertyPath: halfHearts.Array.data[8]
       value: 
       objectReference: {fileID: 1379250112}
     - target: {fileID: 698883382974715391, guid: bdca88579c09674408298d84a638384c, type: 3}
-      propertyPath: 'halfHearts.Array.data[9]'
+      propertyPath: halfHearts.Array.data[9]
       value: 
       objectReference: {fileID: 886046438}
     - target: {fileID: 698883382974715391, guid: bdca88579c09674408298d84a638384c, type: 3}
-      propertyPath: 'emptyHearts.Array.data[0]'
+      propertyPath: emptyHearts.Array.data[0]
       value: 
       objectReference: {fileID: 773677629}
     - target: {fileID: 698883382974715391, guid: bdca88579c09674408298d84a638384c, type: 3}
-      propertyPath: 'emptyHearts.Array.data[1]'
+      propertyPath: emptyHearts.Array.data[1]
       value: 
       objectReference: {fileID: 1589266031}
     - target: {fileID: 698883382974715391, guid: bdca88579c09674408298d84a638384c, type: 3}
-      propertyPath: 'emptyHearts.Array.data[2]'
+      propertyPath: emptyHearts.Array.data[2]
       value: 
       objectReference: {fileID: 622948744}
     - target: {fileID: 698883382974715391, guid: bdca88579c09674408298d84a638384c, type: 3}
-      propertyPath: 'emptyHearts.Array.data[3]'
+      propertyPath: emptyHearts.Array.data[3]
       value: 
       objectReference: {fileID: 1156674087}
     - target: {fileID: 698883382974715391, guid: bdca88579c09674408298d84a638384c, type: 3}
-      propertyPath: 'emptyHearts.Array.data[4]'
+      propertyPath: emptyHearts.Array.data[4]
       value: 
       objectReference: {fileID: 1880527239}
     - target: {fileID: 760005158312221897, guid: bdca88579c09674408298d84a638384c, type: 3}
@@ -19562,7 +19565,6 @@ TilemapCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 770986730}
   m_Enabled: 1
-  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -19586,8 +19588,7 @@ TilemapCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
+  m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
@@ -25119,7 +25120,6 @@ TilemapCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 927267674}
   m_Enabled: 1
-  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -25143,8 +25143,7 @@ TilemapCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
+  m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
@@ -44651,7 +44650,6 @@ TilemapCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1655992818}
   m_Enabled: 1
-  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -44675,8 +44673,7 @@ TilemapCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
+  m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
@@ -63300,7 +63297,6 @@ TilemapCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1873408955}
   m_Enabled: 1
-  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -63324,8 +63320,7 @@ TilemapCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 1
   m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
+  m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
@@ -82563,7 +82558,6 @@ TilemapCollider2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2088973387}
   m_Enabled: 1
-  serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
@@ -82587,8 +82581,7 @@ TilemapCollider2D:
     m_Bits: 4294967295
   m_IsTrigger: 0
   m_UsedByEffector: 0
-  m_CompositeOperation: 0
-  m_CompositeOrder: 0
+  m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
@@ -82878,43 +82871,43 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
-      propertyPath: 'scaleShopPrice.Array.data[0]'
+      propertyPath: scaleShopPrice.Array.data[0]
       value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
-      propertyPath: 'scaleShopPrice.Array.data[1]'
+      propertyPath: scaleShopPrice.Array.data[1]
       value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
-      propertyPath: 'scaleShopPrice.Array.data[2]'
+      propertyPath: scaleShopPrice.Array.data[2]
       value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
-      propertyPath: 'scaleShopPrice.Array.data[3]'
+      propertyPath: scaleShopPrice.Array.data[3]
       value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
-      propertyPath: 'scaleShopPrice.Array.data[4]'
+      propertyPath: scaleShopPrice.Array.data[4]
       value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
-      propertyPath: 'speedShopPrice.Array.data[0]'
+      propertyPath: speedShopPrice.Array.data[0]
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
-      propertyPath: 'speedShopPrice.Array.data[1]'
+      propertyPath: speedShopPrice.Array.data[1]
       value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
-      propertyPath: 'speedShopPrice.Array.data[2]'
+      propertyPath: speedShopPrice.Array.data[2]
       value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
-      propertyPath: 'speedShopPrice.Array.data[3]'
+      propertyPath: speedShopPrice.Array.data[3]
       value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
-      propertyPath: 'speedShopPrice.Array.data[4]'
+      propertyPath: speedShopPrice.Array.data[4]
       value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []

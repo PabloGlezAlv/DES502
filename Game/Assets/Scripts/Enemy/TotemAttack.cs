@@ -34,8 +34,10 @@ public class TotemAttack : EnemyBase
     }
 
 
-    private void Update()
+    protected void Update()
     {
+        base.Update();
+
         timerAttack += Time.deltaTime;
 
         if(timerAttack > AttackRatio) 

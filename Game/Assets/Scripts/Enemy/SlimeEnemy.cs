@@ -69,8 +69,10 @@ public class SlimeEnemy : EnemyBase
         Floormap.AddRange(WallMap);
     }
 
-    private new void Update()
+    private void Update()
     {
+        base.Update();
+
         centerx = transform.position.x;
         centery = transform.position.y;
         ThinkTime += Time.deltaTime;
