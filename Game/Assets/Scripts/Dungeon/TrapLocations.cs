@@ -41,7 +41,6 @@ public class TrapLocations : MonoBehaviour
     [ExecuteInEditMode]
     void OnDrawGizmos()
     {
-        Gizmos.color = Color.cyan;
         for (int i = 0; i < holesLocations.Count; i++)
         {
             Vector2 loc = holesLocations[i];

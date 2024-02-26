@@ -51,7 +51,7 @@ public class PlayerData : MonoBehaviour
 
     public bool BuyItem(Items itemType, Rarity rare, int price)
     {
-        if(coins < price) 
+        if(coins < price)
             return false;
         else
         {
