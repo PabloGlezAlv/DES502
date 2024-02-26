@@ -15,7 +15,7 @@ enum typeWall{top, topBottomInside, leftRightInside , left, leftTopCorner, leftB
 public class TileMapVisualizer : MonoBehaviour
 {
     [SerializeField]
-    private GameObject floorTilemapGameObject, wallTilemapGameObject, doorsTileGameObject, nextLevelGameObject, trapGameObject, holesGameObject;
+    private GameObject floorTilemapGameObject, wallTilemapGameObject, doorsTileGameObject, trapGameObject, holesGameObject;
     [Header("Floor")]
     [SerializeField]
     private TileBase floorTile, floorCorridorTile;
@@ -32,10 +32,6 @@ public class TileMapVisualizer : MonoBehaviour
                     closeDoorTileLeftTop, openDoorTileLeftTop, closeDoorTileLeftBottom, openDoorTileLeftBottom,
                     closeDoorTileRightTop, openDoorTileRightTop, closeDoorTileRightBottom, openDoorTileRightBottom;
 
-    [Header("NextLevel")]
-    [SerializeField]
-    private TileBase topleftEnd, toprightEnd, bottomleftEnd, bottomrightEnd;
-
     [Header("Tramp")]
     [SerializeField]
     private TileBase spikeOff, spikeOn;
@@ -45,7 +41,7 @@ public class TileMapVisualizer : MonoBehaviour
     private TileBase holeTile;
 
 
-    private Tilemap floorTilemap, wallTilemap, doorsTile, nextLevelTilemap, trapTilemap, holeTilemap;
+    private Tilemap floorTilemap, wallTilemap, doorsTile, trapTilemap, holeTilemap;
 
     private TilemapCollider2D doorsTileCollider;
 
@@ -54,7 +50,6 @@ public class TileMapVisualizer : MonoBehaviour
         floorTilemap = floorTilemapGameObject.GetComponent<Tilemap>();
         wallTilemap = wallTilemapGameObject.GetComponent<Tilemap>();
         doorsTile = doorsTileGameObject.GetComponent<Tilemap>();
-        nextLevelTilemap = nextLevelGameObject.GetComponent<Tilemap>();
         trapTilemap = trapGameObject.GetComponent<Tilemap>();
         holeTilemap = holesGameObject.GetComponent<Tilemap>();
 
@@ -72,21 +67,6 @@ public class TileMapVisualizer : MonoBehaviour
     public void PaintHoles(IEnumerable<Vector2Int> holesPositions)
     {
         PaintTiles(holesPositions, holeTilemap, holeTile);
-    }
-
-    public void PaintNextFloorDoor(Vector2Int positionTopRight)
-    {
-        PaintSingleTile(nextLevelTilemap, toprightEnd, positionTopRight);
-
-        Vector2Int otherPos = positionTopRight;
-        otherPos.x--;
-        PaintSingleTile(nextLevelTilemap, topleftEnd, otherPos);
-
-        otherPos = positionTopRight;
-        otherPos.y--;
-        PaintSingleTile(nextLevelTilemap, bottomleftEnd, otherPos);
-        otherPos.x--;
-        PaintSingleTile(nextLevelTilemap, bottomrightEnd, otherPos);
     }
 
     public void PaintFloorTiles(IEnumerable<Vector2Int> floorPositions)
@@ -194,7 +174,6 @@ public class TileMapVisualizer : MonoBehaviour
         floorTilemap.ClearAllTiles();
         wallTilemap.ClearAllTiles();
         doorsTile.ClearAllTiles();
-        nextLevelTilemap.ClearAllTiles();
         trapTilemap.ClearAllTiles();
         holeTilemap.ClearAllTiles();
     }

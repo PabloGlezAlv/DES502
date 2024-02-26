@@ -35,8 +35,12 @@ public class RoomCreator : MonoBehaviour
     private int height = 10;
     [SerializeField]
     private Vector2Int startPosition = new(0, 0);
+
+    [Header("Rooms GameObjects")]
     [SerializeField]
     private GameObject shop;
+    [SerializeField]
+    private GameObject hatch;
 
     [Header("Procedural Parameters")]
     [SerializeField]
@@ -70,10 +74,13 @@ public class RoomCreator : MonoBehaviour
     private Vector2Int previousRoomCenter;
 
     private GameObject shopInstance;
+    private GameObject nextFloorHatchInstance;
 
     void Start()
     {
         shopInstance = Instantiate(shop);
+        nextFloorHatchInstance = Instantiate(hatch);
+        nextFloorHatchInstance.GetComponent<ChangeLevel>().setCreator(this);
 
         visualizer.Clear();
 
@@ -87,6 +94,7 @@ public class RoomCreator : MonoBehaviour
     private void GenerateDungeon()
     {
         shopInstance.transform.position = new UnityEngine.Vector3(1000,1000,0);
+        nextFloorHatchInstance.transform.position = new UnityEngine.Vector3(-1000, 1000, 0);
         //Draw Rooms
         roomsInfo = GenerationAlgorithm.SimpleRandomWalk(startPosition, width, height, stepsPerWalk, numberWalk, ref finalRoomCenter, ref shopRoomCenter);
         DrawRoom();
@@ -241,11 +249,12 @@ public class RoomCreator : MonoBehaviour
 
         changeRoom.SaveDoors(doorsAllBlocks);
 
-        visualizer.PaintNextFloorDoor(finalRoomCenter);
+
+        nextFloorHatchInstance.transform.position = new UnityEngine.Vector3(finalRoomCenter.x, finalRoomCenter.y, 0);
 
         //Set the shop
 
-        if(finalRoomCenter != shopRoomCenter)
+        if (finalRoomCenter != shopRoomCenter)
         {
             shopInstance.transform.position = new UnityEngine.Vector3(shopRoomCenter.x, shopRoomCenter.y, 0);
         }

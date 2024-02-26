@@ -4,11 +4,19 @@ using UnityEngine;
 
 public class ChangeLevel : MonoBehaviour
 {
-    [SerializeField]
     CameraMovement cameraMov;
 
-    [SerializeField]
     RoomCreator creator;
+
+    private void Awake()
+    {
+        cameraMov = Camera.main.gameObject.GetComponent<CameraMovement>();
+    }
+
+    public void setCreator(RoomCreator c)
+    {
+        creator = c;
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
