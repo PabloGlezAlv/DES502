@@ -35,6 +35,8 @@ public class SpikeLogic : MonoBehaviour
         points.Add(p);
     }
 
+    public void Clear()
+    { points.Clear(); }
 
     public void SetNewRoom(bool set)
     {

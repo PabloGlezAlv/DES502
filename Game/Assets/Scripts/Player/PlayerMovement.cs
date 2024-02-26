@@ -75,6 +75,11 @@ public class PlayerMovement : MonoBehaviour
         else return Direction.None;
     }
 
+    public void ResetPlayer()
+    {
+        currentRoom = new Vector2Int(0, 0);
+    }
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -292,5 +297,10 @@ public class PlayerMovement : MonoBehaviour
         UnityEngine.Vector3 movement = new UnityEngine.Vector3(horizontalMovement, verticalMovement, 0f).normalized * speed * Time.fixedDeltaTime;
 
         rb.MovePosition(transform.position + movement);
+    }
+
+    public void setPosition(Vector2Int newPosition)
+    {
+        transform.position = new UnityEngine.Vector3(newPosition.x, newPosition.y, transform.position.z);
     }
 }

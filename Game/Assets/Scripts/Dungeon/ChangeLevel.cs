@@ -4,11 +4,23 @@ using UnityEngine;
 
 public class ChangeLevel : MonoBehaviour
 {
+    [SerializeField]
+    CameraMovement cameraMov;
+
+    [SerializeField]
+    RoomCreator creator;
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.GetComponent<PlayerMovement>() != null)
+        PlayerMovement playerMovement = collision.gameObject.GetComponent<PlayerMovement>();
+        if (playerMovement != null)
         {
             Debug.Log("Siguiente nivel");
+
+            cameraMov.SetPosition(new Vector2Int());
+            playerMovement.ResetPlayer();
+
+            creator.generateNewLevel();
         }
     }
 }

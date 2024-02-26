@@ -20,11 +20,6 @@ public class CameraMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if((Input.GetKeyDown(KeyCode.M)))
-        //{
-        //    SetPosition(new Vector2Int(0,12));
-        //}
-
         if(changingPosition)
         {
             if (elapsedTime < changePositionTime)
@@ -46,7 +41,12 @@ public class CameraMovement : MonoBehaviour
         }
     }
 
-    public bool SetPosition(Vector2Int newPosition)
+    public void SetPosition(Vector2Int newPosition)
+    {
+        transform.position = new Vector3(newPosition.x, newPosition.y, transform.position.z);
+    }
+
+    public bool SetPositionSmooth(Vector2Int newPosition)
     {
         if(!changingPosition)
         {

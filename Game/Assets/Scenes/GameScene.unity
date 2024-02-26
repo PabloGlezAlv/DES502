@@ -19605,6 +19605,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71d7abdb104574842ae76a183deb5abd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cameraMov: {fileID: 519420033}
 --- !u!1 &773677629
 GameObject:
   m_ObjectHideFlags: 0
@@ -81827,7 +81828,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &1892688382
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -81844,25 +81845,25 @@ MonoBehaviour:
   sounds:
   - name: Title
     clip: {fileID: 8300000, guid: 4460ea299f3cbd645bfc5842a6e83254, type: 3}
-    volume: 1
+    volume: 0
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: Dungeon
     clip: {fileID: 8300000, guid: ca5801d0f25efbc4284991e17ef77cfa, type: 3}
-    volume: 1
+    volume: 0
     pitch: 1
     loop: 1
     source: {fileID: 0}
   - name: TitleIntro
     clip: {fileID: 8300000, guid: 4460ea299f3cbd645bfc5842a6e83254, type: 3}
-    volume: 1
+    volume: 0
     pitch: 1
     loop: 0
     source: {fileID: 0}
   - name: DungeonIntro
     clip: {fileID: 8300000, guid: 854d02889045906439d3ff56524af054, type: 3}
-    volume: 1
+    volume: 0
     pitch: 1
     loop: 0
     source: {fileID: 0}
@@ -82702,8 +82703,8 @@ MonoBehaviour:
   height: 10
   startPosition: {x: 0, y: 0}
   shop: {fileID: 7175802651891052905, guid: 37a2445f117f4d04480e5b7d863ea92c, type: 3}
-  stepsPerWalk: 10
-  numberWalk: 10
+  stepsPerWalk: 3
+  numberWalk: 3
 --- !u!4 &2100779189
 Transform:
   m_ObjectHideFlags: 0

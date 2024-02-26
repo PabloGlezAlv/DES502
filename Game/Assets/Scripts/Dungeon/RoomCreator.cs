@@ -69,12 +69,24 @@ public class RoomCreator : MonoBehaviour
     private Vector2Int actualRoomCenter;
     private Vector2Int previousRoomCenter;
 
+    private GameObject shopInstance;
+
     void Start()
     {
+        shopInstance = Instantiate(shop);
+
         visualizer.Clear();
 
         roomsPrefabs = GetComponent<RoomsPrefabs>();
 
+        playerMovement = player.GetComponent<PlayerMovement>();
+
+        GenerateDungeon();
+    }
+
+    private void GenerateDungeon()
+    {
+        shopInstance.transform.position = new UnityEngine.Vector3(1000,1000,0);
         //Draw Rooms
         roomsInfo = GenerationAlgorithm.SimpleRandomWalk(startPosition, width, height, stepsPerWalk, numberWalk, ref finalRoomCenter, ref shopRoomCenter);
         DrawRoom();
@@ -85,12 +97,39 @@ public class RoomCreator : MonoBehaviour
         //Set camera
         Camera.main.transform.position = new UnityEngine.Vector3() { x = startPosition.x, y = startPosition.y, z = -10 };
 
-        playerMovement = player.GetComponent<PlayerMovement>();
 
         actualRoomCenter = startPosition;
         previousRoomCenter = actualRoomCenter;
 
         SetDoorRoom(true);
+    }
+
+    public void generateNewLevel()
+    {
+        //Clean saved data
+        visualizer.Clear();
+        Clear();
+
+        GenerateDungeon();
+    }
+
+    private void Clear()
+    {
+        roomsInfo.Clear();
+        doorsRoomsBlocks.Clear();
+        foreach (var room in enemiesInstances)
+        {
+            GameObject enemy = room.Value;
+            if (enemy != null)
+            {
+                Destroy(enemy);
+            }
+        }
+        enemiesInstances.Clear ();
+        roomsVisited.Clear ();
+        holesFloor.Clear();
+
+        spikeTrap.Clear();
     }
 
     private bool IsOldRoom()
@@ -208,9 +247,7 @@ public class RoomCreator : MonoBehaviour
 
         if(finalRoomCenter != shopRoomCenter)
         {
-            GameObject s = Instantiate(shop);
-
-            s.transform.position = new UnityEngine.Vector3(shopRoomCenter.x, shopRoomCenter.y, 0);
+            shopInstance.transform.position = new UnityEngine.Vector3(shopRoomCenter.x, shopRoomCenter.y, 0);
         }
 
         roomsVisited.Add(shopRoomCenter);

@@ -59,7 +59,7 @@ public class ChangeRoom : MonoBehaviour
             }
 
 
-            if (cam.SetPosition(finalPositon))
+            if (cam.SetPositionSmooth(finalPositon))
             {
                 mov.SetDoorMovement(finalPositon, dir);
             }
