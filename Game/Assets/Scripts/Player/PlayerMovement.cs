@@ -97,6 +97,10 @@ public class PlayerMovement : MonoBehaviour
         transform.localScale *= speedMultiplier;
     }
 
+    private void OnEnable()
+    {
+        ResetPlayer();
+    }
     public void ResetScale()
     {
         transform.localScale = baseScale;

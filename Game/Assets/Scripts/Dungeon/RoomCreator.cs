@@ -80,7 +80,6 @@ public class RoomCreator : MonoBehaviour
     {
         shopInstance = Instantiate(shop);
         nextFloorHatchInstance = Instantiate(hatch);
-        nextFloorHatchInstance.GetComponent<ChangeLevel>().setCreator(this);
 
         visualizer.Clear();
 
