@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Tilemaps;
 using static UnityEditor.SceneView;
 
 public class ChangeFloorMovement : MonoBehaviour
@@ -9,13 +10,23 @@ public class ChangeFloorMovement : MonoBehaviour
     [SerializeField]
     RoomCreator creator;
 
+    [SerializeField]
+    TilemapRenderer floor;
+
+    [SerializeField]
+    float force = 5;
+
     CameraMovement cameraMov;
     PlayerMovement playerMovement;
 
     Rigidbody2D rb;
 
     bool goMiddle = false;
+    bool changedSpriteLayer = false;
+
     Vector3 targetPosition;
+
+    Vector3 jumpPosition;
 
     private void Awake()
     {
@@ -33,6 +44,7 @@ public class ChangeFloorMovement : MonoBehaviour
     private void OnEnable()
     {
         goMiddle = true;
+        changedSpriteLayer = false;
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -45,19 +57,36 @@ public class ChangeFloorMovement : MonoBehaviour
 
             if (Vector3.Distance(transform.position, targetPosition) < 0.1)
             {
+                jumpPosition = transform.position;
                 goMiddle = false;
+                rb.velocity = new Vector3();
+
+                rb.gravityScale = 1;
+                
+                rb.AddForce(Vector2.up * force, ForceMode2D.Impulse);
             }
         }
-        else
+        else if(!changedSpriteLayer && transform.position.y < jumpPosition.y)
         {
-            EndTransition();
+            changedSpriteLayer = true;
+            floor.sortingLayerName = "AbovePlayer";
+
+            Invoke("EndTransition", 2f);
+        }
+        else if (!changedSpriteLayer && transform.position.y < jumpPosition.y - 2)
+        {
+            rb.velocity = new Vector2();
+            rb.gravityScale = 0;
         }
     }
 
-
-
     void EndTransition()
     {
+        rb.gravityScale = 0;
+        rb.velocity = new Vector3();
+        floor.sortingLayerName = "Floor";
+
+
         cameraMov.SetPosition(new Vector2Int());
         playerMovement.SetNormalMove(true);
 

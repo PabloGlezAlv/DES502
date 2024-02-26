@@ -223,6 +223,14 @@ public class RoomCreator : MonoBehaviour
                 }
             }
 
+            if(center == finalRoomCenter) //Dont draw int he spaces for the end
+            {
+                floorPositions.Remove(center);
+                floorPositions.Remove(new Vector2Int(center.x - 1, center.y));
+                floorPositions.Remove(new Vector2Int(center.x, center.y - 1));
+                floorPositions.Remove(new Vector2Int(center.x - 1, center.y - 1));
+            }
+
             //Save door Blocks
             doorsRoomsBlocks.Add(center, doorsBlocks);
 

@@ -42,3 +42,18 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BelowFloor2
+    uniqueID: 4158337905
+    locked: 0
+  - name: BelowFloor
+    uniqueID: 1585993775
+    locked: 0
+  - name: Floor
+    uniqueID: 77475487
+    locked: 0
+  - name: Player
+    uniqueID: 1703555729
+    locked: 0
+  - name: AbovePlayer
+    uniqueID: 2876806795
+    locked: 0
