@@ -144,8 +144,8 @@ public class EnemyBase : MonoBehaviour
 
             if (randomValue < 0.5)
             {
-                Instantiate(coinPrefab);
-                coinPrefab.transform.position = transform.position;
+                GameObject coin = Instantiate(coinPrefab);
+                coin.transform.position = transform.position;
             }
                 doorsController.KillEntity();
             this.gameObject.SetActive(false);
