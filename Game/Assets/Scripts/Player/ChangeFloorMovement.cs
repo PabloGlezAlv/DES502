@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.UI;
 using static UnityEditor.SceneView;
 
 public class ChangeFloorMovement : MonoBehaviour
@@ -16,6 +17,9 @@ public class ChangeFloorMovement : MonoBehaviour
     [SerializeField]
     float force = 5;
 
+    [SerializeField]
+    Image fadeInOutImage;
+
     CameraMovement cameraMov;
     PlayerMovement playerMovement;
 
@@ -27,6 +31,9 @@ public class ChangeFloorMovement : MonoBehaviour
     Vector3 targetPosition;
 
     Vector3 jumpPosition;
+
+    bool fadingIn = false;
+    bool fadingOut = false;
 
     private void Awake()
     {
@@ -45,6 +52,8 @@ public class ChangeFloorMovement : MonoBehaviour
     {
         goMiddle = true;
         changedSpriteLayer = false;
+        fadingIn = false;
+        fadingOut = false;
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -64,33 +73,62 @@ public class ChangeFloorMovement : MonoBehaviour
                 rb.gravityScale = 1;
                 
                 rb.AddForce(Vector2.up * force, ForceMode2D.Impulse);
+
+                fadingIn = true;
             }
         }
         else if(!changedSpriteLayer && transform.position.y < jumpPosition.y)
         {
             changedSpriteLayer = true;
             floor.sortingLayerName = "AbovePlayer";
-
-            Invoke("EndTransition", 2f);
         }
-        else if (!changedSpriteLayer && transform.position.y < jumpPosition.y - 2)
+        else if (changedSpriteLayer && transform.position.y < jumpPosition.y - 2)
         {
             rb.velocity = new Vector2();
             rb.gravityScale = 0;
         }
+
+        if(fadingIn) 
+        {
+            Color c = new Color(0,0,0, fadeInOutImage.color.a + Time.deltaTime / 2);
+            fadeInOutImage.color = c;
+            if(c.a >= 1)
+            {
+                Invoke("GenerateNextLevel", 0.3f);
+
+                fadingIn = false;
+
+            }
+        }
+        else if(fadingOut)
+        {
+            Color c = new Color(0, 0, 0, fadeInOutImage.color.a - Time.deltaTime / 2);
+            fadeInOutImage.color = c;
+
+            if(c.a <= 0)
+            {
+                StartNextLevel();
+            }
+        }
+
     }
 
-    void EndTransition()
+    void GenerateNextLevel()
     {
+        fadingOut = true;
         rb.gravityScale = 0;
         rb.velocity = new Vector3();
         floor.sortingLayerName = "Floor";
-
-
         cameraMov.SetPosition(new Vector2Int());
-        playerMovement.SetNormalMove(true);
+        playerMovement.ResetPlayer();
 
         creator.generateNewLevel();
+    }
+
+    void StartNextLevel()
+    {
+        fadingOut = false;
+        playerMovement.SetNormalMove(true);
 
         this.enabled = false;
     }

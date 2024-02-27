@@ -93,6 +93,7 @@ public class RoomCreator : MonoBehaviour
     private void GenerateDungeon()
     {
         shopInstance.transform.position = new UnityEngine.Vector3(1000,1000,0);
+
         nextFloorHatchInstance.transform.position = new UnityEngine.Vector3(-1000, 1000, 0);
         //Draw Rooms
         roomsInfo = GenerationAlgorithm.SimpleRandomWalk(startPosition, width, height, stepsPerWalk, numberWalk, ref finalRoomCenter, ref shopRoomCenter);
