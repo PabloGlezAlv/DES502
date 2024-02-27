@@ -4,6 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using UnityEngine.UI;
+using UnityEngine.UIElements;
 using static UnityEditor.SceneView;
 
 public class ChangeFloorMovement : MonoBehaviour
@@ -18,7 +19,7 @@ public class ChangeFloorMovement : MonoBehaviour
     float force = 5;
 
     [SerializeField]
-    Image fadeInOutImage;
+    UnityEngine.UI.Image fadeInOutImage;
 
     CameraMovement cameraMov;
     PlayerMovement playerMovement;
@@ -35,12 +36,16 @@ public class ChangeFloorMovement : MonoBehaviour
     bool fadingIn = false;
     bool fadingOut = false;
 
+    Vector3 startPos;
+
     private void Awake()
     {
         cameraMov = Camera.main.gameObject.GetComponent<CameraMovement>();
         playerMovement = gameObject.GetComponent<PlayerMovement>();
 
         rb = gameObject.GetComponent<Rigidbody2D>();
+
+        startPos = fadeInOutImage.transform.position;
     }
 
     public void setTargetPostion(Vector3 target)
@@ -54,6 +59,8 @@ public class ChangeFloorMovement : MonoBehaviour
         changedSpriteLayer = false;
         fadingIn = false;
         fadingOut = false;
+
+        fadeInOutImage.transform.position = startPos;
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -74,7 +81,7 @@ public class ChangeFloorMovement : MonoBehaviour
                 
                 rb.AddForce(Vector2.up * force, ForceMode2D.Impulse);
 
-                fadingIn = true;
+                Invoke("StartFadeIn", 1f);
             }
         }
         else if(!changedSpriteLayer && transform.position.y < jumpPosition.y)
@@ -90,11 +97,11 @@ public class ChangeFloorMovement : MonoBehaviour
 
         if(fadingIn) 
         {
-            Color c = new Color(0,0,0, fadeInOutImage.color.a + Time.deltaTime / 2);
-            fadeInOutImage.color = c;
-            if(c.a >= 1)
+            fadeInOutImage.gameObject.transform.Translate(new Vector3(0, -startPos.y * Time.deltaTime,0));
+
+            if(fadeInOutImage.gameObject.transform.position.y >= -startPos.y)
             {
-                Invoke("GenerateNextLevel", 0.3f);
+                Invoke("GenerateNextLevel", 1f);
 
                 fadingIn = false;
 
@@ -102,15 +109,19 @@ public class ChangeFloorMovement : MonoBehaviour
         }
         else if(fadingOut)
         {
-            Color c = new Color(0, 0, 0, fadeInOutImage.color.a - Time.deltaTime / 2);
-            fadeInOutImage.color = c;
+            fadeInOutImage.gameObject.transform.Translate(new Vector3(0, -startPos.y * Time.deltaTime, 0));
 
-            if(c.a <= 0)
+            if (fadeInOutImage.gameObject.transform.position.y >= -startPos.y * 4)
             {
                 StartNextLevel();
             }
         }
 
+    }
+
+    void StartFadeIn()
+    {
+        fadingIn = true;
     }
 
     void GenerateNextLevel()
