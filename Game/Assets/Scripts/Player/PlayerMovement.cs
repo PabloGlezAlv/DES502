@@ -102,6 +102,8 @@ public class PlayerMovement : MonoBehaviour
     public void SetNormalMove(bool set)
     {
         move = set;
+        if(move)
+            ResetPlayer();
     }
 
 
