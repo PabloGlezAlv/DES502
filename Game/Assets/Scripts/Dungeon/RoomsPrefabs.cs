@@ -49,7 +49,8 @@ public class RoomsPrefabs : MonoBehaviour
 
     }
 
-    public GameObject generateRandomRoom(Vector2Int center, List<Direction> roomsDirections, ref List<Vector2Int> spikesPositions, ref List<Vector2Int> holesPositions)
+    public GameObject generateRandomRoom(Vector2Int center, List<Direction> roomsDirections, ref List<Vector2Int> spikesPositions, ref List<Vector2Int> holesPositions, 
+        ref List<typeHole> holesSprites)
     {
         //Make this random...
         int prefabSelection;
@@ -71,10 +72,12 @@ public class RoomsPrefabs : MonoBehaviour
         spikesPositions = traps.GetSpikesFinalLocation(center);
 
         List<Vector2Int> holes = traps.GetHolesFinalLocation(center);
-        for(int i = 0; i < holes.Count; i ++)
+        for (int i = 0; i < holes.Count; i ++)
         {
             holesPositions.Add(holes[i]);
         }
+        List<typeHole> roomHoleSprites = traps.GetSpriteHoles();
+        holesSprites.AddRange(roomHoleSprites);
 
         return room;
     }

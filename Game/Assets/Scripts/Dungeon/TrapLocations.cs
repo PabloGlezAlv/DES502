@@ -10,6 +10,9 @@ public class TrapLocations : MonoBehaviour
     [SerializeField]
     List<Vector2Int> holesLocations = new List<Vector2Int>();
 
+    [SerializeField]
+    List<typeHole> holeBlock = new List<typeHole>();
+
     public List<Vector2Int> GetSpikesRelative() { return spikesLocations; }
 
     public List<Vector2Int> GetSpikesFinalLocation(Vector2Int center)
@@ -25,6 +28,8 @@ public class TrapLocations : MonoBehaviour
     }
 
     public List<Vector2Int> GetHolesRelative() { return holesLocations; }
+
+    public List<typeHole> GetSpriteHoles() { return holeBlock; }
 
     public List<Vector2Int> GetHolesFinalLocation(Vector2Int center)
     {

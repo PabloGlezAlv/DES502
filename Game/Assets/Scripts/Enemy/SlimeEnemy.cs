@@ -64,7 +64,10 @@ public class SlimeEnemy : EnemyBase
             WallMap.Add(new Vector2Int(11, y) + CastOffset);
         }
 
-        Floormap.AddRange(HoleMap);
+        foreach(Vector2Int h in HoleMap)
+        {
+            Floormap.Add(h);
+        }
         Floormap.AddRange(SpikeMap);
         Floormap.AddRange(WallMap);
     }

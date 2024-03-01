@@ -61,6 +61,8 @@ public class RoomCreator : MonoBehaviour
     List<Vector2Int> roomsVisited = new();
 
     List<Vector2Int> holesFloor = new();
+    List<typeHole> holesSprite = new();
+
 
     private PlayerMovement playerMovement;
 
@@ -136,7 +138,7 @@ public class RoomCreator : MonoBehaviour
         enemiesInstances.Clear ();
         roomsVisited.Clear ();
         holesFloor.Clear();
-
+        holesSprite.Clear();
         spikeTrap.Clear();
     }
 
@@ -253,7 +255,7 @@ public class RoomCreator : MonoBehaviour
             }
         }
         //Draw holesblocks
-        visualizer.PaintHoles(holesFloor);
+        visualizer.PaintHoles(holesFloor, holesSprite);
 
         changeRoom.SaveDoors(doorsAllBlocks);
 
@@ -275,7 +277,7 @@ public class RoomCreator : MonoBehaviour
     {
         List<Vector2Int> spikesRoom = new List<Vector2Int>();
 
-        GameObject roomEnemies = roomsPrefabs.generateRandomRoom(center, roomsInfo[center], ref spikesRoom, ref holesFloor);
+        GameObject roomEnemies = roomsPrefabs.generateRandomRoom(center, roomsInfo[center], ref spikesRoom, ref holesFloor, ref holesSprite);
         roomEnemies.SetActive(false);
         enemiesInstances.Add(center, roomEnemies);
 

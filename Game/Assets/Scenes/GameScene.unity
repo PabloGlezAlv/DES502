@@ -1448,6 +1448,23 @@ MonoBehaviour:
   spikeOff: {fileID: 11400000, guid: 6b28632b435da744aa7c8e64b922ae78, type: 2}
   spikeOn: {fileID: 11400000, guid: 894a47d146f14c8478a7ed3c1a7652f5, type: 2}
   holeTile: {fileID: 11400000, guid: db14e12a9ecda8d43ac0503e9c0488c6, type: 2}
+  holeTop: {fileID: 0}
+  holeBottom: {fileID: 0}
+  holeRight: {fileID: 0}
+  holeLeft: {fileID: 0}
+  holeTopRightConer: {fileID: 0}
+  holeTopLeftConer: {fileID: 0}
+  holeBottomLeftConer: {fileID: 0}
+  holeBottomRightConer: {fileID: 0}
+  holeInsideLeftBottom: {fileID: 0}
+  holeInsideLeftTop: {fileID: 0}
+  holeInsideRightBottom: {fileID: 0}
+  holeInsideRightTop: {fileID: 0}
+  holeWithoutTop: {fileID: 0}
+  holeWithoutBottom: {fileID: 0}
+  holeWithoutRight: {fileID: 0}
+  holeWithoutLeft: {fileID: 0}
+  holeAlone: {fileID: 0}
 --- !u!4 &570922754
 Transform:
   m_ObjectHideFlags: 0
@@ -7804,15 +7821,15 @@ RectTransform:
   m_GameObject: {fileID: 1033167037}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 19.973, y: 11.038, z: 1}
+  m_LocalScale: {x: 8.843376, y: 11.038, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 167647457}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -1122}
-  m_SizeDelta: {x: 100, y: 100}
+  m_AnchoredPosition: {x: 78.132324, y: -1163}
+  m_SizeDelta: {x: 240.5762, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1033167039
 MonoBehaviour:
