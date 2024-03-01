@@ -336,7 +336,7 @@ public class RoomCreator : MonoBehaviour
             }
             else //Wall
             {
-                visualizer.PaintSingleWall(new Vector2Int(i, j + 1), typeWall.topBottomInside);
+                visualizer.PaintSingleWall(new Vector2Int(i, j + 1), typeWall.topInside);
             }
 
             visualizer.PaintSingleWall(new Vector2Int(i, j + 2), typeWall.top);
@@ -362,7 +362,7 @@ public class RoomCreator : MonoBehaviour
             }
             else //Wall
             {
-                visualizer.PaintSingleWall(new Vector2Int(i, j - 1), typeWall.topBottomInside);
+                visualizer.PaintSingleWall(new Vector2Int(i, j - 1), typeWall.bottomInside);
             }
 
             visualizer.PaintSingleWall(new Vector2Int(i, j - 2), typeWall.bottom);
@@ -388,7 +388,7 @@ public class RoomCreator : MonoBehaviour
             }
             else
             {
-                visualizer.PaintSingleWall(new Vector2Int(i - 1, j), typeWall.leftRightInside);
+                visualizer.PaintSingleWall(new Vector2Int(i - 1, j), typeWall.leftInside);
             }
 
             visualizer.PaintSingleWall(new Vector2Int(i - 2, j), typeWall.left);
@@ -413,7 +413,7 @@ public class RoomCreator : MonoBehaviour
             }
             else
             {
-                visualizer.PaintSingleWall(new Vector2Int(i + 1, j), typeWall.leftRightInside);
+                visualizer.PaintSingleWall(new Vector2Int(i + 1, j), typeWall.rightInside);
             }
 
             visualizer.PaintSingleWall(new Vector2Int(i + 2, j), typeWall.right);
