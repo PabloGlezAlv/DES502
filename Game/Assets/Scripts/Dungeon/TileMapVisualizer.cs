@@ -10,13 +10,8 @@ using UnityEngine.Tilemaps;
 using UnityEngine.UIElements;
 using UnityEngine.WSA;
 
-enum typeWall{top, topInside, bottomInside, leftInside, rightInside, left, leftTopCorner, leftBottomCorner, right, rightTopCorner, rightBottomCorner, 
+enum typeWall{top, topBottomInside, leftRightInside , left, leftTopCorner, leftBottomCorner, right, rightTopCorner, rightBottomCorner, 
     bottom, insideLeftTopCorner, insideRightTopCorner, insideLeftBottomCorner ,insideRightBottomCorner}
-
-public enum typeHole {
-    holeTile, holeTop, holeBottom, holeRight, holeLeft, holeTopRightConer, holeTopLeftConer, holeBottomLeftConer, holeBottomRightConer, holeInsideLeftBottom,
-    holeInsideLeftTop, holeInsideRightBottom, holeInsideRightTop, holeWithoutTop, holeWithoutBottom, holeWithoutRight, holeWithoutLeft, holeAlone
-}
 public class TileMapVisualizer : MonoBehaviour
 {
     [SerializeField]
@@ -27,7 +22,7 @@ public class TileMapVisualizer : MonoBehaviour
 
     [Header("Walls")]
     [SerializeField]
-    private TileBase top, topInside, bottomInside, leftInside, rightInside, left, leftTopCorner, leftBottomCorner, right, rightTopCorner,
+    private TileBase top, topBottomInside, leftRightInside, left, leftTopCorner, leftBottomCorner, right, rightTopCorner,
         rightBottomCorner, bottom, insideLeftTopCorner, insideRightTopCorner, insideLeftBottomCorner, insideRightBottomCorner;
 
     [Header("Doors")]
@@ -43,8 +38,7 @@ public class TileMapVisualizer : MonoBehaviour
 
     [Header("Hole")]
     [SerializeField]
-    private TileBase holeTile, holeTop, holeBottom, holeRight, holeLeft, holeTopRightConer, holeTopLeftConer, holeBottomLeftConer, holeBottomRightConer, holeInsideLeftBottom,
-        holeInsideLeftTop, holeInsideRightBottom, holeInsideRightTop, holeWithoutTop, holeWithoutBottom, holeWithoutRight, holeWithoutLeft, holeAlone;
+    private TileBase holeTile;
 
 
     private Tilemap floorTilemap, wallTilemap, doorsTile, trapTilemap, holeTilemap;
@@ -70,68 +64,9 @@ public class TileMapVisualizer : MonoBehaviour
             PaintSingleTile(trapTilemap, spikeOff, position);
     }
 
-    public void PaintHoles(List<Vector2Int> holesPositions, List<typeHole> holesSprites)
+    public void PaintHoles(IEnumerable<Vector2Int> holesPositions)
     {
-        for(int i  = 0; i < holesPositions.Count; i++)
-        {
-            switch (holesSprites[i])
-            {
-                case typeHole.holeAlone:
-                    PaintSingleTile(holeTilemap, holeTile, holesPositions[i]);
-                    break;
-                case typeHole.holeTile:
-                    PaintSingleTile(holeTilemap, holeTile, holesPositions[i]);
-                    break;
-                case typeHole.holeTop:
-                    PaintSingleTile(holeTilemap, holeTile, holesPositions[i]);
-                    break;
-                case typeHole.holeBottom:
-                    PaintSingleTile(holeTilemap, holeTile, holesPositions[i]);
-                    break;
-                case typeHole.holeRight:
-                    PaintSingleTile(holeTilemap, holeTile, holesPositions[i]);
-                    break;
-                case typeHole.holeLeft:
-                    PaintSingleTile(holeTilemap, holeTile, holesPositions[i]);
-                    break;
-                case typeHole.holeTopRightConer:
-                    PaintSingleTile(holeTilemap, holeTile, holesPositions[i]);
-                    break;
-                case typeHole.holeTopLeftConer:
-                    PaintSingleTile(holeTilemap, holeTile, holesPositions[i]);
-                    break;
-                case typeHole.holeBottomLeftConer:
-                    PaintSingleTile(holeTilemap, holeTile, holesPositions[i]);
-                    break;
-                case typeHole.holeBottomRightConer:
-                    PaintSingleTile(holeTilemap, holeTile, holesPositions[i]);
-                    break;
-                case typeHole.holeInsideLeftBottom:
-                    PaintSingleTile(holeTilemap, holeTile, holesPositions[i]);
-                    break;
-                case typeHole.holeInsideLeftTop:
-                    PaintSingleTile(holeTilemap, holeTile, holesPositions[i]);
-                    break;
-                case typeHole.holeInsideRightBottom:
-                    PaintSingleTile(holeTilemap, holeTile, holesPositions[i]);
-                    break;
-                case typeHole.holeInsideRightTop:
-                    PaintSingleTile(holeTilemap, holeTile, holesPositions[i]);
-                    break;
-                case typeHole.holeWithoutTop:
-                    PaintSingleTile(holeTilemap, holeTile, holesPositions[i]);
-                    break;
-                case typeHole.holeWithoutBottom:
-                    PaintSingleTile(holeTilemap, holeTile, holesPositions[i]);
-                    break;
-                case typeHole.holeWithoutRight:
-                    PaintSingleTile(holeTilemap, holeTile, holesPositions[i]);
-                    break;
-                case typeHole.holeWithoutLeft:
-                    PaintSingleTile(holeTilemap, holeTile, holesPositions[i]);
-                    break;
-            }
-        }
+        PaintTiles(holesPositions, holeTilemap, holeTile);
     }
 
     public void PaintFloorTiles(IEnumerable<Vector2Int> floorPositions)
@@ -257,17 +192,11 @@ public class TileMapVisualizer : MonoBehaviour
             case typeWall.top:
                 tile = top;
                 break;
-            case typeWall.topInside:
-                tile = topInside;
+            case typeWall.topBottomInside:
+                tile = topBottomInside;
                 break;
-            case typeWall.rightInside:
-                tile = rightInside;
-                break;
-            case typeWall.bottomInside:
-                tile = bottomInside;
-                break;
-            case typeWall.leftInside:
-                tile = leftInside;
+            case typeWall.leftRightInside:
+                tile = leftRightInside;
                 break;
             case typeWall.bottom:
                 tile = bottom;

@@ -61,8 +61,6 @@ public class RoomCreator : MonoBehaviour
     List<Vector2Int> roomsVisited = new();
 
     List<Vector2Int> holesFloor = new();
-    List<typeHole> holesSprite = new();
-
 
     private PlayerMovement playerMovement;
 
@@ -138,7 +136,7 @@ public class RoomCreator : MonoBehaviour
         enemiesInstances.Clear ();
         roomsVisited.Clear ();
         holesFloor.Clear();
-        holesSprite.Clear();
+
         spikeTrap.Clear();
     }
 
@@ -255,7 +253,7 @@ public class RoomCreator : MonoBehaviour
             }
         }
         //Draw holesblocks
-        visualizer.PaintHoles(holesFloor, holesSprite);
+        visualizer.PaintHoles(holesFloor);
 
         changeRoom.SaveDoors(doorsAllBlocks);
 
@@ -277,7 +275,7 @@ public class RoomCreator : MonoBehaviour
     {
         List<Vector2Int> spikesRoom = new List<Vector2Int>();
 
-        GameObject roomEnemies = roomsPrefabs.generateRandomRoom(center, roomsInfo[center], ref spikesRoom, ref holesFloor, ref holesSprite);
+        GameObject roomEnemies = roomsPrefabs.generateRandomRoom(center, roomsInfo[center], ref spikesRoom, ref holesFloor);
         roomEnemies.SetActive(false);
         enemiesInstances.Add(center, roomEnemies);
 
@@ -338,7 +336,7 @@ public class RoomCreator : MonoBehaviour
             }
             else //Wall
             {
-                visualizer.PaintSingleWall(new Vector2Int(i, j + 1), typeWall.topInside);
+                visualizer.PaintSingleWall(new Vector2Int(i, j + 1), typeWall.topBottomInside);
             }
 
             visualizer.PaintSingleWall(new Vector2Int(i, j + 2), typeWall.top);
@@ -364,7 +362,7 @@ public class RoomCreator : MonoBehaviour
             }
             else //Wall
             {
-                visualizer.PaintSingleWall(new Vector2Int(i, j - 1), typeWall.bottomInside);
+                visualizer.PaintSingleWall(new Vector2Int(i, j - 1), typeWall.topBottomInside);
             }
 
             visualizer.PaintSingleWall(new Vector2Int(i, j - 2), typeWall.bottom);
@@ -390,7 +388,7 @@ public class RoomCreator : MonoBehaviour
             }
             else
             {
-                visualizer.PaintSingleWall(new Vector2Int(i - 1, j), typeWall.leftInside);
+                visualizer.PaintSingleWall(new Vector2Int(i - 1, j), typeWall.leftRightInside);
             }
 
             visualizer.PaintSingleWall(new Vector2Int(i - 2, j), typeWall.left);
@@ -415,7 +413,7 @@ public class RoomCreator : MonoBehaviour
             }
             else
             {
-                visualizer.PaintSingleWall(new Vector2Int(i + 1, j), typeWall.rightInside);
+                visualizer.PaintSingleWall(new Vector2Int(i + 1, j), typeWall.leftRightInside);
             }
 
             visualizer.PaintSingleWall(new Vector2Int(i + 2, j), typeWall.right);

@@ -10,10 +10,16 @@ public class ChangeLevel : MonoBehaviour
         if (playerMovement != null)
         {
             ChangeFloorMovement changeFloor = collision.gameObject.GetComponent<ChangeFloorMovement>();
-
-            playerMovement.SetNormalMove(false);
-            changeFloor.enabled = true;
-            changeFloor.setTargetPostion(transform.position);
+            if (changeFloor == null)
+            {
+                Debug.LogError("Change Floor component not grabbed");
+            }
+            else
+            {
+                playerMovement.SetNormalMove(false);
+                changeFloor.enabled = true;
+                changeFloor.setTargetPostion(transform.position);
+            }
         }
     }
 }
