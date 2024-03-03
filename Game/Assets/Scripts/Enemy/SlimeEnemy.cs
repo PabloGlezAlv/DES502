@@ -1,23 +1,16 @@
 using System.ComponentModel.Design;
 using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.FullSerializer.Internal;
 using System.Linq;
 using System.Threading.Tasks.Sources;
 using Unity.VisualScripting;
-using System.Linq.Expressions;
 
 public class SlimeEnemy : EnemyBase
 {
-    [Header("Slime parameters")]
+    [Header("Slimen parameters")]
     protected float ThinkTime = 0;
     protected float WalkTime = 0;
-
-    [SerializeField]
-    private GameObject[] AttackColliders;
-
-    SpriteRenderer Sr;
 
     [SerializeField]
     protected bool DEBUG;
@@ -32,7 +25,7 @@ public class SlimeEnemy : EnemyBase
     protected List<Vector2Int> Floormap = new();
 
     [SerializeField]
-    private bool[] ValidDirections = { true, true, true, true };
+    private bool[] ValidDirections = {true, true, true, true };
     
     private Vector2 CurrentPos = Vector2.zero;
     private Vector2 TargetPos = Vector2.zero;
@@ -40,27 +33,13 @@ public class SlimeEnemy : EnemyBase
     private float centerx = 0;
     private float centery = 0;
 
-    private bool Dashing = false;
-    private int StepCount = 0;
-
-    [SerializeField]
-    protected int MaxStep;
-
     protected void Awake()
     {
         base.Awake();
     }
     private void Start()
     {
-        Sr = GetComponent<SpriteRenderer>();
-        Sr.color = Color.white;
-        for (int i = 0; i < 4; i++)
-        {
-            AttackColliders[i].active = false;
-        }
-
         ThinkTime += Random.Range(-0.5f, 0.5f);
-        StepCount += Random.Range(0, MaxStep/2);
         CurrentPos = transform.position;
         TargetPos = CurrentPos;
         direction = Vector2.zero;
@@ -99,7 +78,7 @@ public class SlimeEnemy : EnemyBase
 
         centerx = transform.position.x;
         centery = transform.position.y;
-        ThinkTime += Time.deltaTime + Random.Range(-0.05f, 0.05f);
+        ThinkTime += Time.deltaTime;
         WalkTime += Time.deltaTime * speed;
         if (ThinkTime > MaxThinkTime)
         {
@@ -108,97 +87,84 @@ public class SlimeEnemy : EnemyBase
                 ValidDirections[i] = true;
             }
 
-            //4 way shot code
-            if (StepCount > MaxStep)
+            for (int x = 0; x < Floormap.Count; x++)
             {
-                StartCoroutine(Attack());
-                StepCount = 0;
-                ThinkTime = -MaxThinkTime;
-            }
-            else
-            {
-                for (int x = 0; x < Floormap.Count; x++)
+                if (centerx - 1 == Floormap[x].x + 0.5f && centery == Floormap[x].y + 0.5f)
                 {
-                    if (centerx - 1 == Floormap[x].x + 0.5f && centery == Floormap[x].y + 0.5f)
-                    {
-                        ValidDirections[(int)Direction.Left - 1] = false;
-                    }
-                    if (centerx + 1 == Floormap[x].x + 0.5f && centery == Floormap[x].y + 0.5f)
-                    {
-                        ValidDirections[(int)Direction.Right - 1] = false;
-                    }
-                    if (centerx == Floormap[x].x + 0.5f && centery + 1 == Floormap[x].y + 0.5f)
-                    {
-                        ValidDirections[(int)Direction.Top - 1] = false;
-                    }
-                    if (centerx == Floormap[x].x + 0.5f && centery - 1 == Floormap[x].y + 0.5f)
-                    {
-                        ValidDirections[(int)Direction.Bottom - 1] = false;
-                    }
+                    ValidDirections[(int)Direction.Left - 1] = false;
                 }
+                if (centerx + 1 == Floormap[x].x + 0.5f && centery == Floormap[x].y + 0.5f)
+                {
+                    ValidDirections[(int)Direction.Right - 1] = false;
+                }
+                if (centerx == Floormap[x].x + 0.5f && centery + 1 == Floormap[x].y + 0.5f)
+                {
+                    ValidDirections[(int)Direction.Top - 1] = false;
+                }
+                if (centerx == Floormap[x].x + 0.5f && centery - 1 == Floormap[x].y + 0.5f)
+                {
+                    ValidDirections[(int)Direction.Bottom - 1] = false;
+                }
+            }
 
-                //Choose the destination for the slime to go to
-                Direction dir = (Direction)Mathf.FloorToInt(Random.Range(1, 5));
-                CurrentPos = transform.position;
-                switch (dir)
-                {
-                    case Direction.Top://Up
-                        if (ValidDirections[(int)Direction.Top - 1] == true)
-                        {
-                            TargetPos = new Vector2(CurrentPos.x, CurrentPos.y + 1);
-                            ThinkTime = 0;
-                        }
-                        else
-                        {
-                            TargetPos = CurrentPos;
-                        }
-                        break;
-                    case Direction.Bottom://Down
-                        if (ValidDirections[(int)Direction.Bottom - 1] == true)
-                        {
-                            TargetPos = new Vector2(CurrentPos.x, CurrentPos.y - 1);
-                            ThinkTime = 0;
-                        }
-                        else
-                        {
-                            TargetPos = CurrentPos;
-                        }
-                        break;
-                    case Direction.Left://left
-                        if (ValidDirections[(int)Direction.Left - 1] == true)
-                        {
-                            TargetPos = new Vector2(CurrentPos.x - 1, CurrentPos.y);
-                            ThinkTime = 0;
-                        }
-                        else
-                        {
-                            TargetPos = CurrentPos;
-                        }
-                        break;
-                    case Direction.Right://Right
-                        if (ValidDirections[(int)Direction.Right - 1] == true)
-                        {
-                            TargetPos = new Vector2(CurrentPos.x + 1, CurrentPos.y);
-                            ThinkTime = 0;
-                        }
-                        else
-                        {
-                            TargetPos = CurrentPos;
-                        }
-                        break;
-                    default:
-                        break;
-                }
-                WalkTime = 0;
-                ThinkTime = 0;
-                StepCount++;
+            //Choose the destination for the slime to go to
+            Direction dir = (Direction)Mathf.FloorToInt(Random.Range(1, 5));
+            CurrentPos = transform.position;
+            switch (dir)
+            {
+                case Direction.Top://Up
+                    if (ValidDirections[(int)Direction.Top - 1] == true)
+                    {
+                        TargetPos = new Vector2(CurrentPos.x, CurrentPos.y + 1);
+                        ThinkTime = 0;
+                    }
+                    else
+                    {
+                        TargetPos = CurrentPos;
+                    }
+                    break;
+                case Direction.Bottom://Down
+                    if (ValidDirections[(int)Direction.Bottom - 1] == true)
+                    {
+                        TargetPos = new Vector2(CurrentPos.x, CurrentPos.y - 1);
+                        ThinkTime = 0;
+                    }
+                    else
+                    {
+                        TargetPos = CurrentPos;
+                    }
+                    break;
+                case Direction.Left://left
+                    if (ValidDirections[(int)Direction.Left - 1] == true)
+                    {
+                        TargetPos = new Vector2(CurrentPos.x - 1, CurrentPos.y);
+                        ThinkTime = 0;
+                    }
+                    else
+                    {
+                        TargetPos = CurrentPos;
+                    }
+                    break;
+                case Direction.Right://Right
+                    if (ValidDirections[(int)Direction.Right - 1] == true)
+                    {
+                        TargetPos = new Vector2(CurrentPos.x + 1, CurrentPos.y);
+                        ThinkTime = 0;
+                    }
+                    else
+                    {
+                        TargetPos = CurrentPos;
+                    }
+                    break;
+                default:
+                    break;
             }
+            WalkTime = 0;
         }
     }
 
     private void FixedUpdate()
     {
-        Sr.color += new Color(1f, 1f ,1f, 1f) * Time.deltaTime;
         transform.position = Vector3.Lerp(CurrentPos, TargetPos, WalkTime);
     }
 
@@ -209,32 +175,12 @@ public class SlimeEnemy : EnemyBase
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Collision with player
+        //Collision  with player
         LifeSystem system;
         if (system = collision.gameObject.GetComponent<LifeSystem>())
         {
             system.GetDamage(damage);
-            Sr.color = Color.red;
         }
-    }
-
-    IEnumerator Attack()
-    {
-        ThinkTime = 0;
-        yield return new WaitForSeconds(1f);
-        for (int i = 0; i < 4; i++)
-        {
-            AttackColliders[i].active = true;
-        }
-        ThinkTime = 0;
-        yield return new WaitForSeconds(1f);
-
-        for (int i = 0; i < 4; i++)
-        {
-            AttackColliders[i].active = false;
-        }
-        ThinkTime = 0;
-        yield return new WaitForSeconds(1f);
     }
 
     [ExecuteAlways]
@@ -244,7 +190,7 @@ public class SlimeEnemy : EnemyBase
         {
             for (int a = 0; a < 4; a++)
             {
-                if (!ValidDirections[(int)Direction.Left - 1] == true)
+                if (!ValidDirections[(int)Direction.Left] == true)
                 {
                     Gizmos.color = Color.red;
                 }
@@ -253,7 +199,7 @@ public class SlimeEnemy : EnemyBase
                     Gizmos.color = Color.white;
                 }
                 Gizmos.DrawWireCube(new Vector2(centerx - 1, centery), Vector3.one);
-                if (!ValidDirections[(int)Direction.Right - 1] == true)
+                if (!ValidDirections[(int)Direction.Right] == true)
                 {
                     Gizmos.color = Color.red;
                 }
@@ -262,7 +208,7 @@ public class SlimeEnemy : EnemyBase
                     Gizmos.color = Color.white;
                 }
                 Gizmos.DrawWireCube(new Vector2(centerx + 1, centery), Vector3.one);
-                if (!ValidDirections[(int)Direction.Bottom - 1] == true)
+                if (!ValidDirections[(int)Direction.Bottom] == true)
                 {
                     Gizmos.color = Color.red;
                 }
@@ -271,7 +217,7 @@ public class SlimeEnemy : EnemyBase
                     Gizmos.color = Color.white;
                 }
                 Gizmos.DrawWireCube(new Vector2(centerx, centery - 1), Vector3.one);
-                if (!ValidDirections[(int)Direction.Top - 1] == true)
+                if (!ValidDirections[(int)Direction.Top] == true)
                 {
                     Gizmos.color = Color.red;
                 }
