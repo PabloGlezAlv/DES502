@@ -1,5 +1,6 @@
 using System.ComponentModel.Design;
 using UnityEngine;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting.FullSerializer.Internal;
 using System.Linq;
@@ -9,12 +10,14 @@ using System.Linq.Expressions;
 
 public class SlimeEnemy : EnemyBase
 {
-    [Header("Slimen parameters")]
+    [Header("Slime parameters")]
     protected float ThinkTime = 0;
     protected float WalkTime = 0;
 
     [SerializeField]
-    protected Transform PlayerPos;
+    private GameObject[] AttackColliders;
+
+    SpriteRenderer Sr;
 
     [SerializeField]
     protected bool DEBUG;
@@ -49,7 +52,15 @@ public class SlimeEnemy : EnemyBase
     }
     private void Start()
     {
+        Sr = GetComponent<SpriteRenderer>();
+        Sr.color = Color.white;
+        for (int i = 0; i < 4; i++)
+        {
+            AttackColliders[i].active = false;
+        }
+
         ThinkTime += Random.Range(-0.5f, 0.5f);
+        StepCount += Random.Range(0, MaxStep/2);
         CurrentPos = transform.position;
         TargetPos = CurrentPos;
         direction = Vector2.zero;
@@ -94,108 +105,12 @@ public class SlimeEnemy : EnemyBase
                 ValidDirections[i] = true;
             }
 
-            //Dash code [I understand if this makes you vomit looking at it]
+            //4 way shot code
             if (StepCount > MaxStep)
             {
-                //First we must decide which direction to go in.
-                //
-
-                for (int x = 0; x < Floormap.Count; x++)
-                {
-                    if (centerx - 1 == Floormap[x].x + 0.5f && centery == Floormap[x].y + 0.5f)
-                    {
-                        ValidDirections[(int)Direction.Left - 1] = false;
-                    }
-                    if (centerx + 1 == Floormap[x].x + 0.5f && centery == Floormap[x].y + 0.5f)
-                    {
-                        ValidDirections[(int)Direction.Right - 1] = false;
-                    }
-                    if (centerx == Floormap[x].x + 0.5f && centery + 1 == Floormap[x].y + 0.5f)
-                    {
-                        ValidDirections[(int)Direction.Top - 1] = false;
-                    }
-                    if (centerx == Floormap[x].x + 0.5f && centery - 1 == Floormap[x].y + 0.5f)
-                    {
-                        ValidDirections[(int)Direction.Bottom - 1] = false;
-                    }
-                }
-
-
-                //Then we need to map out the maximum step in each direction
-                int Max_X = 0;
-                bool W_Hit = false;
-                bool Y = false;
-                for (int z = 0; z < 23; z++)
-                {
-                    Max_X = z+1;
-                    if (ValidDirections[(int)Direction.Left - 1])
-                    {
-                        for (int x = 0; x < Floormap.Count; x++)
-                        {
-                            if (centerx - Max_X == Floormap[x].x + 0.5f && centery == Floormap[x].y + 0.5f)
-                            {
-                                W_Hit = true;
-                                Y = false;
-                                break;
-                            }
-                        }
-                    }
-                    else if (ValidDirections[(int)Direction.Right - 1])
-                    {
-                        for (int x = 0; x < Floormap.Count; x++)
-                        {
-                            if (centerx + Max_X + 1 == Floormap[x].x + 0.5f && centery == Floormap[x].y + 0.5f)
-                            {
-                                W_Hit = true;
-                                Y = false;
-                                break;
-                            }
-                        }
-                    }
-                    else if (ValidDirections[(int)Direction.Top - 1])
-                    {
-                        for (int x = 0; x < Floormap.Count; x++)
-                        {
-                            if (centerx == Floormap[x].x + 0.5f && centery == Floormap[x].y + Max_X + 1 + 0.5f)
-                            {
-                                W_Hit = true;
-                                Y = true;
-                                break;
-                            }
-                        }
-                    }
-                    else if (ValidDirections[(int)Direction.Bottom - 1])
-                    {
-                        for (int x = 0; x < Floormap.Count; x++)
-                        {
-                            if (centerx == Floormap[x].x + 0.5f && centery - 1 == Floormap[x].y - Max_X - 1 + 0.5f)
-                            {
-                                W_Hit = true;
-                                Y = true;
-                                break;
-                            }
-                        }
-                    }
-                }
-
-                if (W_Hit)
-                {
-                    if (!Y)
-                    {
-                        TargetPos = new Vector2(CurrentPos.x + Max_X-1, CurrentPos.y);
-                    }
-                    else
-                    {
-                        TargetPos = new Vector2(CurrentPos.x, CurrentPos.y + Max_X-1);
-                    }
-                }
-                else
-                {
-                    Debug.Log("Dash failed");
-                }
+                StartCoroutine(Attack());
                 StepCount = 0;
-                WalkTime = 0;
-                ThinkTime = 0;
+                ThinkTime = -MaxThinkTime;
             }
             else
             {
@@ -218,7 +133,6 @@ public class SlimeEnemy : EnemyBase
                         ValidDirections[(int)Direction.Bottom - 1] = false;
                     }
                 }
-
 
                 //Choose the destination for the slime to go to
                 Direction dir = (Direction)Mathf.FloorToInt(Random.Range(1, 5));
@@ -273,6 +187,7 @@ public class SlimeEnemy : EnemyBase
                         break;
                 }
                 WalkTime = 0;
+                ThinkTime = 0;
                 StepCount++;
             }
         }
@@ -280,6 +195,7 @@ public class SlimeEnemy : EnemyBase
 
     private void FixedUpdate()
     {
+        Sr.color += new Color(1f, 1f ,1f, 1f) * Time.deltaTime;
         transform.position = Vector3.Lerp(CurrentPos, TargetPos, WalkTime);
     }
 
@@ -290,12 +206,32 @@ public class SlimeEnemy : EnemyBase
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        //Collision  with player
+        //Collision with player
         LifeSystem system;
         if (system = collision.gameObject.GetComponent<LifeSystem>())
         {
             system.GetDamage(damage);
+            Sr.color = Color.red;
         }
+    }
+
+    IEnumerator Attack()
+    {
+        ThinkTime = 0;
+        yield return new WaitForSeconds(1f);
+        for (int i = 0; i < 4; i++)
+        {
+            AttackColliders[i].active = true;
+        }
+        ThinkTime = 0;
+        yield return new WaitForSeconds(1f);
+
+        for (int i = 0; i < 4; i++)
+        {
+            AttackColliders[i].active = false;
+        }
+        ThinkTime = 0;
+        yield return new WaitForSeconds(1f);
     }
 
     [ExecuteAlways]
