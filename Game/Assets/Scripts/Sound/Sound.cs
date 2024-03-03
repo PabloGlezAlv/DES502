@@ -5,6 +5,11 @@ using UnityEngine.Audio;
 
 public class Sound
 {
+    public enum AudioType
+    {
+        SFX,
+        Music,
+    }
 
     public string name;
 
@@ -17,6 +22,8 @@ public class Sound
     public float pitch;
 
     public bool loop;
+
+    public AudioType Type;
 
     [HideInInspector]
     public AudioSource source;
