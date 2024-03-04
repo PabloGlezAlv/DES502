@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
@@ -17,9 +18,13 @@ public class ChangeFloorMovement : MonoBehaviour
 
     [SerializeField]
     float force = 5;
+    [SerializeField]
+    int lastLevel = 15;
 
     [SerializeField]
     UnityEngine.UI.Image fadeInOutImage;
+    [SerializeField]
+    TextMeshProUGUI text;
 
     CameraMovement cameraMov;
     PlayerMovement playerMovement;
@@ -35,8 +40,13 @@ public class ChangeFloorMovement : MonoBehaviour
 
     bool fadingIn = false;
     bool fadingOut = false;
+    bool showText = true;
 
     Vector3 startPos;
+
+    int level = 0;
+
+    float textActive = 0;
 
     private void Awake()
     {
@@ -59,7 +69,9 @@ public class ChangeFloorMovement : MonoBehaviour
         changedSpriteLayer = false;
         fadingIn = false;
         fadingOut = false;
-
+        showText = false;
+        level++;
+        textActive = 0;
         fadeInOutImage.transform.position = startPos;
     }
     // Update is called once per frame
@@ -102,7 +114,9 @@ public class ChangeFloorMovement : MonoBehaviour
             if(fadeInOutImage.gameObject.transform.position.y >= -startPos.y)
             {
                 Invoke("GenerateNextLevel", 1f);
-
+                textActive = 0.8f;
+                text.text = "Level " + level;
+                text.gameObject.SetActive(true);
                 fadingIn = false;
 
             }
@@ -117,6 +131,14 @@ public class ChangeFloorMovement : MonoBehaviour
             }
         }
 
+        if(textActive > 0)
+        {
+            textActive -= Time.fixedDeltaTime;
+            if(textActive <= 0)
+            {
+                text.gameObject.SetActive(false);
+            }
+        }
     }
 
     void StartFadeIn()
@@ -132,8 +154,10 @@ public class ChangeFloorMovement : MonoBehaviour
         floor.sortingLayerName = "Floor";
         cameraMov.SetPosition(new Vector2Int());
         playerMovement.ResetPlayer();
-
-        creator.generateNewLevel();
+        if(level != lastLevel)
+        {
+            creator.generateNewLevel();
+        }
     }
 
     void StartNextLevel()

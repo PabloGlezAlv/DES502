@@ -74,8 +74,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1418160501
-  m_SortingLayer: 3
+  m_SortingLayerID: 676624687
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: -7772804643466321288, guid: f7b37b91088c7d44b98c5e710477bd39, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -177,6 +177,8 @@ MonoBehaviour:
   timeWhiteDamage: 0.2
   objectChances: 0.5
   dropCoinChances: 0.5
+  pushable: 0
+  pushForce: 4
   objectRenderer: {fileID: 3336720767735730879}
   coinPrefab: {fileID: 6051068933900146545, guid: 99198bf4b2a287545ae7ab462675ac16, type: 3}
   AttackRatio: 2
@@ -254,7 +256,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1418160501
-  m_SortingLayer: 3
+  m_SortingLayer: 0
   m_SortingOrder: 2
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

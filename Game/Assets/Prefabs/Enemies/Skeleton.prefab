@@ -72,8 +72,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1703555729
-  m_SortingLayer: 0
+  m_SortingLayerID: 676624687
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.5254902, g: 0.9529412, b: 0.53986984, a: 1}
@@ -339,8 +339,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -1418160501
-  m_SortingLayer: 0
+  m_SortingLayerID: 676624687
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 3312786358836354570, guid: 4ffcce8e97abeee45ba24378d46c2c98, type: 3}
   m_Color: {r: 0.15557136, g: 0.8662755, b: 0.8962264, a: 1}
@@ -444,7 +444,6 @@ MonoBehaviour:
   dropCoinChances: 0.5
   pushable: 1
   pushForce: 4
-  pushDuration: 1
   objectRenderer: {fileID: 7326436036523598098}
   coinPrefab: {fileID: 6051068933900146545, guid: 99198bf4b2a287545ae7ab462675ac16, type: 3}
   changeDirection: 0.5
@@ -527,8 +526,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1703555729
-  m_SortingLayer: 0
+  m_SortingLayerID: 676624687
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.5254902, g: 0.9529412, b: 0.53986984, a: 1}
@@ -672,8 +671,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1703555729
-  m_SortingLayer: 0
+  m_SortingLayerID: 676624687
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.5254902, g: 0.9529412, b: 0.53986984, a: 1}
@@ -817,8 +816,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 1703555729
-  m_SortingLayer: 0
+  m_SortingLayerID: 676624687
+  m_SortingLayer: 4
   m_SortingOrder: 1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.5254902, g: 0.9529412, b: 0.53986984, a: 1}
