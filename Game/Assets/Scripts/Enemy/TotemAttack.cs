@@ -88,8 +88,8 @@ public class TotemAttack : EnemyBase
     }
 
 
-    public override void GetDamage(int damage)
+    public override void GetDamage(int damage, Vector3 pos)
     {
-        base.GetDamage(damage);
+        base.GetDamage(damage, pos);
     }
 }

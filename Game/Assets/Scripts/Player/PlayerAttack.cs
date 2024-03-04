@@ -12,7 +12,12 @@ public class PlayerAttack : MonoBehaviour
     private float timer = 0;
     private bool attacking = false;
     private new Collider2D collider2D;
+    private Vector3 playerCenter;
 
+    private void Awake()
+    {
+        playerCenter = transform.parent.transform.parent.transform.position;
+    }
 
     private void Start()
     {
@@ -48,7 +53,7 @@ public class PlayerAttack : MonoBehaviour
         EnemyBase move;
         if(move = collision.GetComponent<EnemyBase>())
         {
-            move.GetDamage(damage);
+            move.GetDamage(damage, playerCenter);
         }
     }
 }

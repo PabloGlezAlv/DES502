@@ -168,9 +168,9 @@ public class SlimeEnemy : EnemyBase
         transform.position = Vector3.Lerp(CurrentPos, TargetPos, WalkTime);
     }
 
-    public override void GetDamage(int damage)
+    public override void GetDamage(int damage, Vector3 pos)
     {
-        base.GetDamage(damage);
+        base.GetDamage(damage, pos);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

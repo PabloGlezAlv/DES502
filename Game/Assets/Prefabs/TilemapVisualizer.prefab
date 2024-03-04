@@ -1,0 +1,105 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1248408830412439612
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8723489136141330828}
+  - component: {fileID: 8150628068917364532}
+  m_Layer: 0
+  m_Name: TilemapVisualizer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8723489136141330828
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248408830412439612}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.99061644, y: 0.68462604, z: 0.1149774}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8150628068917364532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1248408830412439612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5c1cef96b3db47459094b4f2108069d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floorTilemapGameObject: {fileID: 0}
+  wallTilemapGameObject: {fileID: 0}
+  doorsTileGameObject: {fileID: 0}
+  trapGameObject: {fileID: 0}
+  holesGameObject: {fileID: 0}
+  floorTile: {fileID: 11400000, guid: 2d853378724fad1428b602cb7e14318d, type: 2}
+  floorCorridorTile: {fileID: 11400000, guid: 2d853378724fad1428b602cb7e14318d, type: 2}
+  top: {fileID: 11400000, guid: ff23655778f908444870c5b1a2bf1df3, type: 2}
+  topInside: {fileID: 11400000, guid: a43c3637e15f29947993afd1aa2aaded, type: 2}
+  bottomInside: {fileID: 11400000, guid: 3633dcf4488dc584d8a7e588e3e8783c, type: 2}
+  leftInside: {fileID: 11400000, guid: 16f5bfc73af79074885241171dabb2a1, type: 2}
+  rightInside: {fileID: 11400000, guid: 9b2cc026c85fa5d4cbc9308df03de312, type: 2}
+  left: {fileID: 11400000, guid: 5ce765775e6ad124797422bb05c16599, type: 2}
+  leftTopCorner: {fileID: 11400000, guid: 0e53fd97539c13244857386704352830, type: 2}
+  leftBottomCorner: {fileID: 11400000, guid: 12183013c6af089478972ccaf125e46a, type: 2}
+  right: {fileID: 11400000, guid: d83d555e741f1d349b6ac4446f7e5e88, type: 2}
+  rightTopCorner: {fileID: 11400000, guid: 71ca0fdc18d86694f8fc62a98089d334, type: 2}
+  rightBottomCorner: {fileID: 11400000, guid: bb31910cd44e525479d75279d354b8cb, type: 2}
+  bottom: {fileID: 11400000, guid: d4247d7a53518914999458df812a603e, type: 2}
+  insideLeftTopCorner: {fileID: 11400000, guid: d687f1e8befd87848b56e5f57353cd5e, type: 2}
+  insideRightTopCorner: {fileID: 11400000, guid: fa969cf71a57ff847b4086324d2c5b8d, type: 2}
+  insideLeftBottomCorner: {fileID: 11400000, guid: 7b3a56749c9a90547a91f6d936775bae, type: 2}
+  insideRightBottomCorner: {fileID: 11400000, guid: fce82d02cd0c6404280982f105adaa65, type: 2}
+  closeDoorTileTopLeft: {fileID: 11400000, guid: 85053538fd88ab440bebd0359ff38df3, type: 2}
+  openDoorTileTopLeft: {fileID: 11400000, guid: 5c767512530f36c4a904c1d195e79b58, type: 2}
+  closeDoorTileTopRight: {fileID: 11400000, guid: 913db147c9427ed44901de262024dc9e, type: 2}
+  openDoorTileTopRight: {fileID: 11400000, guid: 366aba60521fe3849b94b79a20a623ba, type: 2}
+  closeDoorTileBottomLeft: {fileID: 11400000, guid: 231631ef636813242b9259f0d2d4330e, type: 2}
+  openDoorTileBottomLeft: {fileID: 11400000, guid: 66ca6c8b993f6ae42b09518b5a89e8fb, type: 2}
+  closeDoorTileBottomRight: {fileID: 11400000, guid: ad721a6e46fe8ad48bb02feda10834cf, type: 2}
+  openDoorTileBottomRight: {fileID: 11400000, guid: c60039ac91b819446bb2631cf34c3a80, type: 2}
+  closeDoorTileLeftTop: {fileID: 11400000, guid: 36046c290400dda438600639d16f3d79, type: 2}
+  openDoorTileLeftTop: {fileID: 11400000, guid: 1aa8fc4f82119a64ea25117151bfed60, type: 2}
+  closeDoorTileLeftBottom: {fileID: 11400000, guid: 7a45c73adea90a84cae9e39cbda4f0b9, type: 2}
+  openDoorTileLeftBottom: {fileID: 11400000, guid: 98591cf5fac72b44c8b694d9160cf0d7, type: 2}
+  closeDoorTileRightTop: {fileID: 11400000, guid: a7bb415a7a698bc4c9bffb70a08fb19c, type: 2}
+  openDoorTileRightTop: {fileID: 11400000, guid: 2df2b66602ae56b40a27afe5c69c0476, type: 2}
+  closeDoorTileRightBottom: {fileID: 11400000, guid: 43b1e12d0a864904bb9172549bb7f6bf, type: 2}
+  openDoorTileRightBottom: {fileID: 11400000, guid: 0cd2fbd509035964bab615d366370b38, type: 2}
+  spikeOff: {fileID: 11400000, guid: 6b28632b435da744aa7c8e64b922ae78, type: 2}
+  spikeOn: {fileID: 11400000, guid: 894a47d146f14c8478a7ed3c1a7652f5, type: 2}
+  holeTile: {fileID: 11400000, guid: db14e12a9ecda8d43ac0503e9c0488c6, type: 2}
+  holeTop: {fileID: 0}
+  holeBottom: {fileID: 0}
+  holeRight: {fileID: 0}
+  holeLeft: {fileID: 0}
+  holeTopRightConer: {fileID: 0}
+  holeTopLeftConer: {fileID: 0}
+  holeBottomLeftConer: {fileID: 0}
+  holeBottomRightConer: {fileID: 0}
+  holeInsideLeftBottom: {fileID: 0}
+  holeInsideLeftTop: {fileID: 0}
+  holeInsideRightBottom: {fileID: 0}
+  holeInsideRightTop: {fileID: 0}
+  holeWithoutTop: {fileID: 0}
+  holeWithoutBottom: {fileID: 0}
+  holeWithoutRight: {fileID: 0}
+  holeWithoutLeft: {fileID: 0}
+  holeAlone: {fileID: 0}
