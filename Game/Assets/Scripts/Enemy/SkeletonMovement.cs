@@ -59,60 +59,56 @@ public class SkeletonMovement : EnemyBase
 
     void FixedUpdate()
     {
-        if (timerWhite <= 0)
+        //Check to attack
+        if (Vector3.Distance(transform.position, player.position) < attackDistance && !justAttacked)
         {
-            //Check to attack
-            if (Vector3.Distance(transform.position, player.position) < attackDistance && !justAttacked)
-            {
-                direction = (player.position - transform.position).normalized;
-                direction = -direction;
+            direction = (player.position - transform.position).normalized;
+            direction = -direction;
 
-                justAttacked = true;
+            justAttacked = true;
 
-                attack.Attack();
+            attack.Attack();
 
-                movementTimer = changeDirPosAttack;
-                timerAttack = changeDirPosAttack;
-            }
-            else if (movementTimer < 0) //Change actualdirection
-            {
-                // Calcula la dirección hacia el jugador
-                direction = (player.position - transform.position).normalized;
-
-                float rndDir = UnityEngine.Random.Range(0.0f, 1.0f);
-
-                if (rndDir >= focusPlayer) // Ir a los lados
-                {
-                    float angle = Mathf.Clamp(RandomGaussian(45, 15), 0f, 90f);
-
-                    if (UnityEngine.Random.Range(0.0f, 1.0f) <= sidePlayer) // Moverse hacia el lado izquierdo
-                        angle = -angle;
-
-                    Quaternion rotation = Quaternion.Euler(0, 0, angle);
-
-                    // Rotar el vector en todas las dimensiones
-                    direction = (Vector2)(rotation * direction);
-                }
-
-
-
-                movementTimer += changeDirection;
-            }
-
-            if (justAttacked && timerAttack < 0)
-            {
-                justAttacked = false;
-            }
-
-            SelectAttackArea();
-
-            // Mueve al enemigo
-            rb.velocity = direction * speed;
-
-            movementTimer -= Time.fixedDeltaTime;
-            timerAttack -= Time.fixedDeltaTime;
+            movementTimer = changeDirPosAttack;
+            timerAttack = changeDirPosAttack;
         }
-      
+        else if (movementTimer < 0) //Change actualdirection
+        {
+            // Calcula la dirección hacia el jugador
+            direction = (player.position - transform.position).normalized;
+
+            float rndDir = UnityEngine.Random.Range(0.0f, 1.0f);
+
+            if (rndDir >= focusPlayer) // Ir a los lados
+            {
+                float angle = Mathf.Clamp(RandomGaussian(45, 15), 0f, 90f);
+
+                if (UnityEngine.Random.Range(0.0f, 1.0f) <= sidePlayer) // Moverse hacia el lado izquierdo
+                    angle = -angle;
+
+                Quaternion rotation = Quaternion.Euler(0, 0, angle);
+
+                // Rotar el vector en todas las dimensiones
+                direction = (Vector2)(rotation * direction);
+            }
+
+
+
+            movementTimer += changeDirection;
+        }
+
+        if (justAttacked && timerAttack < 0)
+        {
+            justAttacked = false;
+        }
+
+        SelectAttackArea();
+
+        // Mueve al enemigo
+        rb.velocity = direction * speed;
+
+        movementTimer -= Time.fixedDeltaTime;
+        timerAttack -= Time.fixedDeltaTime;
     }
 
     private void SelectAttackArea()
@@ -181,8 +177,8 @@ public class SkeletonMovement : EnemyBase
         return randNormal;
     }
 
-    public override void GetDamage(int damage, Vector3 playerPos)
+    public override void GetDamage(int damage)
     {
-        base.GetDamage(damage, playerPos);
+        base.GetDamage(damage);
     }
 }

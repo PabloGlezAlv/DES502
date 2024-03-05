@@ -19,10 +19,6 @@ public class EnemyBase : MonoBehaviour
     protected float objectChances = 0.5f;
     [SerializeField]
     protected float dropCoinChances = 0.5f;
-    [SerializeField]
-    protected bool pushable = false;
-    [SerializeField]
-    protected float pushForce = 8;
 
     protected int actualLife;
 
@@ -36,7 +32,7 @@ public class EnemyBase : MonoBehaviour
     protected float baseSpeed;
 
     protected SpriteRenderer spriteRenderer;
-    protected float timerWhite;
+    private float timerWhite;
     private bool damageReceived = false;
 
     private Color normal;
@@ -138,7 +134,7 @@ public class EnemyBase : MonoBehaviour
     {
         transform.localScale *= multiplier;
     }
-    public virtual void GetDamage(int damage, Vector3 playerPos)
+    public virtual void GetDamage(int damage)
     {
         int previousLife = actualLife;
         actualLife -= damage;
@@ -160,21 +156,6 @@ public class EnemyBase : MonoBehaviour
             damageReceived = true;
 
             spriteRenderer.color = Color.black;
-
-            if(pushable)
-            {
-
-                Vector2 dir = playerPos - transform.position;
-
-                Debug.Log(playerPos);
-                Debug.Log(transform.position);
-
-                // Normalizar el vector para obtener solo la dirección
-                dir.Normalize();
-
-                rb.AddForce(-dir * pushForce, ForceMode2D.Impulse);
-                Debug.Log(dir);
-            }
         }
     }
 }

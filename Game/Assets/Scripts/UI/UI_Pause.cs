@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Net;
 using UnityEngine;
+using TMPro;
+using UnityEngine.UI;
 
 public class UI_Pause : MonoBehaviour
 {
@@ -12,6 +14,11 @@ public class UI_Pause : MonoBehaviour
     GameObject exitButton;
 
     GameObject container;
+
+    [SerializeField]
+    Slider MusicSlider;
+    [SerializeField]
+    Slider SFXSlider;
 
     bool paused = false;
 
@@ -30,6 +37,15 @@ public class UI_Pause : MonoBehaviour
             Time.timeScale = 1f;
             paused = false;
         };
+
+    }
+
+    private void Start()
+    {
+        //Have to put this in start rather than awake due to the audio manager not
+        //being loaded in at the right time.
+        MusicSlider.value = AudioManager.MusicVolume;
+        SFXSlider.value = AudioManager.SFXVolume;
     }
     void Update()
     {
@@ -41,5 +57,18 @@ public class UI_Pause : MonoBehaviour
             else Time.timeScale = 1f;
             container.SetActive(paused);
         }
+    }
+
+    public void SetMusicVolume()
+    {
+        AudioManager.MusicVolume = MusicSlider.value;
+        AudioManager.instance.SetVolumes();
+    }
+
+    public void SetSFXVolume()
+    {
+        AudioManager.SFXVolume = SFXSlider.value;
+        AudioManager.instance.SetVolumes();
+        AudioManager.instance.Play("Select");
     }
 }

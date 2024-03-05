@@ -11,6 +11,8 @@ public class AudioManager : MonoBehaviour
 
     public static AudioManager instance;
 
+    public static float MusicVolume = 0.4f;
+    public static float SFXVolume = 0.5f;
     void Awake()
     {
         DontDestroyOnLoad(gameObject);
@@ -33,7 +35,7 @@ public class AudioManager : MonoBehaviour
             s.source.outputAudioMixerGroup = audioMixer;
         }
     }
-    
+
     public void Play(string name)
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
@@ -109,6 +111,21 @@ public class AudioManager : MonoBehaviour
             yield return null;
         }
 
+    }
+
+    public void SetVolumes()
+    {
+        foreach (Sound sound in sounds)
+        {
+            if (sound.Type == Sound.AudioType.Music)
+            {
+                sound.source.volume = MusicVolume;
+            }            
+            else if (sound.Type == Sound.AudioType.SFX)
+            {
+                sound.source.volume = SFXVolume;
+            }
+        }
     }
 
 }
