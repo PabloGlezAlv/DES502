@@ -32,12 +32,12 @@ public class EnemyBase : MonoBehaviour
     [SerializeField]
     protected SpriteRenderer objectRenderer;
     [SerializeField]
-    private GameObject coinPrefab;
+    protected GameObject coinPrefab;
     protected float baseSpeed;
 
     protected SpriteRenderer spriteRenderer;
     protected float timerWhite;
-    private bool damageReceived = false;
+    protected bool damageReceived = false;
 
     private Color normal;
 
@@ -46,7 +46,7 @@ public class EnemyBase : MonoBehaviour
 
     Vector3 baseScale;
 
-    DoorsController doorsController;
+    protected DoorsController doorsController;
 
     int timesActivated = 0;
 
@@ -137,44 +137,4 @@ public class EnemyBase : MonoBehaviour
     protected void ChangeScale(float multiplier)
     {
         transform.localScale *= multiplier;
-    }
-    public virtual void GetDamage(int damage, Vector3 playerPos)
-    {
-        int previousLife = actualLife;
-        actualLife -= damage;
-        if (actualLife <= 0) //Dead
-        {
-            float randomValue = UnityEngine.Random.value;
-
-            if (randomValue < 0.5)
-            {
-                GameObject coin = Instantiate(coinPrefab);
-                coin.transform.position = transform.position;
-            }
-                doorsController.KillEntity();
-            this.gameObject.SetActive(false);
-        }
-        else 
-        {
-            timerWhite = timeWhiteDamage;
-            damageReceived = true;
-
-            spriteRenderer.color = Color.black;
-
-            if(pushable)
-            {
-
-                Vector2 dir = playerPos - transform.position;
-
-                Debug.Log(playerPos);
-                Debug.Log(transform.position);
-
-                // Normalizar el vector para obtener solo la dirección
-                dir.Normalize();
-
-                rb.AddForce(-dir * pushForce, ForceMode2D.Impulse);
-                Debug.Log(dir);
-            }
-        }
-    }
-}
+    }}

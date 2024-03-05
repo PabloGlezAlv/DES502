@@ -8,7 +8,7 @@ using System.Threading.Tasks.Sources;
 using Unity.VisualScripting;
 using System.Linq.Expressions;
 
-public class SlimeEnemy : EnemyBase
+public class SlimeEnemy : EnemyBase, IEnemy
 {
     [Header("Slime parameters")]
     protected float ThinkTime = 0;
@@ -199,9 +199,44 @@ public class SlimeEnemy : EnemyBase
         transform.position = Vector3.Lerp(CurrentPos, TargetPos, WalkTime);
     }
 
-    public override void GetDamage(int damage)
+    public void GetDamage(int damage, Vector3 playerPos)
     {
-        base.GetDamage(damage);
+        int previousLife = actualLife;
+        actualLife -= damage;
+        if (actualLife <= 0) //Dead
+        {
+            float randomValue = UnityEngine.Random.value;
+
+            if (randomValue < dropCoinChances)
+            {
+                GameObject coin = Instantiate(coinPrefab);
+                coin.transform.position = transform.position;
+            }
+            doorsController.KillEntity();
+            this.gameObject.SetActive(false);
+        }
+        else
+        {
+            timerWhite = timeWhiteDamage;
+            damageReceived = true;
+
+            spriteRenderer.color = Color.black;
+
+            if (pushable)
+            {
+
+                Vector2 dir = playerPos - transform.position;
+
+                Debug.Log(playerPos);
+                Debug.Log(transform.position);
+
+                // Normalizar el vector para obtener solo la dirección
+                dir.Normalize();
+
+                rb.AddForce(-dir * pushForce, ForceMode2D.Impulse);
+                Debug.Log(dir);
+            }
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

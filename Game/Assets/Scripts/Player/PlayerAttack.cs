@@ -50,8 +50,8 @@ public class PlayerAttack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        EnemyBase move;
-        if(move = collision.GetComponent<EnemyBase>())
+        IEnemy move = collision.GetComponent<IEnemy>();
+        if (move != null)
         {
             move.GetDamage(damage, playerCenter);
         }
