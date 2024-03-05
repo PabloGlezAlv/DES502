@@ -56,4 +56,13 @@ public class PlayerAttack : MonoBehaviour
             move.GetDamage(damage, playerCenter);
         }
     }
+
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        IEnemy move = collision.GetComponent<IEnemy>();
+        if (move != null)
+        {
+            move.GetDamage(damage, playerCenter);
+        }
+    }
 }

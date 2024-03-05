@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using System.Xml;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -13,22 +14,29 @@ public class DiggerMovement : EnemyBase, IEnemy
     [SerializeField]
     private float BeforeAttack = 0.5f;
     [SerializeField]
-    private float attacking = 1.0f;
+    private float attackingTime = 1.0f;
     [SerializeField]
-    private float hideTime = 1.0f;
+    private float hideTime = 1.0f; 
+    [SerializeField]
+    private float beforeAttackingUp = 0.2f;
+    [SerializeField]
+    private float afterAttackingUp = 0.5f;
     [SerializeField]
     private Sprite hideSprite;
+
 
     PlayerMovement player;
 
     bool justAttacked = false;
 
-    private SkeletonAttack attack;
+    private DiggerAttack attack; 
 
     private Sprite attackSprite;
 
     private float hideTimer = 0f;
     private float waitingTimer = 0f;
+    private float upBeforeAttackTimer = 0f;
+    private float upAfterAttackTimer = 0f;
     private float AttakingTimer = 0f;
 
     Vector2Int center;
@@ -38,7 +46,7 @@ public class DiggerMovement : EnemyBase, IEnemy
         base.Awake();
         baseSpeed = speed;
 
-        attack = GetComponentInChildren<SkeletonAttack>();
+        attack = GetComponentInChildren<DiggerAttack>();
 
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         hideTimer = hideTime;
@@ -100,14 +108,32 @@ public class DiggerMovement : EnemyBase, IEnemy
             waitingTimer -= Time.fixedDeltaTime;
             if(waitingTimer <= 0)
             {
-                AttakingTimer = attacking;
+                upBeforeAttackTimer = beforeAttackingUp;
                 spriteRenderer.sprite = attackSprite;
+            }
+        }
+        else if (upBeforeAttackTimer > 0)
+        {
+            upBeforeAttackTimer -= Time.fixedDeltaTime;
+            if (upBeforeAttackTimer <= 0)
+            {
+                AttakingTimer = attackingTime;
+                attack.enabled = true;
             }
         }
         else if(AttakingTimer > 0)
         {
             AttakingTimer -= Time.fixedDeltaTime;
             if (AttakingTimer <= 0)
+            {
+                upAfterAttackTimer = afterAttackingUp;
+                attack.enabled = false;
+            }
+        }
+        else if (upAfterAttackTimer > 0)
+        {
+            upAfterAttackTimer -= Time.fixedDeltaTime;
+            if (upAfterAttackTimer <= 0)
             {
                 hideTimer = hideTime;
                 spriteRenderer.sprite = null;
