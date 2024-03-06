@@ -34,7 +34,9 @@ public class RoomCreator : MonoBehaviour
     [SerializeField]
     private int height = 10;
     [SerializeField]
-    private Vector2Int startPosition = new(0, 0);
+    private Vector2Int startPosition = new(0, 0); 
+    [SerializeField]
+    private int historynLevels = 5;
 
     [Header("Rooms GameObjects")]
     [SerializeField]
@@ -47,6 +49,11 @@ public class RoomCreator : MonoBehaviour
     private int stepsPerWalk = 10;
     [SerializeField]
     private int numberWalk = 10;
+    [SerializeField]
+    private int MaxStepsPerWalk = 50;
+    [SerializeField]
+    private int MaxWalks = 20;
+
 
     //Room center - Doors
     private Dictionary<Vector2Int, List<Direction>> roomsInfo = new();
@@ -78,6 +85,7 @@ public class RoomCreator : MonoBehaviour
     private GameObject shopInstance;
     private GameObject nextFloorHatchInstance;
 
+    private int level = 0;
     void Start()
     {
         shopInstance = Instantiate(shop);
@@ -119,6 +127,28 @@ public class RoomCreator : MonoBehaviour
         //Clean saved data
         visualizer.Clear();
         Clear();
+        level++;
+        if (gamemode.endless == UserInformation.gameMode)
+        {
+            if(level % 2 == 0 && stepsPerWalk < MaxStepsPerWalk)
+            {
+                stepsPerWalk++;
+            }
+            else if(level % 2 == 1 && numberWalk < MaxWalks)
+            {
+                numberWalk++;
+            }
+        }
+        else
+        {
+            stepsPerWalk++;
+            if (level == historynLevels + 1)
+            {
+                Debug.Log("End game");
+        }
+        }
+
+        
 
         GenerateDungeon();
     }
