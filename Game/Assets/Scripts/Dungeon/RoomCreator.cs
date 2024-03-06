@@ -266,7 +266,7 @@ public class RoomCreator : MonoBehaviour
 
         if (finalRoomCenter != shopRoomCenter)
         {
-            shopInstance.transform.position = new UnityEngine.Vector3(shopRoomCenter.x, shopRoomCenter.y, 0);
+            shopInstance.GetComponentInChildren<SalesArea>().setShopPosition( new UnityEngine.Vector3(shopRoomCenter.x, shopRoomCenter.y, 0));
         }
 
         roomsVisited.Add(shopRoomCenter);

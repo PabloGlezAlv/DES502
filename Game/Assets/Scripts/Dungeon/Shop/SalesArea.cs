@@ -11,9 +11,12 @@ public class SalesArea : MonoBehaviour
         shopController = GameObject.Find("UI_Shop").GetComponent<ShopController>();
     }
 
-    private void Start()
+    public void setShopPosition(Vector3 position)
     {
-       
+        transform.position = position;
+
+        shopController.CreateNewShop();
+
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

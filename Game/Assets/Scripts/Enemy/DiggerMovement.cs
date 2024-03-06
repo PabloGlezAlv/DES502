@@ -39,6 +39,8 @@ public class DiggerMovement : EnemyBase, IEnemy
     private float upAfterAttackTimer = 0f;
     private float AttakingTimer = 0f;
 
+    private List<Vector2Int> blocksFull = new List<Vector2Int>();
+
     Vector2Int center;
 
     protected void Awake()
@@ -54,7 +56,16 @@ public class DiggerMovement : EnemyBase, IEnemy
         attackSprite = spriteRenderer.sprite;
         spriteRenderer.sprite = null;
 
-       
+        //Stores the position of the 
+        List<Vector2Int> HoleMap = GetComponentInParent<TrapLocations>().GetHolesRelative();
+        List<Vector2Int> SpikeMap = GetComponentInParent<TrapLocations>().GetSpikesRelative();
+        List<Vector2Int> torretMap = GetComponentInParent<TrapLocations>().GetTorretsFinalLocation();
+
+        blocksFull.AddRange(HoleMap);
+        blocksFull.AddRange(SpikeMap);
+        blocksFull.AddRange(torretMap);
+
+        Debug.Log(torretMap[0]);
     }
 
     private void Start()
@@ -72,15 +83,25 @@ public class DiggerMovement : EnemyBase, IEnemy
                 Direction playerDir = player.GetCurrentDirection();
                 Vector3 playerpos = new Vector3(((int)player.transform.position.x) + 0.5f, ((int)player.transform.position.y) + 0.5f, player.transform.position.z);
  
-                int rngX = UnityEngine.Random.Range(-5, 5);
-                int rngY = UnityEngine.Random.Range(-3, 3);
+                Vector2Int startPoint = new Vector2Int((int)playerpos.x, (int)playerpos.y);
 
-                playerpos.x += rngX;
-                playerpos.y += rngY;
-
-                if(playerpos.x > center.x + 11 )
+                do
                 {
-                    playerpos.x = center.x + 11;
+                    int rngX = UnityEngine.Random.Range(-5, 5);
+                    int rngY = UnityEngine.Random.Range(-3, 3);
+
+                    playerpos.x = startPoint.x ;
+                    playerpos.y = startPoint.y;
+
+                    playerpos.x += rngX;
+                    playerpos.y += rngY;
+                } while (blocksFull.Contains(new Vector2Int((int)playerpos.x, (int)playerpos.y)));
+
+                
+
+                if(playerpos.x > center.x + 10 )
+                {
+                    playerpos.x = center.x + 10;
                 }
                 else if(playerpos.x < center.x -12)
                 {
@@ -95,6 +116,9 @@ public class DiggerMovement : EnemyBase, IEnemy
                 {
                     playerpos.y = center.y - 5;
                 }
+
+                playerpos.x += 0.5f;
+                playerpos.y += 0.5f;
 
                 transform.position = playerpos;
 

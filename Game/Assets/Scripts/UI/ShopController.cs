@@ -74,14 +74,6 @@ public class ShopController : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        if(Input.GetKeyDown(KeyCode.Z))
-        {
-            CreateNewShop();
-        }
-    }
-
     public void CreateNewShop()
     {
         GenerateRandomItems();

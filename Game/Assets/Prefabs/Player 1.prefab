@@ -47,7 +47,7 @@ GameObject:
   - component: {fileID: 1200427804748209202}
   - component: {fileID: 2676686720565060517}
   - component: {fileID: 6089614639034895278}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: AttackArea T
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -192,7 +192,7 @@ GameObject:
   - component: {fileID: 8425864718475490550}
   - component: {fileID: 4513311420858569391}
   - component: {fileID: 2407356271936731353}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: AttackArea B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -369,7 +369,7 @@ GameObject:
   - component: {fileID: 8039715598775203735}
   - component: {fileID: 2504307851468524831}
   - component: {fileID: 1053299585368103215}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: AttackAreaR
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -514,7 +514,7 @@ GameObject:
   - component: {fileID: 1270957036718787015}
   - component: {fileID: 8538208253017931191}
   - component: {fileID: 4043253563186517316}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: AttackArea L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1072,8 +1072,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 676624687
-  m_SortingLayer: 4
+  m_SortingLayerID: -595013041
+  m_SortingLayer: 3
   m_SortingOrder: 2
   m_Sprite: {fileID: 0}
   m_Color: {r: 0.9811321, g: 0.9811321, b: 0.9811321, a: 1}
