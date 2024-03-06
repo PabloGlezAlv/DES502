@@ -10,6 +10,8 @@ public class PlayerMovement : MonoBehaviour
 {
     [SerializeField]
     private float speed = 5f; // Player movement speed
+    [SerializeField]
+    private float doorAlpha = 0.3f; // Player movement speed
 
     [SerializeField]
     private DoorsController doorsController;
@@ -46,6 +48,10 @@ public class PlayerMovement : MonoBehaviour
     UnityEngine.Vector3 baseScale;
 
     bool move = true;
+
+    float alpha = 1;
+
+    SpriteRenderer spriteRenderer;
 
     public Vector2Int GetCurrentRoom()
     {
@@ -87,6 +93,8 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
 
         collider = GetComponent<BoxCollider2D>();
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         currentAttack = directions[0]; //First direction right
 
@@ -161,7 +169,28 @@ public class PlayerMovement : MonoBehaviour
                 doorMovement = false;
                 timer = 0;
                 collider.isTrigger = false;
+                alpha = 1;
+                Color c = spriteRenderer.color;
+                c.a = alpha;
+                spriteRenderer.color = c;
             }
+
+
+            if (timer < doorAlpha) //FadeOut the player
+            {
+                alpha -= Time.deltaTime / doorAlpha;
+                Color c = spriteRenderer.color;
+                c.a = alpha;
+                spriteRenderer.color = c;
+            }
+            else if(doorsTime - doorAlpha < timer)
+            {
+                alpha += Time.deltaTime / doorAlpha;
+                Color c = spriteRenderer.color;
+                c.a = alpha;
+                spriteRenderer.color = c;
+            }
+            Debug.Log(alpha);
         }
         
             bool change = false;

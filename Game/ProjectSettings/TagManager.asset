@@ -54,3 +54,6 @@ TagManager:
   - name: AbovePlayer
     uniqueID: 676624687
     locked: 0
+  - name: RoomFades
+    uniqueID: 840512967
+    locked: 0

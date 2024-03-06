@@ -2,14 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Net.Http.Headers;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraMovement : MonoBehaviour
 {
 
     [SerializeField]
     float changePositionTime = 1.0f; //Second
+    [SerializeField]
+    float fadeInBlack = 0.2f; 
+    [SerializeField]
+    float fadeOutBlack = 0.2f;
+    [SerializeField]
+    float marginNewRoom = 0.1f;
 
-    private Vector3 startPosition;
+    [SerializeField]
+    Image blackFade;
 
     private Vector3 endPosition;
 
@@ -17,26 +25,40 @@ public class CameraMovement : MonoBehaviour
 
     float elapsedTime = 0;
 
+    float alpha = 0;
     // Update is called once per frame
     void Update()
     {
         if(changingPosition)
         {
-            if (elapsedTime < changePositionTime)
+            elapsedTime += Time.deltaTime;
+            
+            if (elapsedTime > changePositionTime)
             {
-                // Interpolate between startPosition and endPosition over changePositionTime
-                transform.position = Vector3.Lerp(startPosition, endPosition, elapsedTime / changePositionTime);
-
-                // Increment elapsed time
-                elapsedTime += Time.deltaTime;
+                //Reset parameters
+                changingPosition = false;
+                elapsedTime = 0;
+                alpha = 0;
             }
-            else
+            else if(elapsedTime > changePositionTime / 2)
             {
                 // Ensure the final position is reached
                 transform.position = endPosition;
-                startPosition = endPosition;
-                changingPosition = false;
-                elapsedTime = 0;
+            }
+
+            if(elapsedTime < fadeInBlack)
+            {
+                alpha += Time.deltaTime / fadeInBlack;
+                Color c = blackFade.color;
+                c.a = alpha;
+                blackFade.color = c;
+            }
+            else if(elapsedTime > changePositionTime - fadeOutBlack - marginNewRoom) 
+            {
+                alpha -= Time.deltaTime / fadeOutBlack;
+                Color c = blackFade.color;
+                c.a = alpha;
+                blackFade.color = c;
             }
         }
     }
@@ -51,7 +73,6 @@ public class CameraMovement : MonoBehaviour
         if(!changingPosition)
         {
             endPosition = new Vector3(newPosition.x, newPosition.y, -10);
-            startPosition = transform.position;
             changingPosition = true;
 
             return true;
