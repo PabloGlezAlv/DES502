@@ -13,7 +13,8 @@ public class ChangeLevel : MonoBehaviour
 
             playerMovement.SetNormalMove(false);
             changeFloor.enabled = true;
-            changeFloor.setTargetPostion(transform.position);
+            Vector3 position= new Vector3(transform.position.x + 0.5f, transform.position.y, transform.position.z);
+            changeFloor.setTargetPostion(position);
         }
     }
 }

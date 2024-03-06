@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - itemImage
+  - bottomHatch
   layers:
   - Default
   - TransparentFX
