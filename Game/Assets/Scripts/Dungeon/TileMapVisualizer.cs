@@ -87,58 +87,58 @@ public class TileMapVisualizer : MonoBehaviour
             switch (holesSprites[i])
             {
                 case typeHole.holeAlone:
-                    PaintSingleTile(holeTilemap, holeTile, holesPositions[i]);
+                    PaintSingleTile(holeTilemap, holeAlone, holesPositions[i]);
                     break;
                 case typeHole.holeTile:
                     PaintSingleTile(holeTilemap, holeTile, holesPositions[i]);
                     break;
                 case typeHole.holeTop:
-                    PaintSingleTile(holeTilemap, holeTile, holesPositions[i]);
+                    PaintSingleTile(holeTilemap, holeTop, holesPositions[i]);
                     break;
                 case typeHole.holeBottom:
-                    PaintSingleTile(holeTilemap, holeTile, holesPositions[i]);
+                    PaintSingleTile(holeTilemap, holeBottom, holesPositions[i]);
                     break;
                 case typeHole.holeRight:
-                    PaintSingleTile(holeTilemap, holeTile, holesPositions[i]);
+                    PaintSingleTile(holeTilemap, holeRight, holesPositions[i]);
                     break;
                 case typeHole.holeLeft:
-                    PaintSingleTile(holeTilemap, holeTile, holesPositions[i]);
+                    PaintSingleTile(holeTilemap, holeLeft, holesPositions[i]);
                     break;
                 case typeHole.holeTopRightConer:
-                    PaintSingleTile(holeTilemap, holeTile, holesPositions[i]);
+                    PaintSingleTile(holeTilemap, holeTopRightConer, holesPositions[i]);
                     break;
                 case typeHole.holeTopLeftConer:
-                    PaintSingleTile(holeTilemap, holeTile, holesPositions[i]);
+                    PaintSingleTile(holeTilemap, holeTopLeftConer, holesPositions[i]);
                     break;
                 case typeHole.holeBottomLeftConer:
-                    PaintSingleTile(holeTilemap, holeTile, holesPositions[i]);
+                    PaintSingleTile(holeTilemap, holeBottomLeftConer, holesPositions[i]);
                     break;
                 case typeHole.holeBottomRightConer:
-                    PaintSingleTile(holeTilemap, holeTile, holesPositions[i]);
+                    PaintSingleTile(holeTilemap, holeBottomRightConer, holesPositions[i]);
                     break;
                 case typeHole.holeInsideLeftBottom:
-                    PaintSingleTile(holeTilemap, holeTile, holesPositions[i]);
+                    PaintSingleTile(holeTilemap, holeInsideLeftBottom, holesPositions[i]);
                     break;
                 case typeHole.holeInsideLeftTop:
-                    PaintSingleTile(holeTilemap, holeTile, holesPositions[i]);
+                    PaintSingleTile(holeTilemap, holeInsideLeftTop, holesPositions[i]);
                     break;
                 case typeHole.holeInsideRightBottom:
-                    PaintSingleTile(holeTilemap, holeTile, holesPositions[i]);
+                    PaintSingleTile(holeTilemap, holeInsideRightBottom, holesPositions[i]);
                     break;
                 case typeHole.holeInsideRightTop:
-                    PaintSingleTile(holeTilemap, holeTile, holesPositions[i]);
+                    PaintSingleTile(holeTilemap, holeInsideRightTop, holesPositions[i]);
                     break;
                 case typeHole.holeWithoutTop:
-                    PaintSingleTile(holeTilemap, holeTile, holesPositions[i]);
+                    PaintSingleTile(holeTilemap, holeWithoutTop, holesPositions[i]);
                     break;
                 case typeHole.holeWithoutBottom:
-                    PaintSingleTile(holeTilemap, holeTile, holesPositions[i]);
+                    PaintSingleTile(holeTilemap, holeWithoutBottom, holesPositions[i]);
                     break;
                 case typeHole.holeWithoutRight:
-                    PaintSingleTile(holeTilemap, holeTile, holesPositions[i]);
+                    PaintSingleTile(holeTilemap, holeWithoutRight, holesPositions[i]);
                     break;
                 case typeHole.holeWithoutLeft:
-                    PaintSingleTile(holeTilemap, holeTile, holesPositions[i]);
+                    PaintSingleTile(holeTilemap, holeWithoutLeft, holesPositions[i]);
                     break;
             }
         }
