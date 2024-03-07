@@ -8,7 +8,7 @@ public class DoorsController : MonoBehaviour
     [SerializeField]
     RoomCreator roomCreator;
 
-    int roomEntities = 0;
+    public int roomEntities = 0;
 
 
     // Start is called  the first frame update
