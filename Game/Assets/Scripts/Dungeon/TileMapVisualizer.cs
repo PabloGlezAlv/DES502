@@ -13,6 +13,8 @@ using UnityEngine.WSA;
 enum typeWall{top, topInside, bottomInside, leftInside, rightInside, left, leftTopCorner, leftBottomCorner, right, rightTopCorner, rightBottomCorner, 
     bottom, insideLeftTopCorner, insideRightTopCorner, insideLeftBottomCorner ,insideRightBottomCorner}
 
+public enum typeSpike { off, small, high}
+
 public enum typeHole {
     holeTile, holeTop, holeBottom, holeRight, holeLeft, holeTopRightConer, holeTopLeftConer, holeBottomLeftConer, holeBottomRightConer, holeInsideLeftBottom,
     holeInsideLeftTop, holeInsideRightBottom, holeInsideRightTop, holeWithoutTop, holeWithoutBottom, holeWithoutRight, holeWithoutLeft, holeAlone
@@ -39,7 +41,7 @@ public class TileMapVisualizer : MonoBehaviour
 
     [Header("Tramp")]
     [SerializeField]
-    private TileBase spikeOff, spikeOn;
+    private TileBase spikeOff, spikeSmall, spikeHigh;
 
     [Header("Hole")]
     [SerializeField]
@@ -62,12 +64,20 @@ public class TileMapVisualizer : MonoBehaviour
         doorsTileCollider = doorsTileGameObject.GetComponent<TilemapCollider2D>();
     }
 
-    public void PaintSpike(Vector2Int position, bool on)
+    public void PaintSpike(Vector2Int position, typeSpike type)
     {
-        if (on)
-            PaintSingleTile(trapTilemap, spikeOn, position);
-        else
-            PaintSingleTile(trapTilemap, spikeOff, position);
+        switch (type)
+        {
+            case typeSpike.off:
+                PaintSingleTile(trapTilemap, spikeOff, position);
+                break;
+            case typeSpike.small:
+                PaintSingleTile(trapTilemap, spikeSmall, position);
+                break;
+            case typeSpike.high:
+                PaintSingleTile(trapTilemap, spikeHigh, position);
+                break;
+        }
     }
 
     public void PaintHoles(List<Vector2Int> holesPositions, List<typeHole> holesSprites)

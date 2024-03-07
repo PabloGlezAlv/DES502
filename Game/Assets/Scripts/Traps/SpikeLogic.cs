@@ -11,15 +11,20 @@ public class SpikeLogic : MonoBehaviour
     int damage = 2;
 
     [SerializeField]
-    float timeChange = 1;
+    float timeHigh = 1;
+    [SerializeField]
+    float timeSmall = 0.4f;
+    [SerializeField]
+    float timeOut = 1f;
 
     [SerializeField]
     float DamageWaitTime = 1.5f;
 
     float timer = 0;
+    float timerSmall = 0;
     float timerWait;
 
-    bool active = false;
+    typeSpike active = typeSpike.off;
 
     List<Vector2Int> points = new List<Vector2Int>();
 
@@ -43,11 +48,11 @@ public class SpikeLogic : MonoBehaviour
         roomLocked = set;
         if(roomLocked)
         {
-            timer = timeChange;
+            timer = timeOut;
         }
         else //Dont active traps if finish or ols room
         {
-            active = false;
+            active = typeSpike.off;
             for (int i = 0; i < points.Count; i++)
             {
                 visualizer.PaintSpike(points[i], active);
@@ -65,14 +70,32 @@ public class SpikeLogic : MonoBehaviour
         {
             timer -= Time.deltaTime;
 
-            if (timer < 0)
+            if(timer < 0 && active == typeSpike.off)
             {
-                timer = timeChange;
-                active = !active;
+                active = typeSpike.small;
                 for (int i = 0; i < points.Count; i++)
                 {
                     visualizer.PaintSpike(points[i], active);
                 }
+                timer = timeSmall;
+            }
+            else if(timer < 0 && active == typeSpike.small)
+            {
+                active = typeSpike.high;
+                timer = timeHigh;
+                for (int i = 0; i < points.Count; i++)
+                {
+                    visualizer.PaintSpike(points[i], active);
+                }
+            }
+            else if(timer < 0 && active == typeSpike.high)
+            {
+                active = typeSpike.off;
+                for (int i = 0; i < points.Count; i++)
+                {
+                    visualizer.PaintSpike(points[i], active);
+                }
+                timer = timeOut;
             }
 
             timerWait -= Time.deltaTime;
@@ -84,7 +107,7 @@ public class SpikeLogic : MonoBehaviour
     {
         //Collision  with player
         LifeSystem system;
-        if (timerWait <= 0 && (system = collision.gameObject.GetComponent<LifeSystem>()) && active)
+        if (timerWait <= 0 && (system = collision.gameObject.GetComponent<LifeSystem>()) && active == typeSpike.high)
         {
             system.GetDamage(damage);
             timerWait = DamageWaitTime;

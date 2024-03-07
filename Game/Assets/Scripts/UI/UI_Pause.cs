@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Net;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class UI_Pause : MonoBehaviour
 {
@@ -23,10 +24,11 @@ public class UI_Pause : MonoBehaviour
             Time.timeScale = 1f;
             paused = false;
             container.SetActive(false);
+            Debug.Log("bACK GAME");
         };
 
         exitButton.GetComponent<Button_UI>().ClickFunc = () => {
-            Debug.Log("EXIT GAME");
+            SceneManager.LoadScene("Menu", LoadSceneMode.Single);
             Time.timeScale = 1f;
             paused = false;
         };
