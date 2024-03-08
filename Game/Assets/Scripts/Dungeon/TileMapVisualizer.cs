@@ -17,7 +17,8 @@ public enum typeSpike { off, small, high}
 
 public enum typeHole {
     holeTile, holeTop, holeBottom, holeRight, holeLeft, holeTopRightConer, holeTopLeftConer, holeBottomLeftConer, holeBottomRightConer, holeInsideLeftBottom,
-    holeInsideLeftTop, holeInsideRightBottom, holeInsideRightTop, holeWithoutTop, holeWithoutBottom, holeWithoutRight, holeWithoutLeft, holeAlone
+    holeInsideLeftTop, holeInsideRightBottom, holeInsideRightTop, holeWithoutTop, holeWithoutBottom, holeWithoutRight, holeWithoutLeft, holeAlone, holeWithoutLeftRight, 
+    holeWithoutTopBottom
 }
 public class TileMapVisualizer : MonoBehaviour
 {
@@ -46,7 +47,8 @@ public class TileMapVisualizer : MonoBehaviour
     [Header("Hole")]
     [SerializeField]
     private TileBase holeTile, holeTop, holeBottom, holeRight, holeLeft, holeTopRightConer, holeTopLeftConer, holeBottomLeftConer, holeBottomRightConer, holeInsideLeftBottom,
-        holeInsideLeftTop, holeInsideRightBottom, holeInsideRightTop, holeWithoutTop, holeWithoutBottom, holeWithoutRight, holeWithoutLeft, holeAlone;
+        holeInsideLeftTop, holeInsideRightBottom, holeInsideRightTop, holeWithoutTop, holeWithoutBottom, holeWithoutRight, holeWithoutLeft, holeAlone, holeWithoutLeftRight,
+    holeWithoutTopBottom;
 
 
     private Tilemap floorTilemap, wallTilemap, doorsTile, trapTilemap, holeTilemap;
@@ -140,6 +142,12 @@ public class TileMapVisualizer : MonoBehaviour
                     break;
                 case typeHole.holeWithoutLeft:
                     PaintSingleTile(holeTilemap, holeWithoutLeft, holesPositions[i]);
+                    break;
+                case typeHole.holeWithoutLeftRight:
+                    PaintSingleTile(holeTilemap, holeWithoutLeftRight, holesPositions[i]);
+                    break;
+                case typeHole.holeWithoutTopBottom:
+                    PaintSingleTile(holeTilemap, holeWithoutTopBottom, holesPositions[i]);
                     break;
             }
         }
