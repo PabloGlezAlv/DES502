@@ -23,6 +23,7 @@ public class CheckItems : MonoBehaviour
         CoinObject coin;
         SpeedObject speed;
         ScaleObject scale;
+        HealObject heal;
         if (coin = collision.gameObject.GetComponent<CoinObject>())
         {
             player.GetComponent<PlayerData>().addCoins(coin.GetCoins());
@@ -49,6 +50,12 @@ public class CheckItems : MonoBehaviour
 
             //Deactivate
             collision.transform.parent.gameObject.SetActive(false);
+        }
+        else if(heal = collision.gameObject.GetComponent<HealObject>())
+        {
+            player.GetComponent<LifeSystem>().GetHealed(heal.GetHeal());
+            Debug.Log("Healed");
+            Destroy(collision.gameObject); 
         }
     }
 }

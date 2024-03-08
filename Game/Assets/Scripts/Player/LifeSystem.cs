@@ -39,7 +39,7 @@ public class LifeSystem : MonoBehaviour
     void Start()
     {
         actualHearts = startHearts;
-
+        maxLife = actualHearts * 2;
         ShowAllHearts();
 
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
@@ -49,8 +49,6 @@ public class LifeSystem : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.L)) { GetDamage(3); }
-        if (Input.GetKeyDown(KeyCode.H)) { GetHealed(2); }
 
         if(remainingChanges > 0) 
         {
@@ -98,7 +96,7 @@ public class LifeSystem : MonoBehaviour
 
         for (int i = previousLife; i < actualLife; i++)
         {
-            halfHearts[i ].SetActive(true);
+            halfHearts[i].SetActive(true);
         }
     }
 

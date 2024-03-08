@@ -45,10 +45,13 @@ public class ShopController : MonoBehaviour
 
     private void GenerateRandomItems()
     {
-        for(int i = 0;i < 3;i++)
+        int item;
+        int rarity;
+
+        for (int i = 0;i < 2;i++)
         {
-            int item = Random.Range(1, (int)Items.SpeedHelmet + 1);
-            int rarity = Random.Range(0, (int)Rarity.Legendary + 1);
+            item = Random.Range(1, (int)Items.SpeedHelmet + 1);
+            rarity = Random.Range(0, (int)Rarity.Legendary + 1);
 
             switch((Items)item)
             {
@@ -62,6 +65,11 @@ public class ShopController : MonoBehaviour
                     break;
             }
         }
+
+        rarity = Random.Range(0, (int)Rarity.Legendary + 1);
+
+        CreateItemButton(Items.heal, (Rarity)rarity, ObjectsManager.instance.getHealSprite(rarity), "Heal " + rarity.ToString(),
+                       ObjectsManager.instance.getHealPrice(rarity), 2);
     }
 
     public void ResetItems()

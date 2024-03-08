@@ -26578,6 +26578,63 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0c6fbd7bcd3e59048b27f175f8505255, type: 3}
+--- !u!1001 &1253940610
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 6051068933900146545, guid: 9c3d9183cf6a82f47a332cdc34d93b42, type: 3}
+      propertyPath: m_Name
+      value: HealObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6388338139587472056, guid: 9c3d9183cf6a82f47a332cdc34d93b42, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -8.135517
+      objectReference: {fileID: 0}
+    - target: {fileID: 6388338139587472056, guid: 9c3d9183cf6a82f47a332cdc34d93b42, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.0420103
+      objectReference: {fileID: 0}
+    - target: {fileID: 6388338139587472056, guid: 9c3d9183cf6a82f47a332cdc34d93b42, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6388338139587472056, guid: 9c3d9183cf6a82f47a332cdc34d93b42, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6388338139587472056, guid: 9c3d9183cf6a82f47a332cdc34d93b42, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6388338139587472056, guid: 9c3d9183cf6a82f47a332cdc34d93b42, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6388338139587472056, guid: 9c3d9183cf6a82f47a332cdc34d93b42, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6388338139587472056, guid: 9c3d9183cf6a82f47a332cdc34d93b42, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6388338139587472056, guid: 9c3d9183cf6a82f47a332cdc34d93b42, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6388338139587472056, guid: 9c3d9183cf6a82f47a332cdc34d93b42, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 9c3d9183cf6a82f47a332cdc34d93b42, type: 3}
 --- !u!1 &1265706173
 GameObject:
   m_ObjectHideFlags: 0
@@ -65204,8 +65261,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 77475487
-  m_SortingLayer: 0
+  m_SortingLayerID: 531931617
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: ce7359fdf6606c6438be3ee2d699dfc0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -66405,12 +66462,84 @@ PrefabInstance:
       value: ObjectsManager
       objectReference: {fileID: 0}
     - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: healSprites.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: healUpgrade.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: healShopPrice.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: 'healSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 3144447385544774128, guid: f7b37b91088c7d44b98c5e710477bd39, type: 3}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: 'healSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 6352683301991889936, guid: f7b37b91088c7d44b98c5e710477bd39, type: 3}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: 'healSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: -8984791981334975670, guid: f7b37b91088c7d44b98c5e710477bd39, type: 3}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: 'healSprites.Array.data[3]'
+      value: 
+      objectReference: {fileID: -8676482130136216939, guid: f7b37b91088c7d44b98c5e710477bd39, type: 3}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: 'healSprites.Array.data[4]'
+      value: 
+      objectReference: {fileID: -794116353344462730, guid: f7b37b91088c7d44b98c5e710477bd39, type: 3}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: 'healUpgrade.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: 'healUpgrade.Array.data[1]'
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: 'healUpgrade.Array.data[2]'
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: 'healUpgrade.Array.data[3]'
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: 'healUpgrade.Array.data[4]'
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
       propertyPath: scaleShopPrice.Array.size
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
       propertyPath: speedShopPrice.Array.size
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: 'healShopPrice.Array.data[0]'
+      value: 111
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: 'healShopPrice.Array.data[1]'
+      value: 222
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: 'healShopPrice.Array.data[2]'
+      value: 333
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: 'healShopPrice.Array.data[3]'
+      value: 444
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: 'healShopPrice.Array.data[4]'
+      value: 555
       objectReference: {fileID: 0}
     - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
       propertyPath: 'scaleShopPrice.Array.data[0]'
@@ -66475,3 +66604,4 @@ SceneRoots:
   - {fileID: 1234473984}
   - {fileID: 961993357}
   - {fileID: 489175138}
+  - {fileID: 1253940610}

@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public enum Items { none, ScaleHelmet, SpeedHelmet } //Leave SpeedHelmet last
+public enum Items { none, heal, ScaleHelmet, SpeedHelmet } //Leave SpeedHelmet last
 
 
 public class ObjectsManager : MonoBehaviour
@@ -27,6 +27,13 @@ public class ObjectsManager : MonoBehaviour
     List<float> scaleUpgrade; 
     [SerializeField]
     List<int> scaleShopPrice;
+
+    [SerializeField]
+    List<Sprite> healSprites;
+    [SerializeField]
+    List<int> healUpgrade;
+    [SerializeField]
+    List<int> healShopPrice;
 
     public static ObjectsManager instance;
 
@@ -103,5 +110,29 @@ public class ObjectsManager : MonoBehaviour
     public int getScalePrice(int i)
     {
         return scaleShopPrice[i];
+    }
+
+
+    //-------------------------------HEAL OBJECT----------------------------
+
+    public Sprite getHealSprite(int i)
+    {
+        return healSprites[i];
+    }
+    public List<Sprite> getHealSprites()
+    {
+        return healSprites;
+    }
+    public int getHealUpgrade(int i)
+    {
+        return healUpgrade[i];
+    }
+    public List<int> getHealUpgrades()
+    {
+        return healUpgrade;
+    }
+    public int getHealPrice(int i)
+    {
+        return healShopPrice[i];
     }
 }

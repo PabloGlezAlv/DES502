@@ -13,6 +13,8 @@ public class PlayerData : MonoBehaviour
 
     PlayerMovement playerMovement;
 
+    LifeSystem lifesystem;
+
     [SerializeField]
     GameObject speed;
     [SerializeField]
@@ -25,6 +27,8 @@ public class PlayerData : MonoBehaviour
         _itemManager = GetComponentInChildren<ItemManager>();
 
         playerMovement = GetComponent<PlayerMovement>();
+
+        lifesystem = GetComponent<LifeSystem>();
     }
 
     private void Start()
@@ -85,6 +89,9 @@ public class PlayerData : MonoBehaviour
                     playerMovement.ReduceScale(scaleScript.GetUpgrade());
 
                     newItem.SetActive(false);
+                    break;
+                case Items.heal:
+                    lifesystem.GetHealed(ObjectsManager.instance.getCoinAmount((int)rare));
                     break;
             } 
 
