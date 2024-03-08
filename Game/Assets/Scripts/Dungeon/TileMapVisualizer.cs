@@ -18,7 +18,8 @@ public enum typeSpike { off, small, high}
 public enum typeHole {
     holeTile, holeTop, holeBottom, holeRight, holeLeft, holeTopRightConer, holeTopLeftConer, holeBottomLeftConer, holeBottomRightConer, holeInsideLeftBottom,
     holeInsideLeftTop, holeInsideRightBottom, holeInsideRightTop, holeWithoutTop, holeWithoutBottom, holeWithoutRight, holeWithoutLeft, holeAlone, holeWithoutLeftRight, 
-    holeWithoutTopBottom
+    holeWithoutTopBottom, holeTopLeftConerWInside, holeBottomLeftConerWInside, holeBottomRightConerWInside, holeInsideLeftBottomWInside, holeTopRightInside, holeTopLeftInside,
+    holeBottomLeftInside, holeBottomRightInside
 }
 public class TileMapVisualizer : MonoBehaviour
 {
@@ -48,7 +49,8 @@ public class TileMapVisualizer : MonoBehaviour
     [SerializeField]
     private TileBase holeTile, holeTop, holeBottom, holeRight, holeLeft, holeTopRightConer, holeTopLeftConer, holeBottomLeftConer, holeBottomRightConer, holeInsideLeftBottom,
         holeInsideLeftTop, holeInsideRightBottom, holeInsideRightTop, holeWithoutTop, holeWithoutBottom, holeWithoutRight, holeWithoutLeft, holeAlone, holeWithoutLeftRight,
-    holeWithoutTopBottom;
+    holeWithoutTopBottom, holeTopLeftConerWInside, holeBottomLeftConerWInside, holeBottomRightConerWInside, holeInsideLeftBottomWInside, holeTopRightInside, holeTopLeftInside,
+    holeBottomLeftInside, holeBottomRightInside;
 
 
     private Tilemap floorTilemap, wallTilemap, doorsTile, trapTilemap, holeTilemap;
@@ -148,6 +150,30 @@ public class TileMapVisualizer : MonoBehaviour
                     break;
                 case typeHole.holeWithoutTopBottom:
                     PaintSingleTile(holeTilemap, holeWithoutTopBottom, holesPositions[i]);
+                    break;
+                case typeHole.holeTopLeftConerWInside:
+                    PaintSingleTile(holeTilemap, holeTopLeftConerWInside, holesPositions[i]);
+                    break;
+                case typeHole.holeBottomLeftConerWInside:
+                    PaintSingleTile(holeTilemap, holeBottomLeftConerWInside, holesPositions[i]);
+                    break;
+                case typeHole.holeBottomRightConerWInside:
+                    PaintSingleTile(holeTilemap, holeBottomRightConerWInside, holesPositions[i]);
+                    break;
+                case typeHole.holeInsideLeftBottomWInside:
+                    PaintSingleTile(holeTilemap, holeInsideLeftBottomWInside, holesPositions[i]);
+                    break;
+                case typeHole.holeTopRightInside:
+                    PaintSingleTile(holeTilemap, holeTopRightInside, holesPositions[i]);
+                    break;
+                case typeHole.holeTopLeftInside:
+                    PaintSingleTile(holeTilemap, holeTopLeftInside, holesPositions[i]);
+                    break;
+                case typeHole.holeBottomLeftInside:
+                    PaintSingleTile(holeTilemap, holeBottomLeftInside, holesPositions[i]);
+                    break;
+                case typeHole.holeBottomRightInside:
+                    PaintSingleTile(holeTilemap, holeBottomRightInside, holesPositions[i]);
                     break;
             }
         }

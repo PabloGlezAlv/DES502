@@ -6,6 +6,7 @@ TagManager:
   tags:
   - itemImage
   - bottomHatch
+  - DoorController
   layers:
   - Default
   - TransparentFX

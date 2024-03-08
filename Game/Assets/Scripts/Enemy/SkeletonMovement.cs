@@ -41,6 +41,9 @@ public class SkeletonMovement : EnemyBase, IEnemy
 
     private float timerAttack = 0f;
 
+    bool shield = false;
+
+    Animator animator;
     protected void Awake()
     {
         base.Awake();
@@ -50,9 +53,19 @@ public class SkeletonMovement : EnemyBase, IEnemy
 
         attack = GetComponentInChildren<SkeletonAttack>();
 
+        animator = GetComponent<Animator>();
+
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
         actualDir = attackDir[0];
+
+        if(UnityEngine.Random.Range(0, 2) == 1)
+        {
+            shield = true;
+        }
+
+        animator.SetFloat("X", 1f);
+        animator.SetFloat("Y", 0f);
     }
 
 
@@ -184,7 +197,14 @@ public class SkeletonMovement : EnemyBase, IEnemy
     public void GetDamage(int damage, Vector3 playerPos)
     {
         int previousLife = actualLife;
-        actualLife -= damage;
+        if (justAttacked && shield && movementTimer > 0) //Shield grabbed
+        {
+            actualLife -= damage / 2;
+        }
+        else
+        {
+            actualLife -= damage;
+        }
         if (actualLife <= 0) //Dead
         {
             float randomValue = UnityEngine.Random.value;
