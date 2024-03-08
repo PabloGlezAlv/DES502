@@ -55,7 +55,7 @@ public class CheckItems : MonoBehaviour
         {
             player.GetComponent<LifeSystem>().GetHealed(heal.GetHeal());
             Debug.Log("Healed");
-            Destroy(collision.gameObject); 
+            Destroy(collision.transform.parent.gameObject); 
         }
     }
 }
