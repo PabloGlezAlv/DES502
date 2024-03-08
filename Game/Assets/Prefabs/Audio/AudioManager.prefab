@@ -1,0 +1,99 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6662176183424939943
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3108977406823956719}
+  - component: {fileID: 5085762293585324006}
+  - component: {fileID: 5254968653011187119}
+  m_Layer: 0
+  m_Name: AudioManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 2147483647
+  m_IsActive: 1
+--- !u!4 &3108977406823956719
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6662176183424939943}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5085762293585324006
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6662176183424939943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0db17ab41a54d804a8c90663e66a6929, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioMixer: {fileID: 24300002, guid: d2b070b430b094f46988ec027c279dbc, type: 2}
+  sounds:
+  - name: Title
+    clip: {fileID: 8300000, guid: e8d180c6745b81947818f1425f1799d4, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 1
+    Type: 1
+    source: {fileID: 0}
+  - name: Dungeon
+    clip: {fileID: 8300000, guid: 760bb305d554266468c557dabba52032, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 1
+    Type: 1
+    source: {fileID: 0}
+  - name: TitleIntro
+    clip: {fileID: 8300000, guid: bca5137dcc8be5c4cbc5c9e9d887518a, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 1
+    source: {fileID: 0}
+  - name: DungeonIntro
+    clip: {fileID: 8300000, guid: 854d02889045906439d3ff56524af054, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 1
+    source: {fileID: 0}
+  - name: Select
+    clip: {fileID: 8300000, guid: d8dfd58bcbcdd714d94a303f5540e454, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+--- !u!114 &5254968653011187119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6662176183424939943}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19ce8b6e3534b1f4eb232cc5be5151f1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  TuneName: Dungeon
+  IntroName: DungeonIntro
+  IntroTime: 9.601

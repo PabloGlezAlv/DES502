@@ -42,6 +42,11 @@ public class FlameTurret : MonoBehaviour
 
     private void Start()
     {
+        for (int i = 0; i < Points.Length; i++)
+        {
+            Points[i] += (Vector2)transform.parent.position;
+        }
+
         transform.position = Points[0];
         CenterPos = transform.position;
         Flame.active = false;
@@ -59,7 +64,6 @@ public class FlameTurret : MonoBehaviour
         }
         else
         {
-            TimePoint = 0;
             FlameTime = 0;
         }
         if (FlameTime > 1f)
