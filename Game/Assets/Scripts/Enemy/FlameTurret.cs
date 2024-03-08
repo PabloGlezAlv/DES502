@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class FlameTurret : EnemyBase
+public class FlameTurret : MonoBehaviour
 {
     private DoorsController controller;
     protected enum MovementType
@@ -21,6 +21,8 @@ public class FlameTurret : EnemyBase
     private float TimePoint;
     private bool PingPongFlag = false;
 
+    [SerializeField]
+    private float Speed;
     [SerializeField]
     private float FlameSpeed;
     [SerializeField]
@@ -44,7 +46,7 @@ public class FlameTurret : EnemyBase
         CenterPos = transform.position;
         Flame.active = false;
         if (Points.Length == 0) MType = MovementType.NA;
-        controller = GetComponentInParent<DoorsController>();
+        controller = GameObject.FindGameObjectWithTag("DoorController").GetComponent<DoorsController>();
     }
 
     private void FixedUpdate()
@@ -52,7 +54,7 @@ public class FlameTurret : EnemyBase
         Active = controller.roomEntities > 0;
         if (Active)
         {
-            TimePoint += Time.deltaTime * (speed / 10);
+            TimePoint += Time.deltaTime * (Speed / 10);
             FlameTime += Time.deltaTime * FlameSpeed;
         }
         else
