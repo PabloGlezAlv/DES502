@@ -252,20 +252,17 @@ public class SlimeEnemy : EnemyBase, IEnemy
 
     IEnumerator Attack()
     {
-        ThinkTime = 0;
         yield return new WaitForSeconds(1f);
         for (int i = 0; i < 4; i++)
         {
             AttackColliders[i].active = true;
         }
-        ThinkTime = 0;
         yield return new WaitForSeconds(1f);
 
         for (int i = 0; i < 4; i++)
         {
             AttackColliders[i].active = false;
         }
-        ThinkTime = 0;
         yield return new WaitForSeconds(1f);
     }
 
