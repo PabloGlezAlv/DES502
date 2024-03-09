@@ -2,9 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using System.Transactions;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -16,9 +18,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private DoorsController doorsController;
 
-    [Header("Directions: Right, left, top, bottom")]
+    [Header("AttackArea")]
     [SerializeField]
-    private List<GameObject> directions = new List<GameObject>(4);
+    private GameObject currentAttack;
 
     private List<Direction> inputs = new List<Direction>(4);
 
@@ -26,7 +28,6 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector2Int currentRoom = new Vector2Int(0, 0);
 
-    GameObject currentAttack;
 
     private float baseSpeed;
 
@@ -96,8 +97,6 @@ public class PlayerMovement : MonoBehaviour
 
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        currentAttack = directions[0]; //First direction right
-
         baseSpeed = speed;
         baseScale = transform.localScale;
     }
@@ -135,26 +134,33 @@ public class PlayerMovement : MonoBehaviour
 
     private void ChangeAttack(Direction newDir)
     {
-        currentAttack.SetActive(false);
+        //currentAttack.SetActive(false);
+
+        currentAttack.transform.position = currentAttack.transform.parent.position;
+        currentAttack.transform.rotation = currentAttack.transform.parent.rotation;
+
         switch (newDir)
         {
             case Direction.None:
                 break;
             case Direction.Right:
-                currentAttack = directions[0];
+                currentAttack.transform.Translate(UnityEngine.Vector3.right * transform.localScale.x, Space.World);
+                currentAttack.transform.Translate(UnityEngine.Vector3.up * transform.localScale.y, Space.World);
                 break;
             case Direction.Left:
-                currentAttack = directions[1];
+                currentAttack.transform.Translate(UnityEngine.Vector3.left * transform.localScale.x, Space.World);
+                currentAttack.transform.Translate(UnityEngine.Vector3.up * transform.localScale.y, Space.World);
                 break;
             case Direction.Top:
-                currentAttack = directions[2];
+                currentAttack.transform.Translate(UnityEngine.Vector3.up * transform.localScale.y *2, Space.World);
+                currentAttack.transform.Rotate(UnityEngine.Vector3.forward, 90f);
                 break;
             case Direction.Bottom:
-                currentAttack = directions[3];
+                currentAttack.transform.Rotate(UnityEngine.Vector3.forward, 90f);
                 break;
         }
 
-        currentAttack.SetActive(true);
+        // currentAttack.SetActive(true);
     }
 
     private void Update()
