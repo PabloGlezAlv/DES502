@@ -48,6 +48,9 @@ public class ItemManager : MonoBehaviour
             case Items.ScaleHelmet:
                 spriteRenderer.sprite = playerObject.GetComponent<SpriteRenderer>().sprite;
                 break;
+            case Items.DamageHelmet:
+                spriteRenderer.sprite = playerObject.GetComponent<SpriteRenderer>().sprite;
+                break;
             default:
                 break;
 
@@ -65,6 +68,9 @@ public class ItemManager : MonoBehaviour
                 break;
             case Items.ScaleHelmet:
                 transform.parent.gameObject.GetComponent<PlayerMovement>().ResetScale();
+                break;
+            case Items.DamageHelmet:
+                transform.parent.gameObject.GetComponent<PlayerMovement>().ResetDamage();
                 break;
             default:
                 break;

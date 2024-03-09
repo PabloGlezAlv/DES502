@@ -14,9 +14,23 @@ public class PlayerAttack : MonoBehaviour
     private new Collider2D collider2D;
     private Vector3 playerCenter;
 
+    private int startDamage;
+
     private void Awake()
     {
         playerCenter = transform.parent.transform.parent.transform.position;
+
+        startDamage = damage;
+    }
+
+    public void addDamage(int add)
+    {
+        damage += add;
+    }
+
+    public void resetDamage()
+    {
+        damage = startDamage;
     }
 
     private void Start()

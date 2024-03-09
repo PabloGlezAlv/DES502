@@ -121,6 +121,16 @@ public class PlayerMovement : MonoBehaviour
         transform.localScale = baseScale;
     }
 
+    public void AddDamage(int dam)
+    {
+        currentAttack.GetComponent<PlayerAttack>().addDamage(dam);
+    }
+
+    public void ResetDamage() 
+    {
+        currentAttack.GetComponent<PlayerAttack>().resetDamage();
+    }
+
     public void AddSpeed(float speedMultiplier)
     {
         ResetSpeed();

@@ -24,6 +24,7 @@ public class CheckItems : MonoBehaviour
         SpeedObject speed;
         ScaleObject scale;
         HealObject heal;
+        DamageObject damage;
         if (coin = collision.gameObject.GetComponent<CoinObject>())
         {
             player.GetComponent<PlayerData>().addCoins(coin.GetCoins());
@@ -56,6 +57,16 @@ public class CheckItems : MonoBehaviour
             player.GetComponent<LifeSystem>().GetHealed(heal.GetHeal());
             Debug.Log("Healed");
             Destroy(collision.transform.parent.gameObject); 
+        }
+        else if(damage = collision.gameObject.GetComponent<DamageObject>())
+        {
+            //Add new Effect
+            myItem = Items.ScaleHelmet;
+            player.GetComponent<PlayerMovement>().AddDamage(damage.GetUpgrade());
+            manager.ChangeItem(collision.gameObject, myItem);
+
+            //Deactivate
+            collision.transform.parent.gameObject.SetActive(false);
         }
     }
 }

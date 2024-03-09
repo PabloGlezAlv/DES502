@@ -61499,6 +61499,63 @@ MonoBehaviour:
   TuneName: Dungeon
   IntroName: DungeonIntro
   IntroTime: 9.601
+--- !u!1001 &1927999797
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3772999155484304519, guid: 18ed29ecb50540042ab8cb2ee67ad27b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.682918
+      objectReference: {fileID: 0}
+    - target: {fileID: 3772999155484304519, guid: 18ed29ecb50540042ab8cb2ee67ad27b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -4.7442207
+      objectReference: {fileID: 0}
+    - target: {fileID: 3772999155484304519, guid: 18ed29ecb50540042ab8cb2ee67ad27b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.01337643
+      objectReference: {fileID: 0}
+    - target: {fileID: 3772999155484304519, guid: 18ed29ecb50540042ab8cb2ee67ad27b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3772999155484304519, guid: 18ed29ecb50540042ab8cb2ee67ad27b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3772999155484304519, guid: 18ed29ecb50540042ab8cb2ee67ad27b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3772999155484304519, guid: 18ed29ecb50540042ab8cb2ee67ad27b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3772999155484304519, guid: 18ed29ecb50540042ab8cb2ee67ad27b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3772999155484304519, guid: 18ed29ecb50540042ab8cb2ee67ad27b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3772999155484304519, guid: 18ed29ecb50540042ab8cb2ee67ad27b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8051447936904227821, guid: 18ed29ecb50540042ab8cb2ee67ad27b, type: 3}
+      propertyPath: m_Name
+      value: ObjectDamage
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 18ed29ecb50540042ab8cb2ee67ad27b, type: 3}
 --- !u!1 &1955043055 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 460110703095791213, guid: 9988cfb433f077f4b8816b2b89d60268, type: 3}
@@ -62448,6 +62505,14 @@ PrefabInstance:
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: damageSprites.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: damageUpgrade.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
       propertyPath: healShopPrice.Array.size
       value: 5
       objectReference: {fileID: 0}
@@ -62497,6 +62562,50 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
       propertyPath: speedShopPrice.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: damageShopPrice.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: 'damageSprites.Array.data[0]'
+      value: 
+      objectReference: {fileID: 251000817, guid: b684ff988fdd0ac4e8264da8e9ad18cd, type: 3}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: 'damageSprites.Array.data[1]'
+      value: 
+      objectReference: {fileID: 1552201099, guid: b684ff988fdd0ac4e8264da8e9ad18cd, type: 3}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: 'damageSprites.Array.data[2]'
+      value: 
+      objectReference: {fileID: 610775092, guid: b684ff988fdd0ac4e8264da8e9ad18cd, type: 3}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: 'damageSprites.Array.data[3]'
+      value: 
+      objectReference: {fileID: -1126184740, guid: b684ff988fdd0ac4e8264da8e9ad18cd, type: 3}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: 'damageSprites.Array.data[4]'
+      value: 
+      objectReference: {fileID: 137539403, guid: b684ff988fdd0ac4e8264da8e9ad18cd, type: 3}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: 'damageUpgrade.Array.data[0]'
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: 'damageUpgrade.Array.data[1]'
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: 'damageUpgrade.Array.data[2]'
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: 'damageUpgrade.Array.data[3]'
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: 'damageUpgrade.Array.data[4]'
       value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
@@ -62559,6 +62668,26 @@ PrefabInstance:
       propertyPath: 'speedShopPrice.Array.data[4]'
       value: 1000
       objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: 'damageShopPrice.Array.data[0]'
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: 'damageShopPrice.Array.data[1]'
+      value: 22
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: 'damageShopPrice.Array.data[2]'
+      value: 33
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: 'damageShopPrice.Array.data[3]'
+      value: 44
+      objectReference: {fileID: 0}
+    - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
+      propertyPath: 'damageShopPrice.Array.data[4]'
+      value: 55
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -62583,3 +62712,4 @@ SceneRoots:
   - {fileID: 489175138}
   - {fileID: 1253940610}
   - {fileID: 1344854536}
+  - {fileID: 1927999797}

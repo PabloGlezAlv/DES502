@@ -19,6 +19,8 @@ public class PlayerData : MonoBehaviour
     GameObject speed;
     [SerializeField]
     GameObject scale;
+    [SerializeField]
+    GameObject damage;
 
     int coins = 1000;
 
@@ -93,7 +95,22 @@ public class PlayerData : MonoBehaviour
                 case Items.heal:
                     lifesystem.GetHealed(ObjectsManager.instance.getCoinAmount((int)rare));
                     break;
+                case Items.DamageHelmet:
+                    //Create the object
+                    newItem = Instantiate(damage);
+                    child = newItem.GetComponentInChildren<Rigidbody2D>().gameObject;
+
+                    //Give the effect to the player and set rarity
+                    DamageObject damageScript = child.gameObject.GetComponent<DamageObject>();
+                    damageScript.SetRarity(rare);
+                    playerMovement.AddDamage(damageScript.GetUpgrade());
+
+
+                    newItem.SetActive(false);
+                    break;
             } 
+
+
 
             //Give the object ot the player
             _itemManager.ChangeItem(child, itemType);

@@ -63,6 +63,10 @@ public class ShopController : MonoBehaviour
                     CreateItemButton((Items)item, (Rarity)rarity, ObjectsManager.instance.getSpeedSprite(rarity), "Speed " + rarity.ToString(),
                        ObjectsManager.instance.getSpeedPrice(rarity), i);
                     break;
+                case Items.DamageHelmet:
+                    CreateItemButton((Items)item, (Rarity)rarity, ObjectsManager.instance.getDamageSprite(rarity), "Damage " + rarity.ToString(),
+                       ObjectsManager.instance.getSpeedPrice(rarity), i);
+                    break;
             }
         }
 
