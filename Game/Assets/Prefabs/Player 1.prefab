@@ -74,8 +74,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2582030420519250740}
   - component: {fileID: 8039715598775203735}
-  - component: {fileID: 2504307851468524831}
   - component: {fileID: 1053299585368103215}
+  - component: {fileID: 7670924393825098187}
   m_Layer: 12
   m_Name: AttackAreaR
   m_TagString: Untagged
@@ -150,14 +150,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &2504307851468524831
-BoxCollider2D:
+--- !u!114 &1053299585368103215
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4570551624992200768}
-  m_Enabled: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d9cd19d434612446a6d14e49eee3c3d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AttackDuration: 0.2
+  damage: 2
+--- !u!60 &7670924393825098187
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4570551624992200768}
+  m_Enabled: 1
   serializedVersion: 3
   m_Density: 1
   m_Material: {fileID: 0}
@@ -194,22 +208,12 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
---- !u!114 &1053299585368103215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4570551624992200768}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0d9cd19d434612446a6d14e49eee3c3d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AttackDuration: 0.2
-  damage: 2
+  m_Points:
+    m_Paths:
+    - - {x: -1, y: 0}
+      - {x: 0.5, y: 0.5}
+      - {x: 0.5, y: -0.5}
+  m_UseDelaunayMesh: 0
 --- !u!1 &5637396007229042273
 GameObject:
   m_ObjectHideFlags: 0
@@ -325,7 +329,7 @@ Transform:
   m_GameObject: {fileID: 7115241455191918539}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.1490777, y: -0.0042353347, z: 0}
+  m_LocalPosition: {x: -2.13, y: -0.0042353347, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

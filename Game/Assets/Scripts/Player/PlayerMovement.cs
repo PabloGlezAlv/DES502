@@ -150,13 +150,14 @@ public class PlayerMovement : MonoBehaviour
             case Direction.Left:
                 currentAttack.transform.Translate(UnityEngine.Vector3.left * transform.localScale.x, Space.World);
                 currentAttack.transform.Translate(UnityEngine.Vector3.up * transform.localScale.y, Space.World);
+                currentAttack.transform.Rotate(UnityEngine.Vector3.forward, 180f);
                 break;
             case Direction.Top:
                 currentAttack.transform.Translate(UnityEngine.Vector3.up * transform.localScale.y *2, Space.World);
                 currentAttack.transform.Rotate(UnityEngine.Vector3.forward, 90f);
                 break;
             case Direction.Bottom:
-                currentAttack.transform.Rotate(UnityEngine.Vector3.forward, 90f);
+                currentAttack.transform.Rotate(UnityEngine.Vector3.forward, 270f);
                 break;
         }
 
