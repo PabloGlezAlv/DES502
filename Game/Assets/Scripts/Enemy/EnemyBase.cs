@@ -16,7 +16,7 @@ public class EnemyBase : MonoBehaviour
     [SerializeField]
     protected float timeWhiteDamage = 0.2f;
     [SerializeField]
-    protected float objectChances = 0.5f;
+    protected float objectChances = 1f;
     [SerializeField]
     protected float dropCoinChances = 0.5f;
     [SerializeField]
@@ -110,7 +110,7 @@ public class EnemyBase : MonoBehaviour
     {
         float randomValue = UnityEngine.Random.value;
 
-        if(randomValue < 1)
+        if(randomValue < objectChances)
         {
             itemID = (Items)UnityEngine.Random.Range((int)Items.ScaleHelmet, (int)Items.SpeedHelmet + 1);
             itemRarity = (Rarity)UnityEngine.Random.Range(0, (int)Rarity.Legendary + 1);

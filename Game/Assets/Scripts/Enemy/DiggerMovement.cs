@@ -40,6 +40,7 @@ public class DiggerMovement : EnemyBase, IEnemy
     private float AttakingTimer = 0f;
     private Collider2D collider;
 
+    Sprite objectSprite;
 
     private List<Vector2Int> blocksFull = new List<Vector2Int>();
 
@@ -65,6 +66,7 @@ public class DiggerMovement : EnemyBase, IEnemy
 
     private void Start()
     {
+        base.Start();
         center = new Vector2Int((int)transform.parent.position.x, (int)transform.parent.position.y);
 
         //Stores the position of the 
@@ -76,11 +78,7 @@ public class DiggerMovement : EnemyBase, IEnemy
         blocksFull.AddRange(SpikeMap);
         blocksFull.AddRange(torretMap);
 
-
-
-        Debug.Log("Slime " + HoleMap[0]);
-        Debug.Log("Slime " + SpikeMap[0]);
-        Debug.Log("Slime " + torretMap[0]);
+        objectSprite = objectRenderer.sprite;
     }
 
     void FixedUpdate()
@@ -144,6 +142,7 @@ public class DiggerMovement : EnemyBase, IEnemy
             {
                 upBeforeAttackTimer = beforeAttackingUp;
                 spriteRenderer.sprite = attackSprite;
+                objectRenderer.sprite = objectSprite;
             }
         }
         else if (upBeforeAttackTimer > 0)
@@ -172,6 +171,7 @@ public class DiggerMovement : EnemyBase, IEnemy
                 hideTimer = hideTime;
                 collider.enabled = false;
                 spriteRenderer.sprite = null;
+                objectRenderer.sprite = null;
             }
         }
     }
