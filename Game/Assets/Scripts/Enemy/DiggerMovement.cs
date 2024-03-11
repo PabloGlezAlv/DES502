@@ -27,8 +27,6 @@ public class DiggerMovement : EnemyBase, IEnemy
 
     PlayerMovement player;
 
-    bool justAttacked = false;
-
     private DiggerAttack attack; 
 
     private Sprite attackSprite;
@@ -49,7 +47,6 @@ public class DiggerMovement : EnemyBase, IEnemy
     protected void Awake()
     {
         base.Awake();
-        baseSpeed = speed;
 
         attack = GetComponentInChildren<DiggerAttack>();
 

@@ -2,13 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BatMovement : EnemyBase, IEnemy
+public class batAttack : MonoBehaviour
 {
-    public void GetDamage(int damage, Vector3 playerPos)
-    {
-        throw new System.NotImplementedException();
-    }
-
     // Start is called before the first frame update
     void Start()
     {

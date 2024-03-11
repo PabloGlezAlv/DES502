@@ -145,7 +145,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackDuration: 0.2
-  damage: 2
 --- !u!1 &2051240871466268853
 GameObject:
   m_ObjectHideFlags: 0
@@ -278,6 +277,7 @@ GameObject:
   - component: {fileID: 543634943045074521}
   - component: {fileID: 2186131854441463799}
   - component: {fileID: 1511252634555607731}
+  - component: {fileID: 3644772079604129100}
   m_Layer: 7
   m_Name: Skeleton
   m_TagString: Untagged
@@ -411,7 +411,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -448,6 +448,7 @@ MonoBehaviour:
   pushForce: 4
   objectRenderer: {fileID: 7326436036523598098}
   coinPrefab: {fileID: 6051068933900146545, guid: 99198bf4b2a287545ae7ab462675ac16, type: 3}
+  damage: 2
   changeDirection: 0.5
   changeDirPosAttack: 1
   attackDistance: 1
@@ -456,6 +457,28 @@ MonoBehaviour:
   - {fileID: 436067394083833412}
   - {fileID: 6596837575832127483}
   - {fileID: 3908020542586920009}
+--- !u!95 &3644772079604129100
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3631930812237877274}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 577c91d10a6360046aacb3256aec265c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &3908020542586920009
 GameObject:
   m_ObjectHideFlags: 0
@@ -601,7 +624,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackDuration: 0.2
-  damage: 2
 --- !u!1 &5258026784458842390
 GameObject:
   m_ObjectHideFlags: 0
@@ -747,7 +769,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackDuration: 0.2
-  damage: 2
 --- !u!1 &6596837575832127483
 GameObject:
   m_ObjectHideFlags: 0
@@ -893,4 +914,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AttackDuration: 0.2
-  damage: 2
