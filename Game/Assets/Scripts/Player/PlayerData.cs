@@ -68,6 +68,9 @@ public class PlayerData : MonoBehaviour
             GameObject child = new GameObject();
             switch (itemType)
             {
+                case Items.heal:
+                    lifesystem.GetHealed(ObjectsManager.instance.getHealUpgrade((int)rare));
+                    break;
                 case Items.SpeedHelmet:
                     //Create the object
                     newItem = Instantiate(speed);
@@ -91,9 +94,6 @@ public class PlayerData : MonoBehaviour
                     playerMovement.ReduceScale(scaleScript.GetUpgrade());
 
                     newItem.SetActive(false);
-                    break;
-                case Items.heal:
-                    lifesystem.GetHealed(ObjectsManager.instance.getHealUpgrade((int)rare));
                     break;
                 case Items.DamageHelmet:
                     //Create the object

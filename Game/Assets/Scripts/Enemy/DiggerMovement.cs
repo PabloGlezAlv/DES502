@@ -38,6 +38,8 @@ public class DiggerMovement : EnemyBase, IEnemy
     private float upBeforeAttackTimer = 0f;
     private float upAfterAttackTimer = 0f;
     private float AttakingTimer = 0f;
+    private Collider2D collider;
+
 
     private List<Vector2Int> blocksFull = new List<Vector2Int>();
 
@@ -49,6 +51,8 @@ public class DiggerMovement : EnemyBase, IEnemy
         baseSpeed = speed;
 
         attack = GetComponentInChildren<DiggerAttack>();
+
+        collider = GetComponent<Collider2D>();
 
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         hideTimer = hideTime;
@@ -90,7 +94,7 @@ public class DiggerMovement : EnemyBase, IEnemy
                 Vector3 playerpos = new Vector3(((int)player.transform.position.x) + 0.5f, ((int)player.transform.position.y) + 0.5f, player.transform.position.z);
  
                 Vector2Int startPoint = new Vector2Int((int)playerpos.x, (int)playerpos.y);
-
+                collider.enabled = true;
                 do
                 {
                     int rngX = UnityEngine.Random.Range(-5, 5);
@@ -166,6 +170,7 @@ public class DiggerMovement : EnemyBase, IEnemy
             if (upAfterAttackTimer <= 0)
             {
                 hideTimer = hideTime;
+                collider.enabled = false;
                 spriteRenderer.sprite = null;
             }
         }
