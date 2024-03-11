@@ -95,6 +95,7 @@ GameObject:
   - component: {fileID: 6925252907024823841}
   - component: {fileID: 4327206770013009599}
   - component: {fileID: 8812623299311454371}
+  - component: {fileID: 1339207387431524652}
   m_Layer: 0
   m_Name: Attack
   m_TagString: Untagged
@@ -190,6 +191,19 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1339207387431524652
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2068293286483351049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1603f77c4f29bc74fa8d03d774b7f837, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
 --- !u!1 &3631930812237877274
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,6 +216,7 @@ GameObject:
   - component: {fileID: 8036770746114783554}
   - component: {fileID: 543634943045074521}
   - component: {fileID: 2186131854441463799}
+  - component: {fileID: 1247565433845001536}
   m_Layer: 13
   m_Name: Bat
   m_TagString: Untagged
@@ -335,7 +350,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
@@ -351,3 +366,28 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1247565433845001536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3631930812237877274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4c72a42014ab284ca3a9fac34c4a3e0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 2
+  maxLife: 5
+  timeWhiteDamage: 0.2
+  objectChances: 1
+  dropCoinChances: 0.5
+  pushable: 0
+  pushForce: 8
+  objectRenderer: {fileID: 7326436036523598098}
+  coinPrefab: {fileID: 6051068933900146545, guid: 99198bf4b2a287545ae7ab462675ac16, type: 3}
+  damage: 2
+  changeDir: 2
+  waitTime: 0.5
+  crashTime: 1.5

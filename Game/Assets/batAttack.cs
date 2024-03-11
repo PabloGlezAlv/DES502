@@ -4,15 +4,24 @@ using UnityEngine;
 
 public class batAttack : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    private int damage = 0;
+
+
+    public void setDamage(int dam)
     {
-        
+        damage = dam;
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        
+        Debug.Log("BAT collider");
+
+        //Collision  with player
+        LifeSystem system;
+        if (system = collision.gameObject.GetComponent<LifeSystem>())
+        {
+            system.GetDamage(damage);
+            Debug.Log("BAT attack player");
+        }
     }
 }

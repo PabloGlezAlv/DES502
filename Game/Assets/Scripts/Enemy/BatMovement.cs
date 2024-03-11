@@ -4,21 +4,32 @@ using UnityEngine;
 
 public class BatMovement : EnemyBase, IEnemy
 {
-    private Rigidbody2D rb;
+    [Header("BAT PARAMETERS")]
     [SerializeField]
     private float changeDir = 2f;
+    [SerializeField]
+    private float waitTime =0.5f;
+    [SerializeField]
+    private float crashTime = 1.5f;
 
     private float timer = 0;
+
+    private Vector2 dir;
+
+    batAttack attack;
 
     void Awake()
     {
         base.Awake();
         timer = changeDir;
-        rb = GetComponent<Rigidbody2D>();
+
+        attack = GetComponentInChildren<batAttack>();
     }
     void Start()
     {
         base.Start();
+
+        attack.setDamage(damage);
     }
 
     // Update is called once per frame
@@ -28,21 +39,31 @@ public class BatMovement : EnemyBase, IEnemy
 
         if(timer <= 0)
         {
-            Vector2 dir = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
-
-            rb.AddForce(dir * speed, ForceMode2D.Impulse);
-
+            rb.velocity = Vector3.zero;
+            Invoke("DashMovement", waitTime);
             timer = changeDir;
         }
     }
 
+    private void DashMovement()
+    {
+        dir = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
+
+        rb.AddForce(dir * speed, ForceMode2D.Impulse);
+    }
+
+    private void BounceMovement()
+    {
+        dir = -dir;
+
+        rb.AddForce(dir * speed, ForceMode2D.Impulse);
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        timer = 0;
-    }
-    private void OnCollisionStay2D(Collision2D collision)
-    {
-        timer = 0;
+        rb.velocity = Vector3.zero;
+        Invoke("BounceMovement", crashTime);
+        timer = changeDir;
     }
 
     public void GetDamage(int damage, Vector3 playerPos)
@@ -73,14 +94,8 @@ public class BatMovement : EnemyBase, IEnemy
 
                 Vector2 dir = playerPos - transform.position;
 
-                Debug.Log(playerPos);
-                Debug.Log(transform.position);
-
                 // Normalizar el vector para obtener solo la dirección
                 dir.Normalize();
-
-                rb.AddForce(-dir * pushForce, ForceMode2D.Impulse);
-                Debug.Log(dir);
             }
         }
     }

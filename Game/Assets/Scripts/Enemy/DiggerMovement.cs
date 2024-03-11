@@ -201,14 +201,10 @@ public class DiggerMovement : EnemyBase, IEnemy
 
                 Vector2 dir = playerPos - transform.position;
 
-                Debug.Log(playerPos);
-                Debug.Log(transform.position);
-
                 // Normalizar el vector para obtener solo la dirección
                 dir.Normalize();
 
                 rb.AddForce(-dir * pushForce, ForceMode2D.Impulse);
-                Debug.Log(dir);
             }
         }
     }
