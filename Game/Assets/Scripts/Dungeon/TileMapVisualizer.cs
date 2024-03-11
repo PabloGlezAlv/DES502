@@ -88,7 +88,6 @@ public class TileMapVisualizer : MonoBehaviour
     {
         for(int i  = 0; i < holesPositions.Count; i++)
         {
-            Debug.Log(holesSprites[i]);
             switch (holesSprites[i])
             {
                 case typeHole.holeAlone:

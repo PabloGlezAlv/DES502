@@ -207,7 +207,6 @@ public class PlayerMovement : MonoBehaviour
                 c.a = alpha;
                 spriteRenderer.color = c;
             }
-            Debug.Log(alpha);
         }
         
             bool change = false;

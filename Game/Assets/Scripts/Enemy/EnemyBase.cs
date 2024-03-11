@@ -44,11 +44,16 @@ public class EnemyBase : MonoBehaviour
     protected Items itemID = Items.none;
     protected Rarity itemRarity = Rarity.Common;
 
+    [SerializeField]
+    protected int damage = 2;
+
     Vector3 baseScale;
 
     protected DoorsController doorsController;
 
     int timesActivated = 0;
+
+    protected int baseDamage;
 
     private void OnEnable()
     {
@@ -62,6 +67,7 @@ public class EnemyBase : MonoBehaviour
     {
         baseSpeed = speed;
         baseScale = transform.localScale;
+        baseDamage = damage;
 
         doorsController = GameObject.Find("DoorsController").GetComponent<DoorsController>();
 
@@ -74,7 +80,7 @@ public class EnemyBase : MonoBehaviour
 
         SetObject();
     }
-    private void Start()
+    protected void Start()
     {
         //There is an object
         if (itemID != Items.none)
@@ -89,6 +95,10 @@ public class EnemyBase : MonoBehaviour
                     objectRenderer.sprite = ObjectsManager.instance.getScaleSprite((int)itemRarity);
                     ChangeScale(ObjectsManager.instance.getScaleUpgrade((int)itemRarity));
                     break;
+                case Items.DamageHelmet:
+                    objectRenderer.sprite = ObjectsManager.instance.getDamageSprite((int)itemRarity);
+                    AddDamage(ObjectsManager.instance.getDamageUpgrade((int)itemRarity));
+                    break;
                 default:
                     Console.WriteLine("Rareza desconocida.");
                     break;
@@ -100,9 +110,9 @@ public class EnemyBase : MonoBehaviour
     {
         float randomValue = UnityEngine.Random.value;
 
-        if(randomValue < 0.5 )
+        if(randomValue < 1)
         {
-            itemID = (Items)UnityEngine.Random.Range(1, (int)Items.SpeedHelmet + 1);
+            itemID = (Items)UnityEngine.Random.Range((int)Items.ScaleHelmet, (int)Items.SpeedHelmet + 1);
             itemRarity = (Rarity)UnityEngine.Random.Range(0, (int)Rarity.Legendary + 1);
         }
     }
@@ -120,10 +130,20 @@ public class EnemyBase : MonoBehaviour
         }
     }
 
+    protected void ResetDamage()
+    {
+        damage = baseDamage;
+    }
+    protected void AddDamage(int dam)
+    {
+        damage += dam;
+    }
+
     protected void ResetSpeed()
     {
         speed = baseSpeed;
     }
+
 
     protected void MultiplierSpeed(float multiplier)
     {

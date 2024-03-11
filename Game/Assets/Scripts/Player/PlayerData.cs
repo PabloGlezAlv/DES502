@@ -93,7 +93,7 @@ public class PlayerData : MonoBehaviour
                     newItem.SetActive(false);
                     break;
                 case Items.heal:
-                    lifesystem.GetHealed(ObjectsManager.instance.getCoinAmount((int)rare));
+                    lifesystem.GetHealed(ObjectsManager.instance.getHealUpgrade((int)rare));
                     break;
                 case Items.DamageHelmet:
                     //Create the object

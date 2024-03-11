@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Audio;
 
-public enum Items { none, heal, ScaleHelmet,DamageHelmet ,SpeedHelmet } //Leave SpeedHelmet last
+public enum Items { none, heal, ScaleHelmet,DamageHelmet ,SpeedHelmet } //Leave SCALEHELMET FIRST SpeedHelmet LAST
 
 
 public class ObjectsManager : MonoBehaviour

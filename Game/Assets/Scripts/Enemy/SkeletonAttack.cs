@@ -2,13 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 public class SkeletonAttack : MonoBehaviour
 {
     [SerializeField]
     private float AttackDuration = 0.2f;
-    [SerializeField]
-    private int damage = 2;
+
+    private int damage = 0;
 
     private float timer = 0;
     private bool attacking = false;
@@ -37,6 +38,10 @@ public class SkeletonAttack : MonoBehaviour
         }
     }
 
+    public void SetDamage(int dam)
+    { 
+        damage = dam;
+    }
     public void Attack()
     {
         if (!attacking)

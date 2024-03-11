@@ -81,6 +81,7 @@ public class TotemAttack : EnemyBase, IEnemy
             bullets.Add(newBullet);
         }
         BulletMovement bull = newBullet.GetComponent<BulletMovement>();
+        bull.SetDamage(damage);
         bull.SetPosition(transform.position);
         bull.SetMovementDirection(attackPositions[0]);
 

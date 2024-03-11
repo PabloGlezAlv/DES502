@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using System.Xml;
+using Unity.VisualScripting;
 using UnityEngine;
 
 [RequireComponent(typeof(Rigidbody2D))]
@@ -68,7 +69,15 @@ public class SkeletonMovement : EnemyBase, IEnemy
         animator.SetFloat("Y", 0f);
     }
 
+    private void Start()
+    {
+        base.Start();
 
+        foreach(GameObject attack in attackDir)
+        {
+            attack.GetComponent<SkeletonAttack>().SetDamage(damage);
+        }
+    }
 
     void FixedUpdate()
     {

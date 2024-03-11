@@ -56,6 +56,13 @@ public class DiggerMovement : EnemyBase, IEnemy
         attackSprite = spriteRenderer.sprite;
         spriteRenderer.sprite = null;
 
+
+    }
+
+    private void Start()
+    {
+        center = new Vector2Int((int)transform.parent.position.x, (int)transform.parent.position.y);
+
         //Stores the position of the 
         List<Vector2Int> HoleMap = GetComponentInParent<TrapLocations>().GetHolesRelative();
         List<Vector2Int> SpikeMap = GetComponentInParent<TrapLocations>().GetSpikesRelative();
@@ -65,12 +72,11 @@ public class DiggerMovement : EnemyBase, IEnemy
         blocksFull.AddRange(SpikeMap);
         blocksFull.AddRange(torretMap);
 
-        Debug.Log(torretMap[0]);
-    }
 
-    private void Start()
-    {
-        center = new Vector2Int((int)transform.parent.position.x, (int)transform.parent.position.y);
+
+        Debug.Log("Slime " + HoleMap[0]);
+        Debug.Log("Slime " + SpikeMap[0]);
+        Debug.Log("Slime " + torretMap[0]);
     }
 
     void FixedUpdate()
