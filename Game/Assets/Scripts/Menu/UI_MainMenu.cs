@@ -8,28 +8,78 @@ using UnityEngine.SceneManagement;
 public class UI_MainMenu : MonoBehaviour
 {
     [SerializeField]
-    GameObject playButton;
+    List<GameObject> arrow;
     [SerializeField]
-    GameObject endlessButton;
-    [SerializeField]
-    GameObject exitButton;
+    float fadeTime;
+    int activeArrow = 0;
 
+    float timer;
+
+    bool active = true;
     private void Awake()
     {
         UserInformation.LoadInformation();
 
-        playButton.GetComponent<Button_UI>().ClickFunc = () => {
-            UserInformation.gameMode = gamemode.history;
-            SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
-        };
+        timer = fadeTime;
 
-        endlessButton.GetComponent<Button_UI>().ClickFunc = () => {
-            UserInformation.gameMode = gamemode.endless;
-            SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
-        };
+        foreach (var item in arrow)
+        {
+            item.SetActive(false);
+        }
 
-        exitButton.GetComponent<Button_UI>().ClickFunc = () => {
-            Application.Quit();
-        };
+        arrow[activeArrow].SetActive(active);
+
+    }
+
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.Space))//Play
+        {
+            if (activeArrow == 0)
+                PlayHistory();
+            else if (activeArrow == 1)
+                PlayEndless();
+            else if (activeArrow == 2)
+                Quit();
+        }
+        if(Input.GetKeyDown(KeyCode.S))
+        {
+            arrow[activeArrow].SetActive(false);
+
+            activeArrow++;
+            if(activeArrow >= arrow.Count) activeArrow = 0;
+            active = true;
+            arrow[activeArrow].SetActive(active);
+            timer = fadeTime;
+        }
+        else
+        {
+            timer -= Time.deltaTime;
+            if(timer < 0)
+            {
+                active = !active;
+                arrow[activeArrow].SetActive(active);
+                timer = fadeTime;
+            }
+        }
+    }
+
+
+    private void PlayHistory()
+    {
+        UserInformation.gameMode = gamemode.history;
+        SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
+    }
+
+    private void PlayEndless()
+    {
+        UserInformation.gameMode = gamemode.endless;
+        SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
+    }
+
+    private void Quit()
+    {
+        UserInformation.SaveInformation();
+        Application.Quit();
     }
 }
