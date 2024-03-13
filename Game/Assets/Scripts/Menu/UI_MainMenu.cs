@@ -10,7 +10,7 @@ public class UI_MainMenu : MonoBehaviour
     [SerializeField]
     List<GameObject> arrow;
     [SerializeField]
-    float fadeTime;
+    float fadeTime = 0.5f;
     int activeArrow = 0;
 
     float timer;
@@ -48,6 +48,16 @@ public class UI_MainMenu : MonoBehaviour
 
             activeArrow++;
             if(activeArrow >= arrow.Count) activeArrow = 0;
+            active = true;
+            arrow[activeArrow].SetActive(active);
+            timer = fadeTime;
+        }
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            arrow[activeArrow].SetActive(false);
+
+            activeArrow--;
+            if (activeArrow < 0) activeArrow = arrow.Count - 1;
             active = true;
             arrow[activeArrow].SetActive(active);
             timer = fadeTime;

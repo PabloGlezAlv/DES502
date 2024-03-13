@@ -42,7 +42,7 @@ public class PlayerAttack : MonoBehaviour
 
     void Update()
     {
-        if (!attacking && Input.GetMouseButtonDown(0))
+        if (!attacking && Input.GetKeyDown(KeyCode.Space))
         {
             attacking = true;
             collider2D.enabled = true;
