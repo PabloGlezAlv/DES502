@@ -147,7 +147,10 @@ public class RoomCreator : MonoBehaviour
                 Debug.Log("End game");
         }
         }
-
+        if(level > UserInformation.data.maxRounds)
+        {
+            UserInformation.data.maxRounds = level;
+        }
         
 
         GenerateDungeon();
