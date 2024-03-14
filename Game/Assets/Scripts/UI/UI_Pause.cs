@@ -9,13 +9,7 @@ public class UI_Pause : MonoBehaviour
 {
     [SerializeField]
     List<GameObject> arrow;
-    [SerializeField]
-    float fadeTime = 0.5f;
     int activeArrow = 0;
-
-    float timer;
-
-    bool active = true;
 
     GameObject container;
 
@@ -56,9 +50,7 @@ public class UI_Pause : MonoBehaviour
 
             activeArrow++;
             if (activeArrow >= arrow.Count) activeArrow = 0;
-            active = true;
-            arrow[activeArrow].SetActive(active);
-            timer = fadeTime;
+            arrow[activeArrow].SetActive(true);
         }
         if (Input.GetKeyDown(KeyCode.W))
         {
@@ -66,32 +58,19 @@ public class UI_Pause : MonoBehaviour
 
             activeArrow--;
             if (activeArrow < 0) activeArrow = arrow.Count - 1;
-            active = true;
-            arrow[activeArrow].SetActive(active);
-            timer = fadeTime;
-        }
-        else
-        {
-            timer -= Time.deltaTime;
-            if (timer < 0)
-            {
-                active = !active;
-                arrow[activeArrow].SetActive(active);
-                timer = fadeTime;
-            }
+
+            arrow[activeArrow].SetActive(true);
         }
     }
 
     private void ResetArrows()
     {
-        timer = fadeTime;
-
         foreach (var item in arrow)
         {
             item.SetActive(false);
         }
 
-        arrow[activeArrow].SetActive(active);
+        arrow[activeArrow].SetActive(true);
     }
 
     private void Continue()
