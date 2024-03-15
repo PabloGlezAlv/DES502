@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6662176183424939943}
-  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5085762293585324006
 MonoBehaviour:
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0db17ab41a54d804a8c90663e66a6929, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioMixer: {fileID: 24300002, guid: d2b070b430b094f46988ec027c279dbc, type: 2}
+  audioMixer: {fileID: 24300002, guid: 56e1ab327e709124e94d49973316e0fb, type: 2}
   sounds:
   - name: Title
     clip: {fileID: 8300000, guid: e8d180c6745b81947818f1425f1799d4, type: 3}
@@ -76,7 +76,56 @@ MonoBehaviour:
     Type: 1
     source: {fileID: 0}
   - name: Select
-    clip: {fileID: 8300000, guid: d8dfd58bcbcdd714d94a303f5540e454, type: 3}
+    clip: {fileID: 8300000, guid: 77ca840f937a6204c9ebfe9ab1afe141, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: Coin1
+    clip: {fileID: 8300000, guid: 017d6910f0f94ec4494fd29ef3c00d07, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: Coin2
+    clip: {fileID: 8300000, guid: bdc2a02d14991f948a8a6217f8a20f82, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: Coin3
+    clip: {fileID: 8300000, guid: 14dee7df05604894c98cd4f0cab06d93, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: Coin4
+    clip: {fileID: 8300000, guid: 1186f343e1f207e449ae66a36069b505, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: Coin5
+    clip: {fileID: 8300000, guid: 6c79944c020dd424cabc878b3f2b7121, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: OpenDoor
+    clip: {fileID: 8300000, guid: ef2b9b9a9ea8caa44898abc42f8d45f2, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: CloseDoor
+    clip: {fileID: 8300000, guid: eef9b74d6008de84d82bec4bb7ef8eda, type: 3}
     volume: 0
     pitch: 1
     loop: 0

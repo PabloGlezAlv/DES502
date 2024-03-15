@@ -7,6 +7,7 @@ using System.Linq;
 using System.Threading.Tasks.Sources;
 using Unity.VisualScripting;
 using System.Linq.Expressions;
+using System.Runtime.CompilerServices;
 
 public class SlimeEnemy : EnemyBase, IEnemy
 {
@@ -24,6 +25,9 @@ public class SlimeEnemy : EnemyBase, IEnemy
 
     [SerializeField]
     protected float MaxThinkTime = 2;
+    
+    [SerializeField]
+    protected int damage;
 
     [SerializeField]
     protected List<Vector2Int> Floormap = new();
@@ -69,6 +73,17 @@ public class SlimeEnemy : EnemyBase, IEnemy
         List<Vector2Int> HoleMap = GetComponentInParent<TrapLocations>().GetHolesRelative();
         List<Vector2Int> SpikeMap = GetComponentInParent<TrapLocations>().GetSpikesRelative();
         List<Vector2Int> WallMap = new();
+        List<Vector2Int> ImmovableMap = new();
+
+        GameObject[] immovables = GameObject.FindGameObjectsWithTag("Immovable");
+
+        for (int i = 0; i < immovables.Length; i++)
+        {
+            Vector2 VPos = immovables[i].transform.position;
+            if (VPos.x < 0) VPos.x--;
+            if (VPos.y < 0) VPos.y--;
+            ImmovableMap.Add(new Vector2Int((int)VPos.x, (int)VPos.y));
+        }
 
         for (int x = -11; x < 11; x++)
         {
@@ -85,6 +100,7 @@ public class SlimeEnemy : EnemyBase, IEnemy
         Floormap.AddRange(HoleMap);
         Floormap.AddRange(SpikeMap);
         Floormap.AddRange(WallMap);
+        Floormap.AddRange(ImmovableMap);
     }
 
     private void Update()
