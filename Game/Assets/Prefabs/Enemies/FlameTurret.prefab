@@ -220,16 +220,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1c534360678d814dbc1037916ef47a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  maxLife: 5
-  timeWhiteDamage: 0.2
-  objectChances: 0.5
-  dropCoinChances: 0.5
-  pushable: 0
-  pushForce: 8
-  objectRenderer: {fileID: 0}
-  coinPrefab: {fileID: 6051068933900146545, guid: 99198bf4b2a287545ae7ab462675ac16, type: 3}
-  FlameSpeed: 125
+  Speed: 0.5
+  FlameSpeed: 1
   Flame: {fileID: 3570719590743559317}
   MType: 1
   LType: 1

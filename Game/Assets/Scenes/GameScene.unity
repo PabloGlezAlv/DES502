@@ -195,6 +195,87 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 3147334599879545473, guid: 9988cfb433f077f4b8816b2b89d60268, type: 3}
   m_PrefabInstance: {fileID: 1344854536}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &341749848
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 1248408830412439612, guid: aaeb854f69aac3f4bb2d85c1e82e64ab, type: 3}
+      propertyPath: m_Name
+      value: TilemapVisualizerMarket
+      objectReference: {fileID: 0}
+    - target: {fileID: 8150628068917364532, guid: aaeb854f69aac3f4bb2d85c1e82e64ab, type: 3}
+      propertyPath: floorTile
+      value: 
+      objectReference: {fileID: 11400000, guid: 4b6030bd78968c843b7eda9743c772b1, type: 2}
+    - target: {fileID: 8150628068917364532, guid: aaeb854f69aac3f4bb2d85c1e82e64ab, type: 3}
+      propertyPath: trapGameObject
+      value: 
+      objectReference: {fileID: 1873408955}
+    - target: {fileID: 8150628068917364532, guid: aaeb854f69aac3f4bb2d85c1e82e64ab, type: 3}
+      propertyPath: holesGameObject
+      value: 
+      objectReference: {fileID: 1655992818}
+    - target: {fileID: 8150628068917364532, guid: aaeb854f69aac3f4bb2d85c1e82e64ab, type: 3}
+      propertyPath: doorsTileGameObject
+      value: 
+      objectReference: {fileID: 2088973387}
+    - target: {fileID: 8150628068917364532, guid: aaeb854f69aac3f4bb2d85c1e82e64ab, type: 3}
+      propertyPath: wallTilemapGameObject
+      value: 
+      objectReference: {fileID: 927267674}
+    - target: {fileID: 8150628068917364532, guid: aaeb854f69aac3f4bb2d85c1e82e64ab, type: 3}
+      propertyPath: floorTilemapGameObject
+      value: 
+      objectReference: {fileID: 1128820399}
+    - target: {fileID: 8723489136141330828, guid: aaeb854f69aac3f4bb2d85c1e82e64ab, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.99061644
+      objectReference: {fileID: 0}
+    - target: {fileID: 8723489136141330828, guid: aaeb854f69aac3f4bb2d85c1e82e64ab, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.68462604
+      objectReference: {fileID: 0}
+    - target: {fileID: 8723489136141330828, guid: aaeb854f69aac3f4bb2d85c1e82e64ab, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.1149774
+      objectReference: {fileID: 0}
+    - target: {fileID: 8723489136141330828, guid: aaeb854f69aac3f4bb2d85c1e82e64ab, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8723489136141330828, guid: aaeb854f69aac3f4bb2d85c1e82e64ab, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8723489136141330828, guid: aaeb854f69aac3f4bb2d85c1e82e64ab, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8723489136141330828, guid: aaeb854f69aac3f4bb2d85c1e82e64ab, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8723489136141330828, guid: aaeb854f69aac3f4bb2d85c1e82e64ab, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8723489136141330828, guid: aaeb854f69aac3f4bb2d85c1e82e64ab, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8723489136141330828, guid: aaeb854f69aac3f4bb2d85c1e82e64ab, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: aaeb854f69aac3f4bb2d85c1e82e64ab, type: 3}
 --- !u!1 &479513205 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1596295868017644813, guid: 9988cfb433f077f4b8816b2b89d60268, type: 3}
@@ -5825,7 +5906,7 @@ GameObject:
   - component: {fileID: 986609578}
   m_Layer: 0
   m_Name: DoorsController
-  m_TagString: Untagged
+  m_TagString: DoorController
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -24463,6 +24544,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9988cfb433f077f4b8816b2b89d60268, type: 3}
+--- !u!114 &1366766316 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8150628068917364532, guid: aaeb854f69aac3f4bb2d85c1e82e64ab, type: 3}
+  m_PrefabInstance: {fileID: 341749848}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5c1cef96b3db47459094b4f2108069d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1374440470
 GameObject:
   m_ObjectHideFlags: 0
@@ -62240,7 +62332,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f55e2c76084137c459ad9ad5a7af0f61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualizer: {fileID: 570922753}
+  visualizers:
+  - {fileID: 570922753}
+  - {fileID: 1366766316}
   player: {fileID: 942844778}
   changeRoom: {fileID: 2088973393}
   spikeTrap: {fileID: 1873408961}
@@ -62293,160 +62387,20 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1248408830412439612, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
       propertyPath: m_Name
-      value: TilemapVisualizer
+      value: TilemapVisualizerCastle
       objectReference: {fileID: 0}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: holeTop
-      value: 
-      objectReference: {fileID: 11400000, guid: cdfeca8ad96925f48a3eb546c298c6a1, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: holeLeft
-      value: 
-      objectReference: {fileID: 11400000, guid: 605100584ee57eb4096231bb32c96663, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: holeTile
-      value: 
-      objectReference: {fileID: 11400000, guid: 49ff716939ac2ff4183058836c2b32ac, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: spikeOff
-      value: 
-      objectReference: {fileID: 11400000, guid: 96fa2ecf6b72bb642bc351cdb9968207, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: holeAlone
-      value: 
-      objectReference: {fileID: 11400000, guid: 7a57cf4d0b2dc48409b701fcde414e36, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: holeRight
-      value: 
-      objectReference: {fileID: 11400000, guid: 8946b27948eed8242b57d29a100e180a, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: spikeHigh
-      value: 
-      objectReference: {fileID: 11400000, guid: 4e4e20957fbc12a46ae6690ae5ac4727, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: holeBottom
-      value: 
-      objectReference: {fileID: 11400000, guid: 83f9808cebdc0374f8a3bfa6d3da66ee, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: spikeSmall
-      value: 
-      objectReference: {fileID: 11400000, guid: 5f68a3f10e609d0469c9a1f9cccb0077, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: holeWithoutTop
-      value: 
-      objectReference: {fileID: 11400000, guid: 1df41b52a5916284b80684aef6baa8a7, type: 2}
     - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
       propertyPath: trapGameObject
       value: 
       objectReference: {fileID: 1873408955}
     - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: holeWithoutLeft
-      value: 
-      objectReference: {fileID: 11400000, guid: acb729d5b839e4a4d80777d8caec9939, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
       propertyPath: holesGameObject
       value: 
       objectReference: {fileID: 1655992818}
     - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: holeTopLeftConer
-      value: 
-      objectReference: {fileID: 11400000, guid: ba8e4c184e943004e89e4a51aacbabe5, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: holeWithoutRight
-      value: 
-      objectReference: {fileID: 11400000, guid: 98636d6d5f649564ea9aeedfd3ad43b9, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: holeInsideLeftTop
-      value: 
-      objectReference: {fileID: 11400000, guid: c797506182244d24a85f1bda4d5f0dbb, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: holeTopLeftInside
-      value: 
-      objectReference: {fileID: 11400000, guid: c797506182244d24a85f1bda4d5f0dbb, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: holeTopRightConer
-      value: 
-      objectReference: {fileID: 11400000, guid: 3d17889208ed6d543b73236ef6c86242, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: holeWithoutBottom
-      value: 
-      objectReference: {fileID: 11400000, guid: 4226f10d8ecc0954e80029fb024c582a, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: holeInsideRightTop
-      value: 
-      objectReference: {fileID: 11400000, guid: 49c66c8ed065cd3488f2c56eda56fda6, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: holeTopRightInside
-      value: 
-      objectReference: {fileID: 11400000, guid: 49c66c8ed065cd3488f2c56eda56fda6, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
       propertyPath: doorsTileGameObject
       value: 
       objectReference: {fileID: 2088973387}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: holeBottomLeftConer
-      value: 
-      objectReference: {fileID: 11400000, guid: d6dccdc10718b8249b698b328ed64688, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: openDoorTileLeftTop
-      value: 
-      objectReference: {fileID: 11400000, guid: 6fe9a20bba3f49c43a9ed320428c7411, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: openDoorTileTopLeft
-      value: 
-      objectReference: {fileID: 11400000, guid: b5650b9700ebed24dbf4d18c4b5b1002, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: closeDoorTileLeftTop
-      value: 
-      objectReference: {fileID: 11400000, guid: 3646f7be029b23144b253e3978306b18, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: closeDoorTileTopLeft
-      value: 
-      objectReference: {fileID: 11400000, guid: f46e98c27111a444dbe5d729ca12ac67, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: holeBottomLeftInside
-      value: 
-      objectReference: {fileID: 11400000, guid: fc781c0a4ec767149819d9333b14d8e1, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: holeBottomRightConer
-      value: 
-      objectReference: {fileID: 11400000, guid: d3b44c63f9e0a8e45a3fe9e5d23d40e9, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: holeInsideLeftBottom
-      value: 
-      objectReference: {fileID: 11400000, guid: 5ecdd664b05b55744abc4cf0c1404131, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: holeWithoutLeftRight
-      value: 
-      objectReference: {fileID: 11400000, guid: 3732dcab39466ca47bbe9e5016c381dd, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: holeWithoutTopBottom
-      value: 
-      objectReference: {fileID: 11400000, guid: dd76790d95524934f932996a6a28dc20, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: openDoorTileRightTop
-      value: 
-      objectReference: {fileID: 11400000, guid: 9572a4103c10c92478e4fd3157d0b17a, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: openDoorTileTopRight
-      value: 
-      objectReference: {fileID: 11400000, guid: fd17af2d1bb53824eb30be0c10501888, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: closeDoorTileRightTop
-      value: 
-      objectReference: {fileID: 11400000, guid: 8b79480b22eec1e4b87c6b7316592c01, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: closeDoorTileTopRight
-      value: 
-      objectReference: {fileID: 11400000, guid: 64fcd8640811f764a93224f667e3ff93, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: holeBottomRightInside
-      value: 
-      objectReference: {fileID: 11400000, guid: 5ecdd664b05b55744abc4cf0c1404131, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: holeInsideRightBottom
-      value: 
-      objectReference: {fileID: 11400000, guid: fc781c0a4ec767149819d9333b14d8e1, type: 2}
     - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
       propertyPath: wallTilemapGameObject
       value: 
@@ -62455,58 +62409,6 @@ PrefabInstance:
       propertyPath: floorTilemapGameObject
       value: 
       objectReference: {fileID: 1128820399}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: openDoorTileBottomLeft
-      value: 
-      objectReference: {fileID: 11400000, guid: aec7db4850fb5de49b254ea6edd21704, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: openDoorTileLeftBottom
-      value: 
-      objectReference: {fileID: 11400000, guid: 67fdd593b8ec83a428e36399c0ee8235, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: closeDoorTileBottomLeft
-      value: 
-      objectReference: {fileID: 11400000, guid: 0d25dfad6e3a5e3438e452b41be9319f, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: closeDoorTileLeftBottom
-      value: 
-      objectReference: {fileID: 11400000, guid: 113c5b28c1c0afb4aa05dd597cc30215, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: holeTopLeftConerWInside
-      value: 
-      objectReference: {fileID: 11400000, guid: e0818b060a5b3ef40b03eaf6b048e0eb, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: openDoorTileBottomRight
-      value: 
-      objectReference: {fileID: 11400000, guid: 762811cc120a9e94fbfbf882429c5a35, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: openDoorTileRightBottom
-      value: 
-      objectReference: {fileID: 11400000, guid: daf7d389030322e4f93f92b71d1149c5, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: closeDoorTileBottomRight
-      value: 
-      objectReference: {fileID: 11400000, guid: 4fa88bcf7b599604aaea70b1a43b0551, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: closeDoorTileRightBottom
-      value: 
-      objectReference: {fileID: 11400000, guid: e51c748914fbd57478a0289ae9066268, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: holeBottomLeftConerWInside
-      value: 
-      objectReference: {fileID: 11400000, guid: 7488aea44bf61c340b489ae17d5614d8, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: holeBottomRightConerWInside
-      value: 
-      objectReference: {fileID: 11400000, guid: 273d585fc1bb58549a5d3194bd94b1be, type: 2}
-    - target: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: holeInsideLeftBottomWInside
-      value: 
-      objectReference: {fileID: 11400000, guid: 579e8e052c2d70b419ba632a736c32ab, type: 2}
-    - target: {fileID: 8723489136141330828, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
-      propertyPath: m_RootOrder
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 8723489136141330828, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.99061644
@@ -62819,6 +62721,7 @@ SceneRoots:
   - {fileID: 7285172781692307193}
   - {fileID: 2100779189}
   - {fileID: 4168328828164288479}
+  - {fileID: 341749848}
   - {fileID: 1234473984}
   - {fileID: 961993357}
   - {fileID: 489175138}
