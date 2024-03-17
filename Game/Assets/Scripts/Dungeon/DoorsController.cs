@@ -10,19 +10,6 @@ public class DoorsController : MonoBehaviour
 
     public int roomEntities = 0;
 
-
-    // Start is called  the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
     public void AddEntity() { roomEntities++; }
     
     public void KillEntity()
@@ -36,6 +23,8 @@ public class DoorsController : MonoBehaviour
 
     public void ChangeDoorsState(bool openDoors)
     {
+        if (openDoors) AudioManager.instance.Play("OpenDoor");
+        else AudioManager.instance.Play("CloseDoor");
         roomCreator.SetDoorRoom(openDoors);
     }
 }

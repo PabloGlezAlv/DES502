@@ -125,7 +125,28 @@ MonoBehaviour:
     Type: 0
     source: {fileID: 0}
   - name: CloseDoor
-    clip: {fileID: 8300000, guid: eef9b74d6008de84d82bec4bb7ef8eda, type: 3}
+    clip: {fileID: 8300000, guid: b8addc2c2bcdbb64487dcd098c66c9bc, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: Clash
+    clip: {fileID: 8300000, guid: 28fcfd13986774741b66996ad59f806b, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: PlayerHurt
+    clip: {fileID: 8300000, guid: 0e4c1fee3041fb0489bed6ad56c5abec, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: ItemGrabbed
+    clip: {fileID: 8300000, guid: 76179f3730b6b0a48bfbcd020d0dc581, type: 3}
     volume: 0
     pitch: 1
     loop: 0

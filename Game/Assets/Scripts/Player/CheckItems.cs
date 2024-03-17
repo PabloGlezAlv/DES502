@@ -34,6 +34,7 @@ public class CheckItems : MonoBehaviour
         }
         else if(speed = collision.gameObject.GetComponent<SpeedObject>())
         {
+            AudioManager.instance.Play("ItemGrabbed");
             //Add new Effect
             myItem = Items.SpeedHelmet;
             player.GetComponent<PlayerMovement>().AddSpeed(speed.GetUpgrade());
@@ -44,6 +45,7 @@ public class CheckItems : MonoBehaviour
         }
         else if(scale = collision.gameObject.GetComponent<ScaleObject>())
         {
+            AudioManager.instance.Play("ItemGrabbed");
             //Add new Effect
             myItem = Items.ScaleHelmet;
             player.GetComponent<PlayerMovement>().ReduceScale(scale.GetUpgrade());
@@ -54,6 +56,7 @@ public class CheckItems : MonoBehaviour
         }
         else if(heal = collision.gameObject.GetComponent<HealObject>())
         {
+            AudioManager.instance.Play("ItemGrabbed");
             player.GetComponent<LifeSystem>().GetHealed(heal.GetHeal());
             Debug.Log("Healed");
             Destroy(collision.transform.parent.gameObject); 
@@ -61,6 +64,7 @@ public class CheckItems : MonoBehaviour
         else if(damage = collision.gameObject.GetComponent<DamageObject>())
         {
             //Add new Effect
+            AudioManager.instance.Play("ItemGrabbed");
             myItem = Items.ScaleHelmet;
             player.GetComponent<PlayerMovement>().AddDamage(damage.GetUpgrade());
             manager.ChangeItem(collision.gameObject, myItem);

@@ -48,6 +48,9 @@ public class PlayerAttack : MonoBehaviour
             collider2D.enabled = true;
             timer = 0;
             GetComponent<SpriteRenderer>().color = Color.red;
+
+            //Swing sound here !!!
+            //AudioManager.instance.Play("Swing");
         }
         else if(attacking)
         {
@@ -68,6 +71,7 @@ public class PlayerAttack : MonoBehaviour
         if (move != null)
         {
             move.GetDamage(damage, playerCenter);
+            AudioManager.instance.Play("Clash");
         }
     }
 

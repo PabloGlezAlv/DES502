@@ -89,6 +89,8 @@ public class LifeSystem : MonoBehaviour
 
     public void GetHealed(int amount)
     {
+        //AudioManager.instance.Play("PlayerHeal");
+
         int previousLife = actualLife;
         actualLife += amount;
 
@@ -104,6 +106,7 @@ public class LifeSystem : MonoBehaviour
     {
         int previousLife = actualLife;
         actualLife -= damage;
+        AudioManager.instance.Play("PlayerHurt");
         if (actualLife <= 0) //Dead
         {
             Debug.Log("Dead"); 
