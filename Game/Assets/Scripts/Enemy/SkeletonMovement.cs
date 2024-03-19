@@ -205,8 +205,7 @@ public class SkeletonMovement : EnemyBase, IEnemy
 
     public void GetDamage(int damage, Vector3 playerPos)
     {
-        //Skeleton hurt sound goes here
-        //AudioManager.instance.Play("SkeletonHurt");
+        AudioManager.instance.Play("SkeleHurt");
 
         int previousLife = actualLife;
         if (justAttacked && shield && movementTimer > 0) //Shield grabbed

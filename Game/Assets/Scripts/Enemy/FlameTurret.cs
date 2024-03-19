@@ -70,6 +70,10 @@ public class FlameTurret : MonoBehaviour
         {
             Flame.active = !Flame.active;
             FlameTime = 0;
+            if (Flame.active)
+            {
+                AudioManager.instance.Play("FlameWhoosh");
+            }
         }
 
         switch (MType)

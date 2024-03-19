@@ -166,7 +166,7 @@ MonoBehaviour:
     loop: 0
     Type: 0
     source: {fileID: 0}
-  - name: SkeleWalk
+  - name: SkeleHurt
     clip: {fileID: 8300000, guid: 56f5fcbf901b01c46a3c973f7b36c1c7, type: 3}
     volume: 0
     pitch: 1
@@ -226,7 +226,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 61455c28fd7e8ac48b1bd81f9eec0d9c, type: 3}
     volume: 0
     pitch: 1
-    loop: 1
+    loop: 0
     Type: 0
     source: {fileID: 0}
 --- !u!114 &5254968653011187119

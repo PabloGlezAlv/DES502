@@ -50,6 +50,8 @@ public class BatMovement : EnemyBase, IEnemy
         dir = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
 
         rb.AddForce(dir * speed, ForceMode2D.Impulse);
+
+        AudioManager.instance.Play("BatSwoop");
     }
 
     private void BounceMovement()
@@ -68,6 +70,7 @@ public class BatMovement : EnemyBase, IEnemy
 
     public void GetDamage(int damage, Vector3 playerPos)
     {
+        AudioManager.instance.Play("BatCry");
         int previousLife = actualLife;
         actualLife -= damage;
         if (actualLife <= 0) //Dead
