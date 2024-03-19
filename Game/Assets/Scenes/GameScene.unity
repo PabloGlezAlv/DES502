@@ -24694,14 +24694,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5085762293585324006, guid: b120b628e45a3d64aaba76753370ab91, type: 3}
-      propertyPath: sounds.Array.data[17].name
-      value: SkeleHurt
-      objectReference: {fileID: 0}
-    - target: {fileID: 5085762293585324006, guid: b120b628e45a3d64aaba76753370ab91, type: 3}
-      propertyPath: sounds.Array.data[25].loop
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6662176183424939943, guid: b120b628e45a3d64aaba76753370ab91, type: 3}
       propertyPath: m_Name
       value: AudioManager
