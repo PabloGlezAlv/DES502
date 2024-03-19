@@ -39,6 +39,8 @@ public class EnemyBase : MonoBehaviour
     protected float timerWhite;
     protected bool damageReceived = false;
 
+    protected bool death = false;
+
     private Color normal;
 
     protected Items itemID = Items.none;

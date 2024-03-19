@@ -15,12 +15,15 @@ public class SkeletonAttack : MonoBehaviour
     private bool attacking = false;
     private Collider2D collider2D;
 
+    Animator animator;
 
     private void Start()
     {
         collider2D = GetComponent<Collider2D>();
         collider2D.enabled = false;
         GetComponent<SpriteRenderer>().color = Color.blue;
+
+        animator = GetComponentInParent<Animator>();
     }
 
     void Update()
@@ -34,6 +37,9 @@ public class SkeletonAttack : MonoBehaviour
                 attacking = false;
                 collider2D.enabled = false;
                 GetComponent<SpriteRenderer>().color = Color.blue;
+
+
+                animator.SetBool("isAttacking", false);
             }
         }
     }

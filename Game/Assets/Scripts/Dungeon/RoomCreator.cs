@@ -56,7 +56,7 @@ public class RoomCreator : MonoBehaviour
     [SerializeField]
     private int MaxWalks = 20;
 
-    int currentVisualizer = (int)TilemapType.Market;
+    int currentVisualizer = (int)TilemapType.Castle;
 
     //Room center - Doors
     private Dictionary<Vector2Int, List<Direction>> roomsInfo = new();

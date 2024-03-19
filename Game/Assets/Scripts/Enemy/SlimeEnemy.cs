@@ -25,9 +25,6 @@ public class SlimeEnemy : EnemyBase, IEnemy
 
     [SerializeField]
     protected float MaxThinkTime = 2;
-    
-    [SerializeField]
-    protected int damage;
 
     [SerializeField]
     protected List<Vector2Int> Floormap = new();

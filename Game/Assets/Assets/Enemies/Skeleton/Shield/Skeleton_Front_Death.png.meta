@@ -1,16 +1,19 @@
 fileFormatVersion: 2
-guid: 0e2fe8fa1f5c5854d8364359715de0af
+guid: 4cea4d3fddc485b4b8b0dc49ad38ac80
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8405340328801649762
-    second: Skeleton_Front_walk_Shield_Sheet_0
+      213: -8109058579994590590
+    second: Skeleton_Front_Death_0
   - first:
-      213: 2358047993012619818
-    second: Skeleton_Front_walk_Shield_Sheet_1
+      213: -7186691215139723937
+    second: Skeleton_Front_Death_1
   - first:
-      213: -3331844418051023151
-    second: Skeleton_Front_walk_Shield_Sheet_2
+      213: 3020449056898083293
+    second: Skeleton_Front_Death_2
+  - first:
+      213: -1085427569785370891
+    second: Skeleton_Front_Death_3
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -43,7 +46,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -89,67 +92,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: tvOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -164,85 +107,85 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Skeleton_Front_walk_Shield_Sheet_0
+      name: Skeleton_Front_Death_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 64
-        width: 64
-        height: 64
+        x: 11
+        y: 63
+        width: 42
+        height: 62
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 10, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 0c4667a179e52924e9fe9aba75f8d48c
-      internalID: -574382042
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Skeleton_Front_walk_Shield_Sheet_1
-      rect:
-        serializedVersion: 2
-        x: 74
-        y: 64
-        width: 54
-        height: 64
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 5f83bad9e01ea734f8dbc065a41e0f47
-      internalID: 1825140614
+      spriteID: 282c6946f26d67f80800000000000000
+      internalID: -8109058579994590590
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Front_walk_Shield_Sheet_2
+      name: Skeleton_Front_Death_1
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 64
-        height: 64
+        x: 75
+        y: 63
+        width: 42
+        height: 55
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 10, y: 0, z: 0, w: 0}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 39c3f166177214445801578471fa205a
-      internalID: 2113273944
+      spriteID: f552d23aa6eb34c90800000000000000
+      internalID: -7186691215139723937
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Front_walk_Shield_Sheet_3
+      name: Skeleton_Front_Death_2
       rect:
         serializedVersion: 2
-        x: 64
+        x: 11
         y: 0
-        width: 64
-        height: 64
+        width: 42
+        height: 39
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 10, y: 0, z: 0, w: 0}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: b6966b8aefd0244429bbf9a2ee031755
-      internalID: 1040119789
+      spriteID: dd9e29a0a6acae920800000000000000
+      internalID: 3020449056898083293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Skeleton_Front_Death_3
+      rect:
+        serializedVersion: 2
+        x: 75
+        y: 0
+        width: 42
+        height: 31
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f607894069cfe0f0800000000000000
+      internalID: -1085427569785370891
       vertices: []
       indices: 
       edges: []
@@ -250,7 +193,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 6338d542415598d4488ce71ed5f5e18b
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -258,10 +201,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Skeleton_Front_walk_Shield_Sheet_0: -574382042
-      Skeleton_Front_walk_Shield_Sheet_1: 1825140614
-      Skeleton_Front_walk_Shield_Sheet_2: 2113273944
-      Skeleton_Front_walk_Shield_Sheet_3: 1040119789
+      Skeleton_Front_Death_0: -8109058579994590590
+      Skeleton_Front_Death_1: -7186691215139723937
+      Skeleton_Front_Death_2: 3020449056898083293
+      Skeleton_Front_Death_3: -1085427569785370891
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

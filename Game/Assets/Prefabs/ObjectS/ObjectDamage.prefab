@@ -294,6 +294,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f589d5846978d241a8622ce87880e53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  commonProbability: 0.3
+  uncommonProbability: 0.25
+  rareProbability: 0.2
+  epicProbability: 0.15
+  legendaryProbability: 0.1
 --- !u!1 &8051447936904227821
 GameObject:
   m_ObjectHideFlags: 0

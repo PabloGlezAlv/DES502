@@ -5,6 +5,7 @@ using System.Threading;
 using System.Xml;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.VFX;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class SkeletonMovement : EnemyBase, IEnemy
@@ -79,8 +80,16 @@ public class SkeletonMovement : EnemyBase, IEnemy
         }
     }
 
+    void Death()
+    {
+        this.gameObject.SetActive(false);
+    }
+
     void FixedUpdate()
     {
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        if (death || stateInfo.IsTag("Spawn")) return;
+
         if (timerWhite <= 0)
         {
             //Check to attack
@@ -92,6 +101,8 @@ public class SkeletonMovement : EnemyBase, IEnemy
                 justAttacked = true;
 
                 attack.Attack();
+
+                animator.SetBool("isAttacking", true);
 
                 movementTimer = changeDirPosAttack;
                 timerAttack = changeDirPosAttack;
@@ -116,6 +127,11 @@ public class SkeletonMovement : EnemyBase, IEnemy
                     direction = (Vector2)(rotation * direction);
                 }
 
+                float x = 0; float y = 0;
+                if (direction.x > 0) x = 1;
+                else if (direction.y > 0) y = 1;
+                else if (direction.x < 0) x = -1;
+                else y = -1;
 
 
                 movementTimer += changeDirection;
@@ -145,10 +161,16 @@ public class SkeletonMovement : EnemyBase, IEnemy
             if (justAttacked)
             {
                 actualDir = attackDir[1];
+
+                animator.SetFloat("X", -1);
+                animator.SetFloat("Y", 0);
             }
             else
             {
                 actualDir = attackDir[0];
+
+                animator.SetFloat("X", 1);
+                animator.SetFloat("Y", 0);
             }
             actualDir.SetActive(true);
         }
@@ -158,10 +180,16 @@ public class SkeletonMovement : EnemyBase, IEnemy
             if (justAttacked)
             {
                 actualDir = attackDir[0];
+
+                animator.SetFloat("X", 1);
+                animator.SetFloat("Y", 0);
             }
             else
             {
                 actualDir = attackDir[1];
+
+                animator.SetFloat("X", -1);
+                animator.SetFloat("Y", 0);
             }
             actualDir.SetActive(true);
         }
@@ -171,10 +199,16 @@ public class SkeletonMovement : EnemyBase, IEnemy
             if (justAttacked)
             {
                 actualDir = attackDir[3];
+
+                animator.SetFloat("X", 0);
+                animator.SetFloat("Y", -1);
             }
             else
             {
                 actualDir = attackDir[2];
+
+                animator.SetFloat("X", 0);
+                animator.SetFloat("Y", 1);
             }
             actualDir.SetActive(true);
         }
@@ -184,13 +218,19 @@ public class SkeletonMovement : EnemyBase, IEnemy
             if (justAttacked)
             {
                 actualDir = attackDir[2];
+                animator.SetFloat("X", 0);
+                animator.SetFloat("Y", 1);
             }
             else
             {
                 actualDir = attackDir[3];
+                animator.SetFloat("X", 0);
+                animator.SetFloat("Y", -1);
             }
             actualDir.SetActive(true);
         }
+
+        
     }
 
     // Gaussian function, play with parameters different results
@@ -205,6 +245,8 @@ public class SkeletonMovement : EnemyBase, IEnemy
 
     public void GetDamage(int damage, Vector3 playerPos)
     {
+        AnimatorStateInfo stateInfo = animator.GetCurrentAnimatorStateInfo(0);
+        if (death || stateInfo.IsTag("Spawn")) return;
         AudioManager.instance.Play("SkeleHurt");
 
         int previousLife = actualLife;
@@ -218,6 +260,8 @@ public class SkeletonMovement : EnemyBase, IEnemy
         }
         if (actualLife <= 0) //Dead
         {
+            animator.SetBool("isDeath", true);
+
             float randomValue = UnityEngine.Random.value;
 
             if (randomValue < dropCoinChances)
@@ -226,7 +270,10 @@ public class SkeletonMovement : EnemyBase, IEnemy
                 coin.transform.position = transform.position;
             }
             doorsController.KillEntity();
-            this.gameObject.SetActive(false);
+
+            death = true;
+            objectRenderer.enabled = false;
+            Invoke("Death", 2); //Destroy entity after dissapearing
         }
         else
         {
