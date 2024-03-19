@@ -136,6 +136,8 @@ public class RoomCreator : MonoBehaviour
         currentVisualizer++;
         if (currentVisualizer >= visualizers.Count) currentVisualizer = 0;
 
+        Debug.Log(currentVisualizer);
+
         Clear();
         level++;
         if (gamemode.endless == UserInformation.gameMode)
@@ -155,7 +157,7 @@ public class RoomCreator : MonoBehaviour
             if (level == historynLevels + 1)
             {
                 Debug.Log("End game");
-        }
+            }
         }
         if(level > UserInformation.data.maxRounds)
         {

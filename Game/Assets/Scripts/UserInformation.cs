@@ -12,7 +12,7 @@ public static class UserInformation
 
     static readonly string path = Application.dataPath + "data.json";
 
-    public static PlayerInfo data;
+    public static PlayerInfo data = new PlayerInfo();
 
     public static void LoadInformation()
     {
