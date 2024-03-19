@@ -152,6 +152,83 @@ MonoBehaviour:
     loop: 0
     Type: 0
     source: {fileID: 0}
+  - name: SkeleDie
+    clip: {fileID: 8300000, guid: 4921e509f935691409ef63df9cf64231, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: SkeleSwipe
+    clip: {fileID: 8300000, guid: f51a01eef8babf849aa1081703d15b54, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: SkeleWalk
+    clip: {fileID: 8300000, guid: 56f5fcbf901b01c46a3c973f7b36c1c7, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: BatCry
+    clip: {fileID: 8300000, guid: c790b2365296a6c44b3abdb94b735520, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: BatSwoop
+    clip: {fileID: 8300000, guid: 6661c60cbb5564349a70f8a9ae963a69, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: BatWings
+    clip: {fileID: 8300000, guid: cea4abf6635120740b02d2049e257ed6, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: DiggerDeath
+    clip: {fileID: 8300000, guid: 214378d339588834ea1909430ee7717c, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: DiggerReveal
+    clip: {fileID: 8300000, guid: 1f9092a0f8657ec4e9dad2bd5b9bfdbe, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: DiggerRumble
+    clip: {fileID: 8300000, guid: 028dac4fdcbba864eab851feee8bfd95, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: AmbientFlame
+    clip: {fileID: 8300000, guid: 67dd62246d9328b438ca59b5c9b5477a, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 1
+    Type: 0
+    source: {fileID: 0}
+  - name: FlameWhoosh
+    clip: {fileID: 8300000, guid: 61455c28fd7e8ac48b1bd81f9eec0d9c, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 1
+    Type: 0
+    source: {fileID: 0}
 --- !u!114 &5254968653011187119
 MonoBehaviour:
   m_ObjectHideFlags: 0
