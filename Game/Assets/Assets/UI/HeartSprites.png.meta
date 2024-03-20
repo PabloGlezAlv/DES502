@@ -1,13 +1,7 @@
 fileFormatVersion: 2
-guid: 7fc702c4eaeef034295c25abaa49b021
+guid: f484f1da5ece3d34bbfbe83fe295f2b6
 TextureImporter:
-  internalIDToNameTable:
-  - first:
-      213: -4690936752486542591
-    second: HermitShopkeeper_0
-  - first:
-      213: 5940238677323362945
-    second: HermitShopkeeper_1
+  internalIDToNameTable: []
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -111,43 +105,64 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: HermitShopkeeper_0
+      name: HeartSprites_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 129
-        height: 109
+        y: 64
+        width: 64
+        height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 103173490e176eeb0800000000000000
-      internalID: -4690936752486542591
+      spriteID: 166af15a173087a4bb0c2b90b61b4015
+      internalID: 1537665536
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: HermitShopkeeper_1
+      name: HeartSprites_1
       rect:
         serializedVersion: 2
-        x: 138
-        y: 0
-        width: 108
-        height: 90
+        x: 64
+        y: 64
+        width: 64
+        height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: -1
+      tessellationDetail: 0
       bones: []
-      spriteID: 18235e2ba97ff6250800000000000000
-      internalID: 5940238677323362945
+      spriteID: 6b8c51ce934568c46bec402e3caf791f
+      internalID: 1632021962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: HeartSprites_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 77267d08582096d4b94cb61bd39adbab
+      internalID: 1172192244
       vertices: []
       indices: 
       edges: []
@@ -155,7 +170,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 5e97eb03825dee720800000000000000
     internalID: 0
     vertices: []
     indices: 
@@ -163,8 +178,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      HermitShopkeeper_1: 5940238677323362945
-      HermitShopkeeper_0: -4690936752486542591
+      HeartSprites_1: 1632021962
+      HeartSprites_0: 1537665536
+      HeartSprites_2: 1172192244
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

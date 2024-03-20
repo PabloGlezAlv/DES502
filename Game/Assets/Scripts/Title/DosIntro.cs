@@ -24,7 +24,7 @@ public class DosIntro : MonoBehaviour
     static TextLines[] Lines =
     {
         //Idea is type the text within TypeTime seconds and then wait WaitTime seconds
-        new TextLines() { Text = "    C:\\>",                                               TypeTime = 0,     WaitTime = 1},
+        new TextLines() { Text = "    C:\\>",                                               TypeTime = 0,     WaitTime = 0},
         new TextLines() { Text = "keyb uk\n",                                               TypeTime = 0.5f,  WaitTime = 0.5f},
         new TextLines() { Text = "    Keyboard layout uk loaded for codepage 858\n\n",      TypeTime = 0,     WaitTime = 0.21f},
                                       
@@ -68,6 +68,7 @@ public class DosIntro : MonoBehaviour
         new TextLines() { Text = "        9 Dir(s)           262,111 Bytes free.\n",        TypeTime = 1,     WaitTime = 0},
         new TextLines() { Text = "    C:\\TCZ>",                                            TypeTime = 0,     WaitTime = 1},
         new TextLines() { Text = "TCZ.EXE",                                                 TypeTime = 1,     WaitTime = 2},
+        new TextLines() { Text = "",                                                        TypeTime = 0,     WaitTime = 2},
     };
 
     private void Start()
