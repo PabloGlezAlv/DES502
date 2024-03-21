@@ -62499,8 +62499,8 @@ MonoBehaviour:
   historynLevels: 5
   shop: {fileID: 7175802651891052905, guid: 37a2445f117f4d04480e5b7d863ea92c, type: 3}
   hatch: {fileID: 482335256111329892, guid: e28a3ed6c1b4f964887e508faba081ef, type: 3}
-  stepsPerWalk: 2
-  numberWalk: 2
+  stepsPerWalk: 4
+  numberWalk: 6
   MaxStepsPerWalk: 50
   MaxWalks: 20
 --- !u!4 &2100779189
@@ -62537,6 +62537,10 @@ MonoBehaviour:
   - {fileID: 3005363248534054671, guid: 6883935d25f0d9344a7c8dfb20536dc1, type: 3}
   - {fileID: 1403323652580561044, guid: a2549d17353724249b6cab5d299550a1, type: 3}
   - {fileID: 2874034617237734068, guid: 30903d8135871fe4e81ae22b7efb3ded, type: 3}
+  - {fileID: 2838356775622511868, guid: a86ee03f7cbbdb64db682cff2dc211eb, type: 3}
+  - {fileID: 4448991740452173193, guid: f5b7686a333f9134aaddf376e8bea424, type: 3}
+  - {fileID: 6028550680204254580, guid: fb1560cb37e5e7547a56177abf8c3755, type: 3}
+  - {fileID: 1334092837470318313, guid: c84ca730152bc3745b016f9b12688021, type: 3}
 --- !u!1001 &4168328828164288479
 PrefabInstance:
   m_ObjectHideFlags: 0
