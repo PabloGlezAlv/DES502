@@ -68,6 +68,14 @@ public class RoomsPrefabs : MonoBehaviour
         room16.Add(Direction.Bottom);
         emptyDoor.Add(room16);
 
+        //----------Room 17---------------------
+        List<Direction> room17 = new List<Direction>();
+        emptyDoor.Add(room17);
+
+        //----------Room 16---------------------
+        List<Direction> room18 = new List<Direction>();
+        emptyDoor.Add(room18);
+
     }
 
     public GameObject generateRandomRoom(Vector2Int center, List<Direction> roomsDirections, ref List<Vector2Int> spikesPositions, ref List<Vector2Int> holesPositions, 
