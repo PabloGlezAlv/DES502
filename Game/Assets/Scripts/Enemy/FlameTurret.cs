@@ -56,7 +56,10 @@ public class FlameTurret : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Active = controller.roomEntities > 0;
+        if (controller != null)
+        {
+            Active = controller.roomEntities > 0;
+        }
         if (Active)
         {
             TimePoint += Time.deltaTime * (Speed / 10);
