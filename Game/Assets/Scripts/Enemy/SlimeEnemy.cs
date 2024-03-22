@@ -1,13 +1,6 @@
-using System.ComponentModel.Design;
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting.FullSerializer.Internal;
-using System.Linq;
-using System.Threading.Tasks.Sources;
-using Unity.VisualScripting;
-using System.Linq.Expressions;
-using System.Runtime.CompilerServices;
 
 public class SlimeEnemy : EnemyBase, IEnemy
 {
@@ -106,7 +99,10 @@ public class SlimeEnemy : EnemyBase, IEnemy
 
         centerx = transform.position.x;
         centery = transform.position.y;
-        ThinkTime += Time.deltaTime + Random.Range(-0.05f, 0.05f);
+        if (transform.position == (Vector3)TargetPos)
+        {
+            ThinkTime += Time.deltaTime + Random.Range(-0.05f, 0.05f);
+        }
         WalkTime += Time.deltaTime * speed;
         if (ThinkTime > MaxThinkTime)
         {
@@ -153,7 +149,6 @@ public class SlimeEnemy : EnemyBase, IEnemy
                         if (ValidDirections[(int)Direction.Top - 1] == true)
                         {
                             TargetPos = new Vector2(CurrentPos.x, CurrentPos.y + 1);
-                            ThinkTime = 0;
                         }
                         else
                         {
@@ -164,7 +159,6 @@ public class SlimeEnemy : EnemyBase, IEnemy
                         if (ValidDirections[(int)Direction.Bottom - 1] == true)
                         {
                             TargetPos = new Vector2(CurrentPos.x, CurrentPos.y - 1);
-                            ThinkTime = 0;
                         }
                         else
                         {
@@ -175,7 +169,6 @@ public class SlimeEnemy : EnemyBase, IEnemy
                         if (ValidDirections[(int)Direction.Left - 1] == true)
                         {
                             TargetPos = new Vector2(CurrentPos.x - 1, CurrentPos.y);
-                            ThinkTime = 0;
                         }
                         else
                         {
@@ -186,7 +179,6 @@ public class SlimeEnemy : EnemyBase, IEnemy
                         if (ValidDirections[(int)Direction.Right - 1] == true)
                         {
                             TargetPos = new Vector2(CurrentPos.x + 1, CurrentPos.y);
-                            ThinkTime = 0;
                         }
                         else
                         {

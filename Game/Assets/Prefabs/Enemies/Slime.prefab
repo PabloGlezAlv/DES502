@@ -461,10 +461,10 @@ MonoBehaviour:
   - {fileID: 1289054373220493268}
   - {fileID: 4870944917124305818}
   DEBUG: 0
-  MaxThinkTime: 1
+  MaxThinkTime: 2
   Floormap: []
   ValidDirections: 01010101
-  MaxStep: 2
+  MaxStep: 1
 --- !u!212 &1215275663144512922
 SpriteRenderer:
   m_ObjectHideFlags: 0
