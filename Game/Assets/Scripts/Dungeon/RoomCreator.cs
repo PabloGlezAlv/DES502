@@ -378,7 +378,6 @@ public class RoomCreator : MonoBehaviour
 
                 doorsBlocks.Add(doorData);
 
-                corridorFloor.Add(new Vector2Int(i, j + 2));
                 corridorFloor.Add(new Vector2Int(i, j + 1));
             }
             else //Wall
@@ -404,7 +403,6 @@ public class RoomCreator : MonoBehaviour
 
                 doorsBlocks.Add(doorData);
 
-                corridorFloor.Add(new Vector2Int(i, j - 2));
                 corridorFloor.Add(new Vector2Int(i, j - 1));
             }
             else //Wall
@@ -431,7 +429,6 @@ public class RoomCreator : MonoBehaviour
                 doorsBlocks.Add(doorData);
 
                 corridorFloor.Add(new Vector2Int(i - 1, j));
-                corridorFloor.Add(new Vector2Int(i - 2, j));
             }
             else
             {
@@ -456,7 +453,6 @@ public class RoomCreator : MonoBehaviour
                 doorsBlocks.Add(doorData);
 
                 corridorFloor.Add(new Vector2Int(i + 1, j));
-                corridorFloor.Add(new Vector2Int(i + 2, j));
             }
             else
             {
