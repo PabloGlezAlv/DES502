@@ -62611,8 +62611,8 @@ MonoBehaviour:
   historynLevels: 5
   shop: {fileID: 7175802651891052905, guid: 37a2445f117f4d04480e5b7d863ea92c, type: 3}
   hatch: {fileID: 482335256111329892, guid: e28a3ed6c1b4f964887e508faba081ef, type: 3}
-  stepsPerWalk: 8
-  numberWalk: 12
+  stepsPerWalk: 2
+  numberWalk: 2
   MaxStepsPerWalk: 50
   MaxWalks: 20
 --- !u!4 &2100779189
