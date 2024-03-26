@@ -49,7 +49,7 @@ public class DosIntro : MonoBehaviour
         new TextLines() { Text = "cd TCZ\n",                                                TypeTime = 1,     WaitTime = 0.25f},
                                       
         new TextLines() { Text = "    C:\\TCZ>",                                            TypeTime = 0,     WaitTime = 1.25f},
-        new TextLines() { Text = "dir \n",                                                  TypeTime = 0.5f,     WaitTime = 0.25f},
+        new TextLines() { Text = "dir \n",                                                  TypeTime = 0.5f,  WaitTime = 0.25f},
         
         new TextLines() { Text = "    Directory of C:\\TCZ>\n",                             TypeTime = 0,     WaitTime = 0},
         new TextLines() { Text = "    .              <DIR>           12-24-1993 18:53\n",   TypeTime = 0,     WaitTime = 0},
@@ -104,6 +104,7 @@ public class DosIntro : MonoBehaviour
         Debug.Log(TextUI.textInfo.lineCount);
         if (Lines[TextIndex].TypeTime == 0)
         {
+            AudioManager.instance.Play("Enter");
             TextUI.text += Lines[TextIndex].Text;
         }
         else
@@ -111,6 +112,9 @@ public class DosIntro : MonoBehaviour
             float TimeDivide = Lines[TextIndex].TypeTime / Lines[TextIndex].Text.Length;
             for (int x = 0; x < Lines[TextIndex].Text.Length; x++)
             {
+                string PlaySound = "Keyb";
+                PlaySound += Random.Range(1, 3);
+                AudioManager.instance.Play(PlaySound);
                 TextUI.text += Lines[TextIndex].Text[x];
                 yield return new WaitForSeconds(TimeDivide);
             }

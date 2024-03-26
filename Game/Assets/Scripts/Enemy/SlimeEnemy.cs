@@ -188,6 +188,7 @@ public class SlimeEnemy : EnemyBase, IEnemy
                     default:
                         break;
                 }
+                AudioManager.instance.Play("SlimeMove");
                 WalkTime = 0;
                 ThinkTime = 0;
                 StepCount++;
@@ -215,6 +216,7 @@ public class SlimeEnemy : EnemyBase, IEnemy
                 coin.transform.position = transform.position;
             }
             doorsController.KillEntity();
+            AudioManager.instance.Play("SlimeDie");
             this.gameObject.SetActive(false);
         }
         else

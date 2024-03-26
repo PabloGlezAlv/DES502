@@ -271,6 +271,7 @@ public class SkeletonMovement : EnemyBase, IEnemy
             }
             doorsController.KillEntity();
 
+            AudioManager.instance.Play("SkeleDie");
             death = true;
             objectRenderer.enabled = false;
             Invoke("Death", 2); //Destroy entity after dissapearing

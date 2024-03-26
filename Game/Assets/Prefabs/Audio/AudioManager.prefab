@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6662176183424939943}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &5085762293585324006
 MonoBehaviour:
@@ -70,6 +70,20 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: DungeonIntro
     clip: {fileID: 8300000, guid: 854d02889045906439d3ff56524af054, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 1
+    source: {fileID: 0}
+  - name: Market
+    clip: {fileID: 8300000, guid: b3a2ef5ed66293a46ab38a5e10a67f27, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 1
+    Type: 1
+    source: {fileID: 0}
+  - name: MarketIntro
+    clip: {fileID: 8300000, guid: e2714ec6a6942be47932ba9ecef60ffd, type: 3}
     volume: 0
     pitch: 1
     loop: 0
@@ -229,6 +243,83 @@ MonoBehaviour:
     loop: 0
     Type: 0
     source: {fileID: 0}
+  - name: SlimeMove
+    clip: {fileID: 8300000, guid: 1d982b8adc6fcd24b97956e29df7b7ab, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: SlimeAttack
+    clip: {fileID: 8300000, guid: 9b29b3905e38b974c974d530e684e7b8, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: SlimeDie
+    clip: {fileID: 8300000, guid: e68647bb9d1c8aa42a22144f84bd983c, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: Fall
+    clip: {fileID: 8300000, guid: c16f6e6163321394e8e55d960ffbf622, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: TescoAttack
+    clip: {fileID: 8300000, guid: dba67a79902888e4da66fffb897b33f9, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: TescoDie
+    clip: {fileID: 8300000, guid: 376ba69ea5806a148bb157f043e1e7c4, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: TescoMove
+    clip: {fileID: 8300000, guid: 02bbb57bdc40bdf4281feeaf8f3d0526, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: Enter
+    clip: {fileID: 8300000, guid: ecaa32c6f0e98a84cb6cb48ba441a324, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: Keyb1
+    clip: {fileID: 8300000, guid: 6cbe4555d8f07d34c982727aa7f32043, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: Keyb2
+    clip: {fileID: 8300000, guid: cfd7bd981eeaa1c4fa9769a3d57be34c, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: Keyb3
+    clip: {fileID: 8300000, guid: 72812395c984aee488a133d7cdf243a8, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
 --- !u!114 &5254968653011187119
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -241,6 +332,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19ce8b6e3534b1f4eb232cc5be5151f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TuneName: Dungeon
-  IntroName: DungeonIntro
-  IntroTime: 9.601
+  tracks: 0
+  TuneName: Title
+  IntroName: TitleIntro
+  IntroTime: 8.533
