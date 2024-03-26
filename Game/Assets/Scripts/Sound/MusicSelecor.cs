@@ -12,12 +12,8 @@ public class MusicSelecor : MonoBehaviour
         Death,
     }
     public GameTracks tracks;
-    [SerializeField]
     private string TuneName;
-    [SerializeField]
     private string IntroName;
-
-    [SerializeField]
     private float IntroTime;
 
     private void Start()
