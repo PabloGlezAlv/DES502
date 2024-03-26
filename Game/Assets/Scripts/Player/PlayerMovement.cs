@@ -22,7 +22,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private GameObject currentAttack;
 
-    private List<Direction> inputs = new List<Direction>(4);
+    private List<Direction> inputs = new List<Direction>(4); // enum Direction { None, Top, Bottom, Left, Right } DECIDE ANIMATIONS
 
     private Rigidbody2D rb;
 
@@ -53,6 +53,8 @@ public class PlayerMovement : MonoBehaviour
     float alpha = 1;
 
     SpriteRenderer spriteRenderer;
+
+    Animator animator;
 
     public Vector2Int GetCurrentRoom()
     {
@@ -91,6 +93,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void Awake()
     {
+        animator = GetComponent<Animator>();
+
         rb = GetComponent<Rigidbody2D>();
 
         collider = GetComponent<BoxCollider2D>();
@@ -335,10 +339,24 @@ public class PlayerMovement : MonoBehaviour
                 inputs.Remove(Direction.Bottom);
             }
 
-            if (change && inputs.Count > 0)
-            {
-                ChangeAttack(inputs[0]);
-            }
+
+        if(inputs.Count > 0)
+        {
+
+            animator.SetInteger("mov", (int)inputs[0]);
+        }
+        if (change && inputs.Count > 0)
+        {
+            ChangeAttack(inputs[0]);
+            animator.SetInteger("mov", (int)inputs[0]);
+            Debug.Log(inputs[0]);
+        }
+        else if (inputs.Count == 0)
+        {
+            animator.SetInteger("mov", 0);
+        }
+
+
         
     }
     void FixedUpdate()
