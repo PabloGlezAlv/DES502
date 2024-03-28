@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5254968653011187119}
   m_Layer: 0
   m_Name: AudioManager
-  m_TagString: Untagged
+  m_TagString: AudioManager
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -301,21 +301,21 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Keyb1
     clip: {fileID: 8300000, guid: 6cbe4555d8f07d34c982727aa7f32043, type: 3}
-    volume: 0
+    volume: 1
     pitch: 1
     loop: 0
     Type: 0
     source: {fileID: 0}
   - name: Keyb2
     clip: {fileID: 8300000, guid: cfd7bd981eeaa1c4fa9769a3d57be34c, type: 3}
-    volume: 0
+    volume: 1
     pitch: 1
     loop: 0
     Type: 0
     source: {fileID: 0}
   - name: Keyb3
     clip: {fileID: 8300000, guid: 72812395c984aee488a133d7cdf243a8, type: 3}
-    volume: 0
+    volume: 1
     pitch: 1
     loop: 0
     Type: 0
@@ -333,6 +333,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tracks: 0
-  TuneName: Title
-  IntroName: TitleIntro
-  IntroTime: 8.533
+  MusicStarted: 0

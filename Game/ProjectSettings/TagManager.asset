@@ -8,6 +8,7 @@ TagManager:
   - bottomHatch
   - DoorController
   - Immovable
+  - AudioManager
   layers:
   - Default
   - TransparentFX

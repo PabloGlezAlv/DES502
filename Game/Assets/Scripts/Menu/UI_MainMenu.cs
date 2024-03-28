@@ -1,7 +1,4 @@
-using CodeMonkey.Utils;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting.Antlr3.Runtime;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -33,15 +30,25 @@ public class UI_MainMenu : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))//Play
+        if(Input.GetKeyDown(KeyCode.Space) && DosIntro.Done)//Play
         {
             if (activeArrow == 0)
+            {
+                GameObject.FindGameObjectWithTag("AudioManager").GetComponent<MusicSelecor>().FadeMusic();
                 PlayHistory();
+            }
             else if (activeArrow == 1)
+            {
+                GameObject.FindGameObjectWithTag("AudioManager").GetComponent<MusicSelecor>().FadeMusic();
                 PlayEndless();
+            }
             else if (activeArrow == 2)
+            {
+                GameObject.FindGameObjectWithTag("AudioManager").GetComponent<MusicSelecor>().FadeMusic();
                 Quit();
+            }
         }
+
         if(Input.GetKeyDown(KeyCode.S))
         {
             arrow[activeArrow].SetActive(false);

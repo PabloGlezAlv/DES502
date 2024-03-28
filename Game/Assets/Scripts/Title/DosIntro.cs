@@ -14,6 +14,8 @@ public class DosIntro : MonoBehaviour
     private float CurrentTimer;
     private float CurrentTypeTimer;
     bool DoneWriting = true;
+    bool SongPlayed = false;
+    public static bool Done = false;
     private struct TextLines
     {
         public string Text;
@@ -65,10 +67,10 @@ public class DosIntro : MonoBehaviour
         new TextLines() { Text = "    TCZ    COM               1,818 12-08-1982 12:21\n",   TypeTime = 0,     WaitTime = 0},
         new TextLines() { Text = "    TCZ    EXE              12,672 12-08-1982 12:21\n",   TypeTime = 0,     WaitTime = 0},
         new TextLines() { Text = "        4 File(s)           12,940 Bytes.\n",             TypeTime = 0,     WaitTime = 0},
-        new TextLines() { Text = "        9 Dir(s)           262,111 Bytes free.\n",        TypeTime = 1,     WaitTime = 0},
-        new TextLines() { Text = "    C:\\TCZ>",                                            TypeTime = 0,     WaitTime = 1},
+        new TextLines() { Text = "        9 Dir(s)           262,111 Bytes free.\n",        TypeTime = 0,     WaitTime = 0},
+        new TextLines() { Text = "    C:\\TCZ>",                                            TypeTime = 0,     WaitTime = 0},
         new TextLines() { Text = "TCZ.EXE",                                                 TypeTime = 1,     WaitTime = 2},
-        new TextLines() { Text = "",                                                        TypeTime = 0,     WaitTime = 2},
+        new TextLines() { Text = "",                                                        TypeTime = 0,     WaitTime = 0},
     };
 
     private void Start()
@@ -93,6 +95,13 @@ public class DosIntro : MonoBehaviour
         }
         else if (TextIndex >= Lines.Length || Input.GetKeyDown(KeyCode.Space))
         {
+            if (!SongPlayed)
+            {
+                GameObject.FindGameObjectWithTag("AudioManager").GetComponent<MusicSelecor>().ChangeMusic(GameTracks.Dungeon);
+                GameObject.FindGameObjectWithTag("AudioManager").GetComponent<MusicSelecor>().MusicStarted = true;
+                SongPlayed = true;
+                Done = true;
+            }
             gameObject.active = false;
         }
     }
@@ -114,7 +123,9 @@ public class DosIntro : MonoBehaviour
             {
                 string PlaySound = "Keyb";
                 PlaySound += Random.Range(1, 3);
+                Debug.Log(PlaySound);
                 AudioManager.instance.Play(PlaySound);
+                AudioManager.instance.SetVolume(PlaySound, Random.Range(0.25f, 0.75f));
                 TextUI.text += Lines[TextIndex].Text[x];
                 yield return new WaitForSeconds(TimeDivide);
             }

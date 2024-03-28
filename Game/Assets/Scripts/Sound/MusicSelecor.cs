@@ -1,30 +1,36 @@
-using System.Collections;
 using UnityEngine;
+
+public enum GameTracks
+{
+    Title,
+    Dungeon,
+    Market,
+    End,
+    Death,
+}
 
 public class MusicSelecor : MonoBehaviour
 {
-    public enum GameTracks
-    {
-        Title,
-        Dungeon,
-        Market,
-        End,
-        Death,
-    }
     public GameTracks tracks;
     private string TuneName;
     private string IntroName;
     private float IntroTime;
+    public bool MusicStarted;
 
     private void Start()
     {
-        CheckTracks();
+        if (MusicStarted) ChangeMusic(tracks);
+    }
+
+    public void ChangeMusic(GameTracks track)
+    {
+        CheckTracks(track);
         PlayMusic();
     }
 
-    public void CheckTracks()
+    public void CheckTracks(GameTracks track)
     {
-        switch (tracks)
+        switch (track)
         {
             case GameTracks.Title:
                 IntroName = "TitleIntro";
@@ -42,8 +48,14 @@ public class MusicSelecor : MonoBehaviour
                 IntroTime = 8.534f;
                 break;
             case GameTracks.End:
+                IntroName = "";
+                TuneName = "End";
+                IntroTime = 0f;
                 break;
             case GameTracks.Death:
+                IntroName = "";
+                TuneName = "Death";
+                IntroTime = 0f;
                 break;
         }
     }
@@ -52,9 +64,15 @@ public class MusicSelecor : MonoBehaviour
     {
         //Idea is we wait for the intro to complete then we play the track we want
         AudioManager.instance.Play(IntroName);
-        AudioManager.instance.SetVolume(IntroName, 0);
+        if(IntroName != "")AudioManager.instance.SetVolume(IntroName, 0);
         AudioManager.instance.SetVolume(TuneName, AudioManager.MusicVolume);
-        StartCoroutine(AudioManager.instance.FadeAudio(IntroName, -1, AudioManager.MusicVolume));
+        StartCoroutine(AudioManager.instance.FadeAudio(IntroName, -.125f, AudioManager.MusicVolume));
         AudioManager.instance.PlayDelayed(TuneName, IntroTime);
+    }
+
+    public void FadeMusic()
+    {
+        if (IntroName != "") StartCoroutine(AudioManager.instance.FadeAudio(IntroName, 1f, AudioManager.MusicVolume));
+        StartCoroutine(AudioManager.instance.FadeAudio(TuneName, 1f, AudioManager.MusicVolume));
     }
 }
