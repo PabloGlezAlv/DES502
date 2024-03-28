@@ -11,12 +11,14 @@ public class SalesmanCollision : MonoBehaviour
     Sprite spriteHostile;
 
     SpriteRenderer spriteRenderer;
+    Animator anim;
 
     private void Awake()
     {
         spriteRenderer = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
 
-        spriteNormal = spriteRenderer.sprite;
+        //spriteNormal = spriteRenderer.sprite;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -25,8 +27,8 @@ public class SalesmanCollision : MonoBehaviour
         {
             count++;
             GetComponentInChildren<SalesArea>().setHostile();
-
-            spriteRenderer.sprite = spriteHostile;
+            anim.SetTrigger("Hide");
+            //spriteRenderer.sprite = spriteHostile;
         }
     }
 
@@ -34,6 +36,6 @@ public class SalesmanCollision : MonoBehaviour
     {
         transform.position = position;
 
-        spriteRenderer.sprite = spriteNormal;
+        //spriteRenderer.sprite = spriteNormal;
     }
 }
