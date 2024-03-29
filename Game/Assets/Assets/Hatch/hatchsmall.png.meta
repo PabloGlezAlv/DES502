@@ -101,10 +101,10 @@ TextureImporter:
       name: hatchsmall_0
       rect:
         serializedVersion: 2
-        x: 63
-        y: 31
-        width: 129
-        height: 34
+        x: 64
+        y: 63
+        width: 128
+        height: 18
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}

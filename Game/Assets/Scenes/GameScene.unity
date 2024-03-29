@@ -362,11 +362,11 @@ PrefabInstance:
     - target: {fileID: 8150628068917364532, guid: aaeb854f69aac3f4bb2d85c1e82e64ab, type: 3}
       propertyPath: openDoorTileLeftTop
       value: 
-      objectReference: {fileID: 11400000, guid: dde124d830ce3e746b5ca255c4536f82, type: 2}
+      objectReference: {fileID: 11400000, guid: 0a01983808f5aef49a4dd560d5fe0867, type: 2}
     - target: {fileID: 8150628068917364532, guid: aaeb854f69aac3f4bb2d85c1e82e64ab, type: 3}
       propertyPath: openDoorTileTopLeft
       value: 
-      objectReference: {fileID: 11400000, guid: efeb3b4d41c620f4cb4b7916d2b9778a, type: 2}
+      objectReference: {fileID: 11400000, guid: aa683f94736c3e54eb5ad7441e4b0251, type: 2}
     - target: {fileID: 8150628068917364532, guid: aaeb854f69aac3f4bb2d85c1e82e64ab, type: 3}
       propertyPath: closeDoorTileLeftTop
       value: 
@@ -402,11 +402,11 @@ PrefabInstance:
     - target: {fileID: 8150628068917364532, guid: aaeb854f69aac3f4bb2d85c1e82e64ab, type: 3}
       propertyPath: openDoorTileRightTop
       value: 
-      objectReference: {fileID: 11400000, guid: 94a1d3b6df67aa34fb72c87cbb48f78b, type: 2}
+      objectReference: {fileID: 11400000, guid: 833b5cd4bd162814da63bc7a66ae423a, type: 2}
     - target: {fileID: 8150628068917364532, guid: aaeb854f69aac3f4bb2d85c1e82e64ab, type: 3}
       propertyPath: openDoorTileTopRight
       value: 
-      objectReference: {fileID: 11400000, guid: d595d4cd71982f641a21ff9402998843, type: 2}
+      objectReference: {fileID: 11400000, guid: 300fe5b64d6352a4ba1172929035475f, type: 2}
     - target: {fileID: 8150628068917364532, guid: aaeb854f69aac3f4bb2d85c1e82e64ab, type: 3}
       propertyPath: closeDoorTileRightTop
       value: 
@@ -438,11 +438,11 @@ PrefabInstance:
     - target: {fileID: 8150628068917364532, guid: aaeb854f69aac3f4bb2d85c1e82e64ab, type: 3}
       propertyPath: openDoorTileBottomLeft
       value: 
-      objectReference: {fileID: 11400000, guid: ec97c732caf82584caec5f541c18aefa, type: 2}
+      objectReference: {fileID: 11400000, guid: ed584f7baad8e68468ce7da596402bb9, type: 2}
     - target: {fileID: 8150628068917364532, guid: aaeb854f69aac3f4bb2d85c1e82e64ab, type: 3}
       propertyPath: openDoorTileLeftBottom
       value: 
-      objectReference: {fileID: 11400000, guid: 0d782987a9099c44d9c9908961a03022, type: 2}
+      objectReference: {fileID: 11400000, guid: d834704e7d0b4204eb5324ca9df31a65, type: 2}
     - target: {fileID: 8150628068917364532, guid: aaeb854f69aac3f4bb2d85c1e82e64ab, type: 3}
       propertyPath: closeDoorTileBottomLeft
       value: 
@@ -462,11 +462,11 @@ PrefabInstance:
     - target: {fileID: 8150628068917364532, guid: aaeb854f69aac3f4bb2d85c1e82e64ab, type: 3}
       propertyPath: openDoorTileBottomRight
       value: 
-      objectReference: {fileID: 11400000, guid: ab139ab59ef85264c8958dbc0da61509, type: 2}
+      objectReference: {fileID: 11400000, guid: 9ee1e99adc1a5eb4cab6303ccb8c0c33, type: 2}
     - target: {fileID: 8150628068917364532, guid: aaeb854f69aac3f4bb2d85c1e82e64ab, type: 3}
       propertyPath: openDoorTileRightBottom
       value: 
-      objectReference: {fileID: 11400000, guid: 55400c35485e35248a340fc29c31bbe3, type: 2}
+      objectReference: {fileID: 11400000, guid: 68a5d123b80b52d4d8c7eedf938ec32a, type: 2}
     - target: {fileID: 8150628068917364532, guid: aaeb854f69aac3f4bb2d85c1e82e64ab, type: 3}
       propertyPath: closeDoorTileBottomRight
       value: 
