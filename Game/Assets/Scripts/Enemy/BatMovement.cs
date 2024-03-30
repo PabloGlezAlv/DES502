@@ -6,9 +6,11 @@ public class BatMovement : EnemyBase, IEnemy
 {
     [Header("BAT PARAMETERS")]
     [SerializeField]
+    Animator anim;
+    [SerializeField]
     private float changeDir = 2f;
     [SerializeField]
-    private float waitTime =0.5f;
+    private float waitTime = 0.5f;
     [SerializeField]
     private float crashTime = 1.5f;
 
@@ -17,6 +19,9 @@ public class BatMovement : EnemyBase, IEnemy
     private Vector2 dir;
 
     batAttack attack;
+
+    private bool FacingLeft = false;//the bat starts out facing right
+    private bool FacingUp = false;//the bat starts out facing down
 
     void Awake()
     {

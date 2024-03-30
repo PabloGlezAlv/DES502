@@ -4,7 +4,6 @@ using System.IO.MemoryMappedFiles;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Unity.Mathematics;
 using UnityEngine;
 
 public class ShadowMovement : MonoBehaviour
