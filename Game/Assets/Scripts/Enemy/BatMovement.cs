@@ -7,6 +7,7 @@ public class BatMovement : EnemyBase, IEnemy
     [Header("BAT PARAMETERS")]
     [SerializeField]
     Animator anim;
+    SpriteRenderer sr;
     [SerializeField]
     private float changeDir = 2f;
     [SerializeField]
@@ -17,11 +18,14 @@ public class BatMovement : EnemyBase, IEnemy
     private float timer = 0;
 
     private Vector2 dir;
+    private Vector3 PlayerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
 
     batAttack attack;
 
     private bool FacingLeft = false;//the bat starts out facing right
     private bool FacingUp = false;//the bat starts out facing down
+    private bool LockX = false;//the bat starts out facing down
+    private bool LockY = true;//the bat starts out facing down
 
     void Awake()
     {
@@ -40,7 +44,36 @@ public class BatMovement : EnemyBase, IEnemy
     // Update is called once per frame
     void FixedUpdate()
     {
+        /*
+        if (!LockY)
+        {
+            if (transform.position.y > PlayerPosition.y)
+            {
+                FacingUp = false;
+            }
+            else if (transform.position.y < PlayerPosition.y)
+            {
+                FacingUp = true;
+            }
+            LockY = true;
+        }
+
+        if (!LockX)
+        {
+            if (transform.position.x < PlayerPosition.x)
+            {
+                FacingUp = false;
+            }
+            else if (transform.position.x > PlayerPosition.x)
+            {
+                FacingUp = true;
+            }
+            LockX = true;
+        }
+        */
         timer -= Time.fixedDeltaTime;
+
+        anim.SetFloat("FlapSpeed", 1 - timer);
 
         if(timer <= 0)
         {
@@ -52,10 +85,17 @@ public class BatMovement : EnemyBase, IEnemy
 
     private void DashMovement()
     {
+        FacingUp = false;
         dir = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
 
         rb.AddForce(dir * speed, ForceMode2D.Impulse);
+        if (dir.y > dir.x && dir.y > -dir.x)
+        {
 
+        }
+
+        sr.flipX = FacingLeft;
+        sr.flipY = FacingUp;
         AudioManager.instance.Play("BatSwoop");
     }
 
@@ -80,7 +120,7 @@ public class BatMovement : EnemyBase, IEnemy
         actualLife -= damage;
         if (actualLife <= 0) //Dead
         {
-            float randomValue = UnityEngine.Random.value;
+            float randomValue = Random.value;
 
             if (randomValue < dropCoinChances)
             {

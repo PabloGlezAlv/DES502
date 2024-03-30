@@ -562,10 +562,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2100779188}
     - target: {fileID: 628036568110848583, guid: bdca88579c09674408298d84a638384c, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 628036568110848583, guid: bdca88579c09674408298d84a638384c, type: 3}
       propertyPath: fadeInOutImage
       value: 
       objectReference: {fileID: 1859746383}
@@ -629,18 +625,6 @@ PrefabInstance:
       propertyPath: 'emptyHearts.Array.data[4]'
       value: 
       objectReference: {fileID: 683992823}
-    - target: {fileID: 760005158312221897, guid: bdca88579c09674408298d84a638384c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1189632844653915764, guid: bdca88579c09674408298d84a638384c, type: 3}
-      propertyPath: scale
-      value: 
-      objectReference: {fileID: 1456823867453288025, guid: 0c6fbd7bcd3e59048b27f175f8505255, type: 3}
-    - target: {fileID: 1189632844653915764, guid: bdca88579c09674408298d84a638384c, type: 3}
-      propertyPath: speed
-      value: 
-      objectReference: {fileID: 8051447936904227821, guid: 26aea5bd08386474db6d69e32bcbeed3, type: 3}
     - target: {fileID: 1189632844653915764, guid: bdca88579c09674408298d84a638384c, type: 3}
       propertyPath: _textMeshPro
       value: 
@@ -649,9 +633,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1699971273314918739, guid: bdca88579c09674408298d84a638384c, type: 3}
-      propertyPath: m_RootOrder
-      value: 15
+    - target: {fileID: 1231216341486946140, guid: bdca88579c09674408298d84a638384c, type: 3}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 1699971273314918739, guid: bdca88579c09674408298d84a638384c, type: 3}
       propertyPath: m_LocalScale.x
@@ -713,14 +697,6 @@ PrefabInstance:
       propertyPath: doorsController
       value: 
       objectReference: {fileID: 986609578}
-    - target: {fileID: 4570551624992200768, guid: bdca88579c09674408298d84a638384c, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5637396007229042273, guid: bdca88579c09674408298d84a638384c, type: 3}
-      propertyPath: m_Layer
-      value: 11
-      objectReference: {fileID: 0}
     - target: {fileID: 7562656513493944115, guid: bdca88579c09674408298d84a638384c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

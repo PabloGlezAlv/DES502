@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 1699971273314918739}
   m_Layer: 0
   m_Name: Player 1
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,7 +58,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.48735, y: 0.48735, z: 0.48735}
+  m_LocalScale: {x: 1.1938125, y: 1.1938125, z: 1.1938125}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7562656513493944115}
@@ -329,7 +329,7 @@ Transform:
   m_GameObject: {fileID: 7115241455191918539}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -2.13, y: -0.0042353347, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -403,7 +403,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5.4
-  doorAlpha: 0.3
+  doorAlpha: 0.2
   doorsController: {fileID: 0}
   currentAttack: {fileID: 4570551624992200768}
 --- !u!61 &6636353546735594855
@@ -444,7 +444,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.98, y: 1.66}
+    oldSize: {x: 0.74242425, y: 1.2575758}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
