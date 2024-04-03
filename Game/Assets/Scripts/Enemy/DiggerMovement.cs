@@ -85,7 +85,7 @@ public class DiggerMovement : EnemyBase, IEnemy
             hideTimer -= Time.fixedDeltaTime;
             if(hideTimer <= 0)
             {
-                Direction playerDir = player.GetCurrentDirection();
+                //Direction playerDir = player.GetCurrentDirection();
                 Vector3 playerpos = new Vector3(((int)player.transform.position.x) + 0.5f, ((int)player.transform.position.y) + 0.5f, player.transform.position.z);
  
                 Vector2Int startPoint = new Vector2Int((int)playerpos.x, (int)playerpos.y);

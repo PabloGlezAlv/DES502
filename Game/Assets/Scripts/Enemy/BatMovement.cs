@@ -18,19 +18,16 @@ public class BatMovement : EnemyBase, IEnemy
     private float timer = 0;
 
     private Vector2 dir;
-    private Vector3 PlayerPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
 
     batAttack attack;
 
     private bool FacingLeft = false;//the bat starts out facing right
     private bool FacingUp = false;//the bat starts out facing down
-    private bool LockX = false;//the bat starts out facing down
-    private bool LockY = true;//the bat starts out facing down
 
     void Awake()
     {
         base.Awake();
-        timer = changeDir;
+        timer = changeDir + Random.Range(-1f, 1f);
 
         attack = GetComponentInChildren<batAttack>();
     }
@@ -38,42 +35,23 @@ public class BatMovement : EnemyBase, IEnemy
     {
         base.Start();
 
+        sr = GetComponentInChildren<SpriteRenderer>();
         attack.setDamage(damage);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        /*
-        if (!LockY)
-        {
-            if (transform.position.y > PlayerPosition.y)
-            {
-                FacingUp = false;
-            }
-            else if (transform.position.y < PlayerPosition.y)
-            {
-                FacingUp = true;
-            }
-            LockY = true;
-        }
-
-        if (!LockX)
-        {
-            if (transform.position.x < PlayerPosition.x)
-            {
-                FacingUp = false;
-            }
-            else if (transform.position.x > PlayerPosition.x)
-            {
-                FacingUp = true;
-            }
-            LockX = true;
-        }
-        */
         timer -= Time.fixedDeltaTime;
 
-        anim.SetFloat("FlapSpeed", 1 - timer);
+        if (rb.velocity == Vector2.zero)
+        {
+            anim.SetBool("BatChargeSide", false);
+            anim.SetBool("BatChargeTop", false);
+            FacingUp = false;
+        }
+
+        anim.SetFloat("FlapSpeed", 3 - timer);
 
         if(timer <= 0)
         {
@@ -86,12 +64,36 @@ public class BatMovement : EnemyBase, IEnemy
     private void DashMovement()
     {
         FacingUp = false;
+        FacingLeft = false;
         dir = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f)).normalized;
 
         rb.AddForce(dir * speed, ForceMode2D.Impulse);
-        if (dir.y > dir.x && dir.y > -dir.x)
+        if (dir.x < 0)
         {
+            FacingLeft = false;
+        }
+        else if (dir.x >= 0)
+        {
+            FacingLeft = true;
+        }
+        if (dir.y < 0)
+        {
+            FacingUp = false;
+        }
+        else if (dir.y >= 0)
+        {
+            FacingUp = true;
+        }
 
+        if (dir.x > dir.y || dir.x > -dir.y)
+        {
+            FacingUp = false;
+            anim.SetBool("BatChargeSide", true);
+        }
+        else if (dir.y > dir.x || dir.y < -dir.x)
+        {
+            FacingLeft = false;
+            anim.SetBool("BatChargeTop", true);
         }
 
         sr.flipX = FacingLeft;
@@ -102,7 +104,9 @@ public class BatMovement : EnemyBase, IEnemy
     private void BounceMovement()
     {
         dir = -dir;
-
+        anim.Play("BatWallHit");
+        anim.SetBool("ChargeTop", false);
+        anim.SetBool("ChargeSide", false);
         rb.AddForce(dir * speed, ForceMode2D.Impulse);
     }
 

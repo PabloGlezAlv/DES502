@@ -303,7 +303,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 19.95, y: 9.240001}
+    oldSize: {x: 1.9482422, y: 0.90234375}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -333,6 +333,7 @@ MonoBehaviour:
   objectRenderer: {fileID: 7326436036523598098}
   coinPrefab: {fileID: 6051068933900146545, guid: 99198bf4b2a287545ae7ab462675ac16, type: 3}
   damage: 2
+  anim: {fileID: 5634403721036648525}
   changeDir: 2
   waitTime: 0.5
   crashTime: 1.5
