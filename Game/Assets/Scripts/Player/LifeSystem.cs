@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LifeSystem : MonoBehaviour
 {
@@ -109,7 +110,8 @@ public class LifeSystem : MonoBehaviour
         AudioManager.instance.Play("PlayerHurt");
         if (actualLife <= 0) //Dead
         {
-            Debug.Log("Dead"); 
+            Debug.Log("Dead");
+            SceneManager.LoadScene("DeadScene", LoadSceneMode.Single);
         }
         else
         {
