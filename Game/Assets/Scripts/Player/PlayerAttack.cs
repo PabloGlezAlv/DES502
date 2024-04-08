@@ -16,11 +16,15 @@ public class PlayerAttack : MonoBehaviour
 
     private int startDamage;
 
+    Animator animator;
+
     private void Awake()
     {
         playerCenter = transform.parent.transform.parent.transform.position;
 
         startDamage = damage;
+
+        animator = transform.parent.transform.parent.GetComponent<Animator>();
     }
 
     public void addDamage(int add)
@@ -49,6 +53,8 @@ public class PlayerAttack : MonoBehaviour
             timer = 0;
             GetComponent<SpriteRenderer>().color = Color.red;
 
+            animator.SetBool("attack", true);
+
             //Swing sound here !!!
             //AudioManager.instance.Play("Swing");
         }
@@ -61,6 +67,7 @@ public class PlayerAttack : MonoBehaviour
                 attacking = false;
                 collider2D.enabled = false;
                 GetComponent<SpriteRenderer>().color = Color.green;
+                animator.SetBool("attack", false);
             }
         }
     }
