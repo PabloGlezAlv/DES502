@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Threading;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class DosIntro : MonoBehaviour
 {
@@ -102,7 +103,7 @@ public class DosIntro : MonoBehaviour
                 SongPlayed = true;
                 Done = true;
             }
-            gameObject.active = false;
+            SceneManager.LoadScene("Menu", LoadSceneMode.Single);
         }
     }
 
