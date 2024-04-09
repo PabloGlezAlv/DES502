@@ -260,6 +260,7 @@ public class SkeletonMovement : EnemyBase, IEnemy
         }
         if (actualLife <= 0) //Dead
         {
+            rb.velocity = Vector3.zero;
             animator.SetBool("isDeath", true);
 
             float randomValue = UnityEngine.Random.value;
