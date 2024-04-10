@@ -23,6 +23,7 @@ public class BatMovement : EnemyBase, IEnemy
 
     private bool FacingLeft = false;//the bat starts out facing right
     private bool FacingUp = false;//the bat starts out facing down
+    private bool DeathAnimPlayed = false;//the bat starts out facing down
 
     void Awake()
     {
@@ -37,6 +38,7 @@ public class BatMovement : EnemyBase, IEnemy
 
         sr = GetComponentInChildren<SpriteRenderer>();
         attack.setDamage(damage);
+        DeathAnimPlayed = false;
     }
 
     // Update is called once per frame
@@ -124,15 +126,11 @@ public class BatMovement : EnemyBase, IEnemy
         actualLife -= damage;
         if (actualLife <= 0) //Dead
         {
-            float randomValue = Random.value;
-
-            if (randomValue < dropCoinChances)
+            if (!DeathAnimPlayed)
             {
-                GameObject coin = Instantiate(coinPrefab);
-                coin.transform.position = transform.position;
+                anim.Play("BatDie");
+                DeathAnimPlayed = true;
             }
-            doorsController.KillEntity();
-            this.gameObject.SetActive(false);
         }
         else
         {
@@ -150,5 +148,18 @@ public class BatMovement : EnemyBase, IEnemy
                 dir.Normalize();
             }
         }
+    }
+
+    public void Die()
+    {
+        float randomValue = Random.value;
+
+        if (randomValue < dropCoinChances)
+        {
+            GameObject coin = Instantiate(coinPrefab);
+            coin.transform.position = transform.position;
+        }
+        doorsController.KillEntity();
+        this.gameObject.SetActive(false);
     }
 }
