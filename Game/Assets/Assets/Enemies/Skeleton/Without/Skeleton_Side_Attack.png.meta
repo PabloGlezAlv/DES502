@@ -1,16 +1,13 @@
 fileFormatVersion: 2
-guid: e880e96cc5ad3404aa10e21dfcf1ddb4
+guid: f054803f97b19db4a8d55a27eb428a0c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1865390176965850887
-    second: Skeleton_Front_Walk_Sword_Sheet_0
+      213: 3838915740206697894
+    second: Skeleton_Side_Attack_0
   - first:
-      213: 5410153287394078826
-    second: Skeleton_Front_Walk_Sword_Sheet_1
-  - first:
-      213: -3571836135753999232
-    second: Skeleton_Front_Walk_Sword_Sheet_2
+      213: 37935659773704353
+    second: Skeleton_Side_Attack_1
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -89,67 +86,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: tvOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -164,7 +101,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Skeleton_Front_Walk_Sword_Sheet_0
+      name: Skeleton_Side_Attack_0
       rect:
         serializedVersion: 2
         x: 0
@@ -176,16 +113,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 2f39185fca6715f4c92adee7fa0bc26c
-      internalID: -229850331
+      spriteID: 6ad0da9b681964530800000000000000
+      internalID: 3838915740206697894
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Front_Walk_Sword_Sheet_1
+      name: Skeleton_Side_Attack_1
       rect:
         serializedVersion: 2
         x: 64
@@ -197,16 +134,16 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 8b1e290d528037f4f850870ef045aa79
-      internalID: -1558143151
+      spriteID: 1a8b1251846c68000800000000000000
+      internalID: 37935659773704353
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Front_Walk_Sword_Sheet_2
+      name: Skeleton_Side_Attack_2
       rect:
         serializedVersion: 2
         x: 0
@@ -220,14 +157,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: b85b4320cabf5ae42a455116b00b010a
-      internalID: 1741969450
+      spriteID: f053251d14cd6fb489fb924f277edb08
+      internalID: 1886406376
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Front_Walk_Sword_Sheet_3
+      name: Skeleton_Side_Attack_3
       rect:
         serializedVersion: 2
         x: 64
@@ -241,8 +178,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e8a0eca01b4243c4d83ef668019184f6
-      internalID: -333466930
+      spriteID: a58810e1f927b0a47a1deb2563e340df
+      internalID: -1079987712
       vertices: []
       indices: 
       edges: []
@@ -250,7 +187,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 0c9c60dc50acc8947971ca633aeed56f
+    spriteID: 607500e583d55684baef61fd0e9536af
     internalID: 0
     vertices: []
     indices: 
@@ -258,10 +195,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Skeleton_Front_Walk_Sword_Sheet_0: -229850331
-      Skeleton_Front_Walk_Sword_Sheet_1: -1558143151
-      Skeleton_Front_Walk_Sword_Sheet_2: 1741969450
-      Skeleton_Front_Walk_Sword_Sheet_3: -333466930
+      Skeleton_Side_Attack_0: 3838915740206697894
+      Skeleton_Side_Attack_1: 37935659773704353
+      Skeleton_Side_Attack_2: 1886406376
+      Skeleton_Side_Attack_3: -1079987712
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

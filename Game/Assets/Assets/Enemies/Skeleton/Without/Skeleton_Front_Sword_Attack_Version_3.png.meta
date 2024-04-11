@@ -1,16 +1,19 @@
 fileFormatVersion: 2
-guid: e880e96cc5ad3404aa10e21dfcf1ddb4
+guid: f52754f60ebb95643ae9ec877fdb459c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 1865390176965850887
-    second: Skeleton_Front_Walk_Sword_Sheet_0
+      213: -6742217996478661987
+    second: Skeleton_Front_Sword_Attack_Version_3_0
   - first:
-      213: 5410153287394078826
-    second: Skeleton_Front_Walk_Sword_Sheet_1
+      213: -4372235496199944764
+    second: Skeleton_Front_Sword_Attack_Version_3_1
   - first:
-      213: -3571836135753999232
-    second: Skeleton_Front_Walk_Sword_Sheet_2
+      213: -8677763658481457916
+    second: Skeleton_Front_Sword_Attack_Version_3_2
+  - first:
+      213: -8835386870765437423
+    second: Skeleton_Front_Sword_Attack_Version_3_3
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -89,67 +92,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
     buildTarget: Standalone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Android
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: tvOS
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: iPhone
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: Windows Store Apps
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -164,11 +107,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Skeleton_Front_Walk_Sword_Sheet_0
+      name: Skeleton_Front_Sword_Attack_Version_3_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
+        y: 92
         width: 64
         height: 64
       alignment: 0
@@ -176,73 +119,73 @@ TextureImporter:
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 2f39185fca6715f4c92adee7fa0bc26c
-      internalID: -229850331
+      spriteID: d9ab4a93474de62a0800000000000000
+      internalID: -6742217996478661987
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Front_Walk_Sword_Sheet_1
+      name: Skeleton_Front_Sword_Attack_Version_3_1
       rect:
         serializedVersion: 2
         x: 64
-        y: 64
+        y: 78
         width: 64
-        height: 64
+        height: 78
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: 8b1e290d528037f4f850870ef045aa79
-      internalID: -1558143151
+      spriteID: 4c506a63bf2b253c0800000000000000
+      internalID: -4372235496199944764
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Front_Walk_Sword_Sheet_2
+      name: Skeleton_Front_Sword_Attack_Version_3_2
       rect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 64
-        height: 64
+        height: 79
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: b85b4320cabf5ae42a455116b00b010a
-      internalID: 1741969450
+      spriteID: 4052b6bede3629780800000000000000
+      internalID: -8677763658481457916
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Skeleton_Front_Walk_Sword_Sheet_3
+      name: Skeleton_Front_Sword_Attack_Version_3_3
       rect:
         serializedVersion: 2
-        x: 64
-        y: 0
-        width: 64
-        height: 64
+        x: 66
+        y: 13
+        width: 62
+        height: 65
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: e8a0eca01b4243c4d83ef668019184f6
-      internalID: -333466930
+      spriteID: 11e30e2f376626580800000000000000
+      internalID: -8835386870765437423
       vertices: []
       indices: 
       edges: []
@@ -250,7 +193,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 0c9c60dc50acc8947971ca633aeed56f
+    spriteID: dc3c591bc5c4e8b41aa941b7322b7c66
     internalID: 0
     vertices: []
     indices: 
@@ -258,10 +201,10 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Skeleton_Front_Walk_Sword_Sheet_0: -229850331
-      Skeleton_Front_Walk_Sword_Sheet_1: -1558143151
-      Skeleton_Front_Walk_Sword_Sheet_2: 1741969450
-      Skeleton_Front_Walk_Sword_Sheet_3: -333466930
+      Skeleton_Front_Sword_Attack_Version_3_0: -6742217996478661987
+      Skeleton_Front_Sword_Attack_Version_3_1: -4372235496199944764
+      Skeleton_Front_Sword_Attack_Version_3_2: -8677763658481457916
+      Skeleton_Front_Sword_Attack_Version_3_3: -8835386870765437423
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

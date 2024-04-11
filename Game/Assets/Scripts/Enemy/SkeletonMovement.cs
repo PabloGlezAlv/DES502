@@ -66,6 +66,8 @@ public class SkeletonMovement : EnemyBase, IEnemy
             shield = true;
         }
 
+        animator.SetBool("shield", shield);
+
         animator.SetFloat("X", 1f);
         animator.SetFloat("Y", 0f);
     }
