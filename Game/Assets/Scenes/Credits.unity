@@ -642,49 +642,16 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '< - = = CREDITS = = - >
-
-
-
-    - = CODE = -
-
-    Pablo
-
-    Finlay Pennycook
-
-
-    -
-    = ART = -
-
-    Darcy Green
-
-    Garry
-
-    Reily Martindale
-
-
-    - = DESIGN
-    = -
-
-    Darcy Green
-
-
-    - = AUDIO = -
-
-    Finlay Pennycook
-
-    Fraser Drummond
-
-
-    <
-    - = = EXTERNAL CREDITS = = - >
-
-
-    Outside home tile set:
-
-    https://itch.io/profile/schwarnhild
-
-'
+  m_text: "< - = = CREDITS = = - >\n\n\n- = CODE = -\nPablo\nFinlay Pennycook\n\n-
+    = ART = -\nDarcy Green\nGarry\nReily Martindale\nFinlay Pennycook\n\n- = DESIGN
+    = -\nDarcy Green\nAkila Arnott\nReily Martindale\nEwan\n\n- = AUDIO = -\nFinlay
+    Pennycook\nFraser Drummond\n\n< - = = EXTERNAL CREDITS = = - >\n\nOutside home
+    tile set:\nhttps://itch.io/profile/schwarnhild\n\nnon-syntheissed sfx taken from
+    freesound.org\ngeoneo0\njagadamba\nsaha213131\nlukeo135 \ntonsil5 \nemilybbarrios
+    \nmysterypancake \ndnaudiouk \nsilverillusionist\ntimbre \nilmari\nhatchclose
+    \ntheshaggyfreak \ngregswinford \nAtoMediaDesign \nscuzzpunk \nHoused1J\nNatty23
+    \nsix6sixty6\nSiriusBizdness \nShaynecantly \nBolkmar \nRyusa \nEvanski \ndwoboyle
+    \njohnbuhr \n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 56d1a6913edb3ae4da39d955a6acd4a0, type: 2}
   m_sharedMaterial: {fileID: -8939390521015969198, guid: 56d1a6913edb3ae4da39d955a6acd4a0, type: 2}
