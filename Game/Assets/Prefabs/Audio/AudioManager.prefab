@@ -89,6 +89,20 @@ MonoBehaviour:
     loop: 0
     Type: 1
     source: {fileID: 0}
+  - name: End
+    clip: {fileID: 8300000, guid: e7091e84b6bdf21449f509132f6699cb, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    Type: 1
+    source: {fileID: 0}
+  - name: Death
+    clip: {fileID: 8300000, guid: 5ceaad9c17f15404f91be3d2015bbb47, type: 3}
+    volume: 1
+    pitch: 1
+    loop: 0
+    Type: 1
+    source: {fileID: 0}
   - name: Select
     clip: {fileID: 8300000, guid: 77ca840f937a6204c9ebfe9ab1afe141, type: 3}
     volume: 0
@@ -332,5 +346,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19ce8b6e3534b1f4eb232cc5be5151f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tracks: 0
-  MusicStarted: 0
+  tracks: 3
+  MusicStarted: 1
