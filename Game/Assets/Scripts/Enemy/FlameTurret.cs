@@ -48,6 +48,7 @@ public class FlameTurret : MonoBehaviour
 
     Animator anim;
 
+    [SerializeField]
     private bool Active = true;
 
     private int LineIndex;
@@ -103,6 +104,7 @@ public class FlameTurret : MonoBehaviour
         else
         {
             FlameTime = 0;
+            anim.Play("FlameTurretDie");
         }
         if (FlameTime > 1f)
         {
@@ -132,6 +134,11 @@ public class FlameTurret : MonoBehaviour
         {
             Gizmos.DrawLine(Points[i], Points[i+1]);
         }
+    }
+
+    public void RemoveSelf()
+    {
+        gameObject.active = false;
     }
 
     private void LineMovement()
