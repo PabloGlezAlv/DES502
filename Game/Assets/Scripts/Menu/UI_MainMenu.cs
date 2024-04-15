@@ -30,7 +30,7 @@ public class UI_MainMenu : MonoBehaviour
 
     private void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && DosIntro.Done)//Play
+        if(Input.GetKeyDown(KeyCode.Space))//Play
         {
             if (activeArrow == 0)
             {
