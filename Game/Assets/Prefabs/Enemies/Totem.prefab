@@ -152,7 +152,7 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: 0.4}
     oldSize: {x: 0.64, y: 1.28}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
@@ -187,6 +187,10 @@ MonoBehaviour:
   numberBullets: 3
   delayBullet: 0.2
   bullet: {fileID: 4184669408120440880, guid: a4a3b78f90482d3459f7158b7c839d4d, type: 3}
+  normalState: {fileID: 2371549725544006361, guid: c407933093f0bb0408406279d00e97ed, type: 3}
+  attackState: {fileID: -1267229016364364992, guid: c407933093f0bb0408406279d00e97ed, type: 3}
+  deadState1: {fileID: 367614563, guid: c407933093f0bb0408406279d00e97ed, type: 3}
+  deadState2: {fileID: -1400899825, guid: c407933093f0bb0408406279d00e97ed, type: 3}
 --- !u!1 &9003080406361740209
 GameObject:
   m_ObjectHideFlags: 0

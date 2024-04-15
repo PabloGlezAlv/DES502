@@ -14,6 +14,15 @@ public class TotemAttack : EnemyBase, IEnemy
     private float delayBullet = 0.2f;
     [SerializeField]
     private GameObject bullet;
+    [Header("Animation")] //Torret works with a diffrent kind of animation due to the lack of sprites/animations
+    [SerializeField]
+    private Sprite normalState;
+    [SerializeField]
+    private Sprite attackState;
+    [SerializeField]
+    private Sprite deadState1;
+    [SerializeField]
+    private Sprite deadState2;
 
     private List<Vector3> attackPositions = new List<Vector3>();
 
@@ -25,12 +34,19 @@ public class TotemAttack : EnemyBase, IEnemy
 
     private static List<GameObject> bullets = new List<GameObject>();
 
+    private SpriteRenderer renderer;
+
+    private float deadTimer = 0.6f;
+
+
     protected void Awake()
     {
         base.Awake();
         baseSpeed = speed;
 
         player = GameObject.FindGameObjectWithTag("Player").transform;
+
+        renderer = GetComponent<SpriteRenderer>();
     }
 
 
@@ -38,21 +54,47 @@ public class TotemAttack : EnemyBase, IEnemy
     {
         base.Update();
 
-        timerAttack += Time.deltaTime;
-
-        if(timerAttack > AttackRatio) 
+        if(actualLife <= 0)
         {
-            roundBullets++;
-            timerAttack -= delayBullet;
-            //Attack
-            attackPositions.Add((player.position - transform.position).normalized);
-            Invoke("SpawnBullet", delayBullet);
-
-            //Reset attack
-            if (roundBullets >= numberBullets)
+            deadTimer -= Time.deltaTime;
+            if(deadTimer <= 0.8)
             {
-                timerAttack = 0;
-                roundBullets = 0;
+                renderer.sprite = deadState2;
+            }
+            if(deadTimer <= 0f)
+            {
+                float randomValue = UnityEngine.Random.value;
+
+                if (randomValue < dropCoinChances)
+                {
+                    GameObject coin = Instantiate(coinPrefab);
+                    coin.transform.position = transform.position;
+                }
+                this.gameObject.SetActive(false);
+            }
+        }
+        else
+        {
+            timerAttack += Time.deltaTime;
+
+            if (timerAttack > AttackRatio)
+            {
+                renderer.sprite = attackState;
+
+                roundBullets++;
+                timerAttack -= delayBullet;
+                //Attack
+                attackPositions.Add((player.position - transform.position).normalized);
+                Invoke("SpawnBullet", delayBullet);
+
+                //Reset attack
+                if (roundBullets >= numberBullets)
+                {
+                    timerAttack = 0;
+                    roundBullets = 0;
+
+                    renderer.sprite = normalState;
+                }
             }
         }
     }
@@ -95,15 +137,8 @@ public class TotemAttack : EnemyBase, IEnemy
         actualLife -= damage;
         if (actualLife <= 0) //Dead
         {
-            float randomValue = UnityEngine.Random.value;
-
-            if (randomValue < dropCoinChances)
-            {
-                GameObject coin = Instantiate(coinPrefab);
-                coin.transform.position = transform.position;
-            }
+            renderer.sprite = deadState1;
             doorsController.KillEntity();
-            this.gameObject.SetActive(false);
         }
         else
         {
