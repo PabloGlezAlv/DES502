@@ -9,6 +9,7 @@ TagManager:
   - DoorController
   - Immovable
   - AudioManager
+  - MusicSelector
   layers:
   - Default
   - TransparentFX
