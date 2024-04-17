@@ -16,6 +16,7 @@ public class MusicSelecor : MonoBehaviour
     private string IntroName;
     private float IntroTime;
     public bool MusicStarted;
+    public static int LastArea = 0;//0 for dungeon, 1 for market
 
     private void Start()
     {
@@ -63,8 +64,8 @@ public class MusicSelecor : MonoBehaviour
     public void PlayMusic()
     {
         //Idea is we wait for the intro to complete then we play the track we want
+        if (IntroName != "") AudioManager.instance.SetVolume(IntroName, 0);
         AudioManager.instance.Play(IntroName);
-        if(IntroName != "")AudioManager.instance.SetVolume(IntroName, 0);
         AudioManager.instance.SetVolume(TuneName, AudioManager.MusicVolume);
         StartCoroutine(AudioManager.instance.FadeAudio(IntroName, -.125f, AudioManager.MusicVolume));
         AudioManager.instance.PlayDelayed(TuneName, IntroTime);

@@ -1,13 +1,5 @@
-using CodeMonkey.Utils;
-using System.Collections;
-using System.Collections.Generic;
-using System.Net;
 using UnityEngine;
-using TMPro;
 using UnityEngine.UI;
-using System;
-using Unity.VisualScripting;
-using UnityEditor.Rendering;
 
 public class UI_Pause : MonoBehaviour
 {
@@ -97,20 +89,25 @@ public class UI_Pause : MonoBehaviour
 
     void UpdateArrows()
     {
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (container.active)
         {
-            UIIndex++;
-            if (UIIndex > 4)
+            if (Input.GetKeyDown(KeyCode.DownArrow))
             {
-                UIIndex = 4;
+                AudioManager.instance.Play("Select");
+                UIIndex++;
+                if (UIIndex > 3)
+                {
+                    UIIndex = 3;
+                }
             }
-        }
-        else if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            UIIndex--;
-            if (UIIndex < 0)
+            else if (Input.GetKeyDown(KeyCode.UpArrow))
             {
-                UIIndex = 0;
+                AudioManager.instance.Play("Select");
+                UIIndex--;
+                if (UIIndex < 0)
+                {
+                    UIIndex = 0;
+                }
             }
         }
 

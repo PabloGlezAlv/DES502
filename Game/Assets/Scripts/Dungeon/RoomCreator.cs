@@ -91,6 +91,7 @@ public class RoomCreator : MonoBehaviour
     private int level = 0;
     void Start()
     {
+        MusicSelecor.LastArea = currentVisualizer;
         shopInstance = Instantiate(shop);
         nextFloorHatchInstance = Instantiate(hatch);
 
@@ -136,6 +137,16 @@ public class RoomCreator : MonoBehaviour
         currentVisualizer++;
         if (currentVisualizer >= visualizers.Count) currentVisualizer = 0;
 
+        //Plays track of next area if not the area before
+        if (MusicSelecor.LastArea != currentVisualizer)//assuming we have changed floors
+        {
+            AudioManager.instance.GetComponent<MusicSelecor>().FadeMusic();
+            if (currentVisualizer == (int)TilemapType.Castle){ AudioManager.instance.GetComponent<MusicSelecor>().ChangeMusic(GameTracks.Dungeon); }
+            else if (currentVisualizer == (int)TilemapType.Market) {AudioManager.instance.GetComponent<MusicSelecor>().ChangeMusic(GameTracks.Market); }
+            MusicSelecor.LastArea = currentVisualizer;
+
+        }
+
         Debug.Log(currentVisualizer);
 
         Clear();
@@ -180,8 +191,8 @@ public class RoomCreator : MonoBehaviour
                 Destroy(enemy);
             }
         }
-        enemiesInstances.Clear ();
-        roomsVisited.Clear ();
+        enemiesInstances.Clear();
+        roomsVisited.Clear();
         holesFloor.Clear();
         holesSprite.Clear();
         spikeTrap.Clear();
