@@ -8,7 +8,12 @@ public class UI_MainMenu : MonoBehaviour
     List<GameObject> arrow;
     [SerializeField]
     float fadeTime = 0.5f;
+    [SerializeField]
+    FadeGame startGame;
+
     int activeArrow = 0;
+
+    bool intoGame = false;
 
     float timer;
 
@@ -30,6 +35,7 @@ public class UI_MainMenu : MonoBehaviour
 
     private void Update()
     {
+        if (intoGame) return;
         if(Input.GetKeyDown(KeyCode.Space))//Play
         {
             if (activeArrow == 0)
@@ -85,13 +91,15 @@ public class UI_MainMenu : MonoBehaviour
     private void PlayHistory()
     {
         UserInformation.gameMode = gamemode.history;
-        SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
+        startGame.SetFade();
+        intoGame = true;
     }
 
     private void PlayEndless()
     {
         UserInformation.gameMode = gamemode.endless;
-        SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
+        startGame.SetFade();
+        intoGame = true;
     }
 
     private void Quit()
