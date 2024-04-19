@@ -11,6 +11,9 @@ TextureImporter:
   - first:
       213: -6692280930169829489
     second: Walking Away Attack_2
+  - first:
+      213: 3490736759090594250
+    second: Walking Away Attack_3
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -108,7 +111,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 128
+        y: 156
         width: 64
         height: 64
       alignment: 0
@@ -129,9 +132,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 64
-        y: 128
+        y: 156
         width: 64
-        height: 64
+        height: 69
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -150,9 +153,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 64
+        y: 78
         width: 64
-        height: 64
+        height: 78
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -170,19 +173,19 @@ TextureImporter:
       name: Walking Away Attack_3
       rect:
         serializedVersion: 2
-        x: 64
-        y: 64
-        width: 64
-        height: 64
+        x: 65
+        y: 78
+        width: 63
+        height: 76
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
-      tessellationDetail: 0
+      tessellationDetail: -1
       bones: []
-      spriteID: ec424ea61fe5bfe448f6e838ef992ef6
-      internalID: -331369683
+      spriteID: ac14ef17696917030800000000000000
+      internalID: 3490736759090594250
       vertices: []
       indices: 
       edges: []
@@ -194,6 +197,27 @@ TextureImporter:
         x: 0
         y: 0
         width: 64
+        height: 65
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 41689386734b50448a22752e310c6d0b
+      internalID: -1231100384
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Walking Away Attack_5
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
         height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -202,8 +226,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 009c22c5ff83709408f12e10ea2a02c1
-      internalID: -457407111
+      spriteID: 2ac254503e7f93e44893c51f809e741c
+      internalID: -1562476667
       vertices: []
       indices: 
       edges: []
@@ -211,7 +235,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 3ca942cb89bd7264bb83b6d695ed7b78
+    spriteID: 78d537181a9ddf04bb82a5dac6629c10
     internalID: 0
     vertices: []
     indices: 
@@ -222,8 +246,9 @@ TextureImporter:
       Walking Away Attack_0: -4143138787322132689
       Walking Away Attack_1: 2739778259204865742
       Walking Away Attack_2: -6692280930169829489
-      Walking Away Attack_3: -331369683
-      Walking Away Attack_4: -457407111
+      Walking Away Attack_3: 3490736759090594250
+      Walking Away Attack_4: -1231100384
+      Walking Away Attack_5: -1562476667
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
