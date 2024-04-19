@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 152994993366438466}
   - component: {fileID: 8235765429025254311}
   - component: {fileID: 4462051446634885292}
-  m_Layer: 7
+  m_Layer: 0
   m_Name: attackArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -349,6 +349,7 @@ MonoBehaviour:
   pushForce: 8
   objectRenderer: {fileID: 8697034937215301028}
   coinPrefab: {fileID: 6051068933900146545, guid: 99198bf4b2a287545ae7ab462675ac16, type: 3}
+  damage: 2
   BeforeAttack: 0.5
   attackingTime: 1
   hideTime: 1

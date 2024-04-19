@@ -14,12 +14,14 @@ public class ObjectsManager : MonoBehaviour
     [SerializeField]
     List<int> coinsValue;
 
+
     [SerializeField]
     List<Sprite> speedSprites;
     [SerializeField]
     List<float> speedUpgrade;
     [SerializeField]
     List<int> speedShopPrice;
+    List<string> speedDescription = new List<string>();
 
     [SerializeField]
     List<Sprite> scaleSprites;
@@ -27,6 +29,7 @@ public class ObjectsManager : MonoBehaviour
     List<float> scaleUpgrade; 
     [SerializeField]
     List<int> scaleShopPrice;
+    List<string> scaleDescription = new List<string>();
 
     [SerializeField]
     List<Sprite> healSprites;
@@ -34,6 +37,7 @@ public class ObjectsManager : MonoBehaviour
     List<int> healUpgrade;
     [SerializeField]
     List<int> healShopPrice;
+    List<string> healDescription = new List<string>();
 
     [SerializeField]
     List<Sprite> damageSprites;
@@ -41,6 +45,7 @@ public class ObjectsManager : MonoBehaviour
     List<int> damageUpgrade;
     [SerializeField]
     List<int> damageShopPrice;
+    List<string> damageDescription = new List<string>();
 
     public static ObjectsManager instance;
 
@@ -56,6 +61,33 @@ public class ObjectsManager : MonoBehaviour
             Destroy(gameObject);
             return;
         }
+
+        //Items descriptions (Every Item  have 5 1 each rarity the first one is the worst of them)
+        speedDescription.Add("speed description 1");
+        speedDescription.Add("speed description 2");
+        speedDescription.Add("speed description 2");
+        speedDescription.Add("speed description 2");
+        speedDescription.Add("speed description 2");
+
+
+        scaleDescription.Add("scale description 2");
+        scaleDescription.Add("scale description 2");
+        scaleDescription.Add("scale description 2");
+        scaleDescription.Add("scale description 2");
+        scaleDescription.Add("scale description 2");
+
+        healDescription.Add("heal description 2");
+        healDescription.Add("heal description 2");
+        healDescription.Add("heal description 2");
+        healDescription.Add("heal description 2");
+        healDescription.Add("heal description 2");
+
+        damageDescription.Add("damage description 2");
+        damageDescription.Add("damage description 2");
+        damageDescription.Add("damage description 2");
+        damageDescription.Add("damage description 2");
+        damageDescription.Add("damage description 2");
+
     }
     //--------------------COINS----------------------------------
     public Sprite getCoinSprite(int i)
@@ -97,6 +129,11 @@ public class ObjectsManager : MonoBehaviour
     {
         return speedShopPrice[i];
     }
+
+    public string getSpeedDescription(int i)
+    {
+        return speedDescription[i];
+    }
     //-------------------------------SCALE OBJECT----------------------------
     public Sprite getScaleSprite(int i)
     {
@@ -117,6 +154,11 @@ public class ObjectsManager : MonoBehaviour
     public int getScalePrice(int i)
     {
         return scaleShopPrice[i];
+    }
+
+    public string getScaleDescription(int i)
+    {
+        return scaleDescription[i];
     }
     //-------------------------------DAMAGE OBJECT----------------------------
     public Sprite getDamageSprite(int i)
@@ -140,6 +182,10 @@ public class ObjectsManager : MonoBehaviour
         return damageShopPrice[i];
     }
 
+    public string getDamageDescription(int i)
+    {
+        return damageDescription[i];
+    }
 
     //-------------------------------HEAL OBJECT----------------------------
 
@@ -162,5 +208,10 @@ public class ObjectsManager : MonoBehaviour
     public int getHealPrice(int i)
     {
         return healShopPrice[i];
+    }
+
+    public string getHealDescription(int i)
+    {
+        return healDescription[i];
     }
 }

@@ -149,6 +149,7 @@ public class DiggerMovement : EnemyBase, IEnemy
             {
                 AttakingTimer = attackingTime;
                 attack.enabled = true;
+                Debug.Log("Digger Attacking");
             }
         }
         else if(AttakingTimer > 0)
@@ -158,6 +159,8 @@ public class DiggerMovement : EnemyBase, IEnemy
             {
                 upAfterAttackTimer = afterAttackingUp;
                 attack.enabled = false;
+
+                Debug.Log("Digger No Attacking");
             }
         }
         else if (upAfterAttackTimer > 0)
@@ -165,7 +168,7 @@ public class DiggerMovement : EnemyBase, IEnemy
             upAfterAttackTimer -= Time.fixedDeltaTime;
             if (upAfterAttackTimer <= 0)
             {
-                hideTimer = hideTime;
+                hideTimer = hideTime + UnityEngine.Random.Range(0, 0.5f); //Variety to the diggers
                 collider.enabled = false;
                 spriteRenderer.sprite = null;
                 objectRenderer.sprite = null;

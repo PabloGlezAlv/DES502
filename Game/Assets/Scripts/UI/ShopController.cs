@@ -56,16 +56,16 @@ public class ShopController : MonoBehaviour
             switch((Items)item)
             {
                 case Items.ScaleHelmet:
-                    CreateItemButton((Items)item, (Rarity)rarity, ObjectsManager.instance.getScaleSprite(rarity), "Scale " + rarity.ToString(), 
-                        ObjectsManager.instance.getScalePrice(rarity), i);
+                    CreateItemButton((Items)item, (Rarity)rarity, ObjectsManager.instance.getScaleSprite(rarity), "Scale " + rarity.ToString(),
+                        ObjectsManager.instance.getScaleDescription(rarity), ObjectsManager.instance.getScalePrice(rarity), i);
                     break;
                 case Items.SpeedHelmet:
                     CreateItemButton((Items)item, (Rarity)rarity, ObjectsManager.instance.getSpeedSprite(rarity), "Speed " + rarity.ToString(),
-                       ObjectsManager.instance.getSpeedPrice(rarity), i);
+                       ObjectsManager.instance.getSpeedDescription(rarity), ObjectsManager.instance.getSpeedPrice(rarity), i);
                     break;
                 case Items.DamageHelmet:
                     CreateItemButton((Items)item, (Rarity)rarity, ObjectsManager.instance.getDamageSprite(rarity), "Damage " + rarity.ToString(),
-                       ObjectsManager.instance.getSpeedPrice(rarity), i);
+                       ObjectsManager.instance.getDamageDescription(rarity), ObjectsManager.instance.getDamagePrice(rarity), i);
                     break;
             }
         }
@@ -73,7 +73,7 @@ public class ShopController : MonoBehaviour
         rarity = Random.Range(0, (int)Rarity.Legendary + 1);
 
         CreateItemButton(Items.heal, (Rarity)rarity, ObjectsManager.instance.getHealSprite(rarity), "Heal " + rarity.ToString(),
-                       ObjectsManager.instance.getHealPrice(rarity), 2);
+                       ObjectsManager.instance.getHealDescription(rarity), ObjectsManager.instance.getHealPrice(rarity), 2);
     }
 
     public void ResetItems()
@@ -93,7 +93,7 @@ public class ShopController : MonoBehaviour
         Hide();
     }
 
-    private void CreateItemButton(Items itemType, Rarity rare, Sprite itemSprite, string itemName, int itemCost, int positionIndex)
+    private void CreateItemButton(Items itemType, Rarity rare, Sprite itemSprite, string itemName, string itemDescription, int itemCost, int positionIndex)
     {
         shopItems[positionIndex].gameObject.SetActive(true);
         RectTransform shopItemRectTransform = shopItems[positionIndex].GetComponent<RectTransform>();
@@ -102,6 +102,7 @@ public class ShopController : MonoBehaviour
         shopItemRectTransform.anchoredPosition = new Vector2(shopItemHeight * positionIndex - shopItemHeight, 0);
 
         shopItems[positionIndex].Find("nameText").GetComponent<TextMeshProUGUI>().SetText(itemName);
+        shopItems[positionIndex].Find("ItemDescription").GetComponent<TextMeshProUGUI>().SetText(itemDescription);
         shopItems[positionIndex].Find("costText").GetComponent<TextMeshProUGUI>().SetText(itemCost.ToString());
 
         shopItems[positionIndex].Find("itemImage").GetComponent<UnityEngine.UI.Image>().sprite = itemSprite;

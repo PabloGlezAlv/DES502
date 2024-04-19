@@ -18,9 +18,9 @@ public class DiggerAttack : MonoBehaviour
     {
         //Collision  with player
         LifeSystem system;
-        Debug.Log("Dañooo");
         if ((system = collision.gameObject.GetComponent<LifeSystem>()) && !damaged )
         {
+            Debug.Log("Digger do damage");
             damaged = true;
             system.GetDamage(damage);
         }
@@ -32,6 +32,7 @@ public class DiggerAttack : MonoBehaviour
         LifeSystem system;
         if ((system = collision.gameObject.GetComponent<LifeSystem>()) && !damaged)
         {
+            Debug.Log("Digger do damage");
             damaged = true;
         }
     }
