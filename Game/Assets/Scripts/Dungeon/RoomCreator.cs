@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Numerics;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 
 public enum Direction { None, Top, Bottom, Left, Right }
 
@@ -156,6 +156,7 @@ public class RoomCreator : MonoBehaviour
         }
 
         Debug.Log(currentVisualizer);
+        UserInformation.lastScenario = (TilemapType)currentVisualizer;
 
         Clear();
         if (gamemode.endless == UserInformation.gameMode)
@@ -175,6 +176,7 @@ public class RoomCreator : MonoBehaviour
             if (level == historynLevels + 1)
             {
                 Debug.Log("End game");
+                SceneManager.LoadScene("EndGame");
             }
         }
         if(level > UserInformation.data.maxRounds)
@@ -183,7 +185,6 @@ public class RoomCreator : MonoBehaviour
             UserInformation.SaveInformation();
         }
 
-        UserInformation.lastScenario = (TilemapType)currentVisualizer;
 
         GenerateDungeon();
     }
