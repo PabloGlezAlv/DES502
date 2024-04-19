@@ -10,6 +10,8 @@ public static class UserInformation
 {
     public static gamemode gameMode = gamemode.none;
 
+    public static TilemapType lastScenario = TilemapType.Castle;
+
     static readonly string path = Application.dataPath + "data.json";
 
     public static PlayerInfo data = new PlayerInfo();

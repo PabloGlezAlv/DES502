@@ -131,11 +131,19 @@ public class RoomCreator : MonoBehaviour
 
     public void generateNewLevel()
     {
+        level++;
         //Clean saved data
         visualizers[currentVisualizer].Clear();
 
-        currentVisualizer++;
-        if (currentVisualizer >= visualizers.Count) currentVisualizer = 0;
+        if (gamemode.endless == UserInformation.gameMode)
+        {
+            currentVisualizer++;
+            if (currentVisualizer >= visualizers.Count) currentVisualizer = 0;
+        }
+        else if(gamemode.history == UserInformation.gameMode && level > historynLevels/2)//History mode
+        {
+            currentVisualizer = 1;
+        }
 
         //Plays track of next area if not the area before
         if (MusicSelecor.LastArea != currentVisualizer)//assuming we have changed floors
@@ -150,7 +158,6 @@ public class RoomCreator : MonoBehaviour
         Debug.Log(currentVisualizer);
 
         Clear();
-        level++;
         if (gamemode.endless == UserInformation.gameMode)
         {
             if(level % 2 == 0 && stepsPerWalk < MaxStepsPerWalk)
@@ -173,8 +180,10 @@ public class RoomCreator : MonoBehaviour
         if(level > UserInformation.data.maxRounds)
         {
             UserInformation.data.maxRounds = level;
+            UserInformation.SaveInformation();
         }
-        
+
+        UserInformation.lastScenario = (TilemapType)currentVisualizer;
 
         GenerateDungeon();
     }
