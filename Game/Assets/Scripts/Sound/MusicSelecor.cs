@@ -15,6 +15,7 @@ public class MusicSelecor : MonoBehaviour
     private string TuneName;
     private string IntroName;
     private float IntroTime;
+    private float IntroCounter;
     public bool MusicStarted;
     public static int LastArea = 0;//0 for dungeon, 1 for market
 
@@ -61,19 +62,32 @@ public class MusicSelecor : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        IntroCounter += Time.deltaTime;
+    }
+
     public void PlayMusic()
     {
         //Idea is we wait for the intro to complete then we play the track we want
         if (IntroName != "") AudioManager.instance.SetVolume(IntroName, 0);
-        AudioManager.instance.Play(IntroName);
         AudioManager.instance.SetVolume(TuneName, AudioManager.MusicVolume);
+        AudioManager.instance.Play(IntroName);
         StartCoroutine(AudioManager.instance.FadeAudio(IntroName, -.125f, AudioManager.MusicVolume));
         AudioManager.instance.PlayDelayed(TuneName, IntroTime);
     }
 
     public void FadeMusic()
     {
-        if (IntroName != "") StartCoroutine(AudioManager.instance.FadeAudio(IntroName, 1f, AudioManager.MusicVolume));
-        StartCoroutine(AudioManager.instance.FadeAudio(TuneName, 1f, AudioManager.MusicVolume));
+        if (IntroCounter < IntroTime)//in case audio is changed before the intro fully plays
+        {
+            if (IntroName != "") StartCoroutine(AudioManager.instance.FadeAudio(IntroName, .25f, AudioManager.MusicVolume));
+            AudioManager.instance.Stop(TuneName);
+        }
+        else
+        {
+            if (IntroName != "") StartCoroutine(AudioManager.instance.FadeAudio(IntroName, .25f, AudioManager.MusicVolume));
+            StartCoroutine(AudioManager.instance.FadeAudio(TuneName, .25f, AudioManager.MusicVolume));
+        }
     }
 }

@@ -100,7 +100,7 @@ public class AudioManager : MonoBehaviour
             s.source.volume -= Increment * Time.deltaTime;
             if (Increment < 0)//Assume it is a fade in
             {
-                if (s.source.volume > MaxVolume)
+                if (s.source.volume >= MaxVolume)
                 {
                     s.source.volume = MaxVolume;
                     break;
