@@ -727,7 +727,6 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420033}
-  - component: {fileID: 519420035}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -826,18 +825,6 @@ MonoBehaviour:
   fadeOutBlack: 0.2
   marginNewRoom: 0.1
   blackFade: {fileID: 2056394449}
---- !u!114 &519420035
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 519420028}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a79441f348de89743a2939f4d699eac1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &570922753 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8150628068917364532, guid: 1f0f7ba089f5ef0499763b1127e21f0a, type: 3}
@@ -25042,7 +25029,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1374440472}
-  - component: {fileID: 1374440471}
   m_Layer: 0
   m_Name: Global Volume
   m_TagString: Untagged
@@ -25050,18 +25036,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1374440471
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1374440470}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &1374440472
 Transform:
   m_ObjectHideFlags: 0
@@ -62955,7 +62929,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs:
-  - {fileID: 2838356775622511868, guid: a86ee03f7cbbdb64db682cff2dc211eb, type: 3}
+  - {fileID: 2874034617237734068, guid: 30903d8135871fe4e81ae22b7efb3ded, type: 3}
 --- !u!1001 &4168328828164288479
 PrefabInstance:
   m_ObjectHideFlags: 0

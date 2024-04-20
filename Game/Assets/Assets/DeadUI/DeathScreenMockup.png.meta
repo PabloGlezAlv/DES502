@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      DeathScreenMockup_0: 2879184647883344838
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

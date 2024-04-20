@@ -95,19 +95,26 @@ public class AudioManager : MonoBehaviour
     {
         Sound s = Array.Find(sounds, sound => sound.name == name);
 
-        while (s.source.volume > 0f || s.source.volume < MaxVolume)
+        while (s.source.volume > -1f && s.source.volume < MaxVolume)
         {
             s.source.volume -= Increment * Time.deltaTime;
-            if (s.source.volume <= 0f)
+            if (Increment < 0)//Assume it is a fade in
             {
-                s.source.Stop();
-                yield return null;
+                if (s.source.volume > MaxVolume)
+                {
+                    s.source.volume = MaxVolume;
+                    break;
+                }
             }
-            else if (s.source.volume > MaxVolume)
+            else//Assume it is a fade out
             {
-                s.source.volume = MaxVolume;
-                break;
+                if (s.source.volume <= 0f)
+                {
+                    s.source.Stop();
+                    break;
+                }
             }
+
             yield return null;
         }
 
