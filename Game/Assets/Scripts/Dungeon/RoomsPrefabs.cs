@@ -72,10 +72,101 @@ public class RoomsPrefabs : MonoBehaviour
         List<Direction> room17 = new List<Direction>();
         emptyDoor.Add(room17);
 
-        //----------Room 16---------------------
+        //----------Room 18---------------------
         List<Direction> room18 = new List<Direction>();
         emptyDoor.Add(room18);
 
+        //----------Room 18---------------------
+        List<Direction> room18 = new List<Direction>();
+        emptyDoor.Add(room18);
+
+        //----------Room 19---------------------
+        List<Direction> room19 = new List<Direction>();
+        emptyDoor.Add(room19);
+
+        //----------Room 20---------------------
+        List<Direction> room20 = new List<Direction>();
+        emptyDoor.Add(room20);
+
+        //----------Room 21---------------------
+        List<Direction> room21 = new List<Direction>();
+        emptyDoor.Add(room21);
+
+        //----------Room 22---------------------
+        List<Direction> room22 = new List<Direction>();
+        emptyDoor.Add(room22);
+
+        //----------Room 23---------------------
+        List<Direction> room23 = new List<Direction>();
+        emptyDoor.Add(room23);
+
+        //----------Room 24---------------------
+        List<Direction> room24 = new List<Direction>();
+        emptyDoor.Add(room24);
+
+        //----------Room 25---------------------
+        List<Direction> room25 = new List<Direction>();
+        emptyDoor.Add(room25);
+
+        //----------Room 26---------------------
+        List<Direction> room26 = new List<Direction>();
+        emptyDoor.Add(room26);
+
+        //----------Room 27---------------------
+        List<Direction> room27 = new List<Direction>();
+        emptyDoor.Add(room27);
+
+        //----------Room 28---------------------
+        List<Direction> room28 = new List<Direction>();
+        emptyDoor.Add(room28);
+
+        //----------Room 29---------------------
+        List<Direction> room29 = new List<Direction>();
+        emptyDoor.Add(room29);
+
+        //----------Room 30---------------------
+        List<Direction> room30 = new List<Direction>();
+        emptyDoor.Add(room30);
+
+        //----------Room 31---------------------
+        List<Direction> room31 = new List<Direction>();
+        emptyDoor.Add(room31);
+
+        //----------Room 32---------------------
+        List<Direction> room32 = new List<Direction>();
+        emptyDoor.Add(room32);
+
+        //----------Room 33---------------------
+        List<Direction> room33 = new List<Direction>();
+        emptyDoor.Add(room33);
+
+        //----------Room 34---------------------
+        List<Direction> room34 = new List<Direction>();
+        emptyDoor.Add(room34);
+
+        //----------Room 35---------------------
+        List<Direction> room35 = new List<Direction>();
+        emptyDoor.Add(room35);
+
+        //----------Room 36---------------------
+        List<Direction> room36 = new List<Direction>();
+        emptyDoor.Add(room36);
+
+        //----------Room 37---------------------
+        List<Direction> room37 = new List<Direction>();
+        emptyDoor.Add(room37);
+
+        //----------Room 38---------------------
+        List<Direction> room38 = new List<Direction>();
+        emptyDoor.Add(room38);
+
+        //----------Room 39---------------------
+        List<Direction> room39 = new List<Direction>();
+        emptyDoor.Add(room39);
+
+        //----------Room 40---------------------
+        List<Direction> room40 = new List<Direction>();
+        emptyDoor.Add(room40);
     }
 
     public GameObject generateRandomRoom(Vector2Int center, List<Direction> roomsDirections, ref List<Vector2Int> spikesPositions, ref List<Vector2Int> holesPositions, 
