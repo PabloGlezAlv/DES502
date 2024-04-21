@@ -76,10 +76,6 @@ public class RoomsPrefabs : MonoBehaviour
         List<Direction> room18 = new List<Direction>();
         emptyDoor.Add(room18);
 
-        //----------Room 18---------------------
-        List<Direction> room18 = new List<Direction>();
-        emptyDoor.Add(room18);
-
         //----------Room 19---------------------
         List<Direction> room19 = new List<Direction>();
         emptyDoor.Add(room19);
@@ -204,7 +200,9 @@ public class RoomsPrefabs : MonoBehaviour
 
     private bool MatchesDoor(int index, List<Direction> roomsDirections)
     {
-        for(int i = 0; i < emptyDoor[index].Count;i++)
+        if (emptyDoor[index].Count == 0) return false; //No door specification -> Room can go everywhere
+
+        for (int i = 0; i < emptyDoor[index].Count; i++)
         {
             if (roomsDirections.Contains(emptyDoor[index][i]))
                 return true;
