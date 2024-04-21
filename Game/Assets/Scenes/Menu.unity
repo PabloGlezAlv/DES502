@@ -922,7 +922,7 @@ MonoBehaviour:
   - {fileID: 104458868}
   - {fileID: 801944520}
   fadeTime: 0.5
-  startGame: {fileID: 0}
+  startGame: {fileID: 333056526}
 --- !u!1 &1149566281
 GameObject:
   m_ObjectHideFlags: 0
