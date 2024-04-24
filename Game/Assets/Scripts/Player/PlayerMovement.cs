@@ -349,7 +349,7 @@ public class PlayerMovement : MonoBehaviour
         {
             ChangeAttack(inputs[0]);
             animator.SetInteger("mov", (int)inputs[0]);
-            Debug.Log(inputs[0]);
+          //  Debug.Log(inputs[0]);
         }
         else if (inputs.Count == 0)
         {

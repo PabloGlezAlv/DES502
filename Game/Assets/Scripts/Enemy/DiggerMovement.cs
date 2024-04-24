@@ -29,8 +29,6 @@ public class DiggerMovement : EnemyBase, IEnemy
 
     private DiggerAttack attack; 
 
-    private Sprite attackSprite;
-
     private float hideTimer = 0f;
     private float waitingTimer = 0f;
     private float upBeforeAttackTimer = 0f;
@@ -38,11 +36,11 @@ public class DiggerMovement : EnemyBase, IEnemy
     private float AttakingTimer = 0f;
     private Collider2D collider;
 
-    Sprite objectSprite;
-
     private List<Vector2Int> blocksFull = new List<Vector2Int>();
 
     Vector2Int center;
+
+    private  Animator animator;
 
     protected void Awake()
     {
@@ -50,12 +48,13 @@ public class DiggerMovement : EnemyBase, IEnemy
 
         attack = GetComponentInChildren<DiggerAttack>();
 
+        animator = GetComponent<Animator>();
+
         collider = GetComponent<Collider2D>();
 
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<PlayerMovement>();
         hideTimer = hideTime;
 
-        attackSprite = spriteRenderer.sprite;
         spriteRenderer.sprite = null;
 
 
@@ -74,8 +73,6 @@ public class DiggerMovement : EnemyBase, IEnemy
         blocksFull.AddRange(HoleMap);
         blocksFull.AddRange(SpikeMap);
         blocksFull.AddRange(torretMap);
-
-        objectSprite = objectRenderer.sprite;
     }
 
     void FixedUpdate()
@@ -128,8 +125,10 @@ public class DiggerMovement : EnemyBase, IEnemy
                 transform.position = playerpos;
 
                 waitingTimer = BeforeAttack;
-               
-                spriteRenderer.sprite = hideSprite;
+
+                spriteRenderer.color = Color.white;
+                animator.SetBool("hide", false);
+                animator.SetBool("appear", true);
             }
         }
         else if(waitingTimer > 0)
@@ -137,9 +136,10 @@ public class DiggerMovement : EnemyBase, IEnemy
             waitingTimer -= Time.fixedDeltaTime;
             if(waitingTimer <= 0)
             {
+                animator.SetBool("appear", false);
+                animator.SetBool("stand", true);
                 upBeforeAttackTimer = beforeAttackingUp;
-                spriteRenderer.sprite = attackSprite;
-                objectRenderer.sprite = objectSprite;
+                objectRenderer.color = Color.white;
             }
         }
         else if (upBeforeAttackTimer > 0)
@@ -149,6 +149,8 @@ public class DiggerMovement : EnemyBase, IEnemy
             {
                 AttakingTimer = attackingTime;
                 attack.enabled = true;
+                animator.SetBool("attack", true);
+                animator.SetBool("stand", false);
                 Debug.Log("Digger Attacking");
             }
         }
@@ -160,6 +162,8 @@ public class DiggerMovement : EnemyBase, IEnemy
                 upAfterAttackTimer = afterAttackingUp;
                 attack.enabled = false;
 
+                animator.SetBool("attack", false);
+                animator.SetBool("stand", true);
                 Debug.Log("Digger No Attacking");
             }
         }
@@ -170,8 +174,12 @@ public class DiggerMovement : EnemyBase, IEnemy
             {
                 hideTimer = hideTime + UnityEngine.Random.Range(0, 0.5f); //Variety to the diggers
                 collider.enabled = false;
-                spriteRenderer.sprite = null;
-                objectRenderer.sprite = null;
+
+                animator.SetBool("stand", false);
+                animator.SetBool("hide", true);
+                spriteRenderer.color = new Color(0,0,0,0);
+                objectRenderer.color = new Color(0, 0, 0, 0);
+                Debug.Log("Hide");
             }
         }
     }
@@ -190,6 +198,8 @@ public class DiggerMovement : EnemyBase, IEnemy
                 coin.transform.position = transform.position;
             }
             doorsController.KillEntity();
+
+            animator.SetBool("stand", true);
             this.gameObject.SetActive(false);
         }
         else
