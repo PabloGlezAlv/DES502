@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 5856879726447980940}
   - component: {fileID: 1853721810739926337}
   - component: {fileID: 934567835307673318}
+  - component: {fileID: 1524964183458766780}
   m_Layer: 7
   m_Name: Digger
   m_TagString: Untagged
@@ -244,12 +245,12 @@ SpriteRenderer:
   m_SortingLayerID: 676624687
   m_SortingLayer: 4
   m_SortingOrder: 1
-  m_Sprite: {fileID: -3048741275224648871, guid: 63c8fb88ea7b81741bbdd3c1151cd729, type: 3}
+  m_Sprite: {fileID: -3054394615190014659, guid: ffe4b5a20954c71498411d0c40acfb73, type: 3}
   m_Color: {r: 0.15557136, g: 0.8662755, b: 0.8962264, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 5.17, y: 3.34}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -320,8 +321,8 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 4, y: 4}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 2.068, y: 1.336}
+    newSize: {x: 5.17, y: 3.34}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
@@ -356,3 +357,25 @@ MonoBehaviour:
   beforeAttackingUp: 0.2
   afterAttackingUp: 0.5
   hideSprite: {fileID: 1620840836723810862, guid: 63c8fb88ea7b81741bbdd3c1151cd729, type: 3}
+--- !u!95 &1524964183458766780
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6786280498914932588}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7305cd7c076c3614d9a4153c74237dad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
