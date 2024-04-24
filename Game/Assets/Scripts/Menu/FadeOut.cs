@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEditor.Profiling;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class FadeOut : MonoBehaviour
@@ -51,7 +52,7 @@ public class FadeOut : MonoBehaviour
             color.a += Time.deltaTime * fadeTime;
 
             img.color = color;
-            if (color.a >= 0) Debug.Log("Change scene)"); //WRITE HERE THE LINE TO CREDITS SCENE
+            if (color.a <= 0) SceneManager.LoadScene("EndGame Inside"); 
         }
         else if(moveCamera)
         {
