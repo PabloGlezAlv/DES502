@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0864e20dfec28b44897273f194fcd5b6
+guid: f5a6458d4e7bea744b7326808e7b1b4b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1923994175756728024
-    second: house_0
+      213: 3974372170358731111
+    second: hat_speed_4_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -98,13 +98,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: house_0
+      name: hat_speed_4_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1024
-        height: 720
+        x: 15
+        y: 19
+        width: 96
+        height: 51
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 829891cad799c45e0800000000000000
-      internalID: -1923994175756728024
+      spriteID: 7613e6b8e6ec72730800000000000000
+      internalID: 3974372170358731111
       vertices: []
       indices: 
       edges: []
@@ -128,8 +128,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      house_0: -1923994175756728024
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

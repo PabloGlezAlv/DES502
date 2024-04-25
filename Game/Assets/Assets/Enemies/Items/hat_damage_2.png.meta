@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 0864e20dfec28b44897273f194fcd5b6
+guid: e7ad83e312f04d54385273b8098a32c2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1923994175756728024
-    second: house_0
+      213: 803272062951744177
+    second: hat_damage_2_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -98,13 +98,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: house_0
+      name: hat_damage_2_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1024
-        height: 720
+        x: 39
+        y: 60
+        width: 48
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +112,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 829891cad799c45e0800000000000000
-      internalID: -1923994175756728024
+      spriteID: 1b2eb327fabc52b00800000000000000
+      internalID: 803272062951744177
       vertices: []
       indices: 
       edges: []
@@ -128,8 +128,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      house_0: -1923994175756728024
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

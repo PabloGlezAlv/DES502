@@ -904,6 +904,7 @@ GameObject:
   - component: {fileID: 2013533494}
   - component: {fileID: 2013533496}
   - component: {fileID: 2013533495}
+  - component: {fileID: 2013533497}
   m_Layer: 5
   m_Name: BGText
   m_TagString: Untagged
@@ -1099,6 +1100,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2013533493}
   m_CullTransparentMesh: 1
+--- !u!114 &2013533497
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2013533493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8cc46b2de406f0246acd0f9d147842f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tf: {fileID: 0}
+  StopWhenDestReached: 0
+  Bounds: 0
+  Speed: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
