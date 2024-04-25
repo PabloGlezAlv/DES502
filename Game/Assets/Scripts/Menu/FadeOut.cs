@@ -52,7 +52,7 @@ public class FadeOut : MonoBehaviour
             color.a += Time.deltaTime * fadeTime;
 
             img.color = color;
-            if (color.a <= 0) SceneManager.LoadScene("EndGame Inside"); 
+            if (color.a >= 1.3) SceneManager.LoadScene("EndGame Inside"); 
         }
         else if(moveCamera)
         {
