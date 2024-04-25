@@ -15,6 +15,17 @@ public class CreditsScroll : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        tf.position += new Vector3(0f, Speed, 0f);
+        tf.position += new Vector3(0f, Speed, 0f) * Time.deltaTime;
+        if (tf.position.y > Bounds)
+        {
+            if (StopWhenDestReached)
+            {
+                Speed = 0;
+            }
+            else
+            {
+                tf.position -= new Vector3(0f, Bounds, 0f);
+            }
+        }
     }
 }
