@@ -68,7 +68,7 @@ public class UI_Dead : MonoBehaviour
 
     void UpdateArrows()
     {
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (Input.GetKeyDown(KeyCode.W))
         {
             UIIndex++;
             if (UIIndex > 4)
@@ -76,7 +76,7 @@ public class UI_Dead : MonoBehaviour
                 UIIndex = 4;
             }
         }
-        else if (Input.GetKeyDown(KeyCode.UpArrow))
+        else if (Input.GetKeyDown(KeyCode.S))
         {
             UIIndex--;
             if (UIIndex < 0)

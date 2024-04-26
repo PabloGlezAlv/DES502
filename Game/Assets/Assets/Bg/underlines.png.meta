@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 6057b7663c6cde745821eece5387957a
+guid: 087aa3953eeadaa49b7e09886e6b1614
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 4302650019941181061
-    second: TitleScene_0
+      213: -2759363836878643567
+    second: underlines_0
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 0
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 108
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -98,13 +98,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: TitleScene_0
+      name: underlines_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 0
-        width: 1920
-        height: 1080
+        y: 128
+        width: 168
+        height: 64
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -112,8 +112,50 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 586eb6f856516bb30800000000000000
-      internalID: 4302650019941181061
+      spriteID: 19e1ac8c535c4b9d0800000000000000
+      internalID: -2759363836878643567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: underlines_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 168
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e517cde305c8b1b4cb4a30c62763cb2c
+      internalID: 1971639496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: underlines_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 168
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52720713c2f3ad0418c3498b118878a6
+      internalID: 1408422361
       vertices: []
       indices: 
       edges: []
@@ -121,7 +163,7 @@ TextureImporter:
     outline: []
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 8bb673a95bf9c764ca611317304925b0
     internalID: 0
     vertices: []
     indices: 
@@ -129,7 +171,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      TitleScene_0: 4302650019941181061
+      underlines_0: -2759363836878643567
+      underlines_1: 1971639496
+      underlines_2: 1408422361
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
