@@ -120,6 +120,37 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &459179868
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 459179869}
+  m_Layer: 0
+  m_Name: zoomPoint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &459179869
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459179868}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.74, y: 1.85, z: -0.037388794}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &481664511
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,8 +245,8 @@ GameObject:
   m_Component:
   - component: {fileID: 702734149}
   - component: {fileID: 702734148}
-  - component: {fileID: 702734147}
   - component: {fileID: 702734150}
+  - component: {fileID: 702734151}
   m_Layer: 0
   m_Name: PlayerSquare
   m_TagString: Untagged
@@ -223,20 +254,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &702734147
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 702734146}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8157f25212d64b4cb6c7824b1384e8e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  topPoint: {fileID: 1580314828}
-  chairPoint: {fileID: 1168386794}
 --- !u!212 &702734148
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -326,6 +343,22 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &702734151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 702734146}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e71e8492fd0c9f740a2e90d0b3f1f56c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  topPoint: {fileID: 1580314828}
+  chairPoint: {fileID: 1168386794}
+  waitFadeout: 0.5
+  fadeScript: {fileID: 2109366912}
 --- !u!1 &882636094
 GameObject:
   m_ObjectHideFlags: 0
@@ -490,7 +523,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2109366911}
   - component: {fileID: 2109366910}
-  - component: {fileID: 2109366909}
+  - component: {fileID: 2109366912}
   m_Layer: 0
   m_Name: Fade
   m_TagString: Untagged
@@ -498,18 +531,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2109366909
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2109366908}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: da30b2ab1c3e9b54f8d76fa734d27042, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!212 &2109366910
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -577,6 +598,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2109366912
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109366908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7753ce47bf5c938419ecda3c9aaee98a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  zoomPosition: {fileID: 459179869}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -587,3 +621,4 @@ SceneRoots:
   - {fileID: 2109366911}
   - {fileID: 1580314828}
   - {fileID: 1168386794}
+  - {fileID: 459179869}

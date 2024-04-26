@@ -14,8 +14,12 @@ public class HouseMovement : MonoBehaviour
 
     Camera cam;
 
-    void Start()
+    Animator animator;
+
+    void Awake()
     {
+        animator = GetComponent<Animator>();
+
         rb = GetComponent<Rigidbody2D>();
 
         cam = Camera.main.GetComponent<Camera>();
@@ -39,6 +43,8 @@ public class HouseMovement : MonoBehaviour
         toDoor = true;
         rb.velocity = Vector3.up;
 
+        animator.SetBool("change", false);
+
         Invoke("Fade", 5.5f);
         Invoke("CameraMov", 0.5f);
         Invoke("CameraZoom", 3.5f);
@@ -59,7 +65,7 @@ public class HouseMovement : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         rb.gravityScale = 0;
-
+        animator.SetBool("change", true);
         Invoke("MoveToDoor", 1f);
     }
 }
