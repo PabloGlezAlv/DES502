@@ -7,7 +7,7 @@ public class InHouseFadeIn : MonoBehaviour
     SpriteRenderer renderer;
 
     bool fadingIn = true;
-    bool playerAdvised = false;
+    bool fadeOut = false;
     void Start()
     {
         renderer = GetComponent<SpriteRenderer>();  
@@ -29,6 +29,16 @@ public class InHouseFadeIn : MonoBehaviour
             }
 
         }
+        else if(fadeOut)
+        {
+
+        }
 
     }
+
+    public void StartFadeOut()
+    {
+        fadeOut = true;
+    }
+
 }
