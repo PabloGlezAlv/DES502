@@ -13,31 +13,10 @@ using UnityEngine.SceneManagement;
 public class UI_Dead : MonoBehaviour
 {
     [SerializeField]
-    GameObject continueButton;
-    [SerializeField]
-    GameObject exitButton;
-    [SerializeField]
     GameObject[] UIArrows;
     [SerializeField]
     int UIIndex = 0;
-    float Slideinc = 0.1f;
 
-    [SerializeField]
-    Slider MusicSlider;
-    [SerializeField]
-    Slider SFXSlider;
-
-    private void Awake()
-    {
-    }
-
-    private void Start()
-    {
-        //Have to put this in start rather than awake due to the audio manager not
-        //being loaded in at the right time.
-        MusicSlider.value = AudioManager.MusicVolume;
-        SFXSlider.value = AudioManager.SFXVolume;
-    }
     void Update()
     {
         UpdateArrows();
@@ -53,50 +32,31 @@ public class UI_Dead : MonoBehaviour
         SceneManager.LoadScene("Menu", LoadSceneMode.Single);
     }
 
-    public void SetMusicVolume()
-    {
-        AudioManager.MusicVolume = MusicSlider.value;
-        AudioManager.instance.SetVolumes();
-    }
-
-    public void SetSFXVolume()
-    {
-        AudioManager.SFXVolume = SFXSlider.value;
-        AudioManager.instance.SetVolumes();
-        AudioManager.instance.Play("Select");
-    }
-
     void UpdateArrows()
     {
-        if (Input.GetKeyDown(KeyCode.W))
+        if (Input.GetKeyDown(KeyCode.S))
         {
             UIIndex++;
-            if (UIIndex > 4)
+            if (UIIndex >= UIArrows.Length)
             {
-                UIIndex = 4;
+                UIIndex = 0;
             }
         }
-        else if (Input.GetKeyDown(KeyCode.S))
+        else if (Input.GetKeyDown(KeyCode.W))
         {
             UIIndex--;
             if (UIIndex < 0)
             {
-                UIIndex = 0;
+                UIIndex = UIArrows.Length - 1;
             }
         }
 
         switch (UIIndex)
         {
             case 0:
-                UpdateSliders(0);
-                break;
-            case 1:
-                UpdateSliders(1);
-                break;
-            case 2:
                 ButtonInteract(0);
                 break;
-            case 3:
+            case 1:
                 ButtonInteract(1);
                 break;
             default:
@@ -127,36 +87,6 @@ public class UI_Dead : MonoBehaviour
             else
             {
                 Exit();
-            }
-        }
-    }
-
-    void UpdateSliders(int SliderType)
-    {
-        if (SliderType == 0)//Music slider
-        {
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                MusicSlider.value -= Slideinc;
-                SetMusicVolume();
-            }
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                MusicSlider.value += Slideinc;
-                SetMusicVolume();
-            }
-        }
-        else //SFX slider
-        {
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                SFXSlider.value -= Slideinc;
-                SetMusicVolume();
-            }
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                SFXSlider.value += Slideinc;
-                SetMusicVolume();
             }
         }
     }
