@@ -25019,7 +25019,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5085762293585324006, guid: b120b628e45a3d64aaba76753370ab91, type: 3}
       propertyPath: sounds.Array.size
-      value: 37
+      value: 46
       objectReference: {fileID: 0}
     - target: {fileID: 5085762293585324006, guid: b120b628e45a3d64aaba76753370ab91, type: 3}
       propertyPath: sounds.Array.data[33].clip
@@ -25054,6 +25054,78 @@ PrefabInstance:
       value: Keyb3
       objectReference: {fileID: 0}
     - target: {fileID: 5085762293585324006, guid: b120b628e45a3d64aaba76753370ab91, type: 3}
+      propertyPath: sounds.Array.data[37].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 11ba3f89115e3de4aa700a4e2f8a9e82, type: 3}
+    - target: {fileID: 5085762293585324006, guid: b120b628e45a3d64aaba76753370ab91, type: 3}
+      propertyPath: sounds.Array.data[37].name
+      value: TotemDie
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085762293585324006, guid: b120b628e45a3d64aaba76753370ab91, type: 3}
+      propertyPath: sounds.Array.data[38].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: c9ee47db81a756f439eab95a2bb59263, type: 3}
+    - target: {fileID: 5085762293585324006, guid: b120b628e45a3d64aaba76753370ab91, type: 3}
+      propertyPath: sounds.Array.data[38].name
+      value: TotemFire
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085762293585324006, guid: b120b628e45a3d64aaba76753370ab91, type: 3}
+      propertyPath: sounds.Array.data[39].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6106ed8c1c21ec649b285decec7d18d6, type: 3}
+    - target: {fileID: 5085762293585324006, guid: b120b628e45a3d64aaba76753370ab91, type: 3}
+      propertyPath: sounds.Array.data[39].name
+      value: TotemHit
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085762293585324006, guid: b120b628e45a3d64aaba76753370ab91, type: 3}
+      propertyPath: sounds.Array.data[40].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 32450da1b1642854795590977d8e85ab, type: 3}
+    - target: {fileID: 5085762293585324006, guid: b120b628e45a3d64aaba76753370ab91, type: 3}
+      propertyPath: sounds.Array.data[40].name
+      value: CloseWoodenDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085762293585324006, guid: b120b628e45a3d64aaba76753370ab91, type: 3}
+      propertyPath: sounds.Array.data[41].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: dc474648af4cefe43be60afc58aba465, type: 3}
+    - target: {fileID: 5085762293585324006, guid: b120b628e45a3d64aaba76753370ab91, type: 3}
+      propertyPath: sounds.Array.data[41].name
+      value: DirtStep1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085762293585324006, guid: b120b628e45a3d64aaba76753370ab91, type: 3}
+      propertyPath: sounds.Array.data[42].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 855c53b9d305c60479bcf29af7be0054, type: 3}
+    - target: {fileID: 5085762293585324006, guid: b120b628e45a3d64aaba76753370ab91, type: 3}
+      propertyPath: sounds.Array.data[42].name
+      value: DirtStep2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085762293585324006, guid: b120b628e45a3d64aaba76753370ab91, type: 3}
+      propertyPath: sounds.Array.data[43].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 73789ebaf286d6849ad88bf623bf9c8c, type: 3}
+    - target: {fileID: 5085762293585324006, guid: b120b628e45a3d64aaba76753370ab91, type: 3}
+      propertyPath: sounds.Array.data[43].name
+      value: OpenWoodenDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085762293585324006, guid: b120b628e45a3d64aaba76753370ab91, type: 3}
+      propertyPath: sounds.Array.data[44].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3f25305bd4a881b4d87511acb1a832c3, type: 3}
+    - target: {fileID: 5085762293585324006, guid: b120b628e45a3d64aaba76753370ab91, type: 3}
+      propertyPath: sounds.Array.data[44].name
+      value: SitInChair
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085762293585324006, guid: b120b628e45a3d64aaba76753370ab91, type: 3}
+      propertyPath: sounds.Array.data[45].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 7b3243522a89e8840b544093ae21f7dd, type: 3}
+    - target: {fileID: 5085762293585324006, guid: b120b628e45a3d64aaba76753370ab91, type: 3}
+      propertyPath: sounds.Array.data[45].name
+      value: WoodFloorStep
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085762293585324006, guid: b120b628e45a3d64aaba76753370ab91, type: 3}
       propertyPath: sounds.Array.data[33].pitch
       value: 1
       objectReference: {fileID: 0}
@@ -25068,6 +25140,38 @@ PrefabInstance:
     - target: {fileID: 5085762293585324006, guid: b120b628e45a3d64aaba76753370ab91, type: 3}
       propertyPath: sounds.Array.data[36].pitch
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085762293585324006, guid: b120b628e45a3d64aaba76753370ab91, type: 3}
+      propertyPath: sounds.Array.data[41].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085762293585324006, guid: b120b628e45a3d64aaba76753370ab91, type: 3}
+      propertyPath: sounds.Array.data[42].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085762293585324006, guid: b120b628e45a3d64aaba76753370ab91, type: 3}
+      propertyPath: sounds.Array.data[43].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085762293585324006, guid: b120b628e45a3d64aaba76753370ab91, type: 3}
+      propertyPath: sounds.Array.data[44].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085762293585324006, guid: b120b628e45a3d64aaba76753370ab91, type: 3}
+      propertyPath: sounds.Array.data[45].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085762293585324006, guid: b120b628e45a3d64aaba76753370ab91, type: 3}
+      propertyPath: sounds.Array.data[38].volume
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085762293585324006, guid: b120b628e45a3d64aaba76753370ab91, type: 3}
+      propertyPath: sounds.Array.data[39].volume
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5085762293585324006, guid: b120b628e45a3d64aaba76753370ab91, type: 3}
+      propertyPath: sounds.Array.data[40].volume
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5254968653011187119, guid: b120b628e45a3d64aaba76753370ab91, type: 3}
       propertyPath: tracks

@@ -22,7 +22,6 @@ public class FadeIn : MonoBehaviour
             
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                StartCoroutine(AudioManager.instance.FadeAudio("End",.5f, AudioManager.MusicVolume));
                 StartCoroutine(FadeProcess());
             }
         }
