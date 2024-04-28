@@ -22,6 +22,7 @@ public class FadeIn : MonoBehaviour
             
             if (Input.GetKeyDown(KeyCode.Space))
             {
+                StartCoroutine(AudioManager.instance.FadeAudio("End",.5f, AudioManager.MusicVolume));
                 StartCoroutine(FadeProcess());
             }
         }
@@ -35,9 +36,9 @@ public class FadeIn : MonoBehaviour
     IEnumerator FadeProcess()
     {
         SceneChanged = true;
-        AudioManager.instance.GetComponent<MusicSelecor>().FadeMusic();
         yield return new WaitForSeconds(4);//time should be adjusted to the float multiplier for the image alpha in the update function
         AudioManager.instance.GetComponent<MusicSelecor>().ChangeMusic(GameTracks.Title);
+        AudioManager.instance.Stop("End");
         SceneManager.LoadScene("Menu");
     }
 }
