@@ -72,8 +72,8 @@ public class MusicSelecor : MonoBehaviour
         //Idea is we wait for the intro to complete then we play the track we want
         if (IntroName != "") AudioManager.instance.SetVolume(IntroName, 0);
         AudioManager.instance.SetVolume(TuneName, AudioManager.MusicVolume);
-        AudioManager.instance.Play(IntroName);
-        StartCoroutine(AudioManager.instance.FadeAudio(IntroName, -.125f, AudioManager.MusicVolume));
+        if (IntroName != "") AudioManager.instance.Play(IntroName);
+        if (IntroName != "") StartCoroutine(AudioManager.instance.FadeAudio(IntroName, -.125f, AudioManager.MusicVolume));
         AudioManager.instance.PlayDelayed(TuneName, IntroTime);
     }
 
@@ -81,12 +81,18 @@ public class MusicSelecor : MonoBehaviour
     {
         if (IntroCounter < IntroTime)//in case audio is changed before the intro fully plays
         {
-            if (IntroName != "") StartCoroutine(AudioManager.instance.FadeAudio(IntroName, .25f, AudioManager.MusicVolume));
+            if (IntroName != "")
+            {
+                StartCoroutine(AudioManager.instance.FadeAudio(IntroName, .25f, AudioManager.MusicVolume));
+            }
             AudioManager.instance.Stop(TuneName);
         }
         else
         {
-            if (IntroName != "") StartCoroutine(AudioManager.instance.FadeAudio(IntroName, .25f, AudioManager.MusicVolume));
+            if (IntroName != "")
+            {
+                StartCoroutine(AudioManager.instance.FadeAudio(IntroName, .25f, AudioManager.MusicVolume));
+            }
             StartCoroutine(AudioManager.instance.FadeAudio(TuneName, .25f, AudioManager.MusicVolume));
         }
     }
