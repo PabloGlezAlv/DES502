@@ -52,7 +52,8 @@ public class UI_Pause : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.Escape))
         {
             paused = !paused;
-
+            if (paused) AudioManager.instance.Play("UIOpen");
+            else AudioManager.instance.Play("UIClose");
             if(paused) Time.timeScale = 0f;
             else Time.timeScale = 1f;
             container.SetActive(paused);

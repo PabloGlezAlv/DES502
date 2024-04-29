@@ -278,34 +278,6 @@ MonoBehaviour:
     loop: 0
     Type: 0
     source: {fileID: 0}
-  - name: Fall
-    clip: {fileID: 8300000, guid: c16f6e6163321394e8e55d960ffbf622, type: 3}
-    volume: 0
-    pitch: 1
-    loop: 0
-    Type: 0
-    source: {fileID: 0}
-  - name: TescoAttack
-    clip: {fileID: 8300000, guid: dba67a79902888e4da66fffb897b33f9, type: 3}
-    volume: 0
-    pitch: 1
-    loop: 0
-    Type: 0
-    source: {fileID: 0}
-  - name: TescoDie
-    clip: {fileID: 8300000, guid: 376ba69ea5806a148bb157f043e1e7c4, type: 3}
-    volume: 0
-    pitch: 1
-    loop: 0
-    Type: 0
-    source: {fileID: 0}
-  - name: TescoMove
-    clip: {fileID: 8300000, guid: 02bbb57bdc40bdf4281feeaf8f3d0526, type: 3}
-    volume: 0
-    pitch: 1
-    loop: 0
-    Type: 0
-    source: {fileID: 0}
   - name: Enter
     clip: {fileID: 8300000, guid: ecaa32c6f0e98a84cb6cb48ba441a324, type: 3}
     volume: 0
@@ -315,21 +287,112 @@ MonoBehaviour:
     source: {fileID: 0}
   - name: Keyb1
     clip: {fileID: 8300000, guid: 6cbe4555d8f07d34c982727aa7f32043, type: 3}
-    volume: 1
+    volume: 0
     pitch: 1
     loop: 0
     Type: 0
     source: {fileID: 0}
   - name: Keyb2
     clip: {fileID: 8300000, guid: cfd7bd981eeaa1c4fa9769a3d57be34c, type: 3}
-    volume: 1
+    volume: 0
     pitch: 1
     loop: 0
     Type: 0
     source: {fileID: 0}
   - name: Keyb3
     clip: {fileID: 8300000, guid: 72812395c984aee488a133d7cdf243a8, type: 3}
-    volume: 1
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: TotemDie
+    clip: {fileID: 8300000, guid: 11ba3f89115e3de4aa700a4e2f8a9e82, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: TotemFire
+    clip: {fileID: 8300000, guid: c9ee47db81a756f439eab95a2bb59263, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: TotemHit
+    clip: {fileID: 8300000, guid: 6106ed8c1c21ec649b285decec7d18d6, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: CloseWoodenDoor
+    clip: {fileID: 8300000, guid: 32450da1b1642854795590977d8e85ab, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: DirtStep1
+    clip: {fileID: 8300000, guid: dc474648af4cefe43be60afc58aba465, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: DirtStep2
+    clip: {fileID: 8300000, guid: 855c53b9d305c60479bcf29af7be0054, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: OpenWoodenDoor
+    clip: {fileID: 8300000, guid: 73789ebaf286d6849ad88bf623bf9c8c, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: SitInChair
+    clip: {fileID: 8300000, guid: 3f25305bd4a881b4d87511acb1a832c3, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: WoodFloorStep
+    clip: {fileID: 8300000, guid: 7b3243522a89e8840b544093ae21f7dd, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: UIOpen
+    clip: {fileID: 8300000, guid: b6e1ac7f150477a4c85925243c6c7c22, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: UIClose
+    clip: {fileID: 8300000, guid: d24c6bbfdf6ff594b8807b02b70921b8, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: ShopBuy
+    clip: {fileID: 8300000, guid: af9b4007feac27943a80c675f29f9995, type: 3}
+    volume: 0
+    pitch: 1
+    loop: 0
+    Type: 0
+    source: {fileID: 0}
+  - name: ShopFail
+    clip: {fileID: 8300000, guid: c72d630e3568deb4ea55c0bd1276b0c4, type: 3}
+    volume: 0
     pitch: 1
     loop: 0
     Type: 0
@@ -346,5 +409,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19ce8b6e3534b1f4eb232cc5be5151f1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tracks: 3
+  tracks: 1
   MusicStarted: 1

@@ -111,9 +111,14 @@ public class ShopController : MonoBehaviour
             // Clicked on shop item button
             if(TryBuyItem(itemType, rare, itemCost, positionIndex))
             {
+                AudioManager.instance.Play("ShopBuy");
                 //Deactivate option to buy this
                 bought[positionIndex] = true;
                 shopItems[positionIndex].Find("blocked").gameObject.SetActive(true);
+            }
+            else
+            {
+                AudioManager.instance.Play("ShopFail");
             }
         };
     }
