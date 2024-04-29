@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -54,14 +53,14 @@ public class TotemAttack : EnemyBase, IEnemy
     {
         base.Update();
 
-        if(actualLife <= 0)
+        if (actualLife <= 0)
         {
             deadTimer -= Time.deltaTime;
-            if(deadTimer <= 0.8)
+            if (deadTimer <= 0.8)
             {
                 renderer.sprite = deadState2;
             }
-            if(deadTimer <= 0f)
+            if (deadTimer <= 0f)
             {
                 float randomValue = UnityEngine.Random.value;
 
@@ -115,7 +114,7 @@ public class TotemAttack : EnemyBase, IEnemy
 
     void SpawnBullet()
     {
-
+        AudioManager.instance.Play("TotemFire");
         GameObject newBullet = FindDisabledBullet();
         if(newBullet == null)
         {
@@ -137,11 +136,13 @@ public class TotemAttack : EnemyBase, IEnemy
         actualLife -= damage;
         if (actualLife <= 0) //Dead
         {
+            AudioManager.instance.Play("TotemDie");
             renderer.sprite = deadState1;
             doorsController.KillEntity();
         }
         else
         {
+            AudioManager.instance.Play("TotemHit");
             timerWhite = timeWhiteDamage;
             damageReceived = true;
 
