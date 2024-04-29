@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      health_potion_3_0: 7272827748794017513
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

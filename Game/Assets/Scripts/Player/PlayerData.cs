@@ -61,7 +61,6 @@ public class PlayerData : MonoBehaviour
             return false;
         else
         {
-            Debug.Log("Se compra");
             addCoins(-price);
 
             GameObject newItem = new GameObject();
