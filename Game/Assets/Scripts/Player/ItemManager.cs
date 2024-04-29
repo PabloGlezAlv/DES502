@@ -23,14 +23,6 @@ public class ItemManager : MonoBehaviour
         if(playerItem != Items.none)
         {
             removeActualEffect();
-
-
-            //playerObject.SetActive(true);
-            //playerObject.transform.position = new Vector3(gameObject.transform.position.x - 7, gameObject.transform.position.y, gameObject.transform.position.z);
-
-            //Move it
-
-
         }
 
         playerObject = newItem;
