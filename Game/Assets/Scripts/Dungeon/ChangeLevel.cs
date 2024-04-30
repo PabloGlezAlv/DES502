@@ -14,6 +14,8 @@ public class ChangeLevel : MonoBehaviour
         PlayerMovement playerMovement = collision.gameObject.GetComponent<PlayerMovement>();
         if (playerMovement != null)
         {
+            collision.gameObject.GetComponent<Animator>().SetBool("hatch", true);
+
             TimeValue = 0;
             ChangeFloorMovement changeFloor = collision.gameObject.GetComponent<ChangeFloorMovement>();
 

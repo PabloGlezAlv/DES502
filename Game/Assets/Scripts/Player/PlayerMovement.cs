@@ -56,6 +56,8 @@ public class PlayerMovement : MonoBehaviour
 
     Animator animator;
 
+    bool movAfterJump = false;
+
     public Vector2Int GetCurrentRoom()
     {
         return currentRoom;
@@ -88,7 +90,16 @@ public class PlayerMovement : MonoBehaviour
 
     public void ResetPlayer()
     {
+        animator.SetBool("jump", false);
+        animator.SetBool("hatch", false);
         currentRoom = new Vector2Int(0, 0);
+
+        Invoke("setMovementAfterJump", 1f);
+    }
+
+    private void OnDisable()
+    {
+        movAfterJump = true;
     }
 
     private void Awake()
@@ -116,10 +127,6 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    private void OnEnable()
-    {
-        
-    }
     public void ResetScale()
     {
         transform.localScale = baseScale;
@@ -139,6 +146,11 @@ public class PlayerMovement : MonoBehaviour
     {
         ResetSpeed();
         speed *= speedMultiplier;
+    }
+
+    private void setMovementAfterJump()
+    {
+        movAfterJump = false;
     }
 
     public void ResetSpeed()
@@ -180,6 +192,9 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
+        if (movAfterJump)
+            return;
+
         if (doorMovement)
         {
             timer += Time.deltaTime;

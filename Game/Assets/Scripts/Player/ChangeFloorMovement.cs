@@ -49,10 +49,16 @@ public class ChangeFloorMovement : MonoBehaviour
     float textActive = 0;
     SpriteRenderer bottomHatch;
     SpriteRenderer topHatch;
+
+    Animator animator;
+
+    float startTime;
     private void Awake()
     {
         cameraMov = Camera.main.gameObject.GetComponent<CameraMovement>();
         playerMovement = gameObject.GetComponent<PlayerMovement>();
+
+        animator = gameObject.GetComponent<Animator>();
 
         rb = gameObject.GetComponent<Rigidbody2D>();
 
@@ -75,8 +81,12 @@ public class ChangeFloorMovement : MonoBehaviour
         textActive = 0;
         fadeInOutImage.transform.position = startPos;
 
+        animator.SetBool("jump", true);
+
         bottomHatch = GameObject.FindGameObjectWithTag("bottomHatch").GetComponent<SpriteRenderer>();
         topHatch = bottomHatch.transform.parent.GetComponent<SpriteRenderer>();
+
+        startTime = Time.realtimeSinceStartup;
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -89,6 +99,8 @@ public class ChangeFloorMovement : MonoBehaviour
 
             if (Vector3.Distance(transform.position, targetPosition) < 0.1)
             {
+                
+                startTime = Time.realtimeSinceStartup;
                 jumpPosition = transform.position;
                 goMiddle = false;
                 rb.velocity = new Vector3();
@@ -162,7 +174,7 @@ public class ChangeFloorMovement : MonoBehaviour
         topHatch.sortingLayerName = "BelowPlayer";
         cameraMov.SetPosition(new Vector2Int());
         playerMovement.ResetPlayer();
-        if(level != lastLevel)
+        if (level != lastLevel)
         {
             creator.generateNewLevel();
         }

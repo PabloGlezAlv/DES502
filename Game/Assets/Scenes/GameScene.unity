@@ -633,22 +633,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1231216341486946140, guid: bdca88579c09674408298d84a638384c, type: 3}
-      propertyPath: m_TagString
-      value: Untagged
-      objectReference: {fileID: 0}
-    - target: {fileID: 1699971273314918739, guid: bdca88579c09674408298d84a638384c, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1.1938125
-      objectReference: {fileID: 0}
-    - target: {fileID: 1699971273314918739, guid: bdca88579c09674408298d84a638384c, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1.1938125
-      objectReference: {fileID: 0}
-    - target: {fileID: 1699971273314918739, guid: bdca88579c09674408298d84a638384c, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 1.1938125
-      objectReference: {fileID: 0}
     - target: {fileID: 1699971273314918739, guid: bdca88579c09674408298d84a638384c, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -690,33 +674,9 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2895047683838717166, guid: bdca88579c09674408298d84a638384c, type: 3}
-      propertyPath: doorAlpha
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2895047683838717166, guid: bdca88579c09674408298d84a638384c, type: 3}
       propertyPath: doorsController
       value: 
       objectReference: {fileID: 986609578}
-    - target: {fileID: 6081373135222461117, guid: bdca88579c09674408298d84a638384c, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 7315027682335358710, guid: 53613068dc09cb348870973495260d95, type: 3}
-    - target: {fileID: 6636353546735594855, guid: bdca88579c09674408298d84a638384c, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 0.81666666
-      objectReference: {fileID: 0}
-    - target: {fileID: 6636353546735594855, guid: bdca88579c09674408298d84a638384c, type: 3}
-      propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 1.3833333
-      objectReference: {fileID: 0}
-    - target: {fileID: 7562656513493944115, guid: bdca88579c09674408298d84a638384c, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7562656513493944115, guid: bdca88579c09674408298d84a638384c, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
