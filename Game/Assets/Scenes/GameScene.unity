@@ -24657,6 +24657,35 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1270794966542046780, guid: 9988cfb433f077f4b8816b2b89d60268, type: 3}
+      propertyPath: m_text
+      value: la mama de la mama de la mama de la mama de la mama de la mama lamama
+        de la mama
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270794966542046780, guid: 9988cfb433f077f4b8816b2b89d60268, type: 3}
+      propertyPath: m_fontSize
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270794966542046780, guid: 9988cfb433f077f4b8816b2b89d60268, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 28
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270794966542046780, guid: 9988cfb433f077f4b8816b2b89d60268, type: 3}
+      propertyPath: m_overflowMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1270794966542046780, guid: 9988cfb433f077f4b8816b2b89d60268, type: 3}
+      propertyPath: m_enableWordWrapping
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2756986168667276900, guid: 9988cfb433f077f4b8816b2b89d60268, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0.76787966
+      objectReference: {fileID: 0}
+    - target: {fileID: 2756986168667276900, guid: 9988cfb433f077f4b8816b2b89d60268, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 3562271180044660234, guid: 9988cfb433f077f4b8816b2b89d60268, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -63117,23 +63146,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
       propertyPath: 'healShopPrice.Array.data[0]'
-      value: 111
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
       propertyPath: 'healShopPrice.Array.data[1]'
-      value: 222
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
       propertyPath: 'healShopPrice.Array.data[2]'
-      value: 333
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
       propertyPath: 'healShopPrice.Array.data[3]'
-      value: 444
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
       propertyPath: 'healShopPrice.Array.data[4]'
-      value: 555
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
       propertyPath: 'scaleShopPrice.Array.data[0]'
@@ -63141,19 +63170,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
       propertyPath: 'scaleShopPrice.Array.data[1]'
-      value: 300
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
       propertyPath: 'scaleShopPrice.Array.data[2]'
-      value: 400
+      value: 300
       objectReference: {fileID: 0}
     - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
       propertyPath: 'scaleShopPrice.Array.data[3]'
-      value: 700
+      value: 400
       objectReference: {fileID: 0}
     - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
       propertyPath: 'scaleShopPrice.Array.data[4]'
-      value: 1000
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
       propertyPath: 'speedShopPrice.Array.data[0]'
@@ -63173,27 +63202,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
       propertyPath: 'speedShopPrice.Array.data[4]'
-      value: 1000
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
       propertyPath: 'damageShopPrice.Array.data[0]'
-      value: 11
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
       propertyPath: 'damageShopPrice.Array.data[1]'
-      value: 22
+      value: 450
       objectReference: {fileID: 0}
     - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
       propertyPath: 'damageShopPrice.Array.data[2]'
-      value: 33
+      value: 600
       objectReference: {fileID: 0}
     - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
       propertyPath: 'damageShopPrice.Array.data[3]'
-      value: 44
+      value: 800
       objectReference: {fileID: 0}
     - target: {fileID: 2330414779872196389, guid: e567e09fc00ac41449d085c011383eab, type: 3}
       propertyPath: 'damageShopPrice.Array.data[4]'
-      value: 55
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

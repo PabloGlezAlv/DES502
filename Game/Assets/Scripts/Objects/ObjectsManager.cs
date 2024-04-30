@@ -63,30 +63,30 @@ public class ObjectsManager : MonoBehaviour
         }
 
         //Items descriptions (Every Item  have 5 1 each rarity the first one is the worst of them)
-        speedDescription.Add("speed description 1");
-        speedDescription.Add("speed description 2");
-        speedDescription.Add("speed description 2");
-        speedDescription.Add("speed description 2");
-        speedDescription.Add("speed description 2");
+        speedDescription.Add("A shimmering golden winged helm. Enchanted with a special ability that slightly boosts your movement speed. ");
+        speedDescription.Add("A glistening golden winged helm. Enchanted with a special ability that noticeably boosts your movement speed. ");
+        speedDescription.Add("A gleaming golden winged helm. Enchanted with a special ability that considerably boosts your movement speed. ");
+        speedDescription.Add("A beautiful golden winged helm. Enchanted with a special ability that dramatically boosts your movement speed. ");
+        speedDescription.Add("An ethereal golden winged helm. Enchanted with a special ability that tremendously boosts your movement speed. ");
 
 
-        scaleDescription.Add("scale description 2");
-        scaleDescription.Add("scale description 2");
-        scaleDescription.Add("scale description 2");
-        scaleDescription.Add("scale description 2");
-        scaleDescription.Add("scale description 2");
+        scaleDescription.Add("A tall, blue ordinary looking hat. Enchanted with a special ability that boosts your size by a small amount. ");
+        scaleDescription.Add("A tall, blue odd hat. Enchanted with a special ability that boosts your size by a decent amount. ");
+        scaleDescription.Add("A tall, blue strange hat. Enchanted with a special ability that boosts your size by a good amount. ");
+        scaleDescription.Add("A very tall, blue bizarre hat. Enchanted with a special ability that boosts your size by a large amount. ");
+        scaleDescription.Add("An incredibly tall, blue mountainous hat. Enchanted with a special ability that boosts your size by a massive amount. ");
 
-        healDescription.Add("heal description 2");
-        healDescription.Add("heal description 2");
-        healDescription.Add("heal description 2");
-        healDescription.Add("heal description 2");
-        healDescription.Add("heal description 2");
+        healDescription.Add("A small glass bottle filled up with a weak healing potion. Will raises your health by a small amount when consumed. ");
+        healDescription.Add("A small glass bottle filled up with a modest healing potion. Will raises your health by a fair amount when consumed. ");
+        healDescription.Add("A medium-sized glass bottle filled up with a strong healing potion. Will raises your health by a humble amount when consumed. ");
+        healDescription.Add("A medium-sized bottle filled up with a powerful healing potion. Will raises your health by a fantastic amount when consumed. ");
+        healDescription.Add("A large glass bottle filled up with a masterful healing potion. Will raises your health by an insane amount when consumed. ");
 
-        damageDescription.Add("damage description 2");
-        damageDescription.Add("damage description 2");
-        damageDescription.Add("damage description 2");
-        damageDescription.Add("damage description 2");
-        damageDescription.Add("damage description 2");
+        damageDescription.Add("A leather and iron horned helmet. Enchanted with a special ability that raises your attack damage. ");
+        damageDescription.Add("A leather and steel horned helmet. Enchanted with a special ability that fairly improves your attack damage. ");
+        damageDescription.Add("A leather and tungsten horned helmet. Enchanted with a special ability that greatly enhances your attack damage. ");
+        damageDescription.Add("A leather and chromium horned helmet. Enchanted with a special ability that superbly reinforces your attack damage. ");
+        damageDescription.Add("A leather and titanium horned helmet. Enchanted with a special ability that skyrockets your attack damage. ");
 
     }
     //--------------------COINS----------------------------------

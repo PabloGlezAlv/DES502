@@ -22,7 +22,7 @@ public class PlayerData : MonoBehaviour
     [SerializeField]
     GameObject damage;
 
-    int coins = 1000;
+    int coins = 0;
 
     private void Awake()
     {
