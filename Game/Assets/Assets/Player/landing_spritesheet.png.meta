@@ -158,12 +158,12 @@ TextureImporter:
       name: landing_spritesheet_0
       rect:
         serializedVersion: 2
-        x: 85
-        y: 880
-        width: 78
-        height: 87
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 874
+        width: 256
+        height: 150
+      alignment: 9
+      pivot: {x: 0.5, y: 0.19963582}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -179,12 +179,12 @@ TextureImporter:
       name: landing_spritesheet_1
       rect:
         serializedVersion: 2
-        x: 323
-        y: 880
-        width: 92
-        height: 86
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 257
+        y: 876
+        width: 256
+        height: 148
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1996358}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -200,12 +200,12 @@ TextureImporter:
       name: landing_spritesheet_2
       rect:
         serializedVersion: 2
-        x: 566
-        y: 880
-        width: 111
-        height: 84
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 514
+        y: 875
+        width: 256
+        height: 149
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1996358}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -221,12 +221,12 @@ TextureImporter:
       name: landing_spritesheet_3
       rect:
         serializedVersion: 2
-        x: 825
-        y: 881
-        width: 107
-        height: 81
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 762
+        y: 876
+        width: 256
+        height: 148
+      alignment: 9
+      pivot: {x: 0.4999998, y: 0.1996358}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -242,12 +242,12 @@ TextureImporter:
       name: landing_spritesheet_4
       rect:
         serializedVersion: 2
-        x: 1096
-        y: 880
-        width: 91
-        height: 55
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1024
+        y: 877
+        width: 256
+        height: 147
+      alignment: 9
+      pivot: {x: 0.49999952, y: 0.1996358}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -263,12 +263,12 @@ TextureImporter:
       name: landing_spritesheet_5
       rect:
         serializedVersion: 2
-        x: 87
-        y: 627
-        width: 76
-        height: 60
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 628
+        width: 256
+        height: 139
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1996358}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -284,12 +284,12 @@ TextureImporter:
       name: landing_spritesheet_6
       rect:
         serializedVersion: 2
-        x: 354
-        y: 633
-        width: 65
-        height: 61
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 254
+        y: 626
+        width: 256
+        height: 139
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1996358}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -305,12 +305,12 @@ TextureImporter:
       name: landing_spritesheet_7
       rect:
         serializedVersion: 2
-        x: 610
-        y: 633
-        width: 65
-        height: 61
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 515
+        y: 629
+        width: 256
+        height: 139
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1996358}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -326,12 +326,12 @@ TextureImporter:
       name: landing_spritesheet_8
       rect:
         serializedVersion: 2
-        x: 873
-        y: 631
-        width: 56
-        height: 66
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 771
+        y: 623
+        width: 256
+        height: 140
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1996358}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -347,12 +347,12 @@ TextureImporter:
       name: landing_spritesheet_9
       rect:
         serializedVersion: 2
-        x: 1134
-        y: 633
-        width: 53
-        height: 68
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1024
+        y: 628
+        width: 256
+        height: 142
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1996358}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -368,12 +368,12 @@ TextureImporter:
       name: landing_spritesheet_10
       rect:
         serializedVersion: 2
-        x: 116
-        y: 377
-        width: 59
-        height: 68
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 373
+        width: 256
+        height: 144
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1996358}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -389,12 +389,12 @@ TextureImporter:
       name: landing_spritesheet_11
       rect:
         serializedVersion: 2
-        x: 386
-        y: 377
-        width: 61
-        height: 65
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 258
+        y: 371
+        width: 256
+        height: 143
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1996358}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -410,12 +410,12 @@ TextureImporter:
       name: landing_spritesheet_12
       rect:
         serializedVersion: 2
-        x: 635
-        y: 377
-        width: 55
-        height: 76
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 510
+        y: 374
+        width: 256
+        height: 140
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1996358}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -431,12 +431,12 @@ TextureImporter:
       name: landing_spritesheet_13
       rect:
         serializedVersion: 2
-        x: 889
-        y: 377
-        width: 40
-        height: 82
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 770
+        y: 374
+        width: 256
+        height: 139
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1996358}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -452,12 +452,12 @@ TextureImporter:
       name: landing_spritesheet_14
       rect:
         serializedVersion: 2
-        x: 1130
-        y: 377
-        width: 50
-        height: 83
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1024
+        y: 372
+        width: 256
+        height: 140
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1996358}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -473,12 +473,12 @@ TextureImporter:
       name: landing_spritesheet_15
       rect:
         serializedVersion: 2
-        x: 106
-        y: 121
-        width: 50
-        height: 83
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 0
+        y: 114
+        width: 256
+        height: 142
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1996358}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -494,12 +494,12 @@ TextureImporter:
       name: landing_spritesheet_16
       rect:
         serializedVersion: 2
-        x: 362
-        y: 120
-        width: 46
-        height: 86
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 254
+        y: 115
+        width: 256
+        height: 142
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1996358}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -515,12 +515,12 @@ TextureImporter:
       name: landing_spritesheet_17
       rect:
         serializedVersion: 2
-        x: 614
-        y: 120
-        width: 48
-        height: 92
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 506
+        y: 116
+        width: 256
+        height: 140
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1996358}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -536,12 +536,12 @@ TextureImporter:
       name: landing_spritesheet_18
       rect:
         serializedVersion: 2
-        x: 866
-        y: 121
-        width: 57
-        height: 92
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 769
+        y: 116
+        width: 256
+        height: 140
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1996358}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -557,12 +557,12 @@ TextureImporter:
       name: landing_spritesheet_19
       rect:
         serializedVersion: 2
-        x: 1122
-        y: 121
-        width: 57
-        height: 92
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+        x: 1019
+        y: 113
+        width: 256
+        height: 141
+      alignment: 9
+      pivot: {x: 0.5, y: 0.1996358}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
