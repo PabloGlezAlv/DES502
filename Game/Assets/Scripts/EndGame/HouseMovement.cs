@@ -66,6 +66,6 @@ public class HouseMovement : MonoBehaviour
     {
         rb.gravityScale = 0;
         animator.SetBool("change", true);
-        Invoke("MoveToDoor", 2.49f);
+        Invoke("MoveToDoor", 2.4f);
     }
 }
