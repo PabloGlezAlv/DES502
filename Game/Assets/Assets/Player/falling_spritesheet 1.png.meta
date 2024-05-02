@@ -200,7 +200,11 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      falling_spritesheet 1_0: -3468461420027204912
+      falling_spritesheet 1_1: 7616015137753216675
+      falling_spritesheet 1_2: -6656095529702150337
+      falling_spritesheet 1_3: 1385475599042167445
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
