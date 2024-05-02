@@ -9,6 +9,8 @@ public class InHouseMovement : MonoBehaviour
     Transform topPoint;
     [SerializeField]
     Transform chairPoint;
+    [SerializeField]
+    GameObject chair;
 
     bool fade = true;
     bool move = false;
@@ -33,6 +35,7 @@ public class InHouseMovement : MonoBehaviour
         Color c = new Color(0, 0, 0, 0);
     }
 
+    void destroyChair() { Destroy(chair); }
     // Update is called once per frame
     void Update()
     {
@@ -63,6 +66,8 @@ public class InHouseMovement : MonoBehaviour
                     animator.SetBool("change", false);
 
                     move = false;
+
+                    Invoke("destroyChair", 0.7f);
                 }
             }
         }
