@@ -171,8 +171,8 @@ Transform:
   m_GameObject: {fileID: 2051240871466268853}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0288, y: 0.5158, z: 0}
-  m_LocalScale: {x: 0.7241673, y: 0.17981468, z: 0.13413}
+  m_LocalPosition: {x: 0.0288, y: 1.07, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7159141965736056993}
@@ -451,6 +451,7 @@ MonoBehaviour:
   damage: 2
   changeDirection: 0.5
   changeDirPosAttack: 1
+  attackDuration: 0.3
   attackDistance: 1
   attackDir:
   - {fileID: 5258026784458842390}

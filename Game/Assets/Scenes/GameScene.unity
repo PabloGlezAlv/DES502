@@ -625,6 +625,10 @@ PrefabInstance:
       propertyPath: 'emptyHearts.Array.data[4]'
       value: 
       objectReference: {fileID: 683992823}
+    - target: {fileID: 1053299585368103215, guid: bdca88579c09674408298d84a638384c, type: 3}
+      propertyPath: AttackDuration
+      value: 0.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1189632844653915764, guid: bdca88579c09674408298d84a638384c, type: 3}
       propertyPath: _textMeshPro
       value: 
@@ -677,6 +681,14 @@ PrefabInstance:
       propertyPath: doorsController
       value: 
       objectReference: {fileID: 986609578}
+    - target: {fileID: 8039715598775203735, guid: bdca88579c09674408298d84a638384c, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8039715598775203735, guid: bdca88579c09674408298d84a638384c, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6167,7 +6179,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -77.5932, y: 0, z: -176.74011, w: 0}
+  m_margin: {x: -77.5932, y: 0, z: -71.45007, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0

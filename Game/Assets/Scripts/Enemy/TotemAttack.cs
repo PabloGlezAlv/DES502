@@ -134,11 +134,11 @@ public class TotemAttack : EnemyBase, IEnemy
     {
         int previousLife = actualLife;
         actualLife -= damage;
-        if (actualLife <= 0) //Dead
+        if (actualLife <= 0 && renderer.sprite != deadState1) //Dead
         {
             AudioManager.instance.Play("TotemDie");
-            renderer.sprite = deadState1;
             doorsController.KillEntity();
+            renderer.sprite = deadState1;
         }
         else
         {

@@ -105,7 +105,7 @@ SpriteRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4570551624992200768}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
@@ -162,7 +162,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d9cd19d434612446a6d14e49eee3c3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  AttackDuration: 0.2
+  AttackDuration: 0.4
   damage: 2
 --- !u!60 &7670924393825098187
 PolygonCollider2D:
@@ -494,6 +494,7 @@ MonoBehaviour:
   startHearts: 5
   maxHearts: 10
   heartDistance: 10
+  damageCoolDown: 0.5
   duration: 1
   flashTimes: 3
   emptyHearts:

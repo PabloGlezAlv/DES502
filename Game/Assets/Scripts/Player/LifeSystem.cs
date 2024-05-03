@@ -13,6 +13,8 @@ public class LifeSystem : MonoBehaviour
     private int maxHearts = 10;
     [SerializeField]
     private int heartDistance = 10;
+    [SerializeField]
+    private float damageCoolDown = 0.5f;
 
     [Header("Parameters Feedback")]
     [SerializeField]
@@ -37,6 +39,10 @@ public class LifeSystem : MonoBehaviour
     private int actualHearts;
     private int maxLife;
     private int actualLife;
+
+
+    private float timerReceiveDamage = 0;
+
     void Start()
     {
         actualHearts = startHearts;
@@ -50,8 +56,8 @@ public class LifeSystem : MonoBehaviour
 
     private void Update()
     {
-
-        if(remainingChanges > 0) 
+        timerReceiveDamage-= Time.deltaTime;
+        if (remainingChanges > 0) 
         {
             timer -= Time.deltaTime;
 
@@ -105,6 +111,9 @@ public class LifeSystem : MonoBehaviour
 
     public void GetDamage(int damage)
     {
+        if(timerReceiveDamage > 0) { return; }
+
+        timerReceiveDamage = damageCoolDown;
         int previousLife = actualLife;
         actualLife -= damage;
         AudioManager.instance.Play("PlayerHurt");
