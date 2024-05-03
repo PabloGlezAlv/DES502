@@ -67,7 +67,7 @@ public class InHouseMovement : MonoBehaviour
 
                     move = false;
 
-                    Invoke("destroyChair", 0.7f);
+                    Invoke("destroyChair", 0.85f);
                 }
             }
         }
