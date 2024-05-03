@@ -1,46 +1,55 @@
 fileFormatVersion: 2
-guid: b43daf2332207d54fbfddd9a18c2614b
+guid: 9959142133ced054cb765fcb0ff6e02b
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -7474495999841824964
-    second: sitting_spritesheet_0
+      213: -2417140355119412802
+    second: sitting_spritesheet 1_0
   - first:
-      213: 1901642779939046559
-    second: sitting_spritesheet_1
+      213: 3392948176028009220
+    second: sitting_spritesheet 1_1
   - first:
-      213: -3198285329065466040
-    second: sitting_spritesheet_2
+      213: 8056539935139942453
+    second: sitting_spritesheet 1_2
   - first:
-      213: 7580794405241093208
-    second: sitting_spritesheet_3
+      213: -1466000673876818644
+    second: sitting_spritesheet 1_3
   - first:
-      213: 6550208339259055798
-    second: sitting_spritesheet_4
+      213: -6957565238238629501
+    second: sitting_spritesheet 1_4
   - first:
-      213: -8628734467581817360
-    second: sitting_spritesheet_5
+      213: -3205512414617325543
+    second: sitting_spritesheet 1_5
   - first:
-      213: 733417638662615424
-    second: sitting_spritesheet_6
+      213: 5387334218564396473
+    second: sitting_spritesheet 1_6
   - first:
-      213: -5856068283606528692
-    second: sitting_spritesheet_7
+      213: 2091168332289955617
+    second: sitting_spritesheet 1_7
   - first:
-      213: 3783051845238915799
-    second: sitting_spritesheet_8
+      213: 1789468979888851087
+    second: sitting_spritesheet 1_8
   - first:
-      213: 5308551417486707684
-    second: sitting_spritesheet_9
+      213: -2932738052987656634
+    second: sitting_spritesheet 1_9
   - first:
-      213: -5242164483097618481
-    second: sitting_spritesheet_10
+      213: 3967973408928188602
+    second: sitting_spritesheet 1_10
   - first:
-      213: -3195137165085229734
-    second: sitting_spritesheet_11
+      213: -2443811120484124723
+    second: sitting_spritesheet 1_11
   - first:
-      213: -4393539654170068565
-    second: sitting_spritesheet_12
+      213: -546659545185086520
+    second: sitting_spritesheet 1_12
+  - first:
+      213: -1819731408706465419
+    second: sitting_spritesheet 1_13
+  - first:
+      213: -2229705554856455527
+    second: sitting_spritesheet 1_14
+  - first:
+      213: 183276649631014193
+    second: sitting_spritesheet 1_15
   externalObjects: {}
   serializedVersion: 12
   mipmaps:
@@ -134,11 +143,11 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: sitting_spritesheet_0
+      name: sitting_spritesheet 1_0
       rect:
         serializedVersion: 2
         x: 30
-        y: 273
+        y: 401
         width: 61
         height: 88
       alignment: 0
@@ -148,18 +157,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c3f895e5d71454890800000000000000
-      internalID: -7474495999841824964
+      spriteID: eb988d057a7947ed0800000000000000
+      internalID: -2417140355119412802
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sitting_spritesheet_1
+      name: sitting_spritesheet 1_1
       rect:
         serializedVersion: 2
         x: 164
-        y: 273
+        y: 401
         width: 55
         height: 82
       alignment: 0
@@ -169,18 +178,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: f9404f3780ef36a10800000000000000
-      internalID: 1901642779939046559
+      spriteID: 4038575b36c261f20800000000000000
+      internalID: 3392948176028009220
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sitting_spritesheet_2
+      name: sitting_spritesheet 1_2
       rect:
         serializedVersion: 2
         x: 298
-        y: 274
+        y: 402
         width: 50
         height: 83
       alignment: 0
@@ -190,18 +199,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 847a5be30786d93d0800000000000000
-      internalID: -3198285329065466040
+      spriteID: 530d3c8b2649ecf60800000000000000
+      internalID: 8056539935139942453
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sitting_spritesheet_3
+      name: sitting_spritesheet 1_3
       rect:
         serializedVersion: 2
         x: 426
-        y: 274
+        y: 402
         width: 50
         height: 83
       alignment: 0
@@ -211,17 +220,17 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 85cf9a7c854643960800000000000000
-      internalID: 7580794405241093208
+      spriteID: c25c6118728b7abe0800000000000000
+      internalID: -1466000673876818644
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sitting_spritesheet_4
+      name: sitting_spritesheet 1_4
       rect:
         serializedVersion: 2
-        x: 556
+        x: 44
         y: 274
         width: 46
         height: 86
@@ -232,18 +241,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6be5652b7c307ea50800000000000000
-      internalID: 6550208339259055798
+      spriteID: 3813e215743c17f90800000000000000
+      internalID: -6957565238238629501
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sitting_spritesheet_5
+      name: sitting_spritesheet 1_5
       rect:
         serializedVersion: 2
-        x: 42
-        y: 146
+        x: 170
+        y: 274
         width: 48
         height: 92
       alignment: 0
@@ -253,39 +262,18 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0fdcd9ef7b3904880800000000000000
-      internalID: -8628734467581817360
+      spriteID: 91031a3417bb383d0800000000000000
+      internalID: -3205512414617325543
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sitting_spritesheet_6
-      rect:
-        serializedVersion: 2
-        x: 164
-        y: 146
-        width: 57
-        height: 92
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 081bd70e47f9d2a00800000000000000
-      internalID: 733417638662615424
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: sitting_spritesheet_7
+      name: sitting_spritesheet 1_6
       rect:
         serializedVersion: 2
         x: 292
-        y: 146
+        y: 274
         width: 57
         height: 92
       alignment: 0
@@ -295,17 +283,38 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c4d833f3ce01bbea0800000000000000
-      internalID: -5856068283606528692
+      spriteID: 9b566dfade7a3ca40800000000000000
+      internalID: 5387334218564396473
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sitting_spritesheet_8
+      name: sitting_spritesheet 1_7
       rect:
         serializedVersion: 2
-        x: 419
+        x: 420
+        y: 274
+        width: 57
+        height: 92
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 12750bbc482550d10800000000000000
+      internalID: 2091168332289955617
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sitting_spritesheet 1_8
+      rect:
+        serializedVersion: 2
+        x: 35
         y: 146
         width: 57
         height: 85
@@ -316,20 +325,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7d20a5a1c99108430800000000000000
-      internalID: 3783051845238915799
+      spriteID: f880bd26e8875d810800000000000000
+      internalID: 1789468979888851087
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sitting_spritesheet_9
+      name: sitting_spritesheet 1_9
       rect:
         serializedVersion: 2
-        x: 547
-        y: 146
-        width: 57
-        height: 83
+        x: 165
+        y: 148
+        width: 53
+        height: 70
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -337,20 +346,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 4eb01376363cba940800000000000000
-      internalID: 5308551417486707684
+      spriteID: 64666647742dc47d0800000000000000
+      internalID: -2932738052987656634
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sitting_spritesheet_10
+      name: sitting_spritesheet 1_10
       rect:
         serializedVersion: 2
-        x: 35
-        y: 18
-        width: 57
-        height: 81
+        x: 293
+        y: 151
+        width: 53
+        height: 61
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -358,20 +367,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: fc71cc24d271047b0800000000000000
-      internalID: -5242164483097618481
+      spriteID: ab84c5dcac2111730800000000000000
+      internalID: 3967973408928188602
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sitting_spritesheet_11
+      name: sitting_spritesheet 1_11
       rect:
         serializedVersion: 2
-        x: 163
-        y: 18
-        width: 57
-        height: 78
+        x: 423
+        y: 155
+        width: 49
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -379,20 +388,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: a5d327a4da798a3d0800000000000000
-      internalID: -3195137165085229734
+      spriteID: dc7f469dbb6d51ed0800000000000000
+      internalID: -2443811120484124723
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: sitting_spritesheet_12
+      name: sitting_spritesheet 1_12
       rect:
         serializedVersion: 2
-        x: 291
-        y: 18
-        width: 57
-        height: 78
+        x: 39
+        y: 27
+        width: 49
+        height: 55
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -400,8 +409,71 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ba9b99666f20703c0800000000000000
-      internalID: -4393539654170068565
+      spriteID: 8c39a2c3a00e968f0800000000000000
+      internalID: -546659545185086520
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sitting_spritesheet 1_13
+      rect:
+        serializedVersion: 2
+        x: 167
+        y: 27
+        width: 47
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5711e65dce30fb6e0800000000000000
+      internalID: -1819731408706465419
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sitting_spritesheet 1_14
+      rect:
+        serializedVersion: 2
+        x: 297
+        y: 27
+        width: 44
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 992d0118c9e7e01e0800000000000000
+      internalID: -2229705554856455527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: sitting_spritesheet 1_15
+      rect:
+        serializedVersion: 2
+        x: 425
+        y: 27
+        width: 44
+        height: 55
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13d51ec44212b8200800000000000000
+      internalID: 183276649631014193
       vertices: []
       indices: 
       edges: []
@@ -417,19 +489,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      sitting_spritesheet_0: -7474495999841824964
-      sitting_spritesheet_1: 1901642779939046559
-      sitting_spritesheet_10: -5242164483097618481
-      sitting_spritesheet_11: -3195137165085229734
-      sitting_spritesheet_12: -4393539654170068565
-      sitting_spritesheet_2: -3198285329065466040
-      sitting_spritesheet_3: 7580794405241093208
-      sitting_spritesheet_4: 6550208339259055798
-      sitting_spritesheet_5: -8628734467581817360
-      sitting_spritesheet_6: 733417638662615424
-      sitting_spritesheet_7: -5856068283606528692
-      sitting_spritesheet_8: 3783051845238915799
-      sitting_spritesheet_9: 5308551417486707684
+      sitting_spritesheet 1_0: -2417140355119412802
+      sitting_spritesheet 1_1: 3392948176028009220
+      sitting_spritesheet 1_10: 3967973408928188602
+      sitting_spritesheet 1_11: -2443811120484124723
+      sitting_spritesheet 1_12: -546659545185086520
+      sitting_spritesheet 1_13: -1819731408706465419
+      sitting_spritesheet 1_14: -2229705554856455527
+      sitting_spritesheet 1_15: 183276649631014193
+      sitting_spritesheet 1_2: 8056539935139942453
+      sitting_spritesheet 1_3: -1466000673876818644
+      sitting_spritesheet 1_4: -6957565238238629501
+      sitting_spritesheet 1_5: -3205512414617325543
+      sitting_spritesheet 1_6: 5387334218564396473
+      sitting_spritesheet 1_7: 2091168332289955617
+      sitting_spritesheet 1_8: 1789468979888851087
+      sitting_spritesheet 1_9: -2932738052987656634
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

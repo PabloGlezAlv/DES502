@@ -51,13 +51,16 @@ public class InHouseFadeIn : MonoBehaviour
 
             //Zoom
             
-             Camera.main.orthographicSize -= Time.deltaTime * 2;
-            
-            Vector3 dir = zoomPosition.position - Camera.main.transform.position;
+            if(c.a < 1)
+            {
+                Camera.main.orthographicSize -= Time.deltaTime * 2;
 
-            dir.Normalize();
+                Vector3 dir = zoomPosition.position - Camera.main.transform.position;
 
-            Camera.main.transform.Translate(dir * Time.deltaTime * 5);
+                dir.Normalize();
+
+                Camera.main.transform.Translate(dir * Time.deltaTime * 5);
+            }
         }
 
     }
