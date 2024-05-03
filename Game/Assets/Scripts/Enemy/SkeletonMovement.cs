@@ -16,7 +16,8 @@ public class SkeletonMovement : EnemyBase, IEnemy
     private float changeDirection = 0.5f;
     [SerializeField]
     private float changeDirPosAttack = 1.0f;
-
+    [SerializeField]
+    private float attackDuration = 0.3f;
     [Range(0f, 1f)]
     private float focusPlayer = 0.4f;
 
@@ -107,7 +108,7 @@ public class SkeletonMovement : EnemyBase, IEnemy
                 animator.SetBool("isAttacking", true);
 
                 movementTimer = changeDirPosAttack;
-                timerAttack = changeDirPosAttack;
+                timerAttack = attackDuration;
             }
             else if (movementTimer < 0) //Change actualdirection
             {
@@ -142,6 +143,8 @@ public class SkeletonMovement : EnemyBase, IEnemy
             if (justAttacked && timerAttack < 0)
             {
                 justAttacked = false;
+
+                animator.SetBool("isAttacking", false);
             }
 
             SelectAttackArea();
