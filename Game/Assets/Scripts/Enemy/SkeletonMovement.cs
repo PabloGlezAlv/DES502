@@ -61,7 +61,7 @@ public class SkeletonMovement : EnemyBase, IEnemy
 
         actualDir = attackDir[0];
 
-        if(UnityEngine.Random.Range(0, 2) == 1)
+        if(UnityEngine.Random.Range(0, 0) > 7)
         {
             shield = true;
         }
