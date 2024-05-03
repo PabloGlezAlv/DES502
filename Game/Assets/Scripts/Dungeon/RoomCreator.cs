@@ -138,7 +138,7 @@ public class RoomCreator : MonoBehaviour
         if (gamemode.endless == UserInformation.gameMode)
         {
             currentVisualizer++;
-            if (currentVisualizer >= visualizers.Count) currentVisualizer = 0;
+            if (currentVisualizer > visualizers.Count) currentVisualizer = 0;
         }
         else if(gamemode.history == UserInformation.gameMode && level > historynLevels/2)//History mode
         {
@@ -347,7 +347,7 @@ public class RoomCreator : MonoBehaviour
         roomEnemies.SetActive(false);
         enemiesInstances.Add(center, roomEnemies);
 
-        spikeTrap.AddPoints(spikesRoom);
+        spikeTrap.AddPoints(spikesRoom, currentVisualizer);
     }
 
     private void DrawCorners(Vector2Int center)

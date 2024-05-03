@@ -6,7 +6,7 @@ using UnityEngine;
 public class SpikeLogic : MonoBehaviour
 {
     [SerializeField]
-    TileMapVisualizer visualizer;
+    List<TileMapVisualizer> visualizers;
     [SerializeField]
     int damage = 2;
 
@@ -29,6 +29,8 @@ public class SpikeLogic : MonoBehaviour
     List<Vector2Int> points = new List<Vector2Int>();
 
     bool roomLocked = true;
+
+    int visualizerIndex = 0;
 
     void Start()
     {
@@ -55,12 +57,13 @@ public class SpikeLogic : MonoBehaviour
             active = typeSpike.off;
             for (int i = 0; i < points.Count; i++)
             {
-                visualizer.PaintSpike(points[i], active);
+                visualizers[visualizerIndex].PaintSpike(points[i], active);
             }
         }
     }
-    public void AddPoints(List<Vector2Int> p)
+    public void AddPoints(List<Vector2Int> p, int type)
     {
+        visualizerIndex = type;
         foreach (Vector2Int p2 in p) {  points.Add(p2); }
     }
     // Update is called once per frame
@@ -75,7 +78,7 @@ public class SpikeLogic : MonoBehaviour
                 active = typeSpike.small;
                 for (int i = 0; i < points.Count; i++)
                 {
-                    visualizer.PaintSpike(points[i], active);
+                    visualizers[visualizerIndex].PaintSpike(points[i], active);
                 }
                 timer = timeSmall;
             }
@@ -85,7 +88,7 @@ public class SpikeLogic : MonoBehaviour
                 timer = timeHigh;
                 for (int i = 0; i < points.Count; i++)
                 {
-                    visualizer.PaintSpike(points[i], active);
+                    visualizers[visualizerIndex].PaintSpike(points[i], active);
                 }
             }
             else if(timer < 0 && active == typeSpike.high)
@@ -93,7 +96,7 @@ public class SpikeLogic : MonoBehaviour
                 active = typeSpike.off;
                 for (int i = 0; i < points.Count; i++)
                 {
-                    visualizer.PaintSpike(points[i], active);
+                    visualizers[visualizerIndex].PaintSpike(points[i], active);
                 }
                 timer = timeOut;
             }

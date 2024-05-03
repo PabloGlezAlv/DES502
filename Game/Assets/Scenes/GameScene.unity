@@ -62037,7 +62037,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f2780c683c5075c4396c1efd9112a6ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  visualizer: {fileID: 570922753}
+  visualizers:
+  - {fileID: 570922753}
+  - {fileID: 1366766316}
   damage: 2
   timeHigh: 1
   timeSmall: 0.4
