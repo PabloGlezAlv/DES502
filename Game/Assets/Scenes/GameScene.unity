@@ -62868,6 +62868,7 @@ MonoBehaviour:
   - {fileID: 6592254846916554220, guid: 33f62c5cb1d8e124bb9c04c5109aebb3, type: 3}
   - {fileID: 2968499840465322866, guid: 5090211cce14f0741a6dcbcade1c451e, type: 3}
   - {fileID: 1594951163647998392, guid: 6ac07e578fa9f444a846271e6895c1a6, type: 3}
+  - {fileID: 6301906848074715453, guid: 8c6e2f91919a3c442848243da12c83ae, type: 3}
 --- !u!1001 &4168328828164288479
 PrefabInstance:
   m_ObjectHideFlags: 0
