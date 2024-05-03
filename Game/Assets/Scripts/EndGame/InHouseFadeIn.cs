@@ -41,19 +41,16 @@ public class InHouseFadeIn : MonoBehaviour
             c.a += Time.deltaTime/2;
 
             renderer.color = c;
-            if (c.a >= 1.0)
+            if (c.a > 1.5)
             {
-                c.a = 1;
-                renderer.color = c;
-                fadeOut = false;
-                Invoke("GoCredits", 0.5f);
+                SceneManager.LoadScene("credits");
             }
 
             //Zoom
             
             if(c.a < 1)
             {
-                Camera.main.orthographicSize -= Time.deltaTime * 2;
+                Camera.main.orthographicSize -= Time.deltaTime;
 
                 Vector3 dir = zoomPosition.position - Camera.main.transform.position;
 
