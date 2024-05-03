@@ -133,6 +133,10 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  hole: {fileID: 2767689800927212302}
+  buttom: {fileID: 6019441524738592761}
+  holeSpriteShop: {fileID: -8001785960533649149, guid: 3cb39ecfa57ec0d4db10b93a7bf695a6, type: 3}
+  buttomSpriteShop: {fileID: -3368773245987381349, guid: 392940e78f6e39a41b7ff51aeaa5d09b, type: 3}
 --- !u!61 &-2636765507162007409
 BoxCollider2D:
   m_ObjectHideFlags: 0

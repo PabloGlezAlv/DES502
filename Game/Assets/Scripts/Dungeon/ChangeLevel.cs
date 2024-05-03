@@ -6,9 +6,47 @@ using UnityEngine.UIElements;
 public class ChangeLevel : MonoBehaviour
 {
     [SerializeField] AnimationCurve curve;
+
+    [SerializeField]
+    SpriteRenderer hole;
+    [SerializeField]
+    SpriteRenderer buttom;
+
+    [SerializeField]
+    Sprite holeSpriteShop;
+    [SerializeField]
+    Sprite buttomSpriteShop;
+
+
     private Vector3[] AimPositions = { new Vector3(-1122, 0, 0), new Vector3(1122, 0, 0) };
     int PosIndex = 0;
     float TimeValue = 0;
+
+
+    Sprite holeSpriteCastle;
+    Sprite buttomSpriteCastle;
+
+
+    private void Awake()
+    {
+        holeSpriteCastle = hole.sprite;
+        buttomSpriteCastle = buttom.sprite;
+    }
+
+    public void setSprites(TilemapType type)
+    {
+        if(type == TilemapType.Castle)
+        {
+            hole.sprite = holeSpriteCastle;
+            buttom.sprite = buttomSpriteCastle;
+        }
+        else if(type == TilemapType.Market)
+        {
+            hole.sprite = holeSpriteShop;
+            buttom.sprite = buttomSpriteShop;
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         PlayerMovement playerMovement = collision.gameObject.GetComponent<PlayerMovement>();

@@ -138,7 +138,7 @@ public class RoomCreator : MonoBehaviour
         if (gamemode.endless == UserInformation.gameMode)
         {
             currentVisualizer++;
-            if (currentVisualizer > visualizers.Count) currentVisualizer = 0;
+            currentVisualizer %= 2;
         }
         else if(gamemode.history == UserInformation.gameMode && level > historynLevels/2)//History mode
         {
@@ -327,6 +327,8 @@ public class RoomCreator : MonoBehaviour
 
 
         nextFloorHatchInstance.transform.position = new UnityEngine.Vector3(finalRoomCenter.x, finalRoomCenter.y, 0);
+
+        nextFloorHatchInstance.GetComponent<ChangeLevel>().setSprites((TilemapType)currentVisualizer);
 
         //Set the shop
 
