@@ -9,6 +9,9 @@ public class SlimeEnemy : EnemyBase, IEnemy
     protected float WalkTime = 0;
 
     [SerializeField]
+    private Animation anim;
+
+    [SerializeField]
     private GameObject[] AttackColliders;
 
     SpriteRenderer Sr;
@@ -114,7 +117,7 @@ public class SlimeEnemy : EnemyBase, IEnemy
             //4 way shot code
             if (StepCount > MaxStep)
             {
-                StartCoroutine(Attack());
+                anim.Play("SlimeAttack");
                 StepCount = 0;
                 ThinkTime = -MaxThinkTime;
             }
@@ -254,20 +257,12 @@ public class SlimeEnemy : EnemyBase, IEnemy
         }
     }
 
-    IEnumerator Attack()
+    public void Attack()
     {
-        yield return new WaitForSeconds(1f);
         for (int i = 0; i < 4; i++)
         {
-            AttackColliders[i].active = true;
+            AttackColliders[i].active = !AttackColliders[i].active;
         }
-        yield return new WaitForSeconds(1f);
-
-        for (int i = 0; i < 4; i++)
-        {
-            AttackColliders[i].active = false;
-        }
-        yield return new WaitForSeconds(1f);
     }
 
     [ExecuteAlways]

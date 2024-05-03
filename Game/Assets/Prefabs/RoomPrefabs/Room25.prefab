@@ -53,9 +53,7 @@ MonoBehaviour:
   - {x: -7, y: -1}
   - {x: 6, y: 0}
   - {x: 6, y: -1}
-  holesLocations:
-  - {x: 1, y: 1}
-  - {x: 1, y: 1}
+  holesLocations: []
   holeBlock: 
   torretLocations: []
 --- !u!1001 &536909867218237745
