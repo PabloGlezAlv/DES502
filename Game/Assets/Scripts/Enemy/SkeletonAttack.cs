@@ -35,8 +35,6 @@ public class SkeletonAttack : MonoBehaviour
             if (timer >= AttackDuration)
             {
                 attacking = false;
-                collider2D.enabled = false;
-                GetComponent<SpriteRenderer>().color = Color.blue;
 
 
                 animator.SetBool("isAttacking", false);
@@ -55,7 +53,6 @@ public class SkeletonAttack : MonoBehaviour
             attacking = true;
             collider2D.enabled = true;
             timer = 0;
-            GetComponent<SpriteRenderer>().color = Color.black;
         }
     }
 
