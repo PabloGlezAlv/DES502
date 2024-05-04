@@ -152,6 +152,7 @@ public class RoomCreator : MonoBehaviour
             AudioManager.instance.GetComponent<MusicSelecor>().FadeMusic();
             if (currentVisualizer == (int)TilemapType.Castle){ AudioManager.instance.GetComponent<MusicSelecor>().ChangeMusic(GameTracks.Dungeon); }
             else if (currentVisualizer == (int)TilemapType.Market) {AudioManager.instance.GetComponent<MusicSelecor>().ChangeMusic(GameTracks.Market); }
+            else {AudioManager.instance.GetComponent<MusicSelecor>().ChangeMusic(GameTracks.End); }
             MusicSelecor.LastArea = currentVisualizer;
 
         }
