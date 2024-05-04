@@ -2,6 +2,7 @@ using UnityEngine;
 
 public enum GameTracks
 {
+    Null,
     Title,
     Dungeon,
     Market,
@@ -34,6 +35,11 @@ public class MusicSelecor : MonoBehaviour
     {
         switch (track)
         {
+            case GameTracks.Null:
+                IntroName = "";
+                TuneName = "";
+                IntroTime = 0f;
+                break;
             case GameTracks.Title:
                 IntroName = "TitleIntro";
                 TuneName = "Title";
