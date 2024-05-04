@@ -39,6 +39,8 @@ public class RoomCreator : MonoBehaviour
     private Vector2Int startPosition = new(0, 0); 
     [SerializeField]
     private int historynLevels = 5;
+    [SerializeField]
+    private int changeMarket = 1;
 
     [Header("Rooms GameObjects")]
     [SerializeField]
@@ -134,13 +136,12 @@ public class RoomCreator : MonoBehaviour
         level++;
         //Clean saved data
         visualizers[currentVisualizer].Clear();
-
         if (gamemode.endless == UserInformation.gameMode)
         {
             currentVisualizer++;
             currentVisualizer %= 2;
         }
-        else if(gamemode.history == UserInformation.gameMode && level > historynLevels/2)//History mode
+        else if((gamemode.history == UserInformation.gameMode || gamemode.none == UserInformation.gameMode) && level == changeMarket)//History mode
         {
             currentVisualizer = 1;
         }
@@ -173,9 +174,9 @@ public class RoomCreator : MonoBehaviour
         else
         {
             stepsPerWalk++;
-            if (level == historynLevels + 1)
+            Debug.Log(level);
+            if (level == historynLevels)
             {
-                Debug.Log("End game");
                 SceneManager.LoadScene("EndGame");
             }
         }

@@ -14,14 +14,12 @@ public class batAttack : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        Debug.Log("BAT collider");
 
         //Collision  with player
         LifeSystem system;
         if (system = collision.gameObject.GetComponent<LifeSystem>())
         {
             system.GetDamage(damage);
-            Debug.Log("BAT attack player");
         }
     }
 }

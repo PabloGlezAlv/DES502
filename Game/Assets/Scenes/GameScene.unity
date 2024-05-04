@@ -681,6 +681,10 @@ PrefabInstance:
       propertyPath: doorsController
       value: 
       objectReference: {fileID: 986609578}
+    - target: {fileID: 6636353546735594855, guid: bdca88579c09674408298d84a638384c, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8039715598775203735, guid: bdca88579c09674408298d84a638384c, type: 3}
       propertyPath: m_Color.a
       value: 0
@@ -62809,7 +62813,8 @@ MonoBehaviour:
   width: 22
   height: 10
   startPosition: {x: 0, y: 0}
-  historynLevels: 5
+  historynLevels: 2
+  changeMarket: 1
   shop: {fileID: 7175802651891052905, guid: 37a2445f117f4d04480e5b7d863ea92c, type: 3}
   hatch: {fileID: 482335256111329892, guid: e28a3ed6c1b4f964887e508faba081ef, type: 3}
   stepsPerWalk: 2

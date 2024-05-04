@@ -92,7 +92,7 @@ public class UI_Pause : MonoBehaviour
     {
         if (container.active)
         {
-            if (Input.GetKeyDown(KeyCode.DownArrow))
+            if (Input.GetKeyDown(KeyCode.W))
             {
                 AudioManager.instance.Play("Select");
                 UIIndex++;
@@ -101,7 +101,7 @@ public class UI_Pause : MonoBehaviour
                     UIIndex = 3;
                 }
             }
-            else if (Input.GetKeyDown(KeyCode.UpArrow))
+            else if (Input.GetKeyDown(KeyCode.S))
             {
                 AudioManager.instance.Play("Select");
                 UIIndex--;

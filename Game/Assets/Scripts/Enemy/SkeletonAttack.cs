@@ -21,7 +21,6 @@ public class SkeletonAttack : MonoBehaviour
     {
         collider2D = GetComponent<Collider2D>();
         collider2D.enabled = false;
-        GetComponent<SpriteRenderer>().color = Color.blue;
 
         animator = GetComponentInParent<Animator>();
     }
