@@ -66,7 +66,7 @@ public class TrapLocations : MonoBehaviour
         {
             Vector2 loc = holesLocations[i];
             loc += new Vector2(0.5f, 0.5f);
-            Gizmos.color = Color.black;
+            Gizmos.color = Color.black + (Color.white/ (i+1));
             Gizmos.DrawCube(loc, Vector3.one);
         }
         for (int j = 0; j < spikesLocations.Count; j++)
