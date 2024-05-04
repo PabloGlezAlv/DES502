@@ -74,22 +74,22 @@ public class UI_Dead : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            switch (BackGoundDeadChooser.ChosenImage)
-            {
-                case 0:
-                    GameObject.FindGameObjectWithTag("AudioManager").GetComponent<MusicSelecor>().ChangeMusic(GameTracks.Dungeon);
-                    break; 
-                case 1:
-                    GameObject.FindGameObjectWithTag("AudioManager").GetComponent<MusicSelecor>().ChangeMusic(GameTracks.Market);
-                    break;
-            }
-
             if (ButtonType == 0)
             {
+                switch (BackGoundDeadChooser.ChosenImage)
+                {
+                    case 0:
+                        GameObject.FindGameObjectWithTag("AudioManager").GetComponent<MusicSelecor>().ChangeMusic(GameTracks.Dungeon);
+                        break;
+                    case 1:
+                        GameObject.FindGameObjectWithTag("AudioManager").GetComponent<MusicSelecor>().ChangeMusic(GameTracks.Market);
+                        break;
+                }
                 Restart();
             }
             else
             {
+                GameObject.FindGameObjectWithTag("AudioManager").GetComponent<MusicSelecor>().ChangeMusic(GameTracks.Title);
                 Exit();
             }
         }
