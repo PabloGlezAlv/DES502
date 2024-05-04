@@ -47,6 +47,10 @@ public class RoomsPrefabs : MonoBehaviour
         //room2.Add(Direction.Right);
         emptyDoor.Add(room6);
 
+        //----------Room 6----------------------
+        List<Direction> room7 = new List<Direction>();
+        //room2.Add(Direction.Right);
+        emptyDoor.Add(room7);
 
         //----------Room 13---------------------
         List<Direction> room13 = new List<Direction>();

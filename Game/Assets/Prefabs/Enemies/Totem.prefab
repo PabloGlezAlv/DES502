@@ -183,9 +183,9 @@ MonoBehaviour:
   objectRenderer: {fileID: 3336720767735730879}
   coinPrefab: {fileID: 6051068933900146545, guid: 99198bf4b2a287545ae7ab462675ac16, type: 3}
   damage: 2
-  AttackRatio: 2
+  AttackRatio: 4
   numberBullets: 3
-  delayBullet: 0.2
+  delayBullet: 0.1
   bullet: {fileID: 4184669408120440880, guid: a4a3b78f90482d3459f7158b7c839d4d, type: 3}
   normalState: {fileID: 2371549725544006361, guid: c407933093f0bb0408406279d00e97ed, type: 3}
   attackState: {fileID: -1267229016364364992, guid: c407933093f0bb0408406279d00e97ed, type: 3}
