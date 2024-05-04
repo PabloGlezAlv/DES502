@@ -611,7 +611,6 @@ MonoBehaviour:
   - {fileID: 577018342}
   - {fileID: 696202417}
   UIIndex: 0
-  fadeTime: 0.5
 --- !u!1001 &827283767
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -662,7 +661,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5254968653011187119, guid: b120b628e45a3d64aaba76753370ab91, type: 3}
       propertyPath: tracks
-      value: 4
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 6662176183424939943, guid: b120b628e45a3d64aaba76753370ab91, type: 3}
       propertyPath: m_Name
