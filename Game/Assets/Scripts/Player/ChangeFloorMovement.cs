@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.Tilemaps;
 
 public class ChangeFloorMovement : MonoBehaviour
@@ -16,7 +17,7 @@ public class ChangeFloorMovement : MonoBehaviour
     [SerializeField]
     float force = 5;
     [SerializeField]
-    int lastLevel = 15;
+    int endHistory = 5;
 
     [SerializeField]
     UnityEngine.UI.Image fadeInOutImage;
@@ -128,11 +129,18 @@ public class ChangeFloorMovement : MonoBehaviour
 
             if(fadeInOutImage.gameObject.transform.position.y >= -startPos.y)
             {
-                Invoke("GenerateNextLevel", 1f);
-                textActive = 0.8f;
-                text.text = "Level " + level;
-                text.gameObject.SetActive(true);
-                fadingIn = false;
+                if((UserInformation.gameMode == gamemode.none || gamemode.history == UserInformation.gameMode) && level == endHistory)
+                {
+                    SceneManager.LoadScene("EndGame");
+                }
+                else
+                {
+                    Invoke("GenerateNextLevel", 1f);
+                    textActive = 0.8f;
+                    text.text = "Level " + level;
+                    text.gameObject.SetActive(true);
+                    fadingIn = false;
+                }
 
             }
         }
@@ -171,10 +179,9 @@ public class ChangeFloorMovement : MonoBehaviour
         topHatch.sortingLayerName = "BelowPlayer";
         cameraMov.SetPosition(new Vector2Int());
         playerMovement.ResetPlayer();
-        if (level != lastLevel)
-        {
-            creator.generateNewLevel();
-        }
+        
+        creator.generateNewLevel();
+        
     }
 
     void StartNextLevel()

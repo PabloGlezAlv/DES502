@@ -174,11 +174,6 @@ public class RoomCreator : MonoBehaviour
         else
         {
             stepsPerWalk++;
-            Debug.Log(level);
-            if (level == historynLevels)
-            {
-                SceneManager.LoadScene("EndGame");
-            }
         }
         if(level > UserInformation.data.maxRounds)
         {
