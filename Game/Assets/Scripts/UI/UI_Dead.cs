@@ -1,13 +1,5 @@
-using CodeMonkey.Utils;
-using System.Collections;
-using System.Collections.Generic;
-using System.Net;
-using UnityEngine;
-using TMPro;
-using UnityEngine.UI;
-using System;
 using Unity.VisualScripting;
-using UnityEditor.Rendering;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class UI_Dead : MonoBehaviour
@@ -36,6 +28,7 @@ public class UI_Dead : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.S))
         {
+            AudioManager.instance.Play("Select");
             UIIndex++;
             if (UIIndex >= UIArrows.Length)
             {
@@ -44,6 +37,7 @@ public class UI_Dead : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.W))
         {
+            AudioManager.instance.Play("Select");
             UIIndex--;
             if (UIIndex < 0)
             {
@@ -80,6 +74,16 @@ public class UI_Dead : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            switch (BackGoundDeadChooser.ChosenImage)
+            {
+                case 0:
+                    GameObject.FindGameObjectWithTag("AudioManager").GetComponent<MusicSelecor>().ChangeMusic(GameTracks.Dungeon);
+                    break; 
+                case 1:
+                    GameObject.FindGameObjectWithTag("AudioManager").GetComponent<MusicSelecor>().ChangeMusic(GameTracks.Market);
+                    break;
+            }
+
             if (ButtonType == 0)
             {
                 Restart();

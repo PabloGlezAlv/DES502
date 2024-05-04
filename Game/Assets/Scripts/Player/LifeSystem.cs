@@ -120,6 +120,7 @@ public class LifeSystem : MonoBehaviour
         if (actualLife <= 0) //Dead
         {
             Debug.Log("Dead");
+            GameObject.FindGameObjectWithTag("AudioManager").GetComponent<MusicSelecor>().ChangeMusic(GameTracks.Death);
             SceneManager.LoadScene("DeadScene", LoadSceneMode.Single);
         }
         else

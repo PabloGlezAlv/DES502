@@ -13,8 +13,8 @@ public enum GameTracks
 public class MusicSelecor : MonoBehaviour
 {
     public GameTracks tracks;
-    private string TuneName;
-    private string IntroName;
+    private string TuneName = "";
+    private string IntroName = "";
     private float IntroTime;
     private float IntroCounter;
     public bool MusicStarted;
@@ -33,6 +33,9 @@ public class MusicSelecor : MonoBehaviour
 
     public void CheckTracks(GameTracks track)
     {
+        if(IntroName != "")AudioManager.instance.Stop(IntroName);
+        if (TuneName != "") AudioManager.instance.Stop(TuneName);
+
         switch (track)
         {
             case GameTracks.Null:

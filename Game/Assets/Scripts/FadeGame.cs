@@ -31,6 +31,7 @@ public class FadeGame : MonoBehaviour
             fadeInOutImage.gameObject.transform.Translate(new Vector3(0, -startPos.y * Time.deltaTime, 0));
             if (fadeInOutImage.gameObject.transform.position.y >= 0) // Change scene
             {
+                GameObject.FindGameObjectWithTag("AudioManager").GetComponent<MusicSelecor>().ChangeMusic(GameTracks.Dungeon);
                 SceneManager.LoadScene("GameScene", LoadSceneMode.Single);
             }
         }

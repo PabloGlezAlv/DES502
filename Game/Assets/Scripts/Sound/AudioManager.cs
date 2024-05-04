@@ -117,6 +117,10 @@ public class AudioManager : MonoBehaviour
 
             yield return null;
         }
+        if (s.source.volume <= 0f)
+        {
+            s.source.Stop();
+        }
 
     }
 

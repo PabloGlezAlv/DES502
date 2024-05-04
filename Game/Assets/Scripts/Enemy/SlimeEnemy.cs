@@ -9,7 +9,7 @@ public class SlimeEnemy : EnemyBase, IEnemy
     protected float WalkTime = 0;
 
     [SerializeField]
-    private Animation anim;
+    private Animator anim;
 
     [SerializeField]
     private GameObject[] AttackColliders;

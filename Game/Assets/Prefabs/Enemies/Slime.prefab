@@ -297,6 +297,7 @@ MonoBehaviour:
   objectRenderer: {fileID: 1215275663144512922}
   coinPrefab: {fileID: 6051068933900146545, guid: 99198bf4b2a287545ae7ab462675ac16, type: 3}
   damage: 1
+  anim: {fileID: 8338099658977679053}
   AttackColliders:
   - {fileID: 8333769667023478773}
   - {fileID: 6921096905303553361}
