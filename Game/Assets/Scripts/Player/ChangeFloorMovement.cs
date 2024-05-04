@@ -4,9 +4,6 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using UnityEngine.UI;
-using UnityEngine.UIElements;
-using static UnityEditor.SceneView;
 
 public class ChangeFloorMovement : MonoBehaviour
 {
