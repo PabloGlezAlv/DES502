@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 [RequireComponent(typeof(Rigidbody2D))]
 public class TotemAttack : EnemyBase, IEnemy
@@ -56,9 +57,13 @@ public class TotemAttack : EnemyBase, IEnemy
         if (actualLife <= 0)
         {
             deadTimer -= Time.deltaTime;
-            if (deadTimer <= 0.8)
+            if (deadTimer <= 0.4)
             {
                 renderer.sprite = deadState2;
+            }
+            else if (deadTimer <= 0.8)
+            {
+                renderer.sprite = deadState1;
             }
             if (deadTimer <= 0f)
             {

@@ -20,7 +20,7 @@ public class SlimeEnemy : EnemyBase, IEnemy
     protected bool DEBUG;
 
     [SerializeField]
-    protected float MaxThinkTime = 2;
+    protected float MaxThinkTime = 1;
 
     [SerializeField]
     protected List<Vector2Int> Floormap = new();

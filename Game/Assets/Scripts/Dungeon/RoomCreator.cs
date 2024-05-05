@@ -1,10 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
-using System.IO;
-using System.Linq;
-using System.Numerics;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public enum Direction { None, Top, Bottom, Left, Right }
 
@@ -154,6 +149,7 @@ public class RoomCreator : MonoBehaviour
             else if (currentVisualizer == (int)TilemapType.Market) {AudioManager.instance.GetComponent<MusicSelecor>().ChangeMusic(GameTracks.Market); }
             else {AudioManager.instance.GetComponent<MusicSelecor>().ChangeMusic(GameTracks.End); }
             MusicSelecor.LastArea = currentVisualizer;
+            DoorsController.CurrentArea = currentVisualizer;
 
         }
 

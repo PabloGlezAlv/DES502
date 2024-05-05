@@ -113,35 +113,35 @@ public class UI_Pause : MonoBehaviour
                     UIIndex = 3;
                 }
             }
-        }
 
-        switch (UIIndex)
-        {
-            case 0:
-                UpdateSliders(0);
-                break;
-            case 1:
-                UpdateSliders(1);
-                break;
-            case 2:
-                ButtonInteract(0);
-                break;
-            case 3:
-                ButtonInteract(1);
-                break;
-            default:
-                break;
-        }
-
-        for (int x = 0; x < UIArrows.Length; x++)
-        {
-            if (x == UIIndex)
+            switch (UIIndex)
             {
-                UIArrows[x].active = true;
+                case 0:
+                    UpdateSliders(0);
+                    break;
+                case 1:
+                    UpdateSliders(1);
+                    break;
+                case 2:
+                    ButtonInteract(0);
+                    break;
+                case 3:
+                    ButtonInteract(1);
+                    break;
+                default:
+                    break;
             }
-            else
+
+            for (int x = 0; x < UIArrows.Length; x++)
             {
-                UIArrows[x].active = false;
+                if (x == UIIndex)
+                {
+                    UIArrows[x].active = true;
+                }
+                else
+                {
+                    UIArrows[x].active = false;
+                }
             }
         }
     }
