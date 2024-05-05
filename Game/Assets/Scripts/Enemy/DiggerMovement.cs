@@ -129,7 +129,10 @@ public class DiggerMovement : EnemyBase, IEnemy
                 spriteRenderer.color = Color.white;
                 animator.SetBool("hide", false);
                 animator.SetBool("appear", true);
+
+                Debug.Log("Up");
             }
+
         }
         else if(waitingTimer > 0)
         {
@@ -140,6 +143,7 @@ public class DiggerMovement : EnemyBase, IEnemy
                 animator.SetBool("stand", true);
                 upBeforeAttackTimer = beforeAttackingUp;
                 objectRenderer.color = Color.white;
+                Debug.Log("UpBefore Attack");
             }
         }
         else if (upBeforeAttackTimer > 0)

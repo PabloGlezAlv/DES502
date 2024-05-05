@@ -351,7 +351,7 @@ MonoBehaviour:
   objectRenderer: {fileID: 8697034937215301028}
   coinPrefab: {fileID: 6051068933900146545, guid: 99198bf4b2a287545ae7ab462675ac16, type: 3}
   damage: 2
-  BeforeAttack: 1
+  BeforeAttack: 3
   attackingTime: 1
   hideTime: 1
   beforeAttackingUp: 0.4
