@@ -92,22 +92,22 @@ public class UI_Pause : MonoBehaviour
     {
         if (container.active)
         {
-            if (Input.GetKeyDown(KeyCode.W))
+            if (Input.GetKeyDown(KeyCode.S))
             {
                 AudioManager.instance.Play("Select");
                 UIIndex++;
                 if (UIIndex > 3)
                 {
-                    UIIndex = 3;
+                    UIIndex = 0;
                 }
             }
-            else if (Input.GetKeyDown(KeyCode.S))
+            else if (Input.GetKeyDown(KeyCode.W))
             {
                 AudioManager.instance.Play("Select");
                 UIIndex--;
                 if (UIIndex < 0)
                 {
-                    UIIndex = 0;
+                    UIIndex = 3;
                 }
             }
         }
@@ -162,12 +162,12 @@ public class UI_Pause : MonoBehaviour
     {
         if (SliderType == 0)//Music slider
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            if (Input.GetKeyDown(KeyCode.A))
             {
                 MusicSlider.value -= Slideinc;
                 SetMusicVolume();
             }
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
+            else if (Input.GetKeyDown(KeyCode.D))
             {
                 MusicSlider.value += Slideinc;
                 SetMusicVolume();
@@ -175,12 +175,12 @@ public class UI_Pause : MonoBehaviour
         }
         else //SFX slider
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            if (Input.GetKeyDown(KeyCode.A))
             {
                 SFXSlider.value -= Slideinc;
                 SetMusicVolume();
             }
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
+            else if (Input.GetKeyDown(KeyCode.D))
             {
                 SFXSlider.value += Slideinc;
                 SetMusicVolume();
