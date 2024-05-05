@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UI_Pause : MonoBehaviour
@@ -57,6 +58,8 @@ public class UI_Pause : MonoBehaviour
             if(paused) Time.timeScale = 0f;
             else Time.timeScale = 1f;
             container.SetActive(paused);
+
+            Debug.Log(Time.timeScale);
         }
         UpdateArrows();
     }
@@ -70,9 +73,9 @@ public class UI_Pause : MonoBehaviour
 
     public void Exit()
     {
-        Debug.Log("EXIT GAME");
         Time.timeScale = 1f;
         paused = false;
+        SceneManager.LoadScene("Menu", LoadSceneMode.Single);
     }
 
     public void SetMusicVolume()
