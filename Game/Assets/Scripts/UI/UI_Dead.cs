@@ -76,15 +76,8 @@ public class UI_Dead : MonoBehaviour
         {
             if (ButtonType == 0)
             {
-                switch (BackGoundDeadChooser.ChosenImage)
-                {
-                    case 0:
-                        GameObject.FindGameObjectWithTag("AudioManager").GetComponent<MusicSelecor>().ChangeMusic(GameTracks.Dungeon);
-                        break;
-                    case 1:
-                        GameObject.FindGameObjectWithTag("AudioManager").GetComponent<MusicSelecor>().ChangeMusic(GameTracks.Market);
-                        break;
-                }
+
+                GameObject.FindGameObjectWithTag("AudioManager").GetComponent<MusicSelecor>().ChangeMusic(GameTracks.Dungeon);
                 Restart();
             }
             else

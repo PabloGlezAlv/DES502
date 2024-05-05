@@ -82,6 +82,7 @@ public class DiggerMovement : EnemyBase, IEnemy
             hideTimer -= Time.fixedDeltaTime;
             if(hideTimer <= 0)
             {
+                AudioManager.instance.Play("DiggerReveal");
                 //Direction playerDir = player.GetCurrentDirection();
                 Vector3 playerpos = new Vector3(((int)player.transform.position.x) + 0.5f, ((int)player.transform.position.y) + 0.5f, player.transform.position.z);
  
@@ -151,6 +152,7 @@ public class DiggerMovement : EnemyBase, IEnemy
             upBeforeAttackTimer -= Time.fixedDeltaTime;
             if (upBeforeAttackTimer <= 0)
             {
+                AudioManager.instance.Play("DiggerAttack");
                 AttakingTimer = attackingTime;
                 attack.enabled = true;
                 animator.SetBool("attack", true);
@@ -201,6 +203,7 @@ public class DiggerMovement : EnemyBase, IEnemy
                 GameObject coin = Instantiate(coinPrefab);
                 coin.transform.position = transform.position;
             }
+            AudioManager.instance.Play("DiggerDeath");
             doorsController.KillEntity();
 
             animator.SetBool("stand", true);
