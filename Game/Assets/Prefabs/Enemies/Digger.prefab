@@ -352,8 +352,8 @@ MonoBehaviour:
   coinPrefab: {fileID: 6051068933900146545, guid: 99198bf4b2a287545ae7ab462675ac16, type: 3}
   damage: 2
   BeforeAttack: 3
-  attackingTime: 1
-  hideTime: 1
+  attackingTime: 2
+  hideTime: 2
   beforeAttackingUp: 0.4
   afterAttackingUp: 0.4
   hideSprite: {fileID: 1620840836723810862, guid: 63c8fb88ea7b81741bbdd3c1151cd729, type: 3}
